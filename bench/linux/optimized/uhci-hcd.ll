@@ -2731,7 +2731,7 @@ define internal range(i32 -110, 10) i32 @uhci_hub_control(ptr noundef %0, i16 no
   %9 = add nsw i32 %8, -1
   %10 = shl nsw i32 %9, 1
   %11 = add nsw i32 %10, 16
-  %12 = zext i32 %11 to i64
+  %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr %0, i64 328
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 1

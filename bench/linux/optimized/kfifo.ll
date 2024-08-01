@@ -594,7 +594,7 @@ define dso_local i32 @__kfifo_dma_out_prepare(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @__kfifo_max_r(i32 noundef %0, i64 noundef %1) #3 align 16 {
+define dso_local range(i32 0, -2147483648) i32 @__kfifo_max_r(i32 noundef %0, i64 noundef %1) #3 align 16 {
   %3 = trunc i64 %1 to i32
   %4 = shl i32 %3, 3
   %5 = shl nsw i32 -1, %4

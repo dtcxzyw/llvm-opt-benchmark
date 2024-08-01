@@ -6042,20 +6042,20 @@ define internal fastcc range(i32 0, 2) i32 @execute_filter(ptr noundef %0, ptr n
   %239 = insertelement <4 x i32> %238, i32 %234, i64 2
   %240 = insertelement <4 x i32> %239, i32 %236, i64 3
   %241 = tail call <4 x i32> @llvm.abs.v4i32(<4 x i32> %240, i1 true)
-  %242 = add nuw nsw <4 x i32> %241, %209
+  %242 = add nsw <4 x i32> %241, %209
   store <4 x i32> %242, ptr %191, align 4
   %243 = add nsw i32 %232, %235
   %244 = tail call i32 @llvm.abs.i32(i32 %243, i1 true)
-  %245 = add nuw nsw i32 %244, %200
+  %245 = add nsw i32 %244, %200
   store i32 %245, ptr %192, align 4
   %246 = sext i16 %207 to i32
   %247 = sub nsw i32 %232, %246
   %248 = tail call i32 @llvm.abs.i32(i32 %247, i1 true)
-  %249 = add nuw nsw i32 %248, %199
+  %249 = add nsw i32 %248, %199
   store i32 %249, ptr %193, align 4
   %250 = add nsw i32 %232, %246
   %251 = tail call i32 @llvm.abs.i32(i32 %250, i1 true)
-  %252 = add nuw nsw i32 %251, %198
+  %252 = add nsw i32 %251, %198
   store i32 %252, ptr %194, align 4
   %253 = sub i8 %231, %204
   store i8 %253, ptr %187, align 2

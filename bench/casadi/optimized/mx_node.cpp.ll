@@ -67125,7 +67125,7 @@ _ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %37
 
 .noexc87:                                         ; preds = %41
   %44 = shl nsw i64 %36, 3
-  %45 = add i64 %44, 16
+  %45 = add nsw i64 %44, 16
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %43, i8 0, i64 %45, i1 false)
   %46 = getelementptr inbounds i64, ptr %43, i64 %38
   br label %_ZNSt6vectorIxSaIxEEC2EmRKxRKS0_.exit
@@ -76003,7 +76003,7 @@ _ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %35
 
 .noexc73:                                         ; preds = %39
   %42 = shl nsw i64 %34, 3
-  %43 = add i64 %42, 16
+  %43 = add nsw i64 %42, 16
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %41, i8 0, i64 %43, i1 false)
   %44 = getelementptr inbounds i64, ptr %41, i64 %36
   br label %_ZNSt6vectorIxSaIxEEC2EmRKxRKS0_.exit

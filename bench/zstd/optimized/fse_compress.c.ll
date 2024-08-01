@@ -504,7 +504,7 @@ if.end66:                                         ; preds = %while.end42, %if.en
   %arrayidx69 = getelementptr inbounds i16, ptr %normalizedCounter, i64 %idxprom68
   %4 = load i16, ptr %arrayidx69, align 2
   %conv70 = sext i16 %4 to i32
-  %mul = shl nsw i32 %threshold.0135, 1
+  %mul = shl nuw nsw i32 %threshold.0135, 1
   %5 = xor i32 %remaining.0134, -1
   %sub72 = add i32 %mul, %5
   %cond = tail call i32 @llvm.abs.i32(i32 %conv70, i1 true)
@@ -532,7 +532,7 @@ while.body98:                                     ; preds = %while.cond95.prehea
   %threshold.1129 = phi i32 [ %shr99, %while.body98 ], [ %threshold.0135, %while.cond95.preheader ]
   %nbBits.1128 = phi i32 [ %dec, %while.body98 ], [ %nbBits.0133, %while.cond95.preheader ]
   %dec = add nsw i32 %nbBits.1128, -1
-  %shr99 = ashr i32 %threshold.1129, 1
+  %shr99 = lshr i32 %threshold.1129, 1
   %cmp96 = icmp slt i32 %sub76, %shr99
   br i1 %cmp96, label %while.body98, label %while.end100, !llvm.loop !17
 

@@ -4591,9 +4591,9 @@ if.end66:                                         ; preds = %land.lhs.true51
   %conv52 = zext nneg i8 %5 to i32
   %shl60 = shl nuw nsw i32 %sub48, 3
   %incdec.ptr61 = getelementptr i8, ptr %s.addr.092, i64 4
-  %add63 = add nsw i32 %shl60, -48
-  %sub64 = add nsw i32 %add63, %conv52
-  %cmp67 = icmp ugt i32 %sub64, 255
+  %add63 = add nuw nsw i32 %shl60, %conv52
+  %sub64 = add nsw i32 %add63, -48
+  %cmp67 = icmp ugt i32 %add63, 303
   br i1 %cmp67, label %if.then69, label %if.end75
 
 if.then69:                                        ; preds = %if.end66

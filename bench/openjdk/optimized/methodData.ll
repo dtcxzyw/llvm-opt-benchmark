@@ -4553,7 +4553,7 @@ _ZN15MultiBranchData18compute_cell_countEP14BytecodeStream.exit: ; preds = %_ZN2
 
 _ZN10DataLayout10initializeEhti.exit:             ; preds = %158, %._crit_edge.i, %162, %166
   %176 = shl nsw i32 %.0357481, 3
-  %177 = add nsw i32 %176, 8
+  %177 = add nuw nsw i32 %176, 8
   br label %.thread75
 
 .thread75:                                        ; preds = %3, %148, %_ZN10DataLayout10initializeEhti.exit

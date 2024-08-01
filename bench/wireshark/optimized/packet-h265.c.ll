@@ -4584,7 +4584,6 @@ define internal fastcc i32 @dissect_h265_scaling_list_data(ptr noundef %0, ptr n
   %9 = icmp ugt i32 %.035, 1
   %10 = icmp eq i32 %.035, 3
   %11 = select i1 %10, i32 3, i32 1
-  %umax = tail call i32 @llvm.umax.i32(i32 %8, i32 1)
   br label %12
 
 12:                                               ; preds = %.preheader, %.loopexit
@@ -4619,7 +4618,7 @@ define internal fastcc i32 @dissect_h265_scaling_list_data(ptr noundef %0, ptr n
   %26 = load i32, ptr @hf_h265_scaling_list_delta_coef, align 4
   %27 = call fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 noundef %26, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef 2)
   %28 = add nuw nsw i32 %.03033, 1
-  %exitcond.not = icmp eq i32 %28, %umax
+  %exitcond.not = icmp eq i32 %28, %8
   br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !44
 
 .loopexit:                                        ; preds = %25, %18
@@ -4747,9 +4746,6 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7

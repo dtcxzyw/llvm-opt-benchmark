@@ -2093,8 +2093,8 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %361 = sub nsw i32 %360, %358
   %362 = shl nsw i32 %361, 7
   %363 = add nsw i32 %362, 1023
-  %364 = zext i32 %363 to i64
-  %365 = shl i64 %364, 52
+  %364 = zext nneg i32 %363 to i64
+  %365 = shl nuw nsw i64 %364, 52
   %366 = bitcast i64 %365 to double
   %367 = fmul reassoc nsz arcp contract afn double %366, %366
   %368 = mul nsw i32 %361, 3584
@@ -2183,8 +2183,8 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %436 = sub nsw i32 %435, %433
   %437 = shl nsw i32 %436, 7
   %438 = add nsw i32 %437, 1023
-  %439 = zext i32 %438 to i64
-  %440 = shl i64 %439, 52
+  %439 = zext nneg i32 %438 to i64
+  %440 = shl nuw nsw i64 %439, 52
   %441 = bitcast i64 %440 to double
   %442 = fmul reassoc nsz arcp contract afn double %441, %441
   %443 = mul nsw i32 %436, 3584

@@ -2079,7 +2079,7 @@ do.body:                                          ; preds = %if.then9
 while.cond.i:                                     ; preds = %while.cond.i, %do.body
   %new_capacity.0.i = phi i64 [ %3, %do.body ], [ %mul.i, %while.cond.i ]
   %cmp.i = icmp slt i64 %new_capacity.0.i, %add
-  %mul.i = shl nsw i64 %new_capacity.0.i, 1
+  %mul.i = shl nuw nsw i64 %new_capacity.0.i, 1
   br i1 %cmp.i, label %while.cond.i, label %while.end.i, !llvm.loop !35
 
 while.end.i:                                      ; preds = %while.cond.i
@@ -2159,7 +2159,7 @@ entry:
 while.cond:                                       ; preds = %while.cond, %entry
   %new_capacity.0 = phi i64 [ %1, %entry ], [ %mul, %while.cond ]
   %cmp = icmp slt i64 %new_capacity.0, %add
-  %mul = shl nsw i64 %new_capacity.0, 1
+  %mul = shl nuw nsw i64 %new_capacity.0, 1
   br i1 %cmp, label %while.cond, label %while.end, !llvm.loop !35
 
 while.end:                                        ; preds = %while.cond

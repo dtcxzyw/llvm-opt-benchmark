@@ -1895,7 +1895,7 @@ decode_hex4.exit118.i.i:                          ; preds = %if.end.i.3.i104.i.i
   br i1 %or.cond.i.i, label %if.end26.i.thread.i.i, label %if.end16.i
 
 if.end26.i.thread.i.i:                            ; preds = %decode_hex4.exit118.i.i
-  %and33.i.i = shl i32 %add13.i.i.i, 10
+  %and33.i.i = shl nuw nsw i32 %add13.i.i.i, 10
   %shl.i.i = and i32 %and33.i.i, 1047552
   %and34.i.i = and i32 %add13.i117.i.i, 1023
   %or.i.i = add nuw nsw i32 %shl.i.i, 65536
@@ -1928,7 +1928,7 @@ if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
 
 if.end9.i.i.i:                                    ; preds = %if.end.i.i.i
   %cmp10.i.i.i = icmp ult i32 %add13.i.i.i, 65536
-  br i1 %cmp10.i.i.i, label %if.then12.i.i.i, label %if.end26.i.i.i
+  br i1 %cmp10.i.i.i, label %if.then12.i.i.i, label %if.then29.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i
   %shr13.i.i.i = lshr i32 %add13.i.i.i, 12
@@ -1946,13 +1946,9 @@ if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i
   store i8 %conv24.i.i.i, ptr %utf8.sroa.0.i.i.2.i.i.2.i.i.2.i.i.2.i.i.2.i.i.2.i.i.2.i.2.i.2.arrayidx25.i.sroa_idx, align 2, !tbaa !13
   br label %json_append_unicode_escape.exit.i
 
-if.end26.i.i.i:                                   ; preds = %if.end9.i.i.i
-  %cmp27.i.i.i = icmp ult i32 %add13.i.i.i, 2097152
-  br i1 %cmp27.i.i.i, label %if.then29.i.i.i, label %if.end16.i
-
-if.then29.i.i.i:                                  ; preds = %if.end26.i.i.i, %if.end26.i.thread.i.i
-  %codepoint.0137144148154.i.i = phi i32 [ %add.i.i, %if.end26.i.thread.i.i ], [ %add13.i.i.i, %if.end26.i.i.i ]
-  %escape_len.0139143149153.i.i = phi i64 [ 12, %if.end26.i.thread.i.i ], [ 6, %if.end26.i.i.i ]
+if.then29.i.i.i:                                  ; preds = %if.end9.i.i.i, %if.end26.i.thread.i.i
+  %codepoint.0137144148154.i.i = phi i32 [ %add.i.i, %if.end26.i.thread.i.i ], [ %add13.i.i.i, %if.end9.i.i.i ]
+  %escape_len.0139143149153.i.i = phi i64 [ 12, %if.end26.i.thread.i.i ], [ 6, %if.end9.i.i.i ]
   %shr30.i.i.i = lshr i32 %codepoint.0137144148154.i.i, 18
   %48 = trunc nuw nsw i32 %shr30.i.i.i to i8
   %conv32.i.i.i = or disjoint i8 %48, -16
@@ -1991,7 +1987,7 @@ json_append_unicode_escape.exit.i:                ; preds = %if.then29.i.i.i, %i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %utf8.sroa.0.i.i)
   br label %while.cond.i.backedge
 
-if.end16.i:                                       ; preds = %if.end26.i.i.i, %decode_hex4.exit118.i.i, %lor.lhs.false.i.i, %if.end5.i.i, %if.then2.i.i, %decode_hex4.exit.i.i, %decode_hex4.exit118.thread.i.i, %decode_hex4.exit.thread.i.i
+if.end16.i:                                       ; preds = %decode_hex4.exit118.i.i, %lor.lhs.false.i.i, %if.end5.i.i, %if.then2.i.i, %decode_hex4.exit.i.i, %decode_hex4.exit118.thread.i.i, %decode_hex4.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %utf8.sroa.0.i.i)
   store i32 12, ptr %token, align 8, !tbaa !24
   %60 = load ptr, ptr %json, align 8, !tbaa !19

@@ -465,7 +465,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @process_bit0(ptr nocapture 
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %20
-  %24 = zext i32 %6 to i64
+  %24 = zext nneg i32 %6 to i64
   %25 = and i64 %23, %24
   %26 = zext nneg i32 %5 to i64
   %27 = shl nuw nsw i64 %25, %26
@@ -640,7 +640,7 @@ define internal fastcc i32 @process_bit1(ptr nocapture noundef %0, ptr nocapture
   %69 = shl i32 %68, 4
   %70 = sext i32 %69 to i64
   %71 = getelementptr i16, ptr %67, i64 %70
-  %72 = sext i32 %4 to i64
+  %72 = zext nneg i32 %4 to i64
   %73 = getelementptr i16, ptr %71, i64 %72
   %74 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %1, ptr noundef %73) #12, !range !12
   %75 = icmp eq i32 %74, 0

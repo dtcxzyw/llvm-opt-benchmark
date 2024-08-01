@@ -43662,7 +43662,7 @@ define linkonce_odr dso_local void @_ZNK4crow4json6rvalue8unescapeEv(ptr noundef
   %68 = add nsw i32 %42, %63
   %69 = add nsw i32 %68, %67
   %70 = add nsw i32 %69, %51
-  %71 = add i32 %70, %60
+  %71 = add nsw i32 %70, %60
   %72 = icmp ugt i32 %71, 2047
   br i1 %72, label %73, label %87
 

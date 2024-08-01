@@ -1877,7 +1877,7 @@ dissect_extended_format_time_coordination_message.exit.i: ; preds = %113, %110, 
 
 187:                                              ; preds = %186
   %188 = shl nsw i32 %.0142.i, 1
-  %189 = add i32 %188, 8
+  %189 = add nsw i32 %188, 8
   tail call fastcc void @dissect_extended_format_time_correction_message(ptr noundef %18, ptr noundef %0, i32 noundef %189)
   br label %dissect_cip_safety_data.exit
 

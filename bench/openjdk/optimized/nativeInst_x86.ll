@@ -1266,7 +1266,7 @@ define hidden void @_ZN10NativeJump20patch_verified_entryEPhS0_S0_(ptr nocapture
   %11 = load i64, ptr %1, align 8
   %.sroa.4.0.extract.shift = and i64 %11, -1099511627776
   %12 = shl nsw i64 %reass.sub, 8
-  %.sroa.3.0.insert.ext = add i64 %12, 1099511626496
+  %.sroa.3.0.insert.ext = add nsw i64 %12, 1099511626496
   %.sroa.3.0.insert.shift = and i64 %.sroa.3.0.insert.ext, 1099511627520
   %.sroa.3.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, %.sroa.4.0.extract.shift
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, 233

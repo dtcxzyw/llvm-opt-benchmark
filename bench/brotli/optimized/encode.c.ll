@@ -5787,7 +5787,7 @@ if.else.i:                                        ; preds = %entry
   %sub22.i = add i32 %11, -4
   %add23.i = add i32 %sub22.i, %shl21.i
   %shl25.i = shl i32 %add23.i, %12
-  %add28.i = add i32 %add.i, %and18.i
+  %add28.i = add nuw i32 %add.i, %and18.i
   %add29.i = add i32 %add28.i, %shl25.i
   br label %CommandRestoreDistanceCode.exit
 

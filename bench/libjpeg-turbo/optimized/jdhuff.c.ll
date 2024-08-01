@@ -1397,10 +1397,10 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %40,
   %291 = add nsw i32 %.0663.i, -1
   %.neg739.i = shl nsw i32 -1, %291
   %292 = add nsw i32 %290, %.neg739.i
-  %293 = add nsw i32 %notmask738.i, 1
+  %293 = add nuw nsw i32 %notmask738.i, 1
   %isneg.i = icmp slt i32 %292, 0
   %294 = select i1 %isneg.i, i32 %293, i32 0
-  %295 = add i32 %294, %290
+  %295 = add nsw i32 %294, %290
   br label %.thread.i
 
 .thread.i:                                        ; preds = %284, %208, %._crit_edge.i25
@@ -2398,10 +2398,10 @@ decode_mcu_fast.exit:                             ; preds = %60, %._crit_edge842
   %830 = add nsw i32 %.0170.i, -1
   %.neg.i39 = shl nsw i32 -1, %830
   %831 = add nsw i32 %829, %.neg.i39
-  %832 = add nsw i32 %notmask.i38, 1
+  %832 = add nuw nsw i32 %notmask.i38, 1
   %isneg.i40 = icmp slt i32 %831, 0
   %833 = select i1 %isneg.i40, i32 %832, i32 0
-  %834 = add i32 %833, %829
+  %834 = add nsw i32 %833, %829
   br label %835
 
 835:                                              ; preds = %823, %815

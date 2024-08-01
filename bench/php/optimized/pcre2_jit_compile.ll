@@ -33036,7 +33036,7 @@ sljit_emit_op1.exit.i270:                         ; preds = %emit_mov.exit.threa
 2336:                                             ; preds = %sljit_emit_op1.exit.i270
   %2337 = shl i32 %2328, 3
   %2338 = add i32 %2337, 24
-  %2339 = sext i32 %2338 to i64
+  %2339 = zext nneg i32 %2338 to i64
   %2340 = getelementptr inbounds i8, ptr %.val25.i, i64 152
   store i32 0, ptr %2340, align 8
   %2341 = call fastcc i32 @emit_cum_binary(ptr noundef nonnull %.val25.i, i32 noundef 84082944, i32 noundef 12, i64 noundef 0, i32 noundef 12, i64 noundef 0, i32 noundef 127, i64 noundef %2339)
@@ -78798,7 +78798,7 @@ sljit_emit_op1.exit773:                           ; preds = %796, %794, %emit_mo
 
 803:                                              ; preds = %801
   %804 = add nsw i32 %297, -8
-  %805 = sext i32 %804 to i64
+  %805 = zext nneg i32 %804 to i64
   %806 = getelementptr inbounds i8, ptr %.val474, i64 152
   store i32 0, ptr %806, align 8
   %807 = call fastcc i32 @emit_cum_binary(ptr noundef nonnull %.val474, i32 noundef 84082944, i32 noundef 12, i64 noundef 0, i32 noundef 12, i64 noundef 0, i32 noundef 127, i64 noundef %805)

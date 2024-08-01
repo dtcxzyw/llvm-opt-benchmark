@@ -2364,9 +2364,9 @@ define internal fastcc i32 @transtime(i32 noundef %0, ptr nocapture noundef read
   %38 = sdiv i32 %31, 400
   %.neg52 = shl nsw i32 %.neg, 1
   %39 = add nsw i32 %38, %32
-  %40 = add i32 %39, %.neg52
-  %41 = add i32 %40, %.sext56
-  %42 = add i32 %41, %36
+  %40 = add nsw i32 %39, %.neg52
+  %41 = add nsw i32 %40, %.sext56
+  %42 = add nsw i32 %41, %36
   %43 = srem i32 %42, 7
   %44 = icmp slt i32 %43, 0
   %45 = add nsw i32 %43, 7

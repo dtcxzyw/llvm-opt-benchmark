@@ -183,7 +183,7 @@ define void @dgesdd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %102 = mul nuw nsw i32 %40, 67
   %103 = shl nsw i32 %41, 5
   %104 = add nuw nsw i32 %103, %40
-  %105 = tail call i32 @llvm.smax.i32(i32 %102, i32 %104)
+  %105 = tail call i32 @llvm.umax.i32(i32 %102, i32 %104)
   store i32 %105, ptr %15, align 4
   %106 = mul nuw nsw i32 %40, 3
   %107 = add nsw i32 %.1660, %106
@@ -219,7 +219,7 @@ define void @dgesdd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 122:                                              ; preds = %101, %97, %119, %116, %66, %62, %84, %77
   %.1 = phi i32 [ %65, %62 ], [ %75, %66 ], [ %83, %77 ], [ %87, %84 ], [ %100, %97 ], [ %110, %101 ], [ %118, %116 ], [ %121, %119 ]
-  %123 = sitofp i32 %.1 to double
+  %123 = uitofp nneg i32 %.1 to double
   store double %123, ptr %10, align 8
   br label %124
 
@@ -641,6 +641,9 @@ declare void @dorglq_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr no
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #2

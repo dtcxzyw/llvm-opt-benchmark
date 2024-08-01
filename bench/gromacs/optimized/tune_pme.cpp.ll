@@ -2597,7 +2597,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i118:     ; preds = %638, %635
 
 831:                                              ; preds = %829
   %832 = shl nuw nsw i32 %630, 1
-  %833 = icmp sgt i32 %832, %626
+  %833 = icmp ugt i32 %832, %626
   br i1 %833, label %834, label %839
 
 834:                                              ; preds = %831

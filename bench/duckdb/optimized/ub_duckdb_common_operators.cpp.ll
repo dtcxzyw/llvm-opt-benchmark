@@ -51577,8 +51577,8 @@ call.i.noexc:                                     ; preds = %if.end.i103
   %shl.i110 = shl i64 %pns.sroa.7.0454, %35
   %36 = trunc nsw i64 %pns.sroa.0.0455 to i32
   %conv.i249 = shl nsw i32 %36, 1
-  %mul.i250 = add i32 %conv.i249, 684
-  %idxprom.i = sext i32 %mul.i250 to i64
+  %mul.i250 = add nsw i32 %conv.i249, 684
+  %idxprom.i = zext nneg i32 %mul.i250 to i64
   %arrayidx.i = getelementptr inbounds [1302 x i64], ptr @_ZN17duckdb_fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom.i
   %37 = load i64, ptr %arrayidx.i, align 16, !tbaa !12
   %conv.i320 = zext i64 %shl.i110 to i128
@@ -51592,8 +51592,8 @@ call.i.noexc:                                     ; preds = %if.end.i103
   br i1 %cmp.i252, label %call3.i258.noexc, label %invoke.cont14.i113
 
 call3.i258.noexc:                                 ; preds = %call.i.noexc
-  %add.i257 = add i32 %conv.i249, 685
-  %idxprom1.i = sext i32 %add.i257 to i64
+  %add.i257 = add nsw i32 %conv.i249, 685
+  %idxprom1.i = zext nneg i32 %add.i257 to i64
   %arrayidx2.i = getelementptr inbounds [1302 x i64], ptr @_ZN17duckdb_fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom1.i
   %38 = load i64, ptr %arrayidx2.i, align 8, !tbaa !12
   %conv1.i311 = zext i64 %38 to i128
@@ -51695,8 +51695,8 @@ call.i.noexc283:                                  ; preds = %if.end.i88
   %shl.i = shl i64 %add, %44
   %45 = trunc nsw i64 %pns.sroa.0.0455 to i32
   %conv.i263 = shl nsw i32 %45, 1
-  %mul.i264 = add i32 %conv.i263, 684
-  %idxprom.i265 = sext i32 %mul.i264 to i64
+  %mul.i264 = add nsw i32 %conv.i263, 684
+  %idxprom.i265 = zext nneg i32 %mul.i264 to i64
   %arrayidx.i266 = getelementptr inbounds [1302 x i64], ptr @_ZN17duckdb_fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom.i265
   %46 = load i64, ptr %arrayidx.i266, align 16, !tbaa !12
   %conv.i300 = zext i64 %shl.i to i128
@@ -51710,8 +51710,8 @@ call.i.noexc283:                                  ; preds = %if.end.i88
   br i1 %cmp.i268, label %call3.i278.noexc, label %invoke.cont14.i
 
 call3.i278.noexc:                                 ; preds = %call.i.noexc283
-  %add.i275 = add i32 %conv.i263, 685
-  %idxprom1.i276 = sext i32 %add.i275 to i64
+  %add.i275 = add nsw i32 %conv.i263, 685
+  %idxprom1.i276 = zext nneg i32 %add.i275 to i64
   %arrayidx2.i277 = getelementptr inbounds [1302 x i64], ptr @_ZN17duckdb_fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom1.i276
   %47 = load i64, ptr %arrayidx2.i277, align 8, !tbaa !12
   %conv1.i = zext i64 %47 to i128
@@ -53906,8 +53906,8 @@ if.end11.i144:                                    ; preds = %if.end.i140
   %shl.i147 = shl i64 %pns.sroa.7.0428, %35
   %36 = trunc nsw i64 %pns.sroa.0.0429 to i32
   %conv.i250 = shl nsw i32 %36, 1
-  %mul.i251 = add i32 %conv.i250, 684
-  %idxprom.i = sext i32 %mul.i251 to i64
+  %mul.i251 = add nsw i32 %conv.i250, 684
+  %idxprom.i = zext nneg i32 %mul.i251 to i64
   %arrayidx.i = getelementptr inbounds [1302 x i64], ptr @_ZN17duckdb_fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom.i
   %37 = load i64, ptr %arrayidx.i, align 16, !tbaa !12
   %conv.i20.i = zext i64 %shl.i147 to i128
@@ -53921,8 +53921,8 @@ if.end11.i144:                                    ; preds = %if.end.i140
   br i1 %cmp.i253, label %if.then.i257, label %invoke.cont13.i150
 
 if.then.i257:                                     ; preds = %if.end11.i144
-  %add.i258 = add i32 %conv.i250, 685
-  %idxprom1.i = sext i32 %add.i258 to i64
+  %add.i258 = add nsw i32 %conv.i250, 685
+  %idxprom1.i = zext nneg i32 %add.i258 to i64
   %arrayidx2.i = getelementptr inbounds [1302 x i64], ptr @_ZN17duckdb_fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom1.i
   %38 = load i64, ptr %arrayidx2.i, align 8, !tbaa !12
   %conv1.i.i = zext i64 %38 to i128
@@ -54024,8 +54024,8 @@ if.end11.i:                                       ; preds = %if.end.i121
   %shl.i = shl i64 %add, %44
   %45 = trunc nsw i64 %pns.sroa.0.0429 to i32
   %conv.i265 = shl nsw i32 %45, 1
-  %mul.i266 = add i32 %conv.i265, 684
-  %idxprom.i267 = sext i32 %mul.i266 to i64
+  %mul.i266 = add nsw i32 %conv.i265, 684
+  %idxprom.i267 = zext nneg i32 %mul.i266 to i64
   %arrayidx.i268 = getelementptr inbounds [1302 x i64], ptr @_ZN17duckdb_fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom.i267
   %46 = load i64, ptr %arrayidx.i268, align 16, !tbaa !12
   %conv.i20.i269 = zext i64 %shl.i to i128
@@ -54039,8 +54039,8 @@ if.end11.i:                                       ; preds = %if.end.i121
   br i1 %cmp.i279, label %if.then.i285, label %invoke.cont13.i
 
 if.then.i285:                                     ; preds = %if.end11.i
-  %add.i286 = add i32 %conv.i265, 685
-  %idxprom1.i287 = sext i32 %add.i286 to i64
+  %add.i286 = add nsw i32 %conv.i265, 685
+  %idxprom1.i287 = zext nneg i32 %add.i286 to i64
   %arrayidx2.i288 = getelementptr inbounds [1302 x i64], ptr @_ZN17duckdb_fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom1.i287
   %47 = load i64, ptr %arrayidx2.i288, align 8, !tbaa !12
   %conv1.i.i290 = zext i64 %47 to i128

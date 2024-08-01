@@ -72807,14 +72807,14 @@ sqlite3_malloc64.exit.i.i:                        ; preds = %110
   %124 = tail call i32 @llvm.umin.i32(i32 %112, i32 4096)
   %125 = shl nuw nsw i32 %124, 1
   %126 = zext nneg i32 %125 to i64
-  %127 = add nsw i64 %122, %126
+  %127 = add nuw nsw i64 %122, %126
   %128 = tail call fastcc ptr @sqlite3Malloc(i64 noundef %127)
   %.not.i137.i = icmp eq ptr %128, null
   br i1 %.not.i137.i, label %.thread200.i, label %129
 
 129:                                              ; preds = %sqlite3_malloc64.exit.i.i
   %130 = add nsw i32 %117, 1
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %128, i8 0, i64 %122, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %128, i8 0, i64 %122, i1 false)
   %131 = getelementptr inbounds i8, ptr %128, i64 4
   store i32 %130, ptr %131, align 4
   %132 = getelementptr inbounds i8, ptr %128, i64 %122
@@ -170057,8 +170057,8 @@ define internal fastcc ptr @sqlite3SrcListAppend(ptr nocapture noundef %0, ptr n
   %25 = shl nsw i64 %24, 1
   %26 = or disjoint i64 %25, 1
   %spec.store.select.i = tail call i64 @llvm.smin.i64(i64 %26, i64 200)
-  %27 = mul i64 %spec.store.select.i, 104
-  %28 = add i64 %27, 8
+  %27 = mul nsw i64 %spec.store.select.i, 104
+  %28 = add nsw i64 %27, 8
   %29 = tail call fastcc ptr @sqlite3DbRealloc(ptr noundef %5, ptr noundef nonnull %1, i64 noundef %28)
   %30 = icmp eq ptr %29, null
   br i1 %30, label %47, label %31
@@ -262206,8 +262206,8 @@ define internal fastcc ptr @sqlite3SrcListEnlarge(ptr nocapture noundef %0, ptr 
   %17 = sext i32 %2 to i64
   %18 = add nsw i64 %16, %17
   %spec.store.select = tail call i64 @llvm.smin.i64(i64 %18, i64 200)
-  %19 = mul i64 %spec.store.select, 104
-  %20 = add i64 %19, 8
+  %19 = mul nsw i64 %spec.store.select, 104
+  %20 = add nsw i64 %19, 8
   %21 = tail call fastcc ptr @sqlite3DbRealloc(ptr noundef %14, ptr noundef nonnull %1, i64 noundef %20)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.loopexit, label %23

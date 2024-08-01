@@ -12906,7 +12906,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   %70 = zext nneg i32 %69 to i64
   %71 = shl nuw nsw i64 %70, 3
   %72 = add nuw nsw i64 %71, 8
-  %73 = mul i64 %72, %16
+  %73 = mul nsw i64 %72, %16
   %74 = shl nuw nsw i64 %70, 4
   %75 = add nsw i32 %4, -2
   %76 = sub nsw i32 %75, %68
@@ -14463,7 +14463,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   %70 = zext nneg i32 %69 to i64
   %71 = shl nuw nsw i64 %70, 3
   %72 = add nuw nsw i64 %71, 8
-  %73 = mul i64 %72, %16
+  %73 = mul nsw i64 %72, %16
   %74 = shl nuw nsw i64 %70, 4
   %75 = add nsw i32 %4, -2
   %76 = sub nsw i32 %75, %68

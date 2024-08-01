@@ -1929,8 +1929,8 @@ define internal fastcc range(i32 -1, 2) i32 @search_chunk(i32 %.132.val, i32 %.1
   %40 = add nuw i32 %34, %35
   %41 = udiv i32 %40, %36
   store ptr %27, ptr %3, align 8
-  %42 = shl nsw i32 %41, 1
-  %43 = sext i32 %42 to i64
+  %42 = shl nuw nsw i32 %41, 1
+  %43 = zext nneg i32 %42 to i64
   %44 = ptrtoint ptr %27 to i64
   %gepdiff = sub nsw i64 %23, %26
   %45 = icmp slt i64 %gepdiff, %43
@@ -1941,7 +1941,7 @@ define internal fastcc range(i32 -1, 2) i32 @search_chunk(i32 %.132.val, i32 %.1
   br label %.preheader35.lr.ph
 
 46:                                               ; preds = %39
-  %47 = add i32 %41, -1
+  %47 = add nsw i32 %41, -1
   %scevgep = getelementptr i8, ptr %0, i64 9
   br label %48
 

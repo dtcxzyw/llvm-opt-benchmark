@@ -1728,7 +1728,7 @@ if.end83:                                         ; preds = %if.else
   %47 = add nsw i32 %and46.i, -32
   %48 = add nsw i32 %and34.i, %47
   %49 = shl nsw i32 %48, %shr.i
-  %sub51.i = add i32 %49, %add37.i
+  %sub51.i = add nsw i32 %49, %add37.i
   %conv52.i = trunc i32 %sub51.i to i16
   store i16 %conv52.i, ptr %arrayidx53.i, align 8
   %arrayidx56.i = getelementptr inbounds i8, ptr %inPtr.addr.3190, i64 5
@@ -1769,8 +1769,8 @@ if.end83:                                         ; preds = %if.else
   %58 = and i8 %57, 63
   %and104.i = zext nneg i8 %58 to i32
   %shl106.i = shl nuw nsw i32 %and104.i, %shr.i
-  %add107.i = add i32 %sub51.i, %shl9.neg96.i
-  %sub109.i = add i32 %add107.i, %shl106.i
+  %add107.i = add nsw i32 %sub51.i, %shl9.neg96.i
+  %sub109.i = add nsw i32 %add107.i, %shl106.i
   %conv110.i = trunc i32 %sub109.i to i16
   store i16 %conv110.i, ptr %arrayidx111.i, align 2
   %arrayidx114.i = getelementptr inbounds i8, ptr %inPtr.addr.3190, i64 8
@@ -1813,8 +1813,8 @@ if.end83:                                         ; preds = %if.else
   %67 = and i8 %66, 63
   %and162.i = zext nneg i8 %67 to i32
   %shl164.i = shl nuw nsw i32 %and162.i, %shr.i
-  %add165.i = add i32 %sub109.i, %shl9.neg96.i
-  %sub167.i = add i32 %add165.i, %shl164.i
+  %add165.i = add nsw i32 %sub109.i, %shl9.neg96.i
+  %sub167.i = add nsw i32 %add165.i, %shl164.i
   %conv168.i = trunc i32 %sub167.i to i16
   store i16 %conv168.i, ptr %arrayidx169.i, align 4
   %arrayidx172.i = getelementptr inbounds i8, ptr %inPtr.addr.3190, i64 11
@@ -1857,8 +1857,8 @@ if.end83:                                         ; preds = %if.else
   %76 = and i8 %75, 63
   %and220.i = zext nneg i8 %76 to i32
   %shl222.i = shl nuw nsw i32 %and220.i, %shr.i
-  %add223.i = add i32 %sub167.i, %shl9.neg96.i
-  %sub225.i = add i32 %add223.i, %shl222.i
+  %add223.i = add nsw i32 %sub167.i, %shl9.neg96.i
+  %sub225.i = add nsw i32 %add223.i, %shl222.i
   %conv226.i = trunc i32 %sub225.i to i16
   store i16 %conv226.i, ptr %arrayidx227.i, align 2
   br label %for.body.i116

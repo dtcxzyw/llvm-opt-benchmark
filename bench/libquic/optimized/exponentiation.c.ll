@@ -1174,7 +1174,7 @@ if.end103:                                        ; preds = %cond.end75
   %conv105 = sext i32 %0 to i64
   %mul106 = shl nsw i64 %conv105, 3
   %18 = zext nneg i32 %spec.select to i64
-  %mul108 = shl i64 %mul106, %18
+  %mul108 = shl nsw i64 %mul106, %18
   %add.ptr109 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul108
   store ptr %add.ptr109, ptr %tmp, align 8
   %add.ptr112 = getelementptr inbounds i64, ptr %add.ptr109, i64 %conv105

@@ -10259,7 +10259,7 @@ if.end2141.i2811.if.end2219.i2819_crit_edge:      ; preds = %if.end2141.i2811
 
 if.then2156.i3033:                                ; preds = %if.end2141.i2811
   %sub.i15775 = shl nsw i32 %storemerge7773, 1
-  %mul.i15776 = add i32 %sub.i15775, 686
+  %mul.i15776 = add nsw i32 %sub.i15775, 686
   %idxprom.i15777 = zext nneg i32 %mul.i15776 to i64
   %arrayidx.i15778 = getelementptr inbounds [1336 x i64], ptr @pow10_sig_table, i64 0, i64 %idxprom.i15777
   %200 = load i64, ptr %arrayidx.i15778, align 16
@@ -10278,7 +10278,7 @@ if.then2156.i3033:                                ; preds = %if.end2141.i2811
   br i1 %cmp2162.i3040, label %if.then2184.i3049, label %if.else2165.i3041
 
 if.else2165.i3041:                                ; preds = %if.then2156.i3033
-  %add.i15780 = add i32 %sub.i15775, 687
+  %add.i15780 = add nsw i32 %sub.i15775, 687
   %idxprom2.i15781 = zext nneg i32 %add.i15780 to i64
   %arrayidx3.i15782 = getelementptr inbounds [1336 x i64], ptr @pow10_sig_table, i64 0, i64 %idxprom2.i15781
   %202 = load i64, ptr %arrayidx3.i15782, align 8
@@ -11049,7 +11049,7 @@ if.end14.i17041:                                  ; preds = %while.body.i17033
 
 bigint_cmp.exit17048.thread:                      ; preds = %if.end14.i17041, %while.body.i17033, %if.end.i17026, %if.end2436.i2919, %272
   %273 = phi i64 [ %and2452.i2926, %272 ], [ 1, %if.end.i17026 ], [ 0, %if.end2436.i2919 ], [ 0, %while.body.i17033 ], [ 1, %if.end14.i17041 ]
-  %raw2221.i2706.0 = add i64 %273, %retval.i16114.08443
+  %raw2221.i2706.0 = add nuw i64 %273, %retval.i16114.08443
   %cmp2455.i2929 = icmp eq i64 %raw2221.i2706.0, 9218868437227405312
   br i1 %cmp2455.i2929, label %if.then2463.i2939, label %if.end2507.i2933
 
@@ -17307,7 +17307,7 @@ if.end2141.i4796.if.end2219.i4804_crit_edge:      ; preds = %if.end2141.i4796
 
 if.then2156.i5018:                                ; preds = %if.end2141.i4796
   %sub.i15765 = shl nsw i32 %storemerge7752, 1
-  %mul.i15766 = add i32 %sub.i15765, 686
+  %mul.i15766 = add nsw i32 %sub.i15765, 686
   %idxprom.i15767 = zext nneg i32 %mul.i15766 to i64
   %arrayidx.i15768 = getelementptr inbounds [1336 x i64], ptr @pow10_sig_table, i64 0, i64 %idxprom.i15767
   %955 = load i64, ptr %arrayidx.i15768, align 16
@@ -17326,7 +17326,7 @@ if.then2156.i5018:                                ; preds = %if.end2141.i4796
   br i1 %cmp2162.i5025, label %if.then2184.i5034, label %if.else2165.i5026
 
 if.else2165.i5026:                                ; preds = %if.then2156.i5018
-  %add.i15769 = add i32 %sub.i15765, 687
+  %add.i15769 = add nsw i32 %sub.i15765, 687
   %idxprom2.i = zext nneg i32 %add.i15769 to i64
   %arrayidx3.i15770 = getelementptr inbounds [1336 x i64], ptr @pow10_sig_table, i64 0, i64 %idxprom2.i
   %957 = load i64, ptr %arrayidx3.i15770, align 8
@@ -18097,7 +18097,7 @@ if.end14.i:                                       ; preds = %while.body.i17012
 
 bigint_cmp.exit.thread:                           ; preds = %if.end14.i, %while.body.i17012, %if.end.i17007, %if.end2436.i4904, %1027
   %1028 = phi i64 [ %and2452.i4911, %1027 ], [ 1, %if.end.i17007 ], [ 0, %if.end2436.i4904 ], [ 0, %while.body.i17012 ], [ 1, %if.end14.i ]
-  %raw2221.i4691.0 = add i64 %1028, %retval.i16087.08464
+  %raw2221.i4691.0 = add nuw i64 %1028, %retval.i16087.08464
   %cmp2455.i4914 = icmp eq i64 %raw2221.i4691.0, 9218868437227405312
   br i1 %cmp2455.i4914, label %if.then2463.i4924, label %if.end2507.i4918
 
@@ -20856,7 +20856,7 @@ if.end2141.i.if.end2219.i_crit_edge:              ; preds = %if.end2141.i
 
 if.then2156.i:                                    ; preds = %if.end2141.i
   %sub.i15799 = shl nsw i32 %storemerge7731, 1
-  %mul.i15800 = add i32 %sub.i15799, 686
+  %mul.i15800 = add nsw i32 %sub.i15799, 686
   %idxprom.i15801 = zext nneg i32 %mul.i15800 to i64
   %arrayidx.i15802 = getelementptr inbounds [1336 x i64], ptr @pow10_sig_table, i64 0, i64 %idxprom.i15801
   %1276 = load i64, ptr %arrayidx.i15802, align 16
@@ -20875,7 +20875,7 @@ if.then2156.i:                                    ; preds = %if.end2141.i
   br i1 %cmp2162.i, label %if.then2184.i, label %if.else2165.i
 
 if.else2165.i:                                    ; preds = %if.then2156.i
-  %add.i15804 = add i32 %sub.i15799, 687
+  %add.i15804 = add nsw i32 %sub.i15799, 687
   %idxprom2.i15805 = zext nneg i32 %add.i15804 to i64
   %arrayidx3.i15806 = getelementptr inbounds [1336 x i64], ptr @pow10_sig_table, i64 0, i64 %idxprom2.i15805
   %1278 = load i64, ptr %arrayidx3.i15806, align 8
@@ -21646,7 +21646,7 @@ if.end14.i17101:                                  ; preds = %while.body.i17093
 
 bigint_cmp.exit17108.thread:                      ; preds = %if.end14.i17101, %while.body.i17093, %if.end.i17086, %if.end2436.i, %1348
   %1349 = phi i64 [ %and2452.i, %1348 ], [ 1, %if.end.i17086 ], [ 0, %if.end2436.i ], [ 0, %while.body.i17093 ], [ 1, %if.end14.i17101 ]
-  %raw2221.i.0 = add i64 %1349, %retval.i16210.08525
+  %raw2221.i.0 = add nuw i64 %1349, %retval.i16210.08525
   %cmp2455.i = icmp eq i64 %raw2221.i.0, 9218868437227405312
   br i1 %cmp2455.i, label %if.then2463.i, label %if.end2507.i
 
@@ -27842,7 +27842,7 @@ if.end2141.i826.if.end2219.i834_crit_edge:        ; preds = %if.end2141.i826
 
 if.then2156.i1048:                                ; preds = %if.end2141.i826
   %sub.i15787 = shl nsw i32 %storemerge7711, 1
-  %mul.i15788 = add i32 %sub.i15787, 686
+  %mul.i15788 = add nsw i32 %sub.i15787, 686
   %idxprom.i15789 = zext nneg i32 %mul.i15788 to i64
   %arrayidx.i15790 = getelementptr inbounds [1336 x i64], ptr @pow10_sig_table, i64 0, i64 %idxprom.i15789
   %2052 = load i64, ptr %arrayidx.i15790, align 16
@@ -27861,7 +27861,7 @@ if.then2156.i1048:                                ; preds = %if.end2141.i826
   br i1 %cmp2162.i1055, label %if.then2184.i1064, label %if.else2165.i1056
 
 if.else2165.i1056:                                ; preds = %if.then2156.i1048
-  %add.i15792 = add i32 %sub.i15787, 687
+  %add.i15792 = add nsw i32 %sub.i15787, 687
   %idxprom2.i15793 = zext nneg i32 %add.i15792 to i64
   %arrayidx3.i15794 = getelementptr inbounds [1336 x i64], ptr @pow10_sig_table, i64 0, i64 %idxprom2.i15793
   %2054 = load i64, ptr %arrayidx3.i15794, align 8
@@ -28632,7 +28632,7 @@ if.end14.i17071:                                  ; preds = %while.body.i17063
 
 bigint_cmp.exit17078.thread:                      ; preds = %if.end14.i17071, %while.body.i17063, %if.end.i17056, %if.end2436.i934, %2124
   %2125 = phi i64 [ %and2452.i941, %2124 ], [ 1, %if.end.i17056 ], [ 0, %if.end2436.i934 ], [ 0, %while.body.i17063 ], [ 1, %if.end14.i17071 ]
-  %raw2221.i721.0 = add i64 %2125, %retval.i16162.08548
+  %raw2221.i721.0 = add nuw i64 %2125, %retval.i16162.08548
   %cmp2455.i944 = icmp eq i64 %raw2221.i721.0, 9218868437227405312
   br i1 %cmp2455.i944, label %if.then2463.i954, label %if.end2507.i948
 
@@ -31286,7 +31286,7 @@ if.end2141.i.if.end2219.i_crit_edge.i:            ; preds = %if.end2141.i.i
 
 if.then2156.i.i:                                  ; preds = %if.end2141.i.i
   %sub.i1336.i = shl nsw i32 %storemerge.i, 1
-  %mul.i1337.i = add i32 %sub.i1336.i, 686
+  %mul.i1337.i = add nsw i32 %sub.i1336.i, 686
   %idxprom.i1338.i = zext nneg i32 %mul.i1337.i to i64
   %arrayidx.i1339.i = getelementptr inbounds [1336 x i64], ptr @pow10_sig_table, i64 0, i64 %idxprom.i1338.i
   %2368 = load i64, ptr %arrayidx.i1339.i, align 16
@@ -31308,7 +31308,7 @@ if.then2156.i.i:                                  ; preds = %if.end2141.i.i
   br i1 %cmp2162.i.i, label %if.then2184.i.i, label %if.else2165.i.i
 
 if.else2165.i.i:                                  ; preds = %if.then2156.i.i
-  %add.i1340.i = add i32 %sub.i1336.i, 687
+  %add.i1340.i = add nsw i32 %sub.i1336.i, 687
   %idxprom2.i.i8339 = zext nneg i32 %add.i1340.i to i64
   %arrayidx3.i1341.i = getelementptr inbounds [1336 x i64], ptr @pow10_sig_table, i64 0, i64 %idxprom2.i.i8339
   %2370 = load i64, ptr %arrayidx3.i1341.i, align 8
@@ -32057,7 +32057,7 @@ if.end14.i.i:                                     ; preds = %while.body.i1562.i
 
 bigint_cmp.exit.thread.i:                         ; preds = %if.end14.i.i, %while.body.i1562.i, %2436, %if.end.i1557.i, %if.end2436.i.i
   %2437 = phi i64 [ %and2452.i.i, %2436 ], [ 1, %if.end.i1557.i ], [ 0, %if.end2436.i.i ], [ 1, %if.end14.i.i ], [ 0, %while.body.i1562.i ]
-  %raw2221.i.0.i = add i64 %2437, %retval.i1387.01713.i
+  %raw2221.i.0.i = add nuw i64 %2437, %retval.i1387.01713.i
   %cmp2455.i.i = icmp eq i64 %raw2221.i.0.i, 9218868437227405312
   br i1 %cmp2455.i.i, label %if.then2463.i.i, label %if.end2507.i.i
 
@@ -36078,7 +36078,7 @@ if.end2141.i.if.end2219.i_crit_edge:              ; preds = %if.end2141.i
 
 if.then2156.i:                                    ; preds = %if.end2141.i
   %sub.i198 = shl nsw i32 %storemerge, 1
-  %mul.i199 = add i32 %sub.i198, 686
+  %mul.i199 = add nsw i32 %sub.i198, 686
   %idxprom.i200 = zext nneg i32 %mul.i199 to i64
   %arrayidx.i201 = getelementptr inbounds [1336 x i64], ptr @pow10_sig_table, i64 0, i64 %idxprom.i200
   %156 = load i64, ptr %arrayidx.i201, align 16
@@ -36100,7 +36100,7 @@ if.then2156.i:                                    ; preds = %if.end2141.i
   br i1 %cmp2162.i, label %if.then2184.i, label %if.else2165.i
 
 if.else2165.i:                                    ; preds = %if.then2156.i
-  %add.i202 = add i32 %sub.i198, 687
+  %add.i202 = add nsw i32 %sub.i198, 687
   %idxprom2.i = zext nneg i32 %add.i202 to i64
   %arrayidx3.i = getelementptr inbounds [1336 x i64], ptr @pow10_sig_table, i64 0, i64 %idxprom2.i
   %158 = load i64, ptr %arrayidx3.i, align 8
@@ -36870,7 +36870,7 @@ if.end14.i:                                       ; preds = %while.body.i419
 
 bigint_cmp.exit.thread:                           ; preds = %if.end14.i, %while.body.i419, %if.end.i414, %if.end2436.i, %228
   %229 = phi i64 [ %and2452.i, %228 ], [ 1, %if.end.i414 ], [ 0, %if.end2436.i ], [ 0, %while.body.i419 ], [ 1, %if.end14.i ]
-  %raw2221.i.0 = add i64 %229, %retval.i246.01106
+  %raw2221.i.0 = add nuw i64 %229, %retval.i246.01106
   %cmp2455.i = icmp eq i64 %raw2221.i.0, 9218868437227405312
   br i1 %cmp2455.i, label %if.then2463.i, label %if.end2507.i
 

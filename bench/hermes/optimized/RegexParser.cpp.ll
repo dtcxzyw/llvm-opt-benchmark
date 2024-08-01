@@ -9547,7 +9547,7 @@ cond.end.thread.i:                                ; preds = %land.lhs.true.i10.i
   %mul.i30 = shl nsw i16 %sub.i29, 3
   %add.i31 = add nsw i16 %retval.sroa.0.0.i.i, %mul.i30
   %result.0.i = select i1 %retval.sroa.2.0.i.i, i16 %add.i31, i16 %sub.i29
-  %mul17.i = shl i16 %result.0.i, 3
+  %mul17.i = shl nsw i16 %result.0.i, 3
   %add21.i = or disjoint i16 %25, %mul17.i
   br label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE32consumeLegacyOctalEscapeSequenceEv.exit
 
@@ -11199,7 +11199,7 @@ cond.end.thread.i:                                ; preds = %land.lhs.true.i10.i
   %mul.i = shl nsw i16 %sub.i, 3
   %add.i = add nsw i16 %retval.sroa.0.0.i.i, %mul.i
   %result.0.i = select i1 %retval.sroa.2.0.i.i, i16 %add.i, i16 %sub.i
-  %mul17.i = shl i16 %result.0.i, 3
+  %mul17.i = shl nsw i16 %result.0.i, 3
   %add21.i = or disjoint i16 %24, %mul17.i
   br label %25
 

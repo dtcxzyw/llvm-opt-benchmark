@@ -5743,7 +5743,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i
 
 _ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i: ; preds = %if.then.i.i, %if.end.i
-  %add.i231 = add i64 %add.i.i, %and.i25.i
+  %add.i231 = add nuw i64 %add.i.i, %and.i25.i
   %and.i.i = and i64 %add.i231, %sub.i.i
   %arrayidx.i232 = getelementptr inbounds i8, ptr %fullness.0, i64 %and.i.i
   %25 = load i8, ptr %arrayidx.i232, align 1, !tbaa !49

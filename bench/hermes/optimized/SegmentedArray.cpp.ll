@@ -1466,7 +1466,7 @@ entry:
   %0 = lshr exact i32 %sub.i.i, 3
   %cmp = icmp ult i32 %sub.i.i, 32776
   %sub = shl nsw i32 %sub.i.i, 7
-  %add = add i32 %sub, -4190208
+  %add = add nsw i32 %sub, -4190208
   %retval.0 = select i1 %cmp, i32 %0, i32 %add
   ret i32 %retval.0
 }
@@ -1622,7 +1622,7 @@ _ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE4sizeERNS0_11PointerBaseE.
   %6 = lshr exact i32 %sub.i.i.i, 3
   %cmp.i26 = icmp ult i32 %sub.i.i.i, 32776
   %sub.i = shl nsw i32 %sub.i.i.i, 7
-  %add.i27 = add i32 %sub.i, -4190208
+  %add.i27 = add nsw i32 %sub.i, -4190208
   %retval.0.i28 = select i1 %cmp.i26, i32 %6, i32 %add.i27
   %cmp.not = icmp ugt i32 %add, %retval.0.i28
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1994,7 +1994,7 @@ _ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE4sizeERNS0_11PointerBaseE.
   %6 = lshr exact i32 %sub.i.i.i, 3
   %cmp.i23 = icmp ult i32 %sub.i.i.i, 32776
   %sub.i = shl nsw i32 %sub.i.i.i, 7
-  %add.i24 = add i32 %sub.i, -4190208
+  %add.i24 = add nsw i32 %sub.i, -4190208
   %retval.0.i25 = select i1 %cmp.i23, i32 %6, i32 %add.i24
   %cmp.not = icmp ugt i32 %add, %retval.0.i25
   br i1 %cmp.not, label %if.end, label %if.then

@@ -54,7 +54,7 @@ define internal void @BilinearInterp(ptr nocapture noundef %0, i32 noundef %1, i
   %30 = add nsw i32 %29, %27
   %31 = mul nsw i32 %30, %9
   %32 = add nsw i32 %28, 32768
-  %33 = add i32 %32, %31
+  %33 = add nsw i32 %32, %31
   %34 = lshr i32 %33, 16
   %35 = trunc i32 %34 to i8
   store i8 %35, ptr %.08690, align 1
@@ -82,7 +82,7 @@ define internal void @BilinearInterp(ptr nocapture noundef %0, i32 noundef %1, i
   %57 = add nsw i32 %56, %54
   %58 = mul nsw i32 %57, %9
   %59 = add nsw i32 %55, 32768
-  %60 = add i32 %59, %58
+  %60 = add nsw i32 %59, %58
   %61 = lshr i32 %60, 16
   %62 = trunc i32 %61 to i8
   %63 = getelementptr inbounds i8, ptr %.08690, i64 1
@@ -111,7 +111,7 @@ define internal void @BilinearInterp(ptr nocapture noundef %0, i32 noundef %1, i
   %85 = add nsw i32 %84, %82
   %86 = mul nsw i32 %85, %9
   %87 = add nsw i32 %83, 32768
-  %88 = add i32 %87, %86
+  %88 = add nsw i32 %87, %86
   %89 = lshr i32 %88, 16
   %90 = trunc i32 %89 to i8
   %91 = getelementptr inbounds i8, ptr %.08690, i64 2
@@ -140,7 +140,7 @@ define internal void @BilinearInterp(ptr nocapture noundef %0, i32 noundef %1, i
   %113 = add nsw i32 %112, %110
   %114 = mul nsw i32 %113, %9
   %115 = add nsw i32 %111, 32768
-  %116 = add i32 %115, %114
+  %116 = add nsw i32 %115, %114
   %117 = lshr i32 %116, 16
   %118 = trunc i32 %117 to i8
   %119 = getelementptr inbounds i8, ptr %.08690, i64 3

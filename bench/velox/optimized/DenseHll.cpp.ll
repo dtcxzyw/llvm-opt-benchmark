@@ -1186,7 +1186,7 @@ cond.true10.i:                                    ; preds = %if.end.i
   %idx.ext.i25.i = sext i32 %add.i23.i to i64
   %add.ptr.i26.i = getelementptr inbounds i8, ptr %serialized, i64 %idx.ext.i25.i
   %mul.i.i = shl nsw i32 %conv7.i, 1
-  %add.i27.i = add i32 %add.i23.i, %mul.i.i
+  %add.i27.i = add nsw i32 %add.i23.i, %mul.i.i
   %idx.ext.i29.i = sext i32 %add.i27.i to i64
   %add.ptr.i30.i = getelementptr inbounds i8, ptr %serialized, i64 %idx.ext.i29.i
   br label %_ZN8facebook5velox6common3hll12_GLOBAL__N_111deserializeEPKc.exit
@@ -1310,7 +1310,7 @@ entry:
   %mul = shl nsw i32 %conv3, 1
   %add2 = add nsw i32 %conv3, 5
   %add4 = add nsw i32 %add2, %div
-  %add7 = add i32 %add4, %mul
+  %add7 = add nsw i32 %add4, %mul
   ret i32 %add7
 }
 
@@ -1373,7 +1373,7 @@ if.end28:                                         ; preds = %if.end18
   %tobool.not = icmp eq i16 %.fr, 0
   %idx.ext.i39 = zext nneg i32 %add.i37 to i64
   %add.ptr.i40 = getelementptr inbounds i8, ptr %input, i64 %idx.ext.i39
-  %add.i41 = add i32 %mul, %add.i37
+  %add.i41 = add nsw i32 %mul, %add.i37
   %idx.ext.i43 = sext i32 %add.i41 to i64
   %add.ptr.i44 = getelementptr inbounds i8, ptr %input, i64 %idx.ext.i43
   %cond60 = select i1 %tobool.not, ptr null, ptr %add.ptr.i40
@@ -1656,7 +1656,7 @@ cond.true10.i:                                    ; preds = %if.end.i
   %idx.ext.i25.i = sext i32 %add.i23.i to i64
   %add.ptr.i26.i = getelementptr inbounds i8, ptr %serialized, i64 %idx.ext.i25.i
   %mul.i.i = shl nsw i32 %conv7.i, 1
-  %add.i27.i = add i32 %add.i23.i, %mul.i.i
+  %add.i27.i = add nsw i32 %add.i23.i, %mul.i.i
   %idx.ext.i29.i = sext i32 %add.i27.i to i64
   %add.ptr.i30.i = getelementptr inbounds i8, ptr %serialized, i64 %idx.ext.i29.i
   br label %invoke.cont7
@@ -2433,7 +2433,7 @@ cond.true19:                                      ; preds = %if.end10
   %idx.ext.i24 = sext i32 %add.i22 to i64
   %add.ptr.i25 = getelementptr inbounds i8, ptr %serialized, i64 %idx.ext.i24
   %mul.i = shl nsw i32 %conv16, 1
-  %add.i26 = add i32 %mul.i, %add.i22
+  %add.i26 = add nsw i32 %mul.i, %add.i22
   %idx.ext.i28 = sext i32 %add.i26 to i64
   %add.ptr.i29 = getelementptr inbounds i8, ptr %serialized, i64 %idx.ext.i28
   tail call void @_ZN8facebook5velox6common3hll8DenseHll9mergeWithEaPKasPKtS5_(ptr noundef nonnull align 8 dereferenceable(112) %this, i8 noundef signext %3, ptr noundef nonnull %add.ptr.i17, i16 noundef signext %6, ptr noundef nonnull %add.ptr.i25, ptr noundef nonnull %add.ptr.i29)

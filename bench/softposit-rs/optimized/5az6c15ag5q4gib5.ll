@@ -3218,7 +3218,7 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit67: ; preds
 
 50:                                               ; preds = %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit67, %53
   %.045 = phi i32 [ %40, %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit67 ], [ %56, %53 ]
-  %51 = sub i32 %25, %.045
+  %51 = sub nsw i32 %25, %.045
   %52 = icmp ult i32 %51, 536870912
   br i1 %52, label %.lr.ph, label %._crit_edge
 

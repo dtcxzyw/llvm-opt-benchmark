@@ -3026,8 +3026,8 @@ parse_digits.exit418.thread:                      ; preds = %.lr.ph.split.us.i, 
   %271 = getelementptr i8, ptr %259, i64 2
   store ptr %271, ptr %13, align 8
   %272 = zext nneg i8 %267 to i32
-  %273 = add i32 %270, -48
-  %274 = add i32 %273, %272
+  %273 = add nsw i32 %270, -48
+  %274 = add nsw i32 %273, %272
   br label %374
 
 275:                                              ; preds = %248

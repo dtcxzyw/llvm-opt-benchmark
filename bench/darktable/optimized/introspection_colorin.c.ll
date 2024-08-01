@@ -2783,7 +2783,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1377 = icmp slt i32 %1317, 0
   %1378 = or i1 %1377, %1376
   %1379 = and i64 %1358, 9223372036854775804
-  %1380 = shl nuw i64 %1379, 2
+  %1380 = shl i64 %1379, 2
   %1381 = shufflevector <2 x float> %61, <2 x float> poison, <4 x i32> zeroinitializer
   %1382 = shufflevector <2 x float> %61, <2 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
   %1383 = shufflevector <2 x float> %62, <2 x float> poison, <4 x i32> zeroinitializer

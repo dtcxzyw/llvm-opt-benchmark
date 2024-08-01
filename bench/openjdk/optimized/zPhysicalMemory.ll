@@ -389,7 +389,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI22ZPhysicalMemo
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %43
+  br i1 %7, label %8, label %41
 
 8:                                                ; preds = %3
   %9 = add nsw i32 %4, 1
@@ -403,115 +403,106 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI22ZPhysicalMemo
   %17 = shl nuw i32 1, %16
   %.0.i.i.i = select i1 %14, i32 %9, i32 %17
   store i32 %.0.i.i.i, ptr %5, align 4
-  %18 = icmp eq i32 %.0.i.i.i, 0
-  br i1 %18, label %_ZN18GrowableArrayCHeapI22ZPhysicalMemorySegmentL8MEMFLAGS5EE8allocateEv.exit.i.i, label %19
+  %18 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i, i32 noundef 24, i8 noundef zeroext 5) #12
+  %19 = load i32, ptr %0, align 8
+  %20 = icmp sgt i32 %19, 0
+  br i1 %20, label %.lr.ph.i.i, label %.preheader15.i.i
 
-19:                                               ; preds = %8
-  %20 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i, i32 noundef 24, i8 noundef zeroext 5) #12
-  %.pre = load i32, ptr %0, align 8
-  br label %_ZN18GrowableArrayCHeapI22ZPhysicalMemorySegmentL8MEMFLAGS5EE8allocateEv.exit.i.i
+.lr.ph.i.i:                                       ; preds = %8
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %26
 
-_ZN18GrowableArrayCHeapI22ZPhysicalMemorySegmentL8MEMFLAGS5EE8allocateEv.exit.i.i: ; preds = %19, %8
-  %21 = phi i32 [ %.pre, %19 ], [ %4, %8 ]
-  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ null, %8 ]
-  %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph.i.i, label %.preheader15.i.i
-
-.lr.ph.i.i:                                       ; preds = %_ZN18GrowableArrayCHeapI22ZPhysicalMemorySegmentL8MEMFLAGS5EE8allocateEv.exit.i.i
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %28
-
-.preheader15.loopexit.i.i:                        ; preds = %28
-  %24 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
+.preheader15.loopexit.i.i:                        ; preds = %26
+  %22 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
   br label %.preheader15.i.i
 
-.preheader15.i.i:                                 ; preds = %.preheader15.loopexit.i.i, %_ZN18GrowableArrayCHeapI22ZPhysicalMemorySegmentL8MEMFLAGS5EE8allocateEv.exit.i.i
-  %.0.lcssa.i.i = phi i32 [ 0, %_ZN18GrowableArrayCHeapI22ZPhysicalMemorySegmentL8MEMFLAGS5EE8allocateEv.exit.i.i ], [ %24, %.preheader15.loopexit.i.i ]
-  %25 = load i32, ptr %5, align 4
-  %26 = icmp slt i32 %.0.lcssa.i.i, %25
-  br i1 %26, label %.lr.ph18.preheader.i.i, label %.preheader.i.i
+.preheader15.i.i:                                 ; preds = %.preheader15.loopexit.i.i, %8
+  %.0.lcssa.i.i = phi i32 [ 0, %8 ], [ %22, %.preheader15.loopexit.i.i ]
+  %23 = load i32, ptr %5, align 4
+  %24 = icmp slt i32 %.0.lcssa.i.i, %23
+  br i1 %24, label %.lr.ph18.preheader.i.i, label %.preheader.i.i
 
 .lr.ph18.preheader.i.i:                           ; preds = %.preheader15.i.i
-  %27 = zext nneg i32 %.0.lcssa.i.i to i64
+  %25 = zext nneg i32 %.0.lcssa.i.i to i64
   br label %.lr.ph18.i.i
 
-28:                                               ; preds = %28, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %28 ]
-  %29 = getelementptr inbounds %class.ZPhysicalMemorySegment, ptr %.0.i.i.i.i, i64 %indvars.iv.i.i
-  %30 = load ptr, ptr %23, align 8
-  %31 = getelementptr inbounds %class.ZPhysicalMemorySegment, ptr %30, i64 %indvars.iv.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false)
+26:                                               ; preds = %26, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
+  %27 = getelementptr inbounds %class.ZPhysicalMemorySegment, ptr %18, i64 %indvars.iv.i.i
+  %28 = load ptr, ptr %21, align 8
+  %29 = getelementptr inbounds %class.ZPhysicalMemorySegment, ptr %28, i64 %indvars.iv.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %32 = load i32, ptr %0, align 8
-  %33 = sext i32 %32 to i64
-  %34 = icmp slt i64 %indvars.iv.next.i.i, %33
-  br i1 %34, label %28, label %.preheader15.loopexit.i.i, !llvm.loop !11
+  %30 = load i32, ptr %0, align 8
+  %31 = sext i32 %30 to i64
+  %32 = icmp slt i64 %indvars.iv.next.i.i, %31
+  br i1 %32, label %26, label %.preheader15.loopexit.i.i, !llvm.loop !11
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %.not.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i, label %_ZN26GrowableArrayWithAllocatorI22ZPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.exit, label %42
+  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %.not.i.i = icmp eq ptr %34, null
+  br i1 %.not.i.i, label %_ZN26GrowableArrayWithAllocatorI22ZPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.exit, label %40
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
-  %indvars.iv20.i.i = phi i64 [ %27, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %37 = getelementptr inbounds %class.ZPhysicalMemorySegment, ptr %.0.i.i.i.i, i64 %indvars.iv20.i.i
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 -1, i64 16, i1 false)
-  store i8 0, ptr %38, align 8
+  %indvars.iv20.i.i = phi i64 [ %25, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
+  %35 = getelementptr inbounds %class.ZPhysicalMemorySegment, ptr %18, i64 %indvars.iv20.i.i
+  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 -1, i64 16, i1 false)
+  store i8 0, ptr %36, align 8
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
-  %39 = load i32, ptr %5, align 4
-  %40 = trunc nuw i64 %indvars.iv.next21.i.i to i32
-  %41 = icmp sgt i32 %39, %40
-  br i1 %41, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !12
+  %37 = load i32, ptr %5, align 4
+  %38 = trunc nuw i64 %indvars.iv.next21.i.i to i32
+  %39 = icmp sgt i32 %37, %38
+  br i1 %39, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !12
 
-42:                                               ; preds = %.preheader.i.i
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %36) #12
+40:                                               ; preds = %.preheader.i.i
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #12
   br label %_ZN26GrowableArrayWithAllocatorI22ZPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.exit
 
-_ZN26GrowableArrayWithAllocatorI22ZPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.exit: ; preds = %.preheader.i.i, %42
-  store ptr %.0.i.i.i.i, ptr %35, align 8
-  %.pre12 = load i32, ptr %0, align 8
-  br label %43
+_ZN26GrowableArrayWithAllocatorI22ZPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.exit: ; preds = %.preheader.i.i, %40
+  store ptr %18, ptr %33, align 8
+  %.pre = load i32, ptr %0, align 8
+  br label %41
 
-43:                                               ; preds = %_ZN26GrowableArrayWithAllocatorI22ZPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.exit, %3
-  %44 = phi i32 [ %.pre12, %_ZN26GrowableArrayWithAllocatorI22ZPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.exit ], [ %4, %3 ]
-  %.not.not9 = icmp sgt i32 %44, %1
+41:                                               ; preds = %_ZN26GrowableArrayWithAllocatorI22ZPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.exit, %3
+  %42 = phi i32 [ %.pre, %_ZN26GrowableArrayWithAllocatorI22ZPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.exit ], [ %4, %3 ]
+  %.not.not9 = icmp sgt i32 %42, %1
   br i1 %.not.not9, label %.lr.ph, label %.._crit_edge_crit_edge
 
-.._crit_edge_crit_edge:                           ; preds = %43
-  %.pre14 = sext i32 %1 to i64
+.._crit_edge_crit_edge:                           ; preds = %41
+  %.pre13 = sext i32 %1 to i64
   br label %._crit_edge
 
-.lr.ph:                                           ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
-  %46 = sext i32 %44 to i64
-  %47 = sext i32 %1 to i64
-  br label %48
+.lr.ph:                                           ; preds = %41
+  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = sext i32 %42 to i64
+  %45 = sext i32 %1 to i64
+  br label %46
 
-48:                                               ; preds = %.lr.ph, %48
-  %indvars.iv = phi i64 [ %46, %.lr.ph ], [ %indvars.iv.next, %48 ]
+46:                                               ; preds = %.lr.ph, %46
+  %indvars.iv = phi i64 [ %44, %.lr.ph ], [ %indvars.iv.next, %46 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %49 = load ptr, ptr %45, align 8
-  %50 = getelementptr inbounds %class.ZPhysicalMemorySegment, ptr %49, i64 %indvars.iv.next
-  %51 = getelementptr inbounds %class.ZPhysicalMemorySegment, ptr %49, i64 %indvars.iv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %51, ptr noundef nonnull align 8 dereferenceable(17) %50, i64 17, i1 false)
-  %.not.not = icmp sgt i64 %indvars.iv.next, %47
-  br i1 %.not.not, label %48, label %._crit_edge.loopexit, !llvm.loop !13
+  %47 = load ptr, ptr %43, align 8
+  %48 = getelementptr inbounds %class.ZPhysicalMemorySegment, ptr %47, i64 %indvars.iv.next
+  %49 = getelementptr inbounds %class.ZPhysicalMemorySegment, ptr %47, i64 %indvars.iv
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %49, ptr noundef nonnull align 8 dereferenceable(17) %48, i64 17, i1 false)
+  %.not.not = icmp sgt i64 %indvars.iv.next, %45
+  br i1 %.not.not, label %46, label %._crit_edge.loopexit, !llvm.loop !13
 
-._crit_edge.loopexit:                             ; preds = %48
-  %.pre13 = load i32, ptr %0, align 8
+._crit_edge.loopexit:                             ; preds = %46
+  %.pre12 = load i32, ptr %0, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %._crit_edge.loopexit
-  %.pre-phi = phi i64 [ %.pre14, %.._crit_edge_crit_edge ], [ %47, %._crit_edge.loopexit ]
-  %52 = phi i32 [ %44, %.._crit_edge_crit_edge ], [ %.pre13, %._crit_edge.loopexit ]
-  %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds %class.ZPhysicalMemorySegment, ptr %55, i64 %.pre-phi
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %56, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 17, i1 false)
+  %.pre-phi = phi i64 [ %.pre13, %.._crit_edge_crit_edge ], [ %45, %._crit_edge.loopexit ]
+  %50 = phi i32 [ %42, %.._crit_edge_crit_edge ], [ %.pre12, %._crit_edge.loopexit ]
+  %51 = add nsw i32 %50, 1
+  store i32 %51, ptr %0, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds %class.ZPhysicalMemorySegment, ptr %53, i64 %.pre-phi
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %54, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 17, i1 false)
   ret void
 }
 

@@ -124,7 +124,7 @@ if.end24.i:                                       ; preds = %_ZN5arrow8bit_util7
   %conv2.i.i.neg.i = sext i1 %cmp.i.i34.i to i32
   %5 = and i32 %sub25.i, 7
   %shl.i.i.neg.i = shl nsw i32 %conv2.i.i.neg.i, %5
-  %.neg.i = trunc i32 %shl.i.i.neg.i to i8
+  %.neg.i = trunc nsw i32 %shl.i.i.neg.i to i8
   %or.i.i = or i8 %4, %.neg.i
   store i8 %or.i.i, ptr %arrayidx27.i, align 1
   %add32.i = add nsw i64 %conv8.i, %offset

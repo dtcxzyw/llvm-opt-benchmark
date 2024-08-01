@@ -6221,9 +6221,8 @@ land.lhs.true124:                                 ; preds = %do.body116
   br i1 %or.cond80, label %do.body116, label %if.end135.loopexit90, !llvm.loop !30
 
 if.end135.loopexit90:                             ; preds = %do.body116, %land.lhs.true124
-  %gepdiff = add nsw i64 %scan.4.idx, -257
-  %conv139.neg = trunc i64 %gepdiff to i32
-  %sub140 = add nsw i32 %conv139.neg, 258
+  %50 = trunc i64 %scan.4.idx to i32
+  %sub140 = add i32 %50, 1
   %cmp142 = icmp sgt i32 %sub140, %best_len.0
   br i1 %cmp142, label %if.then144, label %do.cond155
 
@@ -6233,25 +6232,23 @@ if.then144:                                       ; preds = %if.end135.loopexit9
   br i1 %cmp145.not, label %if.end148, label %do.end165
 
 if.end148:                                        ; preds = %if.then144
-  %sub149 = shl nsw i64 %gepdiff, 32
-  %sext = add i64 %sub149, 1103806595072
-  %idxprom150 = ashr exact i64 %sext, 32
+  %idxprom150 = and i64 %scan.4.idx, 4294967295
   %arrayidx151 = getelementptr inbounds i8, ptr %add.ptr, i64 %idxprom150
-  %50 = load i8, ptr %arrayidx151, align 1
+  %51 = load i8, ptr %arrayidx151, align 1
   %idxprom152 = zext nneg i32 %sub140 to i64
   %arrayidx153 = getelementptr inbounds i8, ptr %add.ptr, i64 %idxprom152
-  %51 = load i8, ptr %arrayidx153, align 1
+  %52 = load i8, ptr %arrayidx153, align 1
   br label %do.cond155
 
 do.cond155:                                       ; preds = %if.end135.loopexit90, %if.end148, %if.end27, %lor.lhs.false, %lor.lhs.false40, %lor.lhs.false45, %do.body
   %best_len.1 = phi i32 [ %best_len.0, %do.body ], [ %best_len.0, %if.end27 ], [ %best_len.0, %lor.lhs.false ], [ %best_len.0, %lor.lhs.false40 ], [ %best_len.0, %lor.lhs.false45 ], [ %sub140, %if.end148 ], [ %best_len.0, %if.end135.loopexit90 ]
-  %scan_end1.1 = phi i8 [ %scan_end1.0, %do.body ], [ %scan_end1.0, %if.end27 ], [ %scan_end1.0, %lor.lhs.false ], [ %scan_end1.0, %lor.lhs.false40 ], [ %scan_end1.0, %lor.lhs.false45 ], [ %50, %if.end148 ], [ %scan_end1.0, %if.end135.loopexit90 ]
-  %scan_end.1 = phi i8 [ %scan_end.0, %do.body ], [ %scan_end.0, %if.end27 ], [ %scan_end.0, %lor.lhs.false ], [ %scan_end.0, %lor.lhs.false40 ], [ %scan_end.0, %lor.lhs.false45 ], [ %51, %if.end148 ], [ %scan_end.0, %if.end135.loopexit90 ]
+  %scan_end1.1 = phi i8 [ %scan_end1.0, %do.body ], [ %scan_end1.0, %if.end27 ], [ %scan_end1.0, %lor.lhs.false ], [ %scan_end1.0, %lor.lhs.false40 ], [ %scan_end1.0, %lor.lhs.false45 ], [ %51, %if.end148 ], [ %scan_end1.0, %if.end135.loopexit90 ]
+  %scan_end.1 = phi i8 [ %scan_end.0, %do.body ], [ %scan_end.0, %if.end27 ], [ %scan_end.0, %lor.lhs.false ], [ %scan_end.0, %lor.lhs.false40 ], [ %scan_end.0, %lor.lhs.false45 ], [ %52, %if.end148 ], [ %scan_end.0, %if.end135.loopexit90 ]
   %and = and i32 %cur_match.addr.0, %7
   %idxprom156 = zext nneg i32 %and to i64
   %arrayidx157 = getelementptr inbounds i16, ptr %6, i64 %idxprom156
-  %52 = load i16, ptr %arrayidx157, align 2
-  %conv158 = zext i16 %52 to i32
+  %53 = load i16, ptr %arrayidx157, align 2
+  %conv158 = zext i16 %53 to i32
   %cmp159 = icmp uge i32 %spec.select, %conv158
   %dec = add i32 %chain_length.1, -1
   %cmp162.not = icmp eq i32 %dec, 0

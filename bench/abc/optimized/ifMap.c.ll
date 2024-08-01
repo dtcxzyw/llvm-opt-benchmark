@@ -4520,9 +4520,14 @@ define internal fastcc i32 @Abc_TtProcessBiDecInt(ptr noundef readonly %0, i32 n
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %15, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %14)
-  %16 = icmp slt i32 %1, 1
+  %16 = icmp sgt i32 %1, 0
   %indvar62.i.sroa.gep89 = getelementptr inbounds i8, ptr %6, i64 512
-  br i1 %16, label %.loopexit109.critedge, label %.lr.ph.i
+  br i1 %16, label %.lr.ph.i, label %Abc_TtCheckBiDecSimple.exit.thread161
+
+Abc_TtCheckBiDecSimple.exit.thread161:            ; preds = %3
+  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %14)
+  br label %.loopexit111
 
 .lr.ph.i:                                         ; preds = %3
   %17 = icmp ult i32 %1, 7
@@ -4573,14 +4578,14 @@ Abc_TtIsConst0.exit.thread.us.i:                  ; preds = %Abc_TtCofactor0p.ex
   %41 = add nsw i32 %.02172.us.i, 1
   %42 = or i32 %.02271.us.i, %32
   %.not28.us.i = icmp slt i32 %41, %26
-  br i1 %.not28.us.i, label %Abc_TtIsConst0.exit54.us.i, label %Abc_TtCheckBiDecSimple.exit
+  br i1 %.not28.us.i, label %Abc_TtIsConst0.exit54.us.i, label %Abc_TtCheckBiDecSimple.exit.thread
 
 Abc_TtIsConst0.exit54.us.i:                       ; preds = %Abc_TtIsConst0.exit.thread.us.i, %Abc_TtCofactor0p.exit.thread55.us.i
   %.123.us.i = phi i32 [ %42, %Abc_TtIsConst0.exit.thread.us.i ], [ %.02271.us.i, %Abc_TtCofactor0p.exit.thread55.us.i ]
   %.1.us.i = phi i32 [ %41, %Abc_TtIsConst0.exit.thread.us.i ], [ %.02172.us.i, %Abc_TtCofactor0p.exit.thread55.us.i ]
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %exitcond85.not.i = icmp eq i64 %indvars.iv.next82.i, %wide.trip.count84.i
-  br i1 %exitcond85.not.i, label %Abc_TtCheckBiDecSimple.exit.thread, label %Abc_TtCofactor0p.exit.thread55.us.i, !llvm.loop !35
+  br i1 %exitcond85.not.i, label %Abc_TtCheckBiDecSimple.exit, label %Abc_TtCofactor0p.exit.thread55.us.i, !llvm.loop !35
 
 .lr.ph.split.i:                                   ; preds = %Abc_TtIsConst0.exit54.i, %.lr.ph.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %Abc_TtIsConst0.exit54.i ]
@@ -4760,21 +4765,9 @@ Abc_TtIsConst0.exit.thread.i:                     ; preds = %103, %106, %Abc_TtC
   %111 = shl nuw i32 1, %110
   %112 = or i32 %.02271.i, %111
   %.not28.i = icmp slt i32 %109, %26
-  br i1 %.not28.i, label %Abc_TtIsConst0.exit54.i, label %Abc_TtCheckBiDecSimple.exit
+  br i1 %.not28.i, label %Abc_TtIsConst0.exit54.i, label %Abc_TtCheckBiDecSimple.exit.thread
 
-Abc_TtIsConst0.exit54.i:                          ; preds = %.lr.ph.i49.i, %Abc_TtIsConst0.exit.thread.i
-  %.123.i = phi i32 [ %112, %Abc_TtIsConst0.exit.thread.i ], [ %.02271.i, %.lr.ph.i49.i ]
-  %.1.i = phi i32 [ %109, %Abc_TtIsConst0.exit.thread.i ], [ %.02172.i, %.lr.ph.i49.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Abc_TtCheckBiDecSimple.exit.thread, label %.lr.ph.split.i, !llvm.loop !35
-
-Abc_TtCheckBiDecSimple.exit.thread:               ; preds = %Abc_TtIsConst0.exit54.i, %Abc_TtIsConst0.exit54.us.i
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %14)
-  br i1 %16, label %.loopexit109, label %.lr.ph125
-
-Abc_TtCheckBiDecSimple.exit:                      ; preds = %Abc_TtIsConst0.exit.thread.i, %Abc_TtIsConst0.exit.thread.us.i
+Abc_TtCheckBiDecSimple.exit.thread:               ; preds = %Abc_TtIsConst0.exit.thread.i, %Abc_TtIsConst0.exit.thread.us.i
   %.us-phi.i = phi i32 [ %42, %Abc_TtIsConst0.exit.thread.us.i ], [ %112, %Abc_TtIsConst0.exit.thread.i ]
   %113 = sub nsw i32 64, %1
   %114 = zext nneg i32 %113 to i64
@@ -4785,11 +4778,21 @@ Abc_TtCheckBiDecSimple.exit:                      ; preds = %Abc_TtIsConst0.exit
   %119 = or i32 %118, %.us-phi.i
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %14)
-  %.not = icmp ne i32 %119, 0
-  %brmerge = or i1 %.not, %16
-  br i1 %brmerge, label %.loopexit109, label %.lr.ph125
+  br label %.loopexit111
 
-.lr.ph125:                                        ; preds = %Abc_TtCheckBiDecSimple.exit, %Abc_TtCheckBiDecSimple.exit.thread
+Abc_TtIsConst0.exit54.i:                          ; preds = %.lr.ph.i49.i, %Abc_TtIsConst0.exit.thread.i
+  %.123.i = phi i32 [ %112, %Abc_TtIsConst0.exit.thread.i ], [ %.02271.i, %.lr.ph.i49.i ]
+  %.1.i = phi i32 [ %109, %Abc_TtIsConst0.exit.thread.i ], [ %.02172.i, %.lr.ph.i49.i ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %Abc_TtCheckBiDecSimple.exit, label %.lr.ph.split.i, !llvm.loop !35
+
+Abc_TtCheckBiDecSimple.exit:                      ; preds = %Abc_TtIsConst0.exit54.i, %Abc_TtIsConst0.exit54.us.i
+  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %14)
+  br i1 %16, label %.lr.ph127, label %.loopexit111
+
+.lr.ph127:                                        ; preds = %Abc_TtCheckBiDecSimple.exit
   %120 = icmp ult i32 %1, 7
   %121 = add nsw i32 %1, -6
   %122 = shl nuw i32 1, %121
@@ -4817,36 +4820,36 @@ Abc_TtCheckBiDecSimple.exit:                      ; preds = %Abc_TtIsConst0.exit
   %141 = zext nneg i32 %124 to i64
   br label %142
 
-142:                                              ; preds = %.lr.ph125, %523
-  %indvars.iv151 = phi i64 [ 0, %.lr.ph125 ], [ %indvars.iv.next152, %523 ]
-  %.041124 = phi i32 [ 0, %.lr.ph125 ], [ %.142, %523 ]
+142:                                              ; preds = %.lr.ph127, %523
+  %indvars.iv153 = phi i64 [ 0, %.lr.ph127 ], [ %indvars.iv.next154, %523 ]
+  %.041126 = phi i32 [ 0, %.lr.ph127 ], [ %.142, %523 ]
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %12)
-  %143 = trunc nuw nsw i64 %indvars.iv151 to i32
+  %143 = trunc nuw nsw i64 %indvars.iv153 to i32
   %144 = shl nuw i32 1, %143
-  %145 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv151
+  %145 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv153
   %146 = load i32, ptr %145, align 4
   %147 = or i32 %146, %144
   store i32 %147, ptr %145, align 4
-  %148 = icmp eq i64 %indvars.iv151, %141
+  %148 = icmp eq i64 %indvars.iv153, %141
   br i1 %148, label %Abc_TtComputeGraph.exit, label %149
 
 149:                                              ; preds = %142
   br i1 %125, label %180, label %150
 
 150:                                              ; preds = %149
-  %151 = icmp ult i64 %indvars.iv151, 6
+  %151 = icmp ult i64 %indvars.iv153, 6
   br i1 %151, label %152, label %163
 
 152:                                              ; preds = %150
   br i1 %128, label %.lr.ph.i.i76, label %Abc_TtCofactor1p.exit.i54
 
 .lr.ph.i.i76:                                     ; preds = %152
-  %153 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv151
+  %153 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv153
   %154 = load i64, ptr %153, align 8
   %155 = zext nneg i32 %144 to i64
   br label %156
@@ -4865,7 +4868,7 @@ Abc_TtCheckBiDecSimple.exit:                      ; preds = %Abc_TtIsConst0.exit
   br i1 %exitcond60.not.i.i80, label %Abc_TtCofactor0p.exit.thread.i, label %156, !llvm.loop !15
 
 163:                                              ; preds = %150
-  %164 = add nsw i64 %indvars.iv151, -6
+  %164 = add nsw i64 %indvars.iv153, -6
   %165 = trunc nsw i64 %164 to i32
   %166 = shl nuw i32 1, %165
   br i1 %128, label %.preheader.lr.ph.i.i59, label %Abc_TtCofactor1p.exit.i54
@@ -4908,14 +4911,14 @@ Abc_TtCheckBiDecSimple.exit:                      ; preds = %Abc_TtIsConst0.exit
 
 180:                                              ; preds = %149
   %181 = load i64, ptr %0, align 8
-  %182 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv151
+  %182 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv153
   %183 = load i64, ptr %182, align 8
   %184 = and i64 %183, %181
   %185 = zext nneg i32 %144 to i64
   %186 = shl i64 %184, %185
   %187 = or i64 %186, %184
   store i64 %187, ptr %7, align 16
-  %188 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv151
+  %188 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv153
   %189 = load i64, ptr %188, align 8
   %190 = and i64 %189, %181
   %191 = lshr i64 %190, %185
@@ -4930,7 +4933,7 @@ Abc_TtCofactor0p.exit.thread.i:                   ; preds = %._crit_edge.us.i.i6
   br i1 %128, label %.lr.ph.i63.i, label %Abc_TtCofactor1p.exit.i54
 
 .lr.ph.i63.i:                                     ; preds = %193
-  %194 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv151
+  %194 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv153
   %195 = load i64, ptr %194, align 8
   %196 = zext nneg i32 %144 to i64
   br label %197
@@ -4949,7 +4952,7 @@ Abc_TtCofactor0p.exit.thread.i:                   ; preds = %._crit_edge.us.i.i6
   br i1 %exitcond62.not.i.i75, label %Abc_TtCofactor1p.exit.i54, label %197, !llvm.loop !18
 
 Abc_TtCofactor0p.exit.thread.thread.i70:          ; preds = %Abc_TtCofactor0p.exit.thread.i
-  %204 = add nsw i64 %indvars.iv151, -6
+  %204 = add nsw i64 %indvars.iv153, -6
   %205 = trunc nsw i64 %204 to i32
   %206 = shl nuw i32 1, %205
   br i1 %128, label %.preheader.lr.ph.i53.i, label %Abc_TtCofactor1p.exit.i54
@@ -4991,7 +4994,7 @@ Abc_TtCofactor0p.exit.thread.thread.i70:          ; preds = %Abc_TtCofactor0p.ex
   br i1 %219, label %.preheader.us.i58.i, label %Abc_TtCofactor1p.exit.i54, !llvm.loop !20
 
 Abc_TtCofactor1p.exit.i54:                        ; preds = %._crit_edge.us.i62.i, %197, %.preheader.lr.ph.i53.i, %Abc_TtCofactor0p.exit.thread.thread.i70, %193, %180, %.preheader.lr.ph.i.i59, %163, %152
-  %220 = add nuw nsw i64 %indvars.iv151, 1
+  %220 = add nuw nsw i64 %indvars.iv153, 1
   %221 = icmp ult i64 %220, %140
   br i1 %221, label %.lr.ph172.i, label %Abc_TtComputeGraph.exit
 
@@ -5394,9 +5397,9 @@ Abc_TtComputeGraph.exit:                          ; preds = %Abc_TtComputeGraph.
   br i1 %389, label %390, label %392
 
 390:                                              ; preds = %Abc_TtComputeGraph.exit
-  %391 = add nsw i32 %.041124, 1
-  %.not53 = icmp slt i32 %.041124, %139
-  br i1 %.not53, label %523, label %.loopexit109
+  %391 = add nsw i32 %.041126, 1
+  %.not53 = icmp slt i32 %.041126, %139
+  br i1 %.not53, label %523, label %.loopexit111
 
 392:                                              ; preds = %Abc_TtComputeGraph.exit
   %393 = sub nsw i32 %1, %388
@@ -5409,7 +5412,7 @@ Abc_TtComputeGraph.exit:                          ; preds = %Abc_TtComputeGraph.
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %403
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %403 ]
-  %.0122 = phi i32 [ %394, %.lr.ph.preheader ], [ %.1, %403 ]
+  %.0124 = phi i32 [ %394, %.lr.ph.preheader ], [ %.1, %403 ]
   %395 = trunc nuw nsw i64 %indvars.iv to i32
   %396 = shl nuw i32 1, %395
   %397 = and i32 %396, %394
@@ -5420,14 +5423,14 @@ Abc_TtComputeGraph.exit:                          ; preds = %Abc_TtComputeGraph.
   %399 = getelementptr inbounds [12 x i32], ptr %15, i64 0, i64 %indvars.iv
   %400 = load i32, ptr %399, align 4
   %401 = and i32 %400, 65535
-  %402 = or i32 %401, %.0122
+  %402 = or i32 %401, %.0124
   br label %403
 
 403:                                              ; preds = %.lr.ph, %398
-  %.1 = phi i32 [ %402, %398 ], [ %.0122, %.lr.ph ]
+  %.1 = phi i32 [ %402, %398 ], [ %.0124, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond150.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i86
-  br i1 %exitcond150.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  %exitcond152.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i86
+  br i1 %exitcond152.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %403
   %404 = and i32 %.1, 255
@@ -5733,21 +5736,16 @@ Abc_TtCheckBiDec.exit:                            ; preds = %.lr.ph.i83
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6)
   %521 = shl i32 %.1, 16
   %522 = or disjoint i32 %521, %379
-  br label %.loopexit109
+  br label %.loopexit111
 
 523:                                              ; preds = %Abc_TtCheckBiDec.exit, %390, %392, %._crit_edge
-  %.142 = phi i32 [ %391, %390 ], [ %.041124, %._crit_edge ], [ %.041124, %Abc_TtCheckBiDec.exit ], [ %.041124, %392 ]
-  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
-  %exitcond156.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count.i86
-  br i1 %exitcond156.not, label %.loopexit109, label %142, !llvm.loop !44
+  %.142 = phi i32 [ %391, %390 ], [ %.041126, %._crit_edge ], [ %.041126, %Abc_TtCheckBiDec.exit ], [ %.041126, %392 ]
+  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
+  %exitcond158.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count.i86
+  br i1 %exitcond158.not, label %.loopexit111, label %142, !llvm.loop !44
 
-.loopexit109.critedge:                            ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %14)
-  br label %.loopexit109
-
-.loopexit109:                                     ; preds = %390, %523, %.loopexit109.critedge, %Abc_TtCheckBiDecSimple.exit, %Abc_TtCheckBiDecSimple.exit.thread, %.loopexit
-  %.039 = phi i32 [ %522, %.loopexit ], [ %119, %Abc_TtCheckBiDecSimple.exit ], [ 0, %Abc_TtCheckBiDecSimple.exit.thread ], [ 0, %.loopexit109.critedge ], [ 0, %523 ], [ 0, %390 ]
+.loopexit111:                                     ; preds = %390, %523, %Abc_TtCheckBiDecSimple.exit.thread161, %Abc_TtCheckBiDecSimple.exit, %Abc_TtCheckBiDecSimple.exit.thread, %.loopexit
+  %.039 = phi i32 [ %522, %.loopexit ], [ %119, %Abc_TtCheckBiDecSimple.exit.thread ], [ 0, %Abc_TtCheckBiDecSimple.exit ], [ 0, %Abc_TtCheckBiDecSimple.exit.thread161 ], [ 0, %523 ], [ 0, %390 ]
   ret i32 %.039
 }
 

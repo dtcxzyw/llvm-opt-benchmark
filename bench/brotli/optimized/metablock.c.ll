@@ -272,7 +272,7 @@ if.else.i.us.i:                                   ; preds = %if.then8.us.i
   %sub22.i.us.i = add i32 %shl21.i.us.i, -4
   %add23.i.us.i = add i32 %sub22.i.us.i, %10
   %shl25.i.us.i = shl i32 %add23.i.us.i, %orig_params.sroa.0.0.copyload
-  %add28.i.us.i = add i32 %and18.i.us.i, %add.i.us.i
+  %add28.i.us.i = add nuw i32 %and18.i.us.i, %add.i.us.i
   %add29.i.us.i = add i32 %add28.i.us.i, %shl25.i.us.i
   br label %CommandRestoreDistanceCode.exit.us.i
 
@@ -515,7 +515,7 @@ if.else.i.i287:                                   ; preds = %if.then8.i285
   %sub22.i.i = add i32 %shl21.i.i, -4
   %add23.i.i = add i32 %sub22.i.i, %29
   %shl25.i.i290 = shl i32 %add23.i.i, %orig_params.sroa.0.0.copyload
-  %add28.i.i = add i32 %and18.i.i, %add.i.us.i
+  %add28.i.i = add nuw i32 %and18.i.i, %add.i.us.i
   %add29.i.i291 = add i32 %add28.i.i, %shl25.i.i290
   br label %CommandRestoreDistanceCode.exit.i
 

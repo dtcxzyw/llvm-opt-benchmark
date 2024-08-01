@@ -61,7 +61,7 @@ define i32 @mca_coll_basic_barrier_intra_log(ptr noundef %0, ptr nocapture nound
   br i1 %25, label %26, label %35
 
 26:                                               ; preds = %._crit_edge
-  %27 = shl nuw i32 1, %.0.i
+  %27 = shl nuw nsw i32 1, %.0.i
   %28 = xor i32 %27, -1
   %29 = and i32 %.val60, %28
   %30 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8

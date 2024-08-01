@@ -1288,9 +1288,9 @@ if.then125:                                       ; preds = %if.else117
 
 if.then168:                                       ; preds = %if.then125
   %add170 = shl nsw i8 %sub130, 4
-  %shl = add i8 %add170, 32
+  %shl = add nsw i8 %add170, 32
   %add173 = shl nsw i8 %sub136, 2
-  %shl174 = add i8 %add173, 8
+  %shl174 = add nsw i8 %add173, 8
   %or171 = or i8 %shl, %shl174
   %or175 = or disjoint i8 %or171, %22
   %or178 = or i8 %or175, 64
@@ -2308,7 +2308,7 @@ if.end.i.i:                                       ; preds = %for.body
 if.end5.i.i:                                      ; preds = %if.end.i.i
   %and.i.i = and i32 %10, -2139095041
   %add7.i.i = shl nsw i32 %add.i.i, 23
-  %shl.i.i = add i32 %add7.i.i, 1065353216
+  %shl.i.i = add nsw i32 %add7.i.i, 1065353216
   %or.i.i = or i32 %shl.i.i, %and.i.i
   %11 = bitcast i32 %or.i.i to float
   br label %invoke.cont7
@@ -13334,7 +13334,7 @@ if.end.i.i:                                       ; preds = %for.body
 if.end5.i.i:                                      ; preds = %if.end.i.i
   %and.i.i = and i32 %24, -2139095041
   %add7.i.i = shl nsw i32 %add.i.i, 23
-  %shl.i.i = add i32 %add7.i.i, 1065353216
+  %shl.i.i = add nsw i32 %add7.i.i, 1065353216
   %or.i.i = or i32 %shl.i.i, %and.i.i
   %25 = bitcast i32 %or.i.i to float
   br label %invoke.cont11
@@ -13442,7 +13442,7 @@ if.end.i.i34:                                     ; preds = %invoke.cont13
 if.end5.i.i36:                                    ; preds = %if.end.i.i34
   %and.i.i37 = and i32 %36, -2139095041
   %add7.i.i38 = shl nsw i32 %add.i.i32, 23
-  %shl.i.i39 = add i32 %add7.i.i38, 1065353216
+  %shl.i.i39 = add nsw i32 %add7.i.i38, 1065353216
   %or.i.i40 = or i32 %shl.i.i39, %and.i.i37
   %37 = bitcast i32 %or.i.i40 to float
   br label %invoke.cont17
@@ -48791,7 +48791,7 @@ if.end.i.i.i.i.i:                                 ; preds = %for.body61.i.i.i
 if.end5.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %62, -2139095041
   %add7.i.i.i.i.i = shl nsw i32 %add.i.i.i.i.i, 23
-  %shl.i.i.i.i.i = add i32 %add7.i.i.i.i.i, 1065353216
+  %shl.i.i.i.i.i = add nsw i32 %add7.i.i.i.i.i, 1065353216
   %or.i.i.i.i.i = or i32 %shl.i.i.i.i.i, %and.i.i.i.i.i
   %63 = bitcast i32 %or.i.i.i.i.i to float
   br label %invoke.cont69.i.i.i

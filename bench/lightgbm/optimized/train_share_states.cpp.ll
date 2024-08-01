@@ -4316,7 +4316,7 @@ define void @_ZN8LightGBM18MultiValBinWrapper13ResizeHistBufEPSt6vectorIdNS_6Com
   %17 = sext i32 %16 to i64
   %18 = sext i32 %12 to i64
   %19 = shl nsw i64 %18, 1
-  %20 = mul i64 %19, %17
+  %20 = mul nsw i64 %19, %17
   %21 = getelementptr inbounds i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %1, align 8

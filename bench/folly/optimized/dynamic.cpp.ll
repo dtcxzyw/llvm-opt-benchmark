@@ -6623,7 +6623,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i
 
 _ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i: ; preds = %if.then.i.i, %if.end.i
-  %add.i233 = add i64 %add.i.i, %and.i25.i
+  %add.i233 = add nuw i64 %add.i.i, %and.i25.i
   %and.i.i = and i64 %add.i233, %sub.i.i
   %arrayidx.i234 = getelementptr inbounds i8, ptr %fullness.0, i64 %and.i.i
   %25 = load i8, ptr %arrayidx.i234, align 1, !tbaa !28
@@ -7084,7 +7084,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i
 
 _ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i: ; preds = %if.then.i.i, %if.end.i
-  %add.i161 = add i64 %add.i.i, %and.i25.i
+  %add.i161 = add nuw i64 %add.i.i, %and.i25.i
   %and.i.i = and i64 %add.i161, %sub.i.i
   %arrayidx.i = getelementptr inbounds i8, ptr %fullness.0, i64 %and.i.i
   %22 = load i8, ptr %arrayidx.i, align 1, !tbaa !28
@@ -7270,7 +7270,7 @@ if.then.i.i206:                                   ; preds = %if.end.i202
   br label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i208
 
 _ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i208: ; preds = %if.then.i.i206, %if.end.i202
-  %add.i209 = add i64 %add.i.i194, %and.i25.i203
+  %add.i209 = add nuw i64 %add.i.i194, %and.i25.i203
   %and.i.i210 = and i64 %add.i209, %sub.i.i198
   %arrayidx.i211 = getelementptr inbounds i8, ptr %fullness.0, i64 %and.i.i210
   %44 = load i8, ptr %arrayidx.i211, align 1, !tbaa !28

@@ -180,7 +180,7 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %0, pt
   %.1147.i = phi i32 [ %.5151.i, %66 ], [ %.0146.i, %32 ]
   %.1143.i = phi i32 [ %67, %66 ], [ %.0142.i, %32 ]
   %.1.i = phi ptr [ %.5.i, %66 ], [ %.0132.i, %32 ]
-  %69 = shl nsw i32 %.0138.i, 1
+  %69 = shl nuw nsw i32 %.0138.i, 1
   %70 = add nsw i32 %69, -1
   %71 = sub nsw i32 %70, %.0135.i
   %72 = add nsw i32 %.0138.i, -1

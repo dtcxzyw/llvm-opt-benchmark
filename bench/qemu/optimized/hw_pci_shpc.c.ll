@@ -1345,7 +1345,7 @@ entry:
   %.val41 = load ptr, ptr %0, align 8
   %mul.i = shl nsw i32 %sub, 2
   %add.i = add nsw i32 %mul.i, 36
-  %idx.ext.i = sext i32 %add.i to i64
+  %idx.ext.i = zext nneg i32 %add.i to i64
   %add.ptr.i = getelementptr i8, ptr %.val41, i64 %idx.ext.i
   %add.ptr.val.i = load i16, ptr %add.ptr.i, align 1
   %1 = trunc i16 %add.ptr.val.i to i8

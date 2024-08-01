@@ -1184,9 +1184,9 @@ define internal fastcc i64 @calc_transition(ptr nocapture noundef readonly %0, i
   %41 = sdiv i32 %34, 400
   %.neg53 = shl nsw i32 %.neg, 1
   %42 = add nsw i32 %41, %35
-  %43 = add i32 %42, %.neg53
-  %44 = add i32 %43, %39
-  %45 = add i32 %44, %.sext56
+  %43 = add nsw i32 %42, %.neg53
+  %44 = add nsw i32 %43, %39
+  %45 = add nsw i32 %44, %.sext56
   %46 = srem i32 %45, 7
   %47 = icmp slt i32 %46, 0
   %48 = add nsw i32 %46, 7

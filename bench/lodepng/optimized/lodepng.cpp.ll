@@ -23314,7 +23314,7 @@ if.end.i:                                         ; preds = %for.body188
   %shl.neg.i = shl nsw i64 -1, %result.4.i.i
   %sub.i = add nsw i64 %shl.neg.i, %conv191
   %shl1.i = shl nsw i64 %sub.i, 1
-  %add.i196 = add i64 %shl1.i, %mul.i195
+  %add.i196 = add nsw i64 %shl1.i, %mul.i195
   br label %_ZL6ilog2im.exit
 
 _ZL6ilog2im.exit:                                 ; preds = %for.body188, %if.end.i

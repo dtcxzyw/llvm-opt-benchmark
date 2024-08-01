@@ -1247,7 +1247,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   %330 = load i16, ptr %329, align 2, !tbaa !105, !noalias !132
   %331 = zext i16 %330 to i32
   %332 = or disjoint i32 %322, 2
-  %333 = add nuw i32 %322, 4
+  %333 = add nuw nsw i32 %322, 4
   %334 = icmp ule i32 %333, %28
   tail call void @llvm.assume(i1 %334)
   %335 = zext nneg i32 %332 to i64
@@ -1716,7 +1716,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   %322 = icmp ult i64 %321, %54
   tail call void @llvm.assume(i1 %322)
   %323 = or disjoint i32 %318, 2
-  %324 = add nuw i32 %318, 4
+  %324 = add nuw nsw i32 %318, 4
   %325 = icmp ule i32 %324, %28
   tail call void @llvm.assume(i1 %325)
   %326 = zext nneg i32 %323 to i64
@@ -2173,7 +2173,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   %314 = icmp ult i64 %313, %54
   tail call void @llvm.assume(i1 %314)
   %315 = or disjoint i32 %310, 2
-  %316 = add nuw i32 %310, 4
+  %316 = add nuw nsw i32 %310, 4
   %317 = icmp ule i32 %316, %28
   tail call void @llvm.assume(i1 %317)
   %318 = zext nneg i32 %315 to i64

@@ -12775,7 +12775,7 @@ if.then4:                                         ; preds = %if.end
   %conv.i = sext i32 %0 to i64
   %sh_prom = zext nneg i32 %k to i64
   %mul45 = shl nsw i64 %conv.i, %sh_prom
-  %1 = add i64 %mul45, 2147483648
+  %1 = add nsw i64 %mul45, 2147483648
   %or.cond.i = icmp ult i64 %1, 4294967296
   br i1 %or.cond.i, label %if.then.i, label %if.else.i
 
@@ -12809,16 +12809,14 @@ if.end.i.i:                                       ; preds = %if.else.i, %if.then
   %bf.load3.i.i = phi i8 [ %bf.clear.i.i, %if.then.i.i ], [ %bf.load.i, %if.else.i ]
   %bf.set5.i.i = or i8 %bf.load3.i.i, 1
   store i8 %bf.set5.i.i, ptr %m_kind.i, align 4
-  %cmp7.i.i = icmp eq i64 %mul45, -9223372036854775808
   %cmp9.i.i.inv = icmp sgt i32 %0, -1
   %spec.select.i.i = select i1 %cmp9.i.i.inv, i32 1, i32 -1
   %spec.select25.i.i = tail call i64 @llvm.abs.i64(i64 %mul45, i1 true)
-  %_v.0.i.i = select i1 %cmp7.i.i, i64 4611686018427387904, i64 %spec.select25.i.i
   store i32 %spec.select.i.i, ptr %a, align 8
-  %conv.i.i = trunc i64 %_v.0.i.i to i32
+  %conv.i.i = trunc i64 %spec.select25.i.i to i32
   %m_digits.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %conv.i.i, ptr %m_digits.i.i.i, align 4
-  %shr.i.i = lshr i64 %_v.0.i.i, 32
+  %shr.i.i = lshr i64 %spec.select25.i.i, 32
   %conv18.i.i = trunc nuw nsw i64 %shr.i.i to i32
   %5 = load ptr, ptr %m_ptr.i.i, align 8
   %arrayidx20.i.i = getelementptr inbounds i8, ptr %5, i64 12
@@ -12829,10 +12827,6 @@ if.end.i.i:                                       ; preds = %if.else.i, %if.then
   %cmp23.i.i = icmp eq i32 %7, 0
   %cond.i.i = select i1 %cmp23.i.i, i32 1, i32 2
   store i32 %cond.i.i, ptr %6, align 4
-  br i1 %cmp7.i.i, label %if.then27.i.i, label %return
-
-if.then27.i.i:                                    ; preds = %if.end.i.i
-  tail call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %a)
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -12989,7 +12983,7 @@ if.end15.i:                                       ; preds = %land.lhs.true.i, %f
   store i32 %36, ptr %31, align 4
   br label %return
 
-return:                                           ; preds = %if.end15.i, %if.then9.i, %if.then4.i, %if.then27.i.i, %if.end.i.i, %if.then.i, %entry, %lor.lhs.false
+return:                                           ; preds = %if.end15.i, %if.then9.i, %if.then4.i, %if.then.i, %if.end.i.i, %entry, %lor.lhs.false
   ret void
 }
 
@@ -27455,7 +27449,7 @@ if.then4:                                         ; preds = %if.end
   %conv.i = sext i32 %0 to i64
   %sh_prom = zext nneg i32 %k to i64
   %mul45 = shl nsw i64 %conv.i, %sh_prom
-  %1 = add i64 %mul45, 2147483648
+  %1 = add nsw i64 %mul45, 2147483648
   %or.cond.i = icmp ult i64 %1, 4294967296
   br i1 %or.cond.i, label %if.then.i, label %if.else.i
 
@@ -27489,16 +27483,14 @@ if.end.i.i:                                       ; preds = %if.else.i, %if.then
   %bf.load3.i.i = phi i8 [ %bf.clear.i.i, %if.then.i.i ], [ %bf.load.i, %if.else.i ]
   %bf.set5.i.i = or i8 %bf.load3.i.i, 1
   store i8 %bf.set5.i.i, ptr %m_kind.i, align 4
-  %cmp7.i.i = icmp eq i64 %mul45, -9223372036854775808
   %cmp9.i.i.inv = icmp sgt i32 %0, -1
   %spec.select.i.i = select i1 %cmp9.i.i.inv, i32 1, i32 -1
   %spec.select25.i.i = tail call i64 @llvm.abs.i64(i64 %mul45, i1 true)
-  %_v.0.i.i = select i1 %cmp7.i.i, i64 4611686018427387904, i64 %spec.select25.i.i
   store i32 %spec.select.i.i, ptr %a, align 8
-  %conv.i.i = trunc i64 %_v.0.i.i to i32
+  %conv.i.i = trunc i64 %spec.select25.i.i to i32
   %m_digits.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %conv.i.i, ptr %m_digits.i.i.i, align 4
-  %shr.i.i = lshr i64 %_v.0.i.i, 32
+  %shr.i.i = lshr i64 %spec.select25.i.i, 32
   %conv18.i.i = trunc nuw nsw i64 %shr.i.i to i32
   %5 = load ptr, ptr %m_ptr.i.i, align 8
   %arrayidx20.i.i = getelementptr inbounds i8, ptr %5, i64 12
@@ -27509,10 +27501,6 @@ if.end.i.i:                                       ; preds = %if.else.i, %if.then
   %cmp23.i.i = icmp eq i32 %7, 0
   %cond.i.i = select i1 %cmp23.i.i, i32 1, i32 2
   store i32 %cond.i.i, ptr %6, align 4
-  br i1 %cmp7.i.i, label %if.then27.i.i, label %return
-
-if.then27.i.i:                                    ; preds = %if.end.i.i
-  tail call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %a)
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -27669,7 +27657,7 @@ if.end15.i:                                       ; preds = %land.lhs.true.i, %f
   store i32 %36, ptr %31, align 4
   br label %return
 
-return:                                           ; preds = %if.end15.i, %if.then9.i, %if.then4.i, %if.then27.i.i, %if.end.i.i, %if.then.i, %entry, %lor.lhs.false
+return:                                           ; preds = %if.end15.i, %if.then9.i, %if.then4.i, %if.then.i, %if.end.i.i, %entry, %lor.lhs.false
   ret void
 }
 

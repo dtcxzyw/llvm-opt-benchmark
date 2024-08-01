@@ -4663,7 +4663,7 @@ define linkonce_odr hidden void @_ZN8rawspeed20PrefixCodeLUTDecoderINS_10VC5Code
   %113 = and i32 %112, %75
   %114 = icmp eq i32 %113, 0
   %115 = select i1 %114, i32 %76, i32 0
-  %116 = add i32 %115, %112
+  %116 = add nsw i32 %115, %112
   br label %117
 
 117:                                              ; preds = %109, %108, %102

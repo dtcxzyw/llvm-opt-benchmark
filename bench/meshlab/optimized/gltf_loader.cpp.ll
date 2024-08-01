@@ -19338,13 +19338,13 @@ _ZL10stbi__get8P13stbi__context.exit231:          ; preds = %323, %_ZL19stbi__re
   %366 = getelementptr inbounds i8, ptr %0, i64 18076
   store i32 %365, ptr %366, align 4
   %367 = load i32, ptr %3, align 8
-  %368 = add i32 %363, -1
+  %368 = add nsw i32 %363, -1
   %369 = add i32 %368, %367
   %370 = udiv i32 %369, %363
   %371 = getelementptr inbounds i8, ptr %0, i64 18064
   store i32 %370, ptr %371, align 8
   %372 = load i32, ptr %150, align 4
-  %373 = add i32 %365, -1
+  %373 = add nsw i32 %365, -1
   %374 = add i32 %373, %372
   %375 = udiv i32 %374, %365
   %376 = getelementptr inbounds i8, ptr %0, i64 18068
@@ -19357,7 +19357,7 @@ _ZL10stbi__get8P13stbi__context.exit231:          ; preds = %323, %_ZL19stbi__re
   %379 = getelementptr inbounds i8, ptr %0, i64 18080
   %380 = add nsw i32 %.0165.lcssa, -1
   %381 = add nsw i32 %.0164.lcssa, -1
-  %382 = shl i32 %370, 3
+  %382 = shl nuw i32 %370, 3
   %383 = getelementptr inbounds i8, ptr %0, i64 18480
   br label %384
 
@@ -27398,8 +27398,8 @@ _ZL10stbi__skipP13stbi__contexti.exit.i.backedge: ; preds = %._crit_edge.i124.i,
   br i1 %491, label %492, label %511
 
 492:                                              ; preds = %490
-  %493 = add nsw i32 %.084.i.ph, 1
-  %494 = sext i32 %.084.i.ph to i64
+  %493 = add nuw nsw i32 %.084.i.ph, 1
+  %494 = zext nneg i32 %.084.i.ph to i64
   %495 = getelementptr inbounds [8192 x %struct.stbi__gif_lzw], ptr %362, i64 0, i64 %494
   %496 = icmp sgt i32 %.084.i.ph, 8191
   br i1 %496, label %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.thread.sink.split, label %497

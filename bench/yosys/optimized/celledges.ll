@@ -3787,7 +3787,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18shift_opEPN5Yosys25AbstractCellEd
   %55 = xor i1 %38, true
   %56 = sub nsw i32 %40, %.0112
   %57 = add nsw i32 %40, -1
-  %58 = add i32 %.0111, 1
+  %58 = add nuw i32 %.0111, 1
   %59 = sext i1 %36 to i32
   %60 = add i32 %40, %59
   %spec.select = add i32 %60, %.0111

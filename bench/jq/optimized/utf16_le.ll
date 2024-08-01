@@ -83,7 +83,7 @@ define internal i32 @utf16le_mbc_to_code(ptr nocapture noundef readonly %0, ptr 
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
   %28 = or disjoint i32 %16, %27
-  %29 = add i32 %28, %24
+  %29 = add nsw i32 %28, %24
   br label %34
 
 30:                                               ; preds = %2

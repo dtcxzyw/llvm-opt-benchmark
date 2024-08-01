@@ -3006,7 +3006,7 @@ define internal fastcc i32 @mi_set_context(ptr noundef %0, ptr nocapture noundef
   %30 = and i32 %2, 2
   %31 = icmp eq i32 %30, 0
   %32 = and i32 %2, -3
-  %33 = add i32 %29, %30
+  %33 = add nuw nsw i32 %29, %30
   %34 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef %33) #9
   %35 = icmp ugt ptr %34, inttoptr (i64 -4096 to ptr)
   br i1 %35, label %36, label %39

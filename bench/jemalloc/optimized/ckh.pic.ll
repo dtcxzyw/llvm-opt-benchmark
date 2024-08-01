@@ -133,7 +133,7 @@ if.end18.i:                                       ; preds = %sz_s2u.exit, %if.en
 
 sz_sa2u.exit:                                     ; preds = %if.end18.i, %sz_s2u.exit
   %retval.i.0 = phi i64 [ %retval.i27.0, %sz_s2u.exit ], [ %.usize.i.0, %if.end18.i ]
-  %6 = add i64 %retval.i.0, -8070450532247928833
+  %6 = add nsw i64 %retval.i.0, -8070450532247928833
   %7 = icmp ult i64 %6, -8070450532247928832
   br i1 %7, label %label_return, label %if.end
 
@@ -445,7 +445,7 @@ if.end18.i.i:                                     ; preds = %sz_s2u.exit80.i, %i
 
 sz_sa2u.exit.i:                                   ; preds = %if.end18.i.i, %sz_s2u.exit.i
   %retval.i.0.i = phi i64 [ %retval.i62.0.i, %sz_s2u.exit.i ], [ %.usize.i.0.i, %if.end18.i.i ]
-  %7 = add i64 %retval.i.0.i, -8070450532247928833
+  %7 = add nsw i64 %retval.i.0.i, -8070450532247928833
   %8 = icmp ult i64 %7, -8070450532247928832
   br i1 %8, label %ckh_grow.exit.thread, label %if.end.i
 
@@ -1077,7 +1077,7 @@ if.end18.i.i:                                     ; preds = %sz_s2u.exit80.i, %i
 
 sz_sa2u.exit.i:                                   ; preds = %if.end18.i.i, %sz_s2u.exit.i
   %retval.i.0.i = phi i64 [ %retval.i62.0.i, %sz_s2u.exit.i ], [ %.usize.i.0.i, %if.end18.i.i ]
-  %26 = add i64 %retval.i.0.i, -8070450532247928833
+  %26 = add nsw i64 %retval.i.0.i, -8070450532247928833
   %27 = icmp ult i64 %26, -8070450532247928832
   br i1 %27, label %ckh_shrink.exit, label %if.end.i20
 

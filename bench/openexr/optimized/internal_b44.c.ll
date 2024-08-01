@@ -882,7 +882,7 @@ if.end52.us:                                      ; preds = %if.else.us
   %24 = add nsw i32 %and49.i.us, -32
   %25 = add nsw i32 %and37.i.us, %24
   %26 = shl nsw i32 %25, %shr.i.us
-  %sub54.i.us = add i32 %26, %add40.i.us
+  %sub54.i.us = add nsw i32 %26, %add40.i.us
   %conv55.i.us = trunc i32 %sub54.i.us to i16
   store i16 %conv55.i.us, ptr %arrayidx56.i, align 8
   %arrayidx59.i.us = getelementptr inbounds i8, ptr %in.3137.us, i64 5
@@ -923,8 +923,8 @@ if.end52.us:                                      ; preds = %if.else.us
   %35 = and i8 %34, 63
   %and107.i.us = zext nneg i8 %35 to i32
   %shl109.i.us = shl nuw nsw i32 %and107.i.us, %shr.i.us
-  %add110.i.us = add i32 %sub54.i.us, %shl12.neg96.i.us
-  %sub112.i.us = add i32 %add110.i.us, %shl109.i.us
+  %add110.i.us = add nsw i32 %sub54.i.us, %shl12.neg96.i.us
+  %sub112.i.us = add nsw i32 %add110.i.us, %shl109.i.us
   %conv113.i.us = trunc i32 %sub112.i.us to i16
   store i16 %conv113.i.us, ptr %arrayidx114.i, align 2
   %arrayidx117.i.us = getelementptr inbounds i8, ptr %in.3137.us, i64 8
@@ -967,8 +967,8 @@ if.end52.us:                                      ; preds = %if.else.us
   %44 = and i8 %43, 63
   %and165.i.us = zext nneg i8 %44 to i32
   %shl167.i.us = shl nuw nsw i32 %and165.i.us, %shr.i.us
-  %add168.i.us = add i32 %sub112.i.us, %shl12.neg96.i.us
-  %sub170.i.us = add i32 %add168.i.us, %shl167.i.us
+  %add168.i.us = add nsw i32 %sub112.i.us, %shl12.neg96.i.us
+  %sub170.i.us = add nsw i32 %add168.i.us, %shl167.i.us
   %conv171.i.us = trunc i32 %sub170.i.us to i16
   store i16 %conv171.i.us, ptr %arrayidx172.i, align 4
   %arrayidx175.i.us = getelementptr inbounds i8, ptr %in.3137.us, i64 11
@@ -1011,8 +1011,8 @@ if.end52.us:                                      ; preds = %if.else.us
   %53 = and i8 %52, 63
   %and223.i.us = zext nneg i8 %53 to i32
   %shl225.i.us = shl nuw nsw i32 %and223.i.us, %shr.i.us
-  %add226.i.us = add i32 %sub170.i.us, %shl12.neg96.i.us
-  %sub228.i.us = add i32 %add226.i.us, %shl225.i.us
+  %add226.i.us = add nsw i32 %sub170.i.us, %shl12.neg96.i.us
+  %sub228.i.us = add nsw i32 %add226.i.us, %shl225.i.us
   %conv229.i.us = trunc i32 %sub228.i.us to i16
   store i16 %conv229.i.us, ptr %arrayidx230.i, align 2
   br label %for.body.i109.us

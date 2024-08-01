@@ -39,7 +39,7 @@ define dso_local i32 @apic_default_calc_apicid(i32 noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @apic_flat_calc_apicid(i32 noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 1, 0) i32 @apic_flat_calc_apicid(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = shl nuw i32 1, %0
   ret i32 %2
 }

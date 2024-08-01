@@ -83,7 +83,7 @@ define void @sorglq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 45:                                               ; preds = %43
   store i32 %25, ptr %15, align 4
   %46 = shl nsw i32 %25, 5
-  %47 = icmp slt i32 %23, %46
+  %47 = icmp ult i32 %23, %46
   br i1 %47, label %48, label %.thread172
 
 48:                                               ; preds = %45

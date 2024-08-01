@@ -3737,7 +3737,7 @@ QuESTAssert.exit:                                 ; preds = %6, %8
   br label %13
 
 13:                                               ; preds = %.preheader53.us, %QuESTAssert.exit48.us
-  %indvars.iv71 = phi i64 [ %12, %.preheader53.us ], [ %indvars.iv.next72, %QuESTAssert.exit48.us ]
+  %indvars.iv70 = phi i64 [ %12, %.preheader53.us ], [ %indvars.iv.next71, %QuESTAssert.exit48.us ]
   %indvars.iv = phi i64 [ 0, %.preheader53.us ], [ %indvars.iv.next, %QuESTAssert.exit48.us ]
   %14 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
@@ -3745,7 +3745,7 @@ QuESTAssert.exit:                                 ; preds = %6, %8
   %17 = zext nneg i32 %16 to i64
   %18 = shl nuw i64 1, %17
   %19 = sub nsw i64 0, %18
-  %20 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv71
+  %20 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv70
   %21 = load i64, ptr %20, align 8
   %.not.us = icmp slt i64 %21, %19
   %22 = icmp sge i64 %21, %18
@@ -3757,7 +3757,7 @@ QuESTAssert.exit:                                 ; preds = %6, %8
   br label %QuESTAssert.exit48.us
 
 QuESTAssert.exit48.us:                            ; preds = %23, %13
-  %indvars.iv.next72 = add nsw i64 %indvars.iv71, 1
+  %indvars.iv.next71 = add nsw i64 %indvars.iv70, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %13
@@ -3765,61 +3765,60 @@ QuESTAssert.exit48.us:                            ; preds = %23, %13
 ._crit_edge.us:                                   ; preds = %QuESTAssert.exit48.us
   %24 = add nsw i64 %12, %11
   %25 = add nuw nsw i32 %.03959.us, 1
-  %exitcond76.not = icmp eq i32 %25, %4
-  br i1 %exitcond76.not, label %.loopexit, label %.preheader53.us
+  %exitcond75.not = icmp eq i32 %25, %4
+  br i1 %exitcond75.not, label %.loopexit, label %.preheader53.us
 
 .preheader52:                                     ; preds = %QuESTAssert.exit
   %26 = icmp sgt i32 %4, 0
   %27 = icmp sgt i32 %1, 0
-  %or.cond89 = and i1 %26, %27
-  br i1 %or.cond89, label %.preheader.us.preheader, label %.loopexit
+  %or.cond88 = and i1 %26, %27
+  br i1 %or.cond88, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %.preheader52
   %28 = zext nneg i32 %1 to i64
-  %wide.trip.count84 = zext nneg i32 %1 to i64
+  %wide.trip.count83 = zext nneg i32 %1 to i64
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us65
-  %.064.us = phi i64 [ %39, %._crit_edge.us65 ], [ 0, %.preheader.us.preheader ]
-  %.03663.us = phi i32 [ %40, %._crit_edge.us65 ], [ 0, %.preheader.us.preheader ]
-  %sext87 = shl i64 %.064.us, 32
-  %29 = ashr exact i64 %sext87, 32
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us64
+  %.063.us = phi i64 [ %38, %._crit_edge.us64 ], [ 0, %.preheader.us.preheader ]
+  %.03662.us = phi i32 [ %39, %._crit_edge.us64 ], [ 0, %.preheader.us.preheader ]
+  %sext86 = shl i64 %.063.us, 32
+  %29 = ashr exact i64 %sext86, 32
   br label %30
 
 30:                                               ; preds = %.preheader.us, %QuESTAssert.exit46.us
-  %indvars.iv79 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next80, %QuESTAssert.exit46.us ]
-  %indvars.iv77 = phi i64 [ %29, %.preheader.us ], [ %indvars.iv.next78, %QuESTAssert.exit46.us ]
-  %31 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv77
+  %indvars.iv78 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next79, %QuESTAssert.exit46.us ]
+  %indvars.iv76 = phi i64 [ %29, %.preheader.us ], [ %indvars.iv.next77, %QuESTAssert.exit46.us ]
+  %31 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv76
   %32 = load i64, ptr %31, align 8
   %33 = icmp sgt i64 %32, -1
   br i1 %33, label %34, label %.thread.us
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv79
+  %35 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv78
   %36 = load i32, ptr %35, align 4
   %37 = zext nneg i32 %36 to i64
-  %notmask.us = shl nsw i64 -1, %37
-  %38 = xor i64 %notmask.us, -1
-  %.not51.us = icmp sgt i64 %32, %38
-  br i1 %.not51.us, label %.thread.us, label %QuESTAssert.exit46.us
+  %.highbits.us = lshr i64 %32, %37
+  %.not51.us = icmp eq i64 %.highbits.us, 0
+  br i1 %.not51.us, label %QuESTAssert.exit46.us, label %.thread.us
 
 .thread.us:                                       ; preds = %34, %30
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.75, ptr noundef %5)
   br label %QuESTAssert.exit46.us
 
 QuESTAssert.exit46.us:                            ; preds = %.thread.us, %34
-  %indvars.iv.next78 = add nsw i64 %indvars.iv77, 1
-  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %exitcond85.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count84
-  br i1 %exitcond85.not, label %._crit_edge.us65, label %30
+  %indvars.iv.next77 = add nsw i64 %indvars.iv76, 1
+  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
+  %exitcond84.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count83
+  br i1 %exitcond84.not, label %._crit_edge.us64, label %30
 
-._crit_edge.us65:                                 ; preds = %QuESTAssert.exit46.us
-  %39 = add nsw i64 %29, %28
-  %40 = add nuw nsw i32 %.03663.us, 1
-  %exitcond86.not = icmp eq i32 %40, %4
-  br i1 %exitcond86.not, label %.loopexit, label %.preheader.us
+._crit_edge.us64:                                 ; preds = %QuESTAssert.exit46.us
+  %38 = add nsw i64 %29, %28
+  %39 = add nuw nsw i32 %.03662.us, 1
+  %exitcond85.not = icmp eq i32 %39, %4
+  br i1 %exitcond85.not, label %.loopexit, label %.preheader.us
 
-.loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us65, %.preheader54, %.preheader52, %QuESTAssert.exit
+.loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us64, %.preheader54, %.preheader52, %QuESTAssert.exit
   ret void
 }
 

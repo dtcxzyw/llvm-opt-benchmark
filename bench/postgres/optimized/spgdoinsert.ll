@@ -3852,7 +3852,7 @@ define internal fastcc void @moveLeafs(ptr noundef %0, ptr noundef %1, ptr nocap
   %17 = select i1 %13, i16 0, i16 %16
   %18 = zext nneg i16 %17 to i64
   %19 = tail call ptr @palloc(i64 noundef %18) #10
-  %20 = add nuw i16 %17, 2
+  %20 = add nuw nsw i16 %17, 2
   %21 = zext i16 %20 to i64
   %22 = tail call ptr @palloc(i64 noundef %21) #10
   %23 = load i32, ptr %4, align 4

@@ -469,8 +469,8 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
   %109 = add nsw i32 %108, -1046
   %110 = shl nsw i32 %109, 20
   %111 = sub nsw i32 %9, %110
-  %.4.insert.ext = zext i32 %111 to i64
-  %.4.insert.shift = shl nuw i64 %.4.insert.ext, 32
+  %.4.insert.ext = zext nneg i32 %111 to i64
+  %.4.insert.shift = shl nuw nsw i64 %.4.insert.ext, 32
   %.4.insert.insert = or disjoint i64 %.4.insert.shift, %.0.insert.ext
   %112 = bitcast i64 %.4.insert.insert to double
   br label %113
@@ -597,8 +597,8 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
   %161 = shl nsw i32 %.neg262.i, 20
   %162 = add i32 %161, 1047527424
   %163 = add i32 %161, 1104150528
-  %.sroa.0.4.insert.ext.i24.i276.i = zext i32 %163 to i64
-  %.sroa.0.4.insert.shift.i25.i277.i = shl nuw i64 %.sroa.0.4.insert.ext.i24.i276.i, 32
+  %.sroa.0.4.insert.ext.i24.i276.i = zext nneg i32 %163 to i64
+  %.sroa.0.4.insert.shift.i25.i277.i = shl nuw nsw i64 %.sroa.0.4.insert.ext.i24.i276.i, 32
   %164 = bitcast i64 %.sroa.0.4.insert.shift.i25.i277.i to double
   %165 = fmul double %164, 0x3C90000000000000
   %.sroa.0.4.insert.ext.i.i281.i = zext nneg i32 %162 to i64
@@ -717,7 +717,7 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
 215:                                              ; preds = %210
   %216 = and i32 %.01844.i.i, -2146435073
   %217 = shl nsw i32 %197, 20
-  %218 = add i32 %217, 56623104
+  %218 = add nsw i32 %217, 56623104
   %219 = or i32 %218, %216
   %220 = bitcast double %.03842.i.i to i64
   %.sroa.0.4.insert.ext.i24.i.i = zext i32 %219 to i64
@@ -1008,7 +1008,7 @@ _ZL7scalbnAdi.exit285.i:                          ; preds = %269
 341:                                              ; preds = %336
   %342 = and i32 %.01844.i293.i, -2146435073
   %343 = shl nsw i32 %323, 20
-  %344 = add i32 %343, 56623104
+  %344 = add nsw i32 %343, 56623104
   %345 = or i32 %344, %342
   %346 = bitcast double %.03842.i295.i to i64
   %.sroa.0.4.insert.ext.i24.i296.i = zext i32 %345 to i64
@@ -1073,9 +1073,9 @@ _ZL7scalbnAdi.exit304.i:                          ; preds = %341, %338, %330, %3
 
 374:                                              ; preds = %372
   %375 = shl nsw i32 %365, 20
-  %376 = add i32 %375, 56623104
-  %.sroa.0.4.insert.ext.i24.i309.i = zext i32 %376 to i64
-  %.sroa.0.4.insert.shift.i25.i310.i = shl nuw i64 %.sroa.0.4.insert.ext.i24.i309.i, 32
+  %376 = add nsw i32 %375, 56623104
+  %.sroa.0.4.insert.ext.i24.i309.i = zext nneg i32 %376 to i64
+  %.sroa.0.4.insert.shift.i25.i310.i = shl nuw nsw i64 %.sroa.0.4.insert.ext.i24.i309.i, 32
   %377 = bitcast i64 %.sroa.0.4.insert.shift.i25.i310.i to double
   %378 = fmul double %377, 0x3C90000000000000
   br label %_ZL7scalbnAdi.exit318.i

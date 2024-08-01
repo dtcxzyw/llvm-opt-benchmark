@@ -68763,7 +68763,7 @@ define noundef i64 @_ZNK8LightGBM9BinMapper11SizesInByteEv(ptr nocapture noundef
   %6 = sext i32 %5 to i64
   %.pn.v = select i1 %4, i64 3, i64 2
   %.pn = shl nsw i64 %6, %.pn.v
-  %.0 = add i64 %.pn, 72
+  %.0 = add nsw i64 %.pn, 72
   ret i64 %.0
 }
 

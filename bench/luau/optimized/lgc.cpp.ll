@@ -2215,7 +2215,7 @@ _ZL13traverseprotoP12global_StateP5Proto.exit:    ; preds = %.preheader.i67._ZL1
   %435 = add nsw i64 %434, %426
   %436 = add nsw i64 %435, %427
   %437 = add nsw i64 %436, %432
-  %438 = add i64 %437, %reass.mul
+  %438 = add nsw i64 %437, %reass.mul
   br label %439
 
 439:                                              ; preds = %1, %235, %237, %_ZL13traverseprotoP12global_StateP5Proto.exit, %_ZL11shrinkstackP9lua_State.exit, %_ZL13traversetableP12global_StateP5Table.exit

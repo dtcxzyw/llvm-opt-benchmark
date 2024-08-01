@@ -70,7 +70,7 @@ define void @ssytrd_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 40:                                               ; preds = %37
   store i32 32, ptr %13, align 4
   %41 = shl nsw i32 %30, 5
-  %42 = sitofp i32 %41 to float
+  %42 = uitofp nneg i32 %41 to float
   store float %42, ptr %7, align 4
   br i1 %27, label %.thread, label %43
 

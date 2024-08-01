@@ -2058,7 +2058,7 @@ if.end64:                                         ; preds = %if.else, %if.then47
   %add74 = or disjoint i64 %rem, 8
   %arrayidx76 = getelementptr inbounds [12 x i8], ptr %scales14, i64 0, i64 %add74
   %30 = load i8, ptr %arrayidx76, align 1
-  %31 = trunc i32 %shl70 to i8
+  %31 = trunc nuw i32 %shl70 to i8
   %conv79 = or i8 %30, %31
   store i8 %conv79, ptr %arrayidx76, align 1
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1

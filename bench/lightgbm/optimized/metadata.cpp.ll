@@ -17503,7 +17503,7 @@ define noundef i64 @_ZNK8LightGBM8Metadata11SizesInByteEv(ptr nocapture noundef 
   %40 = and i64 %37, -8
   %41 = add nsw i64 %40, 8
   %.0.i5 = select i1 %39, i64 %37, i64 %41
-  %42 = add i64 %.0.i5, %.0
+  %42 = add nsw i64 %.0.i5, %.0
   br label %43
 
 43:                                               ; preds = %32, %26

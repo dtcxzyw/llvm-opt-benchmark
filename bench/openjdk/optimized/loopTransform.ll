@@ -5672,7 +5672,7 @@ define hidden noundef zeroext i1 @_ZN13IdealLoopTree13policy_unrollEP14PhaseIdea
   %40 = tail call noundef i32 @llvm.smax.i32(i32 %39, i32 4)
   %41 = add nsw i32 %21, 1
   %42 = shl i32 %40, %41
-  %43 = tail call noundef i32 @llvm.smin.i32(i32 %42, i32 1073741821)
+  %43 = tail call i32 @llvm.umin.i32(i32 %42, i32 1073741821)
   %44 = sub nsw i32 0, %43
   %45 = icmp slt i32 %37, %44
   %46 = icmp sgt i32 %37, %43
@@ -5713,7 +5713,7 @@ define hidden noundef zeroext i1 @_ZN13IdealLoopTree13policy_unrollEP14PhaseIdea
 
 70:                                               ; preds = %64
   %71 = add nsw i32 %22, -1
-  %72 = sitofp i32 %71 to double
+  %72 = uitofp nneg i32 %71 to double
   %73 = load i64, ptr @LoopPercentProfileLimit, align 8
   %74 = sitofp i64 %73 to double
   %75 = fdiv double 1.000000e+02, %74
@@ -5742,7 +5742,7 @@ define hidden noundef zeroext i1 @_ZN13IdealLoopTree13policy_unrollEP14PhaseIdea
   %92 = tail call noundef i32 @llvm.smin.i32(i32 %91, i32 29)
   %93 = shl nuw nsw i32 1, %92
   %94 = add nsw i32 %93, -1
-  %95 = sitofp i32 %94 to double
+  %95 = uitofp nneg i32 %94 to double
   %96 = fmul double %75, %95
   %97 = fcmp ogt double %96, %77
   br i1 %97, label %_ZN14PhaseIdealLoop17may_require_nodesEjj.exit, label %98
@@ -24172,6 +24172,9 @@ declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9

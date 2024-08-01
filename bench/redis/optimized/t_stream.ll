@@ -1656,7 +1656,6 @@ for.body220.preheader:                            ; preds = %if.then210
   %and.lobit = lshr exact i64 %and, 1
   %mul = xor i64 %and.lobit, 1
   %spec.select196 = shl nuw nsw i64 %50, %mul
-  %smax = call i64 @llvm.smax.i64(i64 %spec.select196, i64 1)
   %.pre226 = load ptr, ptr %lp_ele, align 8
   br label %for.body220
 
@@ -1667,7 +1666,7 @@ for.body220:                                      ; preds = %for.body220.prehead
   %call223 = call ptr @lpNext(ptr noundef %55, ptr noundef %54) #16
   store ptr %call223, ptr %lp_ele, align 8
   %inc226 = add nuw nsw i64 %i216.0214, 1
-  %exitcond.not = icmp eq i64 %inc226, %smax
+  %exitcond.not = icmp eq i64 %inc226, %spec.select196
   br i1 %exitcond.not, label %while.body72.backedge, label %for.body220, !llvm.loop !17
 
 if.else228:                                       ; preds = %if.else176, %land.lhs.true183

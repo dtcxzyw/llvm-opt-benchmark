@@ -174,44 +174,44 @@ define void @jpeg_idct_islow(ptr nocapture noundef readonly %0, ptr nocapture no
   %140 = add nsw i64 %128, %127
   %141 = add nsw i64 %140, %133
   %142 = add nsw i64 %88, 1024
-  %143 = add i64 %142, %141
+  %143 = add nsw i64 %142, %141
   %144 = lshr i64 %143, 11
   %145 = trunc i64 %144 to i32
   store i32 %145, ptr %.0249264, align 4
-  %146 = sub i64 %142, %141
+  %146 = sub nsw i64 %142, %141
   %147 = lshr i64 %146, 11
   %148 = trunc i64 %147 to i32
   %149 = getelementptr inbounds i8, ptr %.0249264, i64 224
   store i32 %148, ptr %149, align 4
   %150 = add nsw i64 %90, 1024
-  %151 = add i64 %150, %139
+  %151 = add nsw i64 %150, %139
   %152 = lshr i64 %151, 11
   %153 = trunc i64 %152 to i32
   %154 = getelementptr inbounds i8, ptr %.0249264, i64 32
   store i32 %153, ptr %154, align 4
-  %155 = sub i64 %150, %139
+  %155 = sub nsw i64 %150, %139
   %156 = lshr i64 %155, 11
   %157 = trunc i64 %156 to i32
   %158 = getelementptr inbounds i8, ptr %.0249264, i64 192
   store i32 %157, ptr %158, align 4
   %159 = add nsw i64 %91, 1024
-  %160 = add i64 %159, %137
+  %160 = add nsw i64 %159, %137
   %161 = lshr i64 %160, 11
   %162 = trunc i64 %161 to i32
   %163 = getelementptr inbounds i8, ptr %.0249264, i64 64
   store i32 %162, ptr %163, align 4
-  %164 = sub i64 %159, %137
+  %164 = sub nsw i64 %159, %137
   %165 = lshr i64 %164, 11
   %166 = trunc i64 %165 to i32
   %167 = getelementptr inbounds i8, ptr %.0249264, i64 160
   store i32 %166, ptr %167, align 4
   %168 = add nsw i64 %89, 1024
-  %169 = add i64 %168, %135
+  %169 = add nsw i64 %168, %135
   %170 = lshr i64 %169, 11
   %171 = trunc i64 %170 to i32
   %172 = getelementptr inbounds i8, ptr %.0249264, i64 96
   store i32 %171, ptr %172, align 4
-  %173 = sub i64 %168, %135
+  %173 = sub nsw i64 %168, %135
   %174 = lshr i64 %173, 11
   %175 = trunc i64 %174 to i32
   br label %176
@@ -2028,7 +2028,7 @@ define void @jpeg_idct_11x11(ptr nocapture noundef readonly %0, ptr nocapture no
   %.neg = mul nsw i64 %182, -14924
   %195 = add nsw i64 %194, %189
   %196 = add nsw i64 %195, %.neg
-  %197 = add i64 %196, %187
+  %197 = add nsw i64 %196, %187
   %198 = mul nuw nsw i64 %185, 17333
   %199 = add nsw i64 %194, %187
   %200 = add nsw i64 %199, %198
@@ -2042,7 +2042,7 @@ define void @jpeg_idct_11x11(ptr nocapture noundef readonly %0, ptr nocapture no
   %205 = add nsw i64 %204, %.neg251
   %206 = add nsw i64 %205, %202
   %.neg252 = mul nsw i64 %192, 268423871
-  %207 = add i64 %.neg252, %176
+  %207 = add nsw i64 %.neg252, %176
   %208 = getelementptr inbounds i8, ptr %.1246270, i64 4
   %209 = load i32, ptr %208, align 4
   %210 = zext i32 %209 to i64
@@ -2090,69 +2090,69 @@ define void @jpeg_idct_11x11(ptr nocapture noundef readonly %0, ptr nocapture no
   %.neg256 = mul nsw i64 %219, -13802
   %249 = add nsw i64 %248, %.neg256
   %250 = add nsw i64 %249, %223
-  %251 = add i64 %232, %200
+  %251 = add nsw i64 %232, %200
   %252 = lshr i64 %251, 18
   %253 = and i64 %252, 1023
   %254 = getelementptr inbounds i8, ptr %11, i64 %253
   %255 = load i8, ptr %254, align 1
   store i8 %255, ptr %172, align 1
-  %256 = sub i64 %200, %232
+  %256 = sub nsw i64 %200, %232
   %257 = lshr i64 %256, 18
   %258 = and i64 %257, 1023
   %259 = getelementptr inbounds i8, ptr %11, i64 %258
   %260 = load i8, ptr %259, align 1
   %261 = getelementptr inbounds i8, ptr %172, i64 10
   store i8 %260, ptr %261, align 1
-  %262 = add i64 %242, %197
+  %262 = add nsw i64 %242, %197
   %263 = lshr i64 %262, 18
   %264 = and i64 %263, 1023
   %265 = getelementptr inbounds i8, ptr %11, i64 %264
   %266 = load i8, ptr %265, align 1
   %267 = getelementptr inbounds i8, ptr %172, i64 1
   store i8 %266, ptr %267, align 1
-  %268 = sub i64 %197, %242
+  %268 = sub nsw i64 %197, %242
   %269 = lshr i64 %268, 18
   %270 = and i64 %269, 1023
   %271 = getelementptr inbounds i8, ptr %11, i64 %270
   %272 = load i8, ptr %271, align 1
   %273 = getelementptr inbounds i8, ptr %172, i64 9
   store i8 %272, ptr %273, align 1
-  %274 = add i64 %237, %203
+  %274 = add nsw i64 %237, %203
   %275 = lshr i64 %274, 18
   %276 = and i64 %275, 1023
   %277 = getelementptr inbounds i8, ptr %11, i64 %276
   %278 = load i8, ptr %277, align 1
   %279 = getelementptr inbounds i8, ptr %172, i64 2
   store i8 %278, ptr %279, align 1
-  %280 = sub i64 %203, %237
+  %280 = sub nsw i64 %203, %237
   %281 = lshr i64 %280, 18
   %282 = and i64 %281, 1023
   %283 = getelementptr inbounds i8, ptr %11, i64 %282
   %284 = load i8, ptr %283, align 1
   %285 = getelementptr inbounds i8, ptr %172, i64 8
   store i8 %284, ptr %285, align 1
-  %286 = add i64 %245, %201
+  %286 = add nsw i64 %245, %201
   %287 = lshr i64 %286, 18
   %288 = and i64 %287, 1023
   %289 = getelementptr inbounds i8, ptr %11, i64 %288
   %290 = load i8, ptr %289, align 1
   %291 = getelementptr inbounds i8, ptr %172, i64 3
   store i8 %290, ptr %291, align 1
-  %292 = sub i64 %201, %245
+  %292 = sub nsw i64 %201, %245
   %293 = lshr i64 %292, 18
   %294 = and i64 %293, 1023
   %295 = getelementptr inbounds i8, ptr %11, i64 %294
   %296 = load i8, ptr %295, align 1
   %297 = getelementptr inbounds i8, ptr %172, i64 7
   store i8 %296, ptr %297, align 1
-  %298 = add i64 %250, %206
+  %298 = add nsw i64 %250, %206
   %299 = lshr i64 %298, 18
   %300 = and i64 %299, 1023
   %301 = getelementptr inbounds i8, ptr %11, i64 %300
   %302 = load i8, ptr %301, align 1
   %303 = getelementptr inbounds i8, ptr %172, i64 4
   store i8 %302, ptr %303, align 1
-  %304 = sub i64 %206, %250
+  %304 = sub nsw i64 %206, %250
   %305 = lshr i64 %304, 18
   %306 = and i64 %305, 1023
   %307 = getelementptr inbounds i8, ptr %11, i64 %306

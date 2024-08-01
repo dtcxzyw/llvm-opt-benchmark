@@ -14919,7 +14919,7 @@ if.end.i.i:                                       ; preds = %entry
 if.end5.i.i:                                      ; preds = %if.end.i.i
   %and.i.i = and i32 %6, -2139095041
   %add7.i.i = shl nsw i32 %add.i.i, 23
-  %shl.i.i = add i32 %add7.i.i, 1065353216
+  %shl.i.i = add nsw i32 %add7.i.i, 1065353216
   %or.i.i = or i32 %shl.i.i, %and.i.i
   %7 = bitcast i32 %or.i.i to float
   br label %_ZN4pbrt8GaussianEfff.exit
@@ -14959,7 +14959,7 @@ if.end.i.i15:                                     ; preds = %_ZN4pbrt8GaussianEf
 if.end5.i.i17:                                    ; preds = %if.end.i.i15
   %and.i.i18 = and i32 %15, -2139095041
   %add7.i.i19 = shl nsw i32 %add.i.i13, 23
-  %shl.i.i20 = add i32 %add7.i.i19, 1065353216
+  %shl.i.i20 = add nsw i32 %add7.i.i19, 1065353216
   %or.i.i21 = or i32 %shl.i.i20, %and.i.i18
   %16 = bitcast i32 %or.i.i21 to float
   br label %_ZN4pbrt8GaussianEfff.exit25
@@ -20794,7 +20794,7 @@ if.end.i.i.i.i52:                                 ; preds = %if.end.i.i.i46
 if.end5.i.i.i.i:                                  ; preds = %if.end.i.i.i.i52
   %and.i.i.i.i = and i32 %52, -2139095041
   %add7.i.i.i.i = shl nsw i32 %add.i.i.i.i50, 23
-  %shl.i.i.i.i = add i32 %add7.i.i.i.i, 1065353216
+  %shl.i.i.i.i = add nsw i32 %add7.i.i.i.i, 1065353216
   %or.i.i.i.i = or i32 %shl.i.i.i.i, %and.i.i.i.i
   %53 = bitcast i32 %or.i.i.i.i to float
   %54 = fadd float %53, -1.000000e+00

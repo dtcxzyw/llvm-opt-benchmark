@@ -785,7 +785,7 @@ define dso_local i64 @alloc_iova_fast(ptr noundef %0, i64 noundef %1, i64 nounde
 
 .thread11:                                        ; preds = %7, %14
   %21 = phi i32 [ %19, %14 ], [ 0, %7 ]
-  %22 = phi i64 [ %16, %14 ], [ %12, %7 ]
+  %22 = phi i64 [ %16, %14 ], [ 1, %7 ]
   %23 = phi i64 [ %15, %14 ], [ %13, %7 ]
   %24 = getelementptr inbounds i8, ptr %0, i64 104
   %25 = load ptr, ptr %24, align 8

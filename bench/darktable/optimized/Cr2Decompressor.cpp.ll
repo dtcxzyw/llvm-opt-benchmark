@@ -949,12 +949,12 @@ define weak_odr hidden void @_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDec
 .loopexit15:                                      ; preds = %276, %269, %211
   %295 = phi i64 [ %209, %211 ], [ %223, %269 ], [ %243, %276 ]
   %296 = phi i64 [ 0, %211 ], [ %224, %269 ], [ %280, %276 ]
-  %297 = add i64 %296, %295
+  %297 = add nuw i64 %296, %295
   %298 = lshr i64 %296, 32
-  %299 = trunc nuw i64 %298 to i32
+  %299 = trunc nuw nsw i64 %298 to i32
   %300 = lshr i64 %295, 32
-  %301 = trunc nuw i64 %300 to i32
-  %302 = add nsw i32 %299, %301
+  %301 = trunc nuw nsw i64 %300 to i32
+  %302 = add nuw nsw i32 %299, %301
   %303 = trunc i64 %297 to i32
   %304 = icmp eq i32 %97, %303
   %305 = icmp eq i32 %302, %89

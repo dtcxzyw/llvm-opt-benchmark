@@ -596,7 +596,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %51 = and i32 %.val117, -2
   %52 = getelementptr i8, ptr %49, i64 16
   %.val121 = load i32, ptr %52, align 8
-  %53 = sext i32 %51 to i64
+  %53 = zext nneg i32 %51 to i64
   %54 = getelementptr inbounds i32, ptr %.val123, i64 %53
   store i32 %.val121, ptr %54, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -68,7 +68,7 @@ define dso_local i64 @quote_literal(ptr nocapture noundef readonly %0) #0 {
 27:                                               ; preds = %20, %23, %9
   %28 = phi i32 [ %17, %9 ], [ %22, %20 ], [ %26, %23 ]
   %29 = shl nsw i32 %28, 1
-  %30 = add i32 %29, 7
+  %30 = add nsw i32 %29, 7
   %31 = sext i32 %30 to i64
   %32 = tail call ptr @palloc(i64 noundef %31) #3
   %33 = load i8, ptr %5, align 1

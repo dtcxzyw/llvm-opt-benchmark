@@ -3578,7 +3578,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit.i: ;
   %54 = ptrtoint ptr %53 to i64
   %55 = sub i64 %54, %.pre-phi.i
   %56 = ashr exact i64 %55, 2
-  %57 = sub i64 %.0.i.i, %56
+  %57 = sub nsw i64 %.0.i.i, %56
   store float 0.000000e+00, ptr %4, align 4
   %58 = getelementptr inbounds i8, ptr %52, i64 %55
   invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS4_EEmRKf(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %58, i64 noundef %57, ptr noundef nonnull align 4 dereferenceable(4) %4)

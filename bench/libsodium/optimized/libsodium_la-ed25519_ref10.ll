@@ -4590,7 +4590,7 @@ if.end24.i:                                       ; preds = %for.body18.i
   %shl.i = shl nsw i32 %conv28.i, %5
   %6 = load i8, ptr %arrayidx12.i, align 1
   %conv31.i = sext i8 %6 to i32
-  %add32.i = add i32 %shl.i, %conv31.i
+  %add32.i = add nsw i32 %shl.i, %conv31.i
   %cmp33.i = icmp slt i32 %add32.i, 16
   br i1 %cmp33.i, label %if.then35.i, label %if.else.i
 
@@ -4601,7 +4601,7 @@ if.then35.i:                                      ; preds = %if.end24.i
   br label %for.inc70.i
 
 if.else.i:                                        ; preds = %if.end24.i
-  %sub.i = sub i32 %conv31.i, %shl.i
+  %sub.i = sub nsw i32 %conv31.i, %shl.i
   %cmp45.i = icmp slt i32 %sub.i, -15
   br i1 %cmp45.i, label %for.inc73.i, label %for.body56.preheader.i
 
@@ -4695,7 +4695,7 @@ if.end24.i41:                                     ; preds = %for.body18.i36
   %shl.i43 = shl nsw i32 %conv28.i42, %15
   %16 = load i8, ptr %arrayidx12.i31, align 1
   %conv31.i44 = sext i8 %16 to i32
-  %add32.i45 = add i32 %shl.i43, %conv31.i44
+  %add32.i45 = add nsw i32 %shl.i43, %conv31.i44
   %cmp33.i46 = icmp slt i32 %add32.i45, 16
   br i1 %cmp33.i46, label %if.then35.i69, label %if.else.i47
 
@@ -4706,7 +4706,7 @@ if.then35.i69:                                    ; preds = %if.end24.i41
   br label %for.inc70.i59
 
 if.else.i47:                                      ; preds = %if.end24.i41
-  %sub.i48 = sub i32 %conv31.i44, %shl.i43
+  %sub.i48 = sub nsw i32 %conv31.i44, %shl.i43
   %cmp45.i49 = icmp slt i32 %sub.i48, -15
   br i1 %cmp45.i49, label %for.inc73.i64, label %for.body56.preheader.i50
 

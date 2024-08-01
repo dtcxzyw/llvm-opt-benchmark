@@ -1546,8 +1546,8 @@ cp_get.exit121.i.i:                               ; preds = %if.end10.i162.i.i, 
 
 if.then54.i.i:                                    ; preds = %cp_get.exit121.i.i
   %mul55.i.i = shl nsw i32 %add47.i.i, 3
-  %sub57.i.i = add i32 %mul55.i.i, -48
-  %add58.i.i = add i32 %sub57.i.i, %111
+  %sub57.i.i = add nsw i32 %mul55.i.i, -48
+  %add58.i.i = add nsw i32 %sub57.i.i, %111
   %incdec.ptr.i99.i.i = getelementptr inbounds i8, ptr %110, i64 1
   store ptr %incdec.ptr.i99.i.i, ptr %p.i303.i, align 8
   %114 = load i8, ptr %110, align 1

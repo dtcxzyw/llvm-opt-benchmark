@@ -20162,8 +20162,8 @@ for.end:                                          ; preds = %if.end4
   %7 = add i64 %.fr32, -20
   %8 = urem i64 %7, 20
   %9 = sub nuw i64 %7, %8
-  %10 = add i64 %9, 20
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call8, i8 0, i64 %10, i1 false)
+  %10 = add nuw nsw i64 %9, 20
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call8, i8 0, i64 %10, i1 false)
   %mask.i = getelementptr inbounds i8, ptr %this, i64 28
   %11 = load i32, ptr %mask.i, align 4
   %tobool.not.i22 = icmp eq i32 %11, 0
@@ -47981,8 +47981,8 @@ for.end:                                          ; preds = %if.end4
   %7 = add i64 %.fr32, -24
   %8 = urem i64 %7, 24
   %9 = sub nuw i64 %7, %8
-  %10 = add i64 %9, 24
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call8, i8 0, i64 %10, i1 false)
+  %10 = add nuw nsw i64 %9, 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call8, i8 0, i64 %10, i1 false)
   %mask.i = getelementptr inbounds i8, ptr %this, i64 28
   %11 = load i32, ptr %mask.i, align 4
   %tobool.not.i22 = icmp eq i32 %11, 0
@@ -99090,8 +99090,8 @@ for.end:                                          ; preds = %if.end4
   %7 = add i64 %.fr41, -24
   %8 = urem i64 %7, 24
   %9 = sub nuw i64 %7, %8
-  %10 = add i64 %9, 24
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call8, i8 0, i64 %10, i1 false)
+  %10 = add nuw nsw i64 %9, 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call8, i8 0, i64 %10, i1 false)
   %mask.i = getelementptr inbounds i8, ptr %this, i64 28
   %11 = load i32, ptr %mask.i, align 4
   %tobool.not.i24 = icmp eq i32 %11, 0
@@ -100854,8 +100854,8 @@ for.end:                                          ; preds = %if.end4
   %7 = add i64 %.fr41, -24
   %8 = urem i64 %7, 24
   %9 = sub nuw i64 %7, %8
-  %10 = add i64 %9, 24
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call8, i8 0, i64 %10, i1 false)
+  %10 = add nuw nsw i64 %9, 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call8, i8 0, i64 %10, i1 false)
   %mask.i = getelementptr inbounds i8, ptr %this, i64 28
   %11 = load i32, ptr %mask.i, align 4
   %tobool.not.i24 = icmp eq i32 %11, 0

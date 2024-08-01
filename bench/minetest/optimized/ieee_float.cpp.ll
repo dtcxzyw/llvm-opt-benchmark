@@ -132,7 +132,7 @@ if.then24:                                        ; preds = %if.end22
 
 if.end28:                                         ; preds = %if.end22
   %add = shl nsw i32 %7, 23
-  %shl = add i32 %add, 1056964608
+  %shl = add nsw i32 %add, 1056964608
   %9 = and i32 %conv16, 8388607
   %10 = or disjoint i32 %9, %shl
   %or3248 = add nuw nsw i32 %10, %conv

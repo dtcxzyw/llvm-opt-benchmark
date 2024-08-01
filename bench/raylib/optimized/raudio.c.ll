@@ -79162,12 +79162,12 @@ drmp3_L3_stereo_top_band.exit.i.i:                ; preds = %.loopexit.i.i72.i, 
 1482:                                             ; preds = %1482, %1478
   %.07.i.i.i.i = phi i32 [ %1481, %1478 ], [ %1493, %1482 ]
   %.0.i.i.i79.i = phi float [ 1.000000e+00, %1478 ], [ %1492, %1482 ]
-  %1483 = call i32 @llvm.smin.i32(i32 %.07.i.i.i.i, i32 120)
+  %1483 = call i32 @llvm.umin.i32(i32 %.07.i.i.i.i, i32 120)
   %1484 = and i32 %1483, 3
   %1485 = zext nneg i32 %1484 to i64
   %1486 = getelementptr inbounds [4 x float], ptr @drmp3_L3_ldexp_q2.g_expfrac, i64 0, i64 %1485
   %1487 = load float, ptr %1486, align 4
-  %1488 = ashr i32 %1483, 2
+  %1488 = lshr i32 %1483, 2
   %1489 = lshr i32 1073741824, %1488
   %1490 = uitofp nneg i32 %1489 to float
   %1491 = fmul float %1487, %1490
@@ -118858,11 +118858,11 @@ define internal fastcc i32 @get32_packet(ptr nocapture noundef %0) unnamed_addr 
   %4 = tail call fastcc range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef %0)
   store i32 0, ptr %3, align 8
   %5 = shl nsw i32 %4, 8
-  %6 = add i32 %5, %2
+  %6 = add nsw i32 %5, %2
   %7 = tail call fastcc range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef %0)
   store i32 0, ptr %3, align 8
   %8 = shl nsw i32 %7, 16
-  %9 = add i32 %6, %8
+  %9 = add nsw i32 %6, %8
   %10 = tail call fastcc range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef %0)
   store i32 0, ptr %3, align 8
   %11 = shl i32 %10, 24

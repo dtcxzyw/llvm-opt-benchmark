@@ -88,7 +88,7 @@ define dso_local i32 @acpi_hw_gpe_write(i64 noundef %0, ptr nocapture noundef re
 declare dso_local i32 @acpi_os_write_port(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @acpi_hw_get_gpe_register_bit(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 1, 0) i32 @acpi_hw_get_gpe_register_bit(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 17
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32

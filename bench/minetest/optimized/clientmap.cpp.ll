@@ -5226,7 +5226,7 @@ for.body721:                                      ; preds = %if.end776, %invoke.
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %far_side_mask) #29
   %conv722 = sext i16 %storemerge2077 to i32
   %mul723 = shl nsw i32 %conv722, 1
-  %shl724 = shl nuw i32 1, %mul723
+  %shl724 = shl nuw nsw i32 1, %mul723
   %conv725 = trunc i32 %shl724 to i8
   store i8 %conv725, ptr %far_side_mask, align 1, !tbaa !98
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %my_side) #29

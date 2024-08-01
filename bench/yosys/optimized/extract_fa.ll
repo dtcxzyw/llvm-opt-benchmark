@@ -4991,7 +4991,7 @@ _ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_
   %1266 = phi ptr [ %.val6.i.i, %1148 ], [ %.val13.i.i.i, %.noexc213.i ], [ %.val13.i.i.i, %1258 ]
   %.026.i.i = phi i32 [ %1154, %1148 ], [ 0, %.noexc213.i ], [ %1264, %1258 ]
   %1267 = phi ptr [ %.val.i.i, %1148 ], [ %.val.i.i.i, %.noexc213.i ], [ %.val.i.i.i, %1258 ]
-  %1268 = sext i32 %.026.i.i to i64
+  %1268 = zext nneg i32 %.026.i.i to i64
   %1269 = getelementptr inbounds i32, ptr %1267, i64 %1268
   %1270 = load i32, ptr %1269, align 4
   %1271 = icmp sgt i32 %1270, -1
@@ -5017,7 +5017,7 @@ _ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_
 
 _ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE7do_hashERKi.exit.thread.thread.i.i: ; preds = %_ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE7do_hashERKi.exit.thread.i.i, %1146
   %1281 = phi ptr [ %1265, %_ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE7do_hashERKi.exit.thread.i.i ], [ %.pre410.i, %1146 ]
-  %.sroa.016.0.insert.ext17.i.i = zext i32 %.1.i to i64
+  %.sroa.016.0.insert.ext17.i.i = zext nneg i32 %.1.i to i64
   %1282 = load ptr, ptr %149, align 8
   %.not.i.i.i212.i = icmp eq ptr %1281, %1282
   br i1 %.not.i.i.i212.i, label %1287, label %1283
@@ -5308,7 +5308,7 @@ _ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_
   br i1 %1402, label %.lr.ph.i.i, label %_ZN5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE9do_insertEOSt4pairIiS4_ERi.exit.i.i, !llvm.loop !68
 
 1403:                                             ; preds = %_ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE7do_hashERKi.exit.thread.i.i
-  %.sroa.016.0.insert.ext.i.i = zext i32 %.1.i to i64
+  %.sroa.016.0.insert.ext.i.i = zext nneg i32 %.1.i to i64
   %1404 = load ptr, ptr %149, align 8
   %.not.i17.i.i.i = icmp eq ptr %1265, %1404
   br i1 %.not.i17.i.i.i, label %1409, label %1405

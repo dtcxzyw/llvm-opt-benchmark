@@ -671,14 +671,13 @@ if.then1.i:                                       ; preds = %do.end.i8
 for.body.preheader.i.i:                           ; preds = %if.then1.i
   %mul.i.i = zext i1 %cmp.i.i to i32
   %amount.0.i.i = shl nuw nsw i32 %2, %mul.i.i
-  %smax.i.i = call i32 @llvm.smax.i32(i32 %amount.0.i.i, i32 1)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.06.i.i = phi i32 [ %inc.i.i11, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
   %inc.i.i11 = add nuw nsw i32 %i.06.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %inc.i.i11, %smax.i.i
+  %exitcond.not.i.i = icmp eq i32 %inc.i.i11, %amount.0.i.i
   br i1 %exitcond.not.i.i, label %if.end.i, label %for.body.i.i, !llvm.loop !7
 
 if.end.i:                                         ; preds = %for.body.i.i, %if.then1.i, %do.end.i8
@@ -1015,14 +1014,13 @@ if.then1.i.i:                                     ; preds = %do.end.i.i
 for.body.preheader.i.i.i145:                      ; preds = %if.then1.i.i
   %mul.i.i.i = zext i1 %cmp.i.i.i to i32
   %amount.0.i.i.i146 = shl nuw nsw i32 %3, %mul.i.i.i
-  %smax.i.i.i = call i32 @llvm.smax.i32(i32 %amount.0.i.i.i146, i32 1)
   br label %for.body.i.i.i147
 
 for.body.i.i.i147:                                ; preds = %for.body.i.i.i147, %for.body.preheader.i.i.i145
   %i.06.i.i.i148 = phi i32 [ %inc.i.i.i149, %for.body.i.i.i147 ], [ 0, %for.body.preheader.i.i.i145 ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i.i)
   %inc.i.i.i149 = add nuw nsw i32 %i.06.i.i.i148, 1
-  %exitcond.not.i.i.i150 = icmp eq i32 %inc.i.i.i149, %smax.i.i.i
+  %exitcond.not.i.i.i150 = icmp eq i32 %inc.i.i.i149, %amount.0.i.i.i146
   br i1 %exitcond.not.i.i.i150, label %emitter_dict_end.exit, label %for.body.i.i.i147, !llvm.loop !7
 
 if.else.i139:                                     ; preds = %do.end122
@@ -1691,23 +1689,22 @@ if.then1.i.i182:                                  ; preds = %do.end.i.i177
 for.body.preheader.i.i.i187:                      ; preds = %if.then1.i.i182
   %mul.i.i.i188 = zext i1 %cmp.i.i.i183 to i32
   %amount.0.i.i.i189 = shl nuw nsw i32 %10, %mul.i.i.i188
-  %smax.i.i.i190 = call i32 @llvm.smax.i32(i32 %amount.0.i.i.i189, i32 1)
-  br label %for.body.i.i.i191
+  br label %for.body.i.i.i190
 
-for.body.i.i.i191:                                ; preds = %for.body.i.i.i191, %for.body.preheader.i.i.i187
-  %i.06.i.i.i192 = phi i32 [ %inc.i.i.i193, %for.body.i.i.i191 ], [ 0, %for.body.preheader.i.i.i187 ]
+for.body.i.i.i190:                                ; preds = %for.body.i.i.i190, %for.body.preheader.i.i.i187
+  %i.06.i.i.i191 = phi i32 [ %inc.i.i.i192, %for.body.i.i.i190 ], [ 0, %for.body.preheader.i.i.i187 ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i.i184)
-  %inc.i.i.i193 = add nuw nsw i32 %i.06.i.i.i192, 1
-  %exitcond.not.i.i.i194 = icmp eq i32 %inc.i.i.i193, %smax.i.i.i190
-  br i1 %exitcond.not.i.i.i194, label %emitter_json_object_end.exit.i186, label %for.body.i.i.i191, !llvm.loop !7
+  %inc.i.i.i192 = add nuw nsw i32 %i.06.i.i.i191, 1
+  %exitcond.not.i.i.i193 = icmp eq i32 %inc.i.i.i192, %amount.0.i.i.i189
+  br i1 %exitcond.not.i.i.i193, label %emitter_json_object_end.exit.i186, label %for.body.i.i.i190, !llvm.loop !7
 
-emitter_json_object_end.exit.i186:                ; preds = %for.body.i.i.i191, %if.then1.i.i182, %do.end.i.i177
+emitter_json_object_end.exit.i186:                ; preds = %for.body.i.i.i190, %if.then1.i.i182, %do.end.i.i177
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
-  br label %emitter_dict_end.exit195
+  br label %emitter_dict_end.exit194
 
 if.else.i171:                                     ; preds = %if.end384
   %cmp.i.i172 = icmp eq i32 %emitter.val.i169, 2
-  br i1 %cmp.i.i172, label %if.then.i.i173, label %emitter_dict_end.exit195
+  br i1 %cmp.i.i172, label %if.then.i.i173, label %emitter_dict_end.exit194
 
 if.then.i.i173:                                   ; preds = %if.else.i171
   %nesting_depth.i.i4.i174 = getelementptr inbounds i8, ptr %emitter, i64 24
@@ -1716,9 +1713,9 @@ if.then.i.i173:                                   ; preds = %if.else.i171
   store i32 %dec.i.i5.i175, ptr %nesting_depth.i.i4.i174, align 8
   %item_at_depth.i.i6.i176 = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i6.i176, align 4
-  br label %emitter_dict_end.exit195
+  br label %emitter_dict_end.exit194
 
-emitter_dict_end.exit195:                         ; preds = %emitter_json_object_end.exit.i186, %if.else.i171, %if.then.i.i173
+emitter_dict_end.exit194:                         ; preds = %emitter_json_object_end.exit.i186, %if.else.i171, %if.then.i.i173
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.182)
   call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
   store i64 4, ptr %sz386, align 8
@@ -1726,12 +1723,12 @@ emitter_dict_end.exit195:                         ; preds = %emitter_json_object
   %cmp389.not = icmp eq i32 %call388, 0
   br i1 %cmp389.not, label %do.end393, label %if.then390
 
-if.then390:                                       ; preds = %emitter_dict_end.exit195
+if.then390:                                       ; preds = %emitter_dict_end.exit194
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.183) #13
   call void @abort() #14
   unreachable
 
-do.end393:                                        ; preds = %emitter_dict_end.exit195
+do.end393:                                        ; preds = %emitter_dict_end.exit194
   call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.184, i32 noundef 3, ptr noundef nonnull readonly %uv, ptr noundef null, i32 noundef 0, ptr noundef null)
   store i64 8, ptr %sz395, align 8
   %call397 = call i32 @je_mallctl(ptr noundef nonnull @.str.111, ptr noundef nonnull %ssv, ptr noundef nonnull %sz395, ptr noundef null, i64 noundef 0) #13
@@ -1841,8 +1838,8 @@ tsd_fetch_impl.exit:                              ; preds = %if.then453, %if.the
 
 for.cond.preheader:                               ; preds = %tsd_fetch_impl.exit
   %15 = load i32, ptr %arenas_nbins, align 4
-  %cmp468290.not = icmp eq i32 %15, 0
-  br i1 %cmp468290.not, label %for.end, label %for.body.lr.ph
+  %cmp468285.not = icmp eq i32 %15, 0
+  br i1 %cmp468285.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %arrayidx = getelementptr inbounds i8, ptr %arenas_bin_mib, i64 16
@@ -1955,38 +1952,37 @@ if.then531:                                       ; preds = %tsd_fetch_impl.exit
 do.end536:                                        ; preds = %tsd_fetch_impl.exit696
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.206)
   call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 4, ptr noundef nonnull readonly %u32v)
-  %emitter.val.i196 = load i32, ptr %emitter, align 8
-  %spec.select.i.i197 = icmp ult i32 %emitter.val.i196, 2
-  br i1 %spec.select.i.i197, label %do.end.i, label %emitter_json_object_end.exit
+  %emitter.val.i195 = load i32, ptr %emitter, align 8
+  %spec.select.i.i196 = icmp ult i32 %emitter.val.i195, 2
+  br i1 %spec.select.i.i196, label %do.end.i, label %emitter_json_object_end.exit
 
 do.end.i:                                         ; preds = %do.end536
   %20 = load i32, ptr %nesting_depth.i.i, align 8
   %dec.i.i = add nsw i32 %20, -1
   store i32 %dec.i.i, ptr %nesting_depth.i.i, align 8
   store i8 1, ptr %item_at_depth.i.i, align 4
-  %cmp.not.i = icmp eq i32 %emitter.val.i196, 1
+  %cmp.not.i = icmp eq i32 %emitter.val.i195, 1
   br i1 %cmp.not.i, label %if.end.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %do.end.i
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %21 = load i32, ptr %nesting_depth.i.i, align 8
   %22 = load i32, ptr %emitter, align 8
-  %cmp.i.i198 = icmp ne i32 %22, 0
-  %indent_str.0.i.i = select i1 %cmp.i.i198, ptr @.str.31, ptr @.str.34
+  %cmp.i.i197 = icmp ne i32 %22, 0
+  %indent_str.0.i.i = select i1 %cmp.i.i197, ptr @.str.31, ptr @.str.34
   %cmp15.i.i = icmp sgt i32 %21, 0
   br i1 %cmp15.i.i, label %for.body.preheader.i.i, label %if.end.i
 
 for.body.preheader.i.i:                           ; preds = %if.then1.i
-  %mul.i.i = zext i1 %cmp.i.i198 to i32
+  %mul.i.i = zext i1 %cmp.i.i197 to i32
   %amount.0.i.i = shl nuw nsw i32 %21, %mul.i.i
-  %smax.i.i = call i32 @llvm.smax.i32(i32 %amount.0.i.i, i32 1)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
   %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %smax.i.i
+  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %amount.0.i.i
   br i1 %exitcond.not.i.i, label %if.end.i, label %for.body.i.i, !llvm.loop !7
 
 if.end.i:                                         ; preds = %for.body.i.i, %if.then1.i, %do.end.i
@@ -2001,47 +1997,46 @@ emitter_json_object_end.exit:                     ; preds = %do.end536, %if.end.
   br i1 %cmp468, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %emitter_json_object_end.exit, %for.cond.preheader
-  %emitter.val.i199 = load i32, ptr %emitter, align 8
-  %spec.select.i.i200 = icmp ult i32 %emitter.val.i199, 2
-  br i1 %spec.select.i.i200, label %do.end.i201, label %do.body538
+  %emitter.val.i198 = load i32, ptr %emitter, align 8
+  %spec.select.i.i199 = icmp ult i32 %emitter.val.i198, 2
+  br i1 %spec.select.i.i199, label %do.end.i200, label %do.body538
 
-do.end.i201:                                      ; preds = %for.end
-  %nesting_depth.i.i202 = getelementptr inbounds i8, ptr %emitter, i64 24
-  %25 = load i32, ptr %nesting_depth.i.i202, align 8
-  %dec.i.i203 = add nsw i32 %25, -1
-  store i32 %dec.i.i203, ptr %nesting_depth.i.i202, align 8
-  %item_at_depth.i.i204 = getelementptr inbounds i8, ptr %emitter, i64 28
-  store i8 1, ptr %item_at_depth.i.i204, align 4
-  %cmp.not.i205 = icmp eq i32 %emitter.val.i199, 1
-  br i1 %cmp.not.i205, label %if.end.i210, label %if.then1.i206
+do.end.i200:                                      ; preds = %for.end
+  %nesting_depth.i.i201 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %25 = load i32, ptr %nesting_depth.i.i201, align 8
+  %dec.i.i202 = add nsw i32 %25, -1
+  store i32 %dec.i.i202, ptr %nesting_depth.i.i201, align 8
+  %item_at_depth.i.i203 = getelementptr inbounds i8, ptr %emitter, i64 28
+  store i8 1, ptr %item_at_depth.i.i203, align 4
+  %cmp.not.i204 = icmp eq i32 %emitter.val.i198, 1
+  br i1 %cmp.not.i204, label %if.end.i209, label %if.then1.i205
 
-if.then1.i206:                                    ; preds = %do.end.i201
+if.then1.i205:                                    ; preds = %do.end.i200
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
-  %26 = load i32, ptr %nesting_depth.i.i202, align 8
+  %26 = load i32, ptr %nesting_depth.i.i201, align 8
   %27 = load i32, ptr %emitter, align 8
-  %cmp.i.i207 = icmp ne i32 %27, 0
-  %indent_str.0.i.i208 = select i1 %cmp.i.i207, ptr @.str.31, ptr @.str.34
-  %cmp15.i.i209 = icmp sgt i32 %26, 0
-  br i1 %cmp15.i.i209, label %for.body.preheader.i.i211, label %if.end.i210
+  %cmp.i.i206 = icmp ne i32 %27, 0
+  %indent_str.0.i.i207 = select i1 %cmp.i.i206, ptr @.str.31, ptr @.str.34
+  %cmp15.i.i208 = icmp sgt i32 %26, 0
+  br i1 %cmp15.i.i208, label %for.body.preheader.i.i210, label %if.end.i209
 
-for.body.preheader.i.i211:                        ; preds = %if.then1.i206
-  %mul.i.i212 = zext i1 %cmp.i.i207 to i32
-  %amount.0.i.i213 = shl nuw nsw i32 %26, %mul.i.i212
-  %smax.i.i214 = call i32 @llvm.smax.i32(i32 %amount.0.i.i213, i32 1)
-  br label %for.body.i.i215
+for.body.preheader.i.i210:                        ; preds = %if.then1.i205
+  %mul.i.i211 = zext i1 %cmp.i.i206 to i32
+  %amount.0.i.i212 = shl nuw nsw i32 %26, %mul.i.i211
+  br label %for.body.i.i213
 
-for.body.i.i215:                                  ; preds = %for.body.i.i215, %for.body.preheader.i.i211
-  %i.06.i.i216 = phi i32 [ %inc.i.i217, %for.body.i.i215 ], [ 0, %for.body.preheader.i.i211 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i208)
-  %inc.i.i217 = add nuw nsw i32 %i.06.i.i216, 1
-  %exitcond.not.i.i218 = icmp eq i32 %inc.i.i217, %smax.i.i214
-  br i1 %exitcond.not.i.i218, label %if.end.i210, label %for.body.i.i215, !llvm.loop !7
+for.body.i.i213:                                  ; preds = %for.body.i.i213, %for.body.preheader.i.i210
+  %i.06.i.i214 = phi i32 [ %inc.i.i215, %for.body.i.i213 ], [ 0, %for.body.preheader.i.i210 ]
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i207)
+  %inc.i.i215 = add nuw nsw i32 %i.06.i.i214, 1
+  %exitcond.not.i.i216 = icmp eq i32 %inc.i.i215, %amount.0.i.i212
+  br i1 %exitcond.not.i.i216, label %if.end.i209, label %for.body.i.i213, !llvm.loop !7
 
-if.end.i210:                                      ; preds = %for.body.i.i215, %if.then1.i206, %do.end.i201
+if.end.i209:                                      ; preds = %for.body.i.i213, %if.then1.i205, %do.end.i200
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.229)
   br label %do.body538
 
-do.body538:                                       ; preds = %if.end.i210, %for.end, %do.end451
+do.body538:                                       ; preds = %if.end.i209, %for.end, %do.end451
   store i64 4, ptr %sz539, align 8
   %call541 = call i32 @je_mallctl(ptr noundef nonnull @.str.207, ptr noundef nonnull %nlextents, ptr noundef nonnull %sz539, ptr noundef null, i64 noundef 0) #13
   %cmp542.not = icmp eq i32 %call541, 0
@@ -2055,8 +2050,8 @@ if.then544:                                       ; preds = %do.body538
 do.end547:                                        ; preds = %do.body538
   call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.208, ptr noundef nonnull @.str.209, i32 noundef 3, ptr noundef nonnull readonly %nlextents, ptr noundef null, i32 noundef 0, ptr noundef null)
   %emitter.val136 = load i32, ptr %emitter, align 8
-  %spec.select.i219 = icmp ult i32 %emitter.val136, 2
-  br i1 %spec.select.i219, label %if.then549, label %emitter_json_object_end.exit282
+  %spec.select.i217 = icmp ult i32 %emitter.val136, 2
+  br i1 %spec.select.i217, label %if.then549, label %emitter_json_object_end.exit277
 
 if.then549:                                       ; preds = %do.end547
   call fastcc void @emitter_json_array_kv_begin(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.210)
@@ -2079,13 +2074,13 @@ tsd_fetch_impl.exit720:                           ; preds = %if.then549, %if.the
 
 for.cond567.preheader:                            ; preds = %tsd_fetch_impl.exit720
   %30 = load i32, ptr %nlextents, align 4
-  %cmp568292.not = icmp eq i32 %30, 0
-  br i1 %cmp568292.not, label %for.end592, label %for.body570.lr.ph
+  %cmp568287.not = icmp eq i32 %30, 0
+  br i1 %cmp568287.not, label %for.end592, label %for.body570.lr.ph
 
 for.body570.lr.ph:                                ; preds = %for.cond567.preheader
   %arrayidx572 = getelementptr inbounds i8, ptr %arenas_lextent_mib, i64 16
-  %nesting_depth.i.i223 = getelementptr inbounds i8, ptr %emitter, i64 24
-  %item_at_depth.i.i225 = getelementptr inbounds i8, ptr %emitter, i64 28
+  %nesting_depth.i.i221 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %item_at_depth.i.i223 = getelementptr inbounds i8, ptr %emitter, i64 28
   br label %for.body570
 
 if.then560:                                       ; preds = %tsd_fetch_impl.exit720
@@ -2093,9 +2088,9 @@ if.then560:                                       ; preds = %tsd_fetch_impl.exit
   call void @abort() #14
   unreachable
 
-for.body570:                                      ; preds = %for.body570.lr.ph, %emitter_json_object_end.exit240
-  %indvars.iv295 = phi i64 [ 0, %for.body570.lr.ph ], [ %indvars.iv.next296, %emitter_json_object_end.exit240 ]
-  store i64 %indvars.iv295, ptr %arrayidx572, align 16
+for.body570:                                      ; preds = %for.body570.lr.ph, %emitter_json_object_end.exit237
+  %indvars.iv290 = phi i64 [ 0, %for.body570.lr.ph ], [ %indvars.iv.next291, %emitter_json_object_end.exit237 ]
+  store i64 %indvars.iv290, ptr %arrayidx572, align 16
   call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
   store i64 7, ptr %miblen_new576, align 8
   store i64 8, ptr %sz577, align 8
@@ -2121,129 +2116,126 @@ if.then584:                                       ; preds = %tsd_fetch_impl.exit
 do.end589:                                        ; preds = %tsd_fetch_impl.exit744
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.202)
   call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %sv)
-  %emitter.val.i220 = load i32, ptr %emitter, align 8
-  %spec.select.i.i221 = icmp ult i32 %emitter.val.i220, 2
-  br i1 %spec.select.i.i221, label %do.end.i222, label %emitter_json_object_end.exit240
+  %emitter.val.i218 = load i32, ptr %emitter, align 8
+  %spec.select.i.i219 = icmp ult i32 %emitter.val.i218, 2
+  br i1 %spec.select.i.i219, label %do.end.i220, label %emitter_json_object_end.exit237
 
-do.end.i222:                                      ; preds = %do.end589
-  %32 = load i32, ptr %nesting_depth.i.i223, align 8
-  %dec.i.i224 = add nsw i32 %32, -1
-  store i32 %dec.i.i224, ptr %nesting_depth.i.i223, align 8
-  store i8 1, ptr %item_at_depth.i.i225, align 4
-  %cmp.not.i226 = icmp eq i32 %emitter.val.i220, 1
-  br i1 %cmp.not.i226, label %if.end.i231, label %if.then1.i227
+do.end.i220:                                      ; preds = %do.end589
+  %32 = load i32, ptr %nesting_depth.i.i221, align 8
+  %dec.i.i222 = add nsw i32 %32, -1
+  store i32 %dec.i.i222, ptr %nesting_depth.i.i221, align 8
+  store i8 1, ptr %item_at_depth.i.i223, align 4
+  %cmp.not.i224 = icmp eq i32 %emitter.val.i218, 1
+  br i1 %cmp.not.i224, label %if.end.i229, label %if.then1.i225
 
-if.then1.i227:                                    ; preds = %do.end.i222
+if.then1.i225:                                    ; preds = %do.end.i220
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
-  %33 = load i32, ptr %nesting_depth.i.i223, align 8
+  %33 = load i32, ptr %nesting_depth.i.i221, align 8
   %34 = load i32, ptr %emitter, align 8
-  %cmp.i.i228 = icmp ne i32 %34, 0
-  %indent_str.0.i.i229 = select i1 %cmp.i.i228, ptr @.str.31, ptr @.str.34
-  %cmp15.i.i230 = icmp sgt i32 %33, 0
-  br i1 %cmp15.i.i230, label %for.body.preheader.i.i232, label %if.end.i231
+  %cmp.i.i226 = icmp ne i32 %34, 0
+  %indent_str.0.i.i227 = select i1 %cmp.i.i226, ptr @.str.31, ptr @.str.34
+  %cmp15.i.i228 = icmp sgt i32 %33, 0
+  br i1 %cmp15.i.i228, label %for.body.preheader.i.i230, label %if.end.i229
 
-for.body.preheader.i.i232:                        ; preds = %if.then1.i227
-  %mul.i.i233 = zext i1 %cmp.i.i228 to i32
-  %amount.0.i.i234 = shl nuw nsw i32 %33, %mul.i.i233
-  %smax.i.i235 = call i32 @llvm.smax.i32(i32 %amount.0.i.i234, i32 1)
-  br label %for.body.i.i236
+for.body.preheader.i.i230:                        ; preds = %if.then1.i225
+  %mul.i.i231 = zext i1 %cmp.i.i226 to i32
+  %amount.0.i.i232 = shl nuw nsw i32 %33, %mul.i.i231
+  br label %for.body.i.i233
 
-for.body.i.i236:                                  ; preds = %for.body.i.i236, %for.body.preheader.i.i232
-  %i.06.i.i237 = phi i32 [ %inc.i.i238, %for.body.i.i236 ], [ 0, %for.body.preheader.i.i232 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i229)
-  %inc.i.i238 = add nuw nsw i32 %i.06.i.i237, 1
-  %exitcond.not.i.i239 = icmp eq i32 %inc.i.i238, %smax.i.i235
-  br i1 %exitcond.not.i.i239, label %if.end.i231, label %for.body.i.i236, !llvm.loop !7
+for.body.i.i233:                                  ; preds = %for.body.i.i233, %for.body.preheader.i.i230
+  %i.06.i.i234 = phi i32 [ %inc.i.i235, %for.body.i.i233 ], [ 0, %for.body.preheader.i.i230 ]
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i227)
+  %inc.i.i235 = add nuw nsw i32 %i.06.i.i234, 1
+  %exitcond.not.i.i236 = icmp eq i32 %inc.i.i235, %amount.0.i.i232
+  br i1 %exitcond.not.i.i236, label %if.end.i229, label %for.body.i.i233, !llvm.loop !7
 
-if.end.i231:                                      ; preds = %for.body.i.i236, %if.then1.i227, %do.end.i222
+if.end.i229:                                      ; preds = %for.body.i.i233, %if.then1.i225, %do.end.i220
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
-  br label %emitter_json_object_end.exit240
+  br label %emitter_json_object_end.exit237
 
-emitter_json_object_end.exit240:                  ; preds = %do.end589, %if.end.i231
-  %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
+emitter_json_object_end.exit237:                  ; preds = %do.end589, %if.end.i229
+  %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
   %35 = load i32, ptr %nlextents, align 4
   %36 = zext i32 %35 to i64
-  %cmp568 = icmp ult i64 %indvars.iv.next296, %36
+  %cmp568 = icmp ult i64 %indvars.iv.next291, %36
   br i1 %cmp568, label %for.body570, label %for.end592, !llvm.loop !9
 
-for.end592:                                       ; preds = %emitter_json_object_end.exit240, %for.cond567.preheader
-  %emitter.val.i241 = load i32, ptr %emitter, align 8
-  %spec.select.i.i242 = icmp ult i32 %emitter.val.i241, 2
-  br i1 %spec.select.i.i242, label %do.end.i243, label %emitter_json_object_end.exit282
+for.end592:                                       ; preds = %emitter_json_object_end.exit237, %for.cond567.preheader
+  %emitter.val.i238 = load i32, ptr %emitter, align 8
+  %spec.select.i.i239 = icmp ult i32 %emitter.val.i238, 2
+  br i1 %spec.select.i.i239, label %do.end.i240, label %emitter_json_object_end.exit277
 
-do.end.i243:                                      ; preds = %for.end592
-  %nesting_depth.i.i244 = getelementptr inbounds i8, ptr %emitter, i64 24
-  %37 = load i32, ptr %nesting_depth.i.i244, align 8
-  %dec.i.i245 = add nsw i32 %37, -1
-  store i32 %dec.i.i245, ptr %nesting_depth.i.i244, align 8
-  %item_at_depth.i.i246 = getelementptr inbounds i8, ptr %emitter, i64 28
-  store i8 1, ptr %item_at_depth.i.i246, align 4
-  %cmp.not.i247 = icmp eq i32 %emitter.val.i241, 1
-  br i1 %cmp.not.i247, label %if.end593, label %if.then1.i248
+do.end.i240:                                      ; preds = %for.end592
+  %nesting_depth.i.i241 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %37 = load i32, ptr %nesting_depth.i.i241, align 8
+  %dec.i.i242 = add nsw i32 %37, -1
+  store i32 %dec.i.i242, ptr %nesting_depth.i.i241, align 8
+  %item_at_depth.i.i243 = getelementptr inbounds i8, ptr %emitter, i64 28
+  store i8 1, ptr %item_at_depth.i.i243, align 4
+  %cmp.not.i244 = icmp eq i32 %emitter.val.i238, 1
+  br i1 %cmp.not.i244, label %if.end593, label %if.then1.i245
 
-if.then1.i248:                                    ; preds = %do.end.i243
+if.then1.i245:                                    ; preds = %do.end.i240
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
-  %38 = load i32, ptr %nesting_depth.i.i244, align 8
+  %38 = load i32, ptr %nesting_depth.i.i241, align 8
   %39 = load i32, ptr %emitter, align 8
-  %cmp.i.i249 = icmp ne i32 %39, 0
-  %indent_str.0.i.i250 = select i1 %cmp.i.i249, ptr @.str.31, ptr @.str.34
-  %cmp15.i.i251 = icmp sgt i32 %38, 0
-  br i1 %cmp15.i.i251, label %for.body.preheader.i.i253, label %if.end593
+  %cmp.i.i246 = icmp ne i32 %39, 0
+  %indent_str.0.i.i247 = select i1 %cmp.i.i246, ptr @.str.31, ptr @.str.34
+  %cmp15.i.i248 = icmp sgt i32 %38, 0
+  br i1 %cmp15.i.i248, label %for.body.preheader.i.i250, label %if.end593
 
-for.body.preheader.i.i253:                        ; preds = %if.then1.i248
-  %mul.i.i254 = zext i1 %cmp.i.i249 to i32
-  %amount.0.i.i255 = shl nuw nsw i32 %38, %mul.i.i254
-  %smax.i.i256 = call i32 @llvm.smax.i32(i32 %amount.0.i.i255, i32 1)
-  br label %for.body.i.i257
+for.body.preheader.i.i250:                        ; preds = %if.then1.i245
+  %mul.i.i251 = zext i1 %cmp.i.i246 to i32
+  %amount.0.i.i252 = shl nuw nsw i32 %38, %mul.i.i251
+  br label %for.body.i.i253
 
-for.body.i.i257:                                  ; preds = %for.body.i.i257, %for.body.preheader.i.i253
-  %i.06.i.i258 = phi i32 [ %inc.i.i259, %for.body.i.i257 ], [ 0, %for.body.preheader.i.i253 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i250)
-  %inc.i.i259 = add nuw nsw i32 %i.06.i.i258, 1
-  %exitcond.not.i.i260 = icmp eq i32 %inc.i.i259, %smax.i.i256
-  br i1 %exitcond.not.i.i260, label %if.end593, label %for.body.i.i257, !llvm.loop !7
+for.body.i.i253:                                  ; preds = %for.body.i.i253, %for.body.preheader.i.i250
+  %i.06.i.i254 = phi i32 [ %inc.i.i255, %for.body.i.i253 ], [ 0, %for.body.preheader.i.i250 ]
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i247)
+  %inc.i.i255 = add nuw nsw i32 %i.06.i.i254, 1
+  %exitcond.not.i.i256 = icmp eq i32 %inc.i.i255, %amount.0.i.i252
+  br i1 %exitcond.not.i.i256, label %if.end593, label %for.body.i.i253, !llvm.loop !7
 
-if.end593:                                        ; preds = %for.body.i.i257, %do.end.i243, %if.then1.i248
+if.end593:                                        ; preds = %for.body.i.i253, %do.end.i240, %if.then1.i245
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.229)
-  %emitter.val.i262.pr = load i32, ptr %emitter, align 8
-  %spec.select.i.i263 = icmp ult i32 %emitter.val.i262.pr, 2
-  br i1 %spec.select.i.i263, label %do.end.i264, label %emitter_json_object_end.exit282
+  %emitter.val.i258.pr = load i32, ptr %emitter, align 8
+  %spec.select.i.i259 = icmp ult i32 %emitter.val.i258.pr, 2
+  br i1 %spec.select.i.i259, label %do.end.i260, label %emitter_json_object_end.exit277
 
-do.end.i264:                                      ; preds = %if.end593
-  %40 = load i32, ptr %nesting_depth.i.i244, align 8
-  %dec.i.i266 = add nsw i32 %40, -1
-  store i32 %dec.i.i266, ptr %nesting_depth.i.i244, align 8
-  store i8 1, ptr %item_at_depth.i.i246, align 4
-  %cmp.not.i268 = icmp eq i32 %emitter.val.i262.pr, 1
-  br i1 %cmp.not.i268, label %if.end.i273, label %if.then1.i269
+do.end.i260:                                      ; preds = %if.end593
+  %40 = load i32, ptr %nesting_depth.i.i241, align 8
+  %dec.i.i262 = add nsw i32 %40, -1
+  store i32 %dec.i.i262, ptr %nesting_depth.i.i241, align 8
+  store i8 1, ptr %item_at_depth.i.i243, align 4
+  %cmp.not.i264 = icmp eq i32 %emitter.val.i258.pr, 1
+  br i1 %cmp.not.i264, label %if.end.i269, label %if.then1.i265
 
-if.then1.i269:                                    ; preds = %do.end.i264
+if.then1.i265:                                    ; preds = %do.end.i260
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
-  %41 = load i32, ptr %nesting_depth.i.i244, align 8
+  %41 = load i32, ptr %nesting_depth.i.i241, align 8
   %42 = load i32, ptr %emitter, align 8
-  %cmp.i.i270 = icmp ne i32 %42, 0
-  %indent_str.0.i.i271 = select i1 %cmp.i.i270, ptr @.str.31, ptr @.str.34
-  %cmp15.i.i272 = icmp sgt i32 %41, 0
-  br i1 %cmp15.i.i272, label %for.body.preheader.i.i274, label %if.end.i273
+  %cmp.i.i266 = icmp ne i32 %42, 0
+  %indent_str.0.i.i267 = select i1 %cmp.i.i266, ptr @.str.31, ptr @.str.34
+  %cmp15.i.i268 = icmp sgt i32 %41, 0
+  br i1 %cmp15.i.i268, label %for.body.preheader.i.i270, label %if.end.i269
 
-for.body.preheader.i.i274:                        ; preds = %if.then1.i269
-  %mul.i.i275 = zext i1 %cmp.i.i270 to i32
-  %amount.0.i.i276 = shl nuw nsw i32 %41, %mul.i.i275
-  %smax.i.i277 = call i32 @llvm.smax.i32(i32 %amount.0.i.i276, i32 1)
-  br label %for.body.i.i278
+for.body.preheader.i.i270:                        ; preds = %if.then1.i265
+  %mul.i.i271 = zext i1 %cmp.i.i266 to i32
+  %amount.0.i.i272 = shl nuw nsw i32 %41, %mul.i.i271
+  br label %for.body.i.i273
 
-for.body.i.i278:                                  ; preds = %for.body.i.i278, %for.body.preheader.i.i274
-  %i.06.i.i279 = phi i32 [ %inc.i.i280, %for.body.i.i278 ], [ 0, %for.body.preheader.i.i274 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i271)
-  %inc.i.i280 = add nuw nsw i32 %i.06.i.i279, 1
-  %exitcond.not.i.i281 = icmp eq i32 %inc.i.i280, %smax.i.i277
-  br i1 %exitcond.not.i.i281, label %if.end.i273, label %for.body.i.i278, !llvm.loop !7
+for.body.i.i273:                                  ; preds = %for.body.i.i273, %for.body.preheader.i.i270
+  %i.06.i.i274 = phi i32 [ %inc.i.i275, %for.body.i.i273 ], [ 0, %for.body.preheader.i.i270 ]
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i267)
+  %inc.i.i275 = add nuw nsw i32 %i.06.i.i274, 1
+  %exitcond.not.i.i276 = icmp eq i32 %inc.i.i275, %amount.0.i.i272
+  br i1 %exitcond.not.i.i276, label %if.end.i269, label %for.body.i.i273, !llvm.loop !7
 
-if.end.i273:                                      ; preds = %for.body.i.i278, %if.then1.i269, %do.end.i264
+if.end.i269:                                      ; preds = %for.body.i.i273, %if.then1.i265, %do.end.i260
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
-  br label %emitter_json_object_end.exit282
+  br label %emitter_json_object_end.exit277
 
-emitter_json_object_end.exit282:                  ; preds = %do.end547, %for.end592, %if.end593, %if.end.i273
+emitter_json_object_end.exit277:                  ; preds = %do.end547, %for.end592, %if.end593, %if.end.i269
   ret void
 }
 
@@ -2487,14 +2479,13 @@ if.then1.i:                                       ; preds = %do.end.i
 for.body.preheader.i.i:                           ; preds = %if.then1.i
   %mul.i.i = zext i1 %cmp.i.i to i32
   %amount.0.i.i = shl nuw nsw i32 %9, %mul.i.i
-  %smax.i.i = call i32 @llvm.smax.i32(i32 %amount.0.i.i, i32 1)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
   %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %smax.i.i
+  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %amount.0.i.i
   br i1 %exitcond.not.i.i, label %if.end.i, label %for.body.i.i, !llvm.loop !7
 
 if.end.i:                                         ; preds = %for.body.i.i, %if.then1.i, %do.end.i
@@ -2621,8 +2612,8 @@ if.then127:                                       ; preds = %tsd_fetch_impl.exit
   call void @abort() #14
   unreachable
 
-for.body:                                         ; preds = %for.cond.preheader, %emitter_json_object_end.exit98
-  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %emitter_json_object_end.exit98 ]
+for.body:                                         ; preds = %for.cond.preheader, %emitter_json_object_end.exit97
+  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %emitter_json_object_end.exit97 ]
   %arrayidx135 = getelementptr inbounds [9 x ptr], ptr @global_mutex_names, i64 0, i64 %indvars.iv
   %38 = load ptr, ptr %arrayidx135, align 8
   %39 = load i64, ptr %uptime, align 8
@@ -2936,7 +2927,7 @@ mutex_stats_read_global.exit:                     ; preds = %tsd_fetch_impl.exit
   call fastcc void @mutex_stats_emit(ptr noundef %emitter, ptr noundef nonnull %row, ptr noundef nonnull %col64, ptr noundef nonnull %col32)
   %emitter.val.i78 = load i32, ptr %emitter, align 8
   %spec.select.i.i79 = icmp ult i32 %emitter.val.i78, 2
-  br i1 %spec.select.i.i79, label %do.end.i80, label %emitter_json_object_end.exit98
+  br i1 %spec.select.i.i79, label %do.end.i80, label %emitter_json_object_end.exit97
 
 do.end.i80:                                       ; preds = %mutex_stats_read_global.exit
   %54 = load i32, ptr %nesting_depth.i.i81, align 8
@@ -2958,111 +2949,108 @@ if.then1.i85:                                     ; preds = %do.end.i80
 for.body.preheader.i.i90:                         ; preds = %if.then1.i85
   %mul.i.i91 = zext i1 %cmp.i.i86 to i32
   %amount.0.i.i92 = shl nuw nsw i32 %55, %mul.i.i91
-  %smax.i.i93 = call i32 @llvm.smax.i32(i32 %amount.0.i.i92, i32 1)
-  br label %for.body.i.i94
+  br label %for.body.i.i93
 
-for.body.i.i94:                                   ; preds = %for.body.i.i94, %for.body.preheader.i.i90
-  %i.06.i.i95 = phi i32 [ %inc.i.i96, %for.body.i.i94 ], [ 0, %for.body.preheader.i.i90 ]
+for.body.i.i93:                                   ; preds = %for.body.i.i93, %for.body.preheader.i.i90
+  %i.06.i.i94 = phi i32 [ %inc.i.i95, %for.body.i.i93 ], [ 0, %for.body.preheader.i.i90 ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i87)
-  %inc.i.i96 = add nuw nsw i32 %i.06.i.i95, 1
-  %exitcond.not.i.i97 = icmp eq i32 %inc.i.i96, %smax.i.i93
-  br i1 %exitcond.not.i.i97, label %if.end.i89, label %for.body.i.i94, !llvm.loop !7
+  %inc.i.i95 = add nuw nsw i32 %i.06.i.i94, 1
+  %exitcond.not.i.i96 = icmp eq i32 %inc.i.i95, %amount.0.i.i92
+  br i1 %exitcond.not.i.i96, label %if.end.i89, label %for.body.i.i93, !llvm.loop !7
 
-if.end.i89:                                       ; preds = %for.body.i.i94, %if.then1.i85, %do.end.i80
+if.end.i89:                                       ; preds = %for.body.i.i93, %if.then1.i85, %do.end.i80
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
-  br label %emitter_json_object_end.exit98
+  br label %emitter_json_object_end.exit97
 
-emitter_json_object_end.exit98:                   ; preds = %mutex_stats_read_global.exit, %if.end.i89
+emitter_json_object_end.exit97:                   ; preds = %mutex_stats_read_global.exit, %if.end.i89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
-for.end:                                          ; preds = %emitter_json_object_end.exit98
-  %emitter.val.i99 = load i32, ptr %emitter, align 8
-  %spec.select.i.i100 = icmp ult i32 %emitter.val.i99, 2
-  br i1 %spec.select.i.i100, label %do.end.i101, label %emitter_json_object_end.exit140
+for.end:                                          ; preds = %emitter_json_object_end.exit97
+  %emitter.val.i98 = load i32, ptr %emitter, align 8
+  %spec.select.i.i99 = icmp ult i32 %emitter.val.i98, 2
+  br i1 %spec.select.i.i99, label %do.end.i100, label %emitter_json_object_end.exit137
 
-do.end.i101:                                      ; preds = %for.end
+do.end.i100:                                      ; preds = %for.end
   %57 = load i32, ptr %nesting_depth.i.i81, align 8
-  %dec.i.i103 = add nsw i32 %57, -1
-  store i32 %dec.i.i103, ptr %nesting_depth.i.i81, align 8
+  %dec.i.i102 = add nsw i32 %57, -1
+  store i32 %dec.i.i102, ptr %nesting_depth.i.i81, align 8
   store i8 1, ptr %item_at_depth.i.i83, align 4
-  %cmp.not.i105 = icmp eq i32 %emitter.val.i99, 1
-  br i1 %cmp.not.i105, label %if.end.i110, label %if.then1.i106
+  %cmp.not.i104 = icmp eq i32 %emitter.val.i98, 1
+  br i1 %cmp.not.i104, label %if.end.i109, label %if.then1.i105
 
-if.then1.i106:                                    ; preds = %do.end.i101
+if.then1.i105:                                    ; preds = %do.end.i100
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %58 = load i32, ptr %nesting_depth.i.i81, align 8
   %59 = load i32, ptr %emitter, align 8
-  %cmp.i.i107 = icmp ne i32 %59, 0
-  %indent_str.0.i.i108 = select i1 %cmp.i.i107, ptr @.str.31, ptr @.str.34
-  %cmp15.i.i109 = icmp sgt i32 %58, 0
-  br i1 %cmp15.i.i109, label %for.body.preheader.i.i111, label %if.end.i110
+  %cmp.i.i106 = icmp ne i32 %59, 0
+  %indent_str.0.i.i107 = select i1 %cmp.i.i106, ptr @.str.31, ptr @.str.34
+  %cmp15.i.i108 = icmp sgt i32 %58, 0
+  br i1 %cmp15.i.i108, label %for.body.preheader.i.i110, label %if.end.i109
 
-for.body.preheader.i.i111:                        ; preds = %if.then1.i106
-  %mul.i.i112 = zext i1 %cmp.i.i107 to i32
-  %amount.0.i.i113 = shl nuw nsw i32 %58, %mul.i.i112
-  %smax.i.i114 = call i32 @llvm.smax.i32(i32 %amount.0.i.i113, i32 1)
-  br label %for.body.i.i115
+for.body.preheader.i.i110:                        ; preds = %if.then1.i105
+  %mul.i.i111 = zext i1 %cmp.i.i106 to i32
+  %amount.0.i.i112 = shl nuw nsw i32 %58, %mul.i.i111
+  br label %for.body.i.i113
 
-for.body.i.i115:                                  ; preds = %for.body.i.i115, %for.body.preheader.i.i111
-  %i.06.i.i116 = phi i32 [ %inc.i.i117, %for.body.i.i115 ], [ 0, %for.body.preheader.i.i111 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i108)
-  %inc.i.i117 = add nuw nsw i32 %i.06.i.i116, 1
-  %exitcond.not.i.i118 = icmp eq i32 %inc.i.i117, %smax.i.i114
-  br i1 %exitcond.not.i.i118, label %if.end.i110, label %for.body.i.i115, !llvm.loop !7
+for.body.i.i113:                                  ; preds = %for.body.i.i113, %for.body.preheader.i.i110
+  %i.06.i.i114 = phi i32 [ %inc.i.i115, %for.body.i.i113 ], [ 0, %for.body.preheader.i.i110 ]
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i107)
+  %inc.i.i115 = add nuw nsw i32 %i.06.i.i114, 1
+  %exitcond.not.i.i116 = icmp eq i32 %inc.i.i115, %amount.0.i.i112
+  br i1 %exitcond.not.i.i116, label %if.end.i109, label %for.body.i.i113, !llvm.loop !7
 
-if.end.i110:                                      ; preds = %for.body.i.i115, %if.then1.i106, %do.end.i101
+if.end.i109:                                      ; preds = %for.body.i.i113, %if.then1.i105, %do.end.i100
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %if.end142
 
-if.end142:                                        ; preds = %if.end.i110, %emitter_json_object_end.exit
-  %emitter.val.i120.pr = load i32, ptr %emitter, align 8
-  %spec.select.i.i121 = icmp ult i32 %emitter.val.i120.pr, 2
-  br i1 %spec.select.i.i121, label %do.end.i122, label %emitter_json_object_end.exit140
+if.end142:                                        ; preds = %if.end.i109, %emitter_json_object_end.exit
+  %emitter.val.i118.pr = load i32, ptr %emitter, align 8
+  %spec.select.i.i119 = icmp ult i32 %emitter.val.i118.pr, 2
+  br i1 %spec.select.i.i119, label %do.end.i120, label %emitter_json_object_end.exit137
 
-do.end.i122:                                      ; preds = %if.end142
-  %nesting_depth.i.i123 = getelementptr inbounds i8, ptr %emitter, i64 24
-  %60 = load i32, ptr %nesting_depth.i.i123, align 8
-  %dec.i.i124 = add nsw i32 %60, -1
-  store i32 %dec.i.i124, ptr %nesting_depth.i.i123, align 8
-  %item_at_depth.i.i125 = getelementptr inbounds i8, ptr %emitter, i64 28
-  store i8 1, ptr %item_at_depth.i.i125, align 4
-  %cmp.not.i126 = icmp eq i32 %emitter.val.i120.pr, 1
-  br i1 %cmp.not.i126, label %if.end.i131, label %if.then1.i127
+do.end.i120:                                      ; preds = %if.end142
+  %nesting_depth.i.i121 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %60 = load i32, ptr %nesting_depth.i.i121, align 8
+  %dec.i.i122 = add nsw i32 %60, -1
+  store i32 %dec.i.i122, ptr %nesting_depth.i.i121, align 8
+  %item_at_depth.i.i123 = getelementptr inbounds i8, ptr %emitter, i64 28
+  store i8 1, ptr %item_at_depth.i.i123, align 4
+  %cmp.not.i124 = icmp eq i32 %emitter.val.i118.pr, 1
+  br i1 %cmp.not.i124, label %if.end.i129, label %if.then1.i125
 
-if.then1.i127:                                    ; preds = %do.end.i122
+if.then1.i125:                                    ; preds = %do.end.i120
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
-  %61 = load i32, ptr %nesting_depth.i.i123, align 8
+  %61 = load i32, ptr %nesting_depth.i.i121, align 8
   %62 = load i32, ptr %emitter, align 8
-  %cmp.i.i128 = icmp ne i32 %62, 0
-  %indent_str.0.i.i129 = select i1 %cmp.i.i128, ptr @.str.31, ptr @.str.34
-  %cmp15.i.i130 = icmp sgt i32 %61, 0
-  br i1 %cmp15.i.i130, label %for.body.preheader.i.i132, label %if.end.i131
+  %cmp.i.i126 = icmp ne i32 %62, 0
+  %indent_str.0.i.i127 = select i1 %cmp.i.i126, ptr @.str.31, ptr @.str.34
+  %cmp15.i.i128 = icmp sgt i32 %61, 0
+  br i1 %cmp15.i.i128, label %for.body.preheader.i.i130, label %if.end.i129
 
-for.body.preheader.i.i132:                        ; preds = %if.then1.i127
-  %mul.i.i133 = zext i1 %cmp.i.i128 to i32
-  %amount.0.i.i134 = shl nuw nsw i32 %61, %mul.i.i133
-  %smax.i.i135 = call i32 @llvm.smax.i32(i32 %amount.0.i.i134, i32 1)
-  br label %for.body.i.i136
+for.body.preheader.i.i130:                        ; preds = %if.then1.i125
+  %mul.i.i131 = zext i1 %cmp.i.i126 to i32
+  %amount.0.i.i132 = shl nuw nsw i32 %61, %mul.i.i131
+  br label %for.body.i.i133
 
-for.body.i.i136:                                  ; preds = %for.body.i.i136, %for.body.preheader.i.i132
-  %i.06.i.i137 = phi i32 [ %inc.i.i138, %for.body.i.i136 ], [ 0, %for.body.preheader.i.i132 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i129)
-  %inc.i.i138 = add nuw nsw i32 %i.06.i.i137, 1
-  %exitcond.not.i.i139 = icmp eq i32 %inc.i.i138, %smax.i.i135
-  br i1 %exitcond.not.i.i139, label %if.end.i131, label %for.body.i.i136, !llvm.loop !7
+for.body.i.i133:                                  ; preds = %for.body.i.i133, %for.body.preheader.i.i130
+  %i.06.i.i134 = phi i32 [ %inc.i.i135, %for.body.i.i133 ], [ 0, %for.body.preheader.i.i130 ]
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i127)
+  %inc.i.i135 = add nuw nsw i32 %i.06.i.i134, 1
+  %exitcond.not.i.i136 = icmp eq i32 %inc.i.i135, %amount.0.i.i132
+  br i1 %exitcond.not.i.i136, label %if.end.i129, label %for.body.i.i133, !llvm.loop !7
 
-if.end.i131:                                      ; preds = %for.body.i.i136, %if.then1.i127, %do.end.i122
+if.end.i129:                                      ; preds = %for.body.i.i133, %if.then1.i125, %do.end.i120
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
-  br label %emitter_json_object_end.exit140
+  br label %emitter_json_object_end.exit137
 
-emitter_json_object_end.exit140:                  ; preds = %for.end, %if.end142, %if.end.i131
+emitter_json_object_end.exit137:                  ; preds = %for.end, %if.end142, %if.end.i129
   %brmerge = or i1 %merged, %destroyed
   %brmerge70 = or i1 %brmerge, %unmerged
   br i1 %brmerge70, label %if.then147, label %if.end251
 
-if.then147:                                       ; preds = %emitter_json_object_end.exit140
+if.then147:                                       ; preds = %emitter_json_object_end.exit137
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.259)
   call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
   store i64 4, ptr %sz149, align 8
@@ -3087,8 +3075,8 @@ do.end156:                                        ; preds = %if.then147
 
 for.cond168.preheader:                            ; preds = %do.end156
   %66 = load i32, ptr %narenas, align 4
-  %cmp169208.not = icmp eq i32 %66, 0
-  br i1 %cmp169208.not, label %for.end191, label %for.body170.lr.ph
+  %cmp169202.not = icmp eq i32 %66, 0
+  br i1 %cmp169202.not, label %for.end191, label %for.body170.lr.ph
 
 for.body170.lr.ph:                                ; preds = %for.cond168.preheader
   %arrayidx171 = getelementptr inbounds i8, ptr %mib157, i64 8
@@ -3100,12 +3088,12 @@ if.then165:                                       ; preds = %do.end156
   unreachable
 
 for.body170:                                      ; preds = %for.body170.lr.ph, %do.end182
-  %indvars.iv215 = phi i64 [ 0, %for.body170.lr.ph ], [ %indvars.iv.next216, %do.end182 ]
-  %ninitialized.0210 = phi i32 [ 0, %for.body170.lr.ph ], [ %spec.select, %do.end182 ]
-  store i64 %indvars.iv215, ptr %arrayidx171, align 8
+  %indvars.iv209 = phi i64 [ 0, %for.body170.lr.ph ], [ %indvars.iv.next210, %do.end182 ]
+  %ninitialized.0204 = phi i32 [ 0, %for.body170.lr.ph ], [ %spec.select, %do.end182 ]
+  store i64 %indvars.iv209, ptr %arrayidx171, align 8
   store i64 1, ptr %sz159, align 8
   %67 = load i64, ptr %miblen158, align 8
-  %arrayidx175 = getelementptr inbounds i8, ptr %vla, i64 %indvars.iv215
+  %arrayidx175 = getelementptr inbounds i8, ptr %vla, i64 %indvars.iv209
   %call176 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib157, i64 noundef %67, ptr noundef nonnull %arrayidx175, ptr noundef nonnull %sz159, ptr noundef null, i64 noundef 0) #13
   %cmp177.not = icmp eq i32 %call176, 0
   br i1 %cmp177.not, label %do.end182, label %if.then179
@@ -3119,11 +3107,11 @@ do.end182:                                        ; preds = %for.body170
   %68 = load i8, ptr %arrayidx175, align 1
   %69 = and i8 %68, 1
   %inc187 = zext nneg i8 %69 to i32
-  %spec.select = add i32 %ninitialized.0210, %inc187
-  %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
+  %spec.select = add i32 %ninitialized.0204, %inc187
+  %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %70 = load i32, ptr %narenas, align 4
   %71 = zext i32 %70 to i64
-  %cmp169 = icmp ult i64 %indvars.iv.next216, %71
+  %cmp169 = icmp ult i64 %indvars.iv.next210, %71
   br i1 %cmp169, label %for.body170, label %for.end191.loopexit, !llvm.loop !11
 
 for.end191.loopexit:                              ; preds = %do.end182
@@ -3170,162 +3158,159 @@ if.then220:                                       ; preds = %if.end214
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.264)
   call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
   call fastcc void @stats_arena_print(ptr noundef %emitter, i32 noundef 4097, i1 noundef zeroext %bins, i1 noundef zeroext %large, i1 noundef zeroext %mutex, i1 noundef zeroext %extents, i1 noundef zeroext %hpa) #15
-  %emitter.val.i141 = load i32, ptr %emitter, align 8
-  %spec.select.i.i142 = icmp ult i32 %emitter.val.i141, 2
-  br i1 %spec.select.i.i142, label %do.end.i143, label %if.end226
+  %emitter.val.i138 = load i32, ptr %emitter, align 8
+  %spec.select.i.i139 = icmp ult i32 %emitter.val.i138, 2
+  br i1 %spec.select.i.i139, label %do.end.i140, label %if.end226
 
-do.end.i143:                                      ; preds = %if.then220
-  %nesting_depth.i.i144 = getelementptr inbounds i8, ptr %emitter, i64 24
-  %75 = load i32, ptr %nesting_depth.i.i144, align 8
-  %dec.i.i145 = add nsw i32 %75, -1
-  store i32 %dec.i.i145, ptr %nesting_depth.i.i144, align 8
-  %item_at_depth.i.i146 = getelementptr inbounds i8, ptr %emitter, i64 28
-  store i8 1, ptr %item_at_depth.i.i146, align 4
-  %cmp.not.i147 = icmp eq i32 %emitter.val.i141, 1
-  br i1 %cmp.not.i147, label %if.end.i152, label %if.then1.i148
+do.end.i140:                                      ; preds = %if.then220
+  %nesting_depth.i.i141 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %75 = load i32, ptr %nesting_depth.i.i141, align 8
+  %dec.i.i142 = add nsw i32 %75, -1
+  store i32 %dec.i.i142, ptr %nesting_depth.i.i141, align 8
+  %item_at_depth.i.i143 = getelementptr inbounds i8, ptr %emitter, i64 28
+  store i8 1, ptr %item_at_depth.i.i143, align 4
+  %cmp.not.i144 = icmp eq i32 %emitter.val.i138, 1
+  br i1 %cmp.not.i144, label %if.end.i149, label %if.then1.i145
 
-if.then1.i148:                                    ; preds = %do.end.i143
+if.then1.i145:                                    ; preds = %do.end.i140
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
-  %76 = load i32, ptr %nesting_depth.i.i144, align 8
+  %76 = load i32, ptr %nesting_depth.i.i141, align 8
   %77 = load i32, ptr %emitter, align 8
-  %cmp.i.i149 = icmp ne i32 %77, 0
-  %indent_str.0.i.i150 = select i1 %cmp.i.i149, ptr @.str.31, ptr @.str.34
-  %cmp15.i.i151 = icmp sgt i32 %76, 0
-  br i1 %cmp15.i.i151, label %for.body.preheader.i.i153, label %if.end.i152
+  %cmp.i.i146 = icmp ne i32 %77, 0
+  %indent_str.0.i.i147 = select i1 %cmp.i.i146, ptr @.str.31, ptr @.str.34
+  %cmp15.i.i148 = icmp sgt i32 %76, 0
+  br i1 %cmp15.i.i148, label %for.body.preheader.i.i150, label %if.end.i149
 
-for.body.preheader.i.i153:                        ; preds = %if.then1.i148
-  %mul.i.i154 = zext i1 %cmp.i.i149 to i32
-  %amount.0.i.i155 = shl nuw nsw i32 %76, %mul.i.i154
-  %smax.i.i156 = call i32 @llvm.smax.i32(i32 %amount.0.i.i155, i32 1)
-  br label %for.body.i.i157
+for.body.preheader.i.i150:                        ; preds = %if.then1.i145
+  %mul.i.i151 = zext i1 %cmp.i.i146 to i32
+  %amount.0.i.i152 = shl nuw nsw i32 %76, %mul.i.i151
+  br label %for.body.i.i153
 
-for.body.i.i157:                                  ; preds = %for.body.i.i157, %for.body.preheader.i.i153
-  %i.06.i.i158 = phi i32 [ %inc.i.i159, %for.body.i.i157 ], [ 0, %for.body.preheader.i.i153 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i150)
-  %inc.i.i159 = add nuw nsw i32 %i.06.i.i158, 1
-  %exitcond.not.i.i160 = icmp eq i32 %inc.i.i159, %smax.i.i156
-  br i1 %exitcond.not.i.i160, label %if.end.i152, label %for.body.i.i157, !llvm.loop !7
+for.body.i.i153:                                  ; preds = %for.body.i.i153, %for.body.preheader.i.i150
+  %i.06.i.i154 = phi i32 [ %inc.i.i155, %for.body.i.i153 ], [ 0, %for.body.preheader.i.i150 ]
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i147)
+  %inc.i.i155 = add nuw nsw i32 %i.06.i.i154, 1
+  %exitcond.not.i.i156 = icmp eq i32 %inc.i.i155, %amount.0.i.i152
+  br i1 %exitcond.not.i.i156, label %if.end.i149, label %for.body.i.i153, !llvm.loop !7
 
-if.end.i152:                                      ; preds = %for.body.i.i157, %if.then1.i148, %do.end.i143
+if.end.i149:                                      ; preds = %for.body.i.i153, %if.then1.i145, %do.end.i140
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %if.end226
 
-if.end226:                                        ; preds = %if.end.i152, %if.then220, %if.end214
+if.end226:                                        ; preds = %if.end.i149, %if.then220, %if.end214
   %78 = load i32, ptr %narenas, align 4
-  %cmp230211 = icmp ne i32 %78, 0
-  %or.cond213 = select i1 %unmerged, i1 %cmp230211, i1 false
-  br i1 %or.cond213, label %for.body232.lr.ph, label %if.end250
+  %cmp230205 = icmp ne i32 %78, 0
+  %or.cond207 = select i1 %unmerged, i1 %cmp230205, i1 false
+  br i1 %or.cond207, label %for.body232.lr.ph, label %if.end250
 
 for.body232.lr.ph:                                ; preds = %if.end226
-  %nesting_depth.i.i165 = getelementptr inbounds i8, ptr %emitter, i64 24
-  %item_at_depth.i.i167 = getelementptr inbounds i8, ptr %emitter, i64 28
+  %nesting_depth.i.i161 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %item_at_depth.i.i163 = getelementptr inbounds i8, ptr %emitter, i64 28
   br label %for.body232
 
 for.body232:                                      ; preds = %for.body232.lr.ph, %for.inc247
-  %indvars.iv218 = phi i64 [ 0, %for.body232.lr.ph ], [ %indvars.iv.next219, %for.inc247 ]
-  %arrayidx234 = getelementptr inbounds i8, ptr %vla, i64 %indvars.iv218
+  %indvars.iv212 = phi i64 [ 0, %for.body232.lr.ph ], [ %indvars.iv.next213, %for.inc247 ]
+  %arrayidx234 = getelementptr inbounds i8, ptr %vla, i64 %indvars.iv212
   %79 = load i8, ptr %arrayidx234, align 1
   %tobool235 = trunc i8 %79 to i1
   br i1 %tobool235, label %if.then236, label %for.inc247
 
 if.then236:                                       ; preds = %for.body232
-  %80 = trunc nuw i64 %indvars.iv218 to i32
+  %80 = trunc nuw i64 %indvars.iv212 to i32
   %call238 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %arena_ind_str, i64 noundef 20, ptr noundef nonnull @.str.217, i32 noundef %80) #13
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull %arena_ind_str)
   call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.265, ptr noundef nonnull %arena_ind_str)
   call fastcc void @stats_arena_print(ptr noundef %emitter, i32 noundef %80, i1 noundef zeroext %bins, i1 noundef zeroext %large, i1 noundef zeroext %mutex, i1 noundef zeroext %extents, i1 noundef zeroext %hpa) #15
-  %emitter.val.i162 = load i32, ptr %emitter, align 8
-  %spec.select.i.i163 = icmp ult i32 %emitter.val.i162, 2
-  br i1 %spec.select.i.i163, label %do.end.i164, label %for.inc247
+  %emitter.val.i158 = load i32, ptr %emitter, align 8
+  %spec.select.i.i159 = icmp ult i32 %emitter.val.i158, 2
+  br i1 %spec.select.i.i159, label %do.end.i160, label %for.inc247
 
-do.end.i164:                                      ; preds = %if.then236
-  %81 = load i32, ptr %nesting_depth.i.i165, align 8
-  %dec.i.i166 = add nsw i32 %81, -1
-  store i32 %dec.i.i166, ptr %nesting_depth.i.i165, align 8
-  store i8 1, ptr %item_at_depth.i.i167, align 4
-  %cmp.not.i168 = icmp eq i32 %emitter.val.i162, 1
-  br i1 %cmp.not.i168, label %if.end.i173, label %if.then1.i169
+do.end.i160:                                      ; preds = %if.then236
+  %81 = load i32, ptr %nesting_depth.i.i161, align 8
+  %dec.i.i162 = add nsw i32 %81, -1
+  store i32 %dec.i.i162, ptr %nesting_depth.i.i161, align 8
+  store i8 1, ptr %item_at_depth.i.i163, align 4
+  %cmp.not.i164 = icmp eq i32 %emitter.val.i158, 1
+  br i1 %cmp.not.i164, label %if.end.i169, label %if.then1.i165
 
-if.then1.i169:                                    ; preds = %do.end.i164
+if.then1.i165:                                    ; preds = %do.end.i160
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
-  %82 = load i32, ptr %nesting_depth.i.i165, align 8
+  %82 = load i32, ptr %nesting_depth.i.i161, align 8
   %83 = load i32, ptr %emitter, align 8
-  %cmp.i.i170 = icmp ne i32 %83, 0
-  %indent_str.0.i.i171 = select i1 %cmp.i.i170, ptr @.str.31, ptr @.str.34
-  %cmp15.i.i172 = icmp sgt i32 %82, 0
-  br i1 %cmp15.i.i172, label %for.body.preheader.i.i174, label %if.end.i173
+  %cmp.i.i166 = icmp ne i32 %83, 0
+  %indent_str.0.i.i167 = select i1 %cmp.i.i166, ptr @.str.31, ptr @.str.34
+  %cmp15.i.i168 = icmp sgt i32 %82, 0
+  br i1 %cmp15.i.i168, label %for.body.preheader.i.i170, label %if.end.i169
 
-for.body.preheader.i.i174:                        ; preds = %if.then1.i169
-  %mul.i.i175 = zext i1 %cmp.i.i170 to i32
-  %amount.0.i.i176 = shl nuw nsw i32 %82, %mul.i.i175
-  %smax.i.i177 = call i32 @llvm.smax.i32(i32 %amount.0.i.i176, i32 1)
-  br label %for.body.i.i178
+for.body.preheader.i.i170:                        ; preds = %if.then1.i165
+  %mul.i.i171 = zext i1 %cmp.i.i166 to i32
+  %amount.0.i.i172 = shl nuw nsw i32 %82, %mul.i.i171
+  br label %for.body.i.i173
 
-for.body.i.i178:                                  ; preds = %for.body.i.i178, %for.body.preheader.i.i174
-  %i.06.i.i179 = phi i32 [ %inc.i.i180, %for.body.i.i178 ], [ 0, %for.body.preheader.i.i174 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i171)
-  %inc.i.i180 = add nuw nsw i32 %i.06.i.i179, 1
-  %exitcond.not.i.i181 = icmp eq i32 %inc.i.i180, %smax.i.i177
-  br i1 %exitcond.not.i.i181, label %if.end.i173, label %for.body.i.i178, !llvm.loop !7
+for.body.i.i173:                                  ; preds = %for.body.i.i173, %for.body.preheader.i.i170
+  %i.06.i.i174 = phi i32 [ %inc.i.i175, %for.body.i.i173 ], [ 0, %for.body.preheader.i.i170 ]
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i167)
+  %inc.i.i175 = add nuw nsw i32 %i.06.i.i174, 1
+  %exitcond.not.i.i176 = icmp eq i32 %inc.i.i175, %amount.0.i.i172
+  br i1 %exitcond.not.i.i176, label %if.end.i169, label %for.body.i.i173, !llvm.loop !7
 
-if.end.i173:                                      ; preds = %for.body.i.i178, %if.then1.i169, %do.end.i164
+if.end.i169:                                      ; preds = %for.body.i.i173, %if.then1.i165, %do.end.i160
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %for.inc247
 
-for.inc247:                                       ; preds = %if.end.i173, %if.then236, %for.body232
-  %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
+for.inc247:                                       ; preds = %if.end.i169, %if.then236, %for.body232
+  %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %84 = load i32, ptr %narenas, align 4
   %85 = zext i32 %84 to i64
-  %cmp230 = icmp ult i64 %indvars.iv.next219, %85
+  %cmp230 = icmp ult i64 %indvars.iv.next213, %85
   br i1 %cmp230, label %for.body232, label %if.end250, !llvm.loop !12
 
 if.end250:                                        ; preds = %for.inc247, %if.end226
-  %emitter.val.i183 = load i32, ptr %emitter, align 8
-  %spec.select.i.i184 = icmp ult i32 %emitter.val.i183, 2
-  br i1 %spec.select.i.i184, label %do.end.i185, label %emitter_json_object_end.exit203
+  %emitter.val.i178 = load i32, ptr %emitter, align 8
+  %spec.select.i.i179 = icmp ult i32 %emitter.val.i178, 2
+  br i1 %spec.select.i.i179, label %do.end.i180, label %emitter_json_object_end.exit197
 
-do.end.i185:                                      ; preds = %if.end250
-  %nesting_depth.i.i186 = getelementptr inbounds i8, ptr %emitter, i64 24
-  %86 = load i32, ptr %nesting_depth.i.i186, align 8
-  %dec.i.i187 = add nsw i32 %86, -1
-  store i32 %dec.i.i187, ptr %nesting_depth.i.i186, align 8
-  %item_at_depth.i.i188 = getelementptr inbounds i8, ptr %emitter, i64 28
-  store i8 1, ptr %item_at_depth.i.i188, align 4
-  %cmp.not.i189 = icmp eq i32 %emitter.val.i183, 1
-  br i1 %cmp.not.i189, label %if.end.i194, label %if.then1.i190
+do.end.i180:                                      ; preds = %if.end250
+  %nesting_depth.i.i181 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %86 = load i32, ptr %nesting_depth.i.i181, align 8
+  %dec.i.i182 = add nsw i32 %86, -1
+  store i32 %dec.i.i182, ptr %nesting_depth.i.i181, align 8
+  %item_at_depth.i.i183 = getelementptr inbounds i8, ptr %emitter, i64 28
+  store i8 1, ptr %item_at_depth.i.i183, align 4
+  %cmp.not.i184 = icmp eq i32 %emitter.val.i178, 1
+  br i1 %cmp.not.i184, label %if.end.i189, label %if.then1.i185
 
-if.then1.i190:                                    ; preds = %do.end.i185
+if.then1.i185:                                    ; preds = %do.end.i180
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
-  %87 = load i32, ptr %nesting_depth.i.i186, align 8
+  %87 = load i32, ptr %nesting_depth.i.i181, align 8
   %88 = load i32, ptr %emitter, align 8
-  %cmp.i.i191 = icmp ne i32 %88, 0
-  %indent_str.0.i.i192 = select i1 %cmp.i.i191, ptr @.str.31, ptr @.str.34
-  %cmp15.i.i193 = icmp sgt i32 %87, 0
-  br i1 %cmp15.i.i193, label %for.body.preheader.i.i195, label %if.end.i194
+  %cmp.i.i186 = icmp ne i32 %88, 0
+  %indent_str.0.i.i187 = select i1 %cmp.i.i186, ptr @.str.31, ptr @.str.34
+  %cmp15.i.i188 = icmp sgt i32 %87, 0
+  br i1 %cmp15.i.i188, label %for.body.preheader.i.i190, label %if.end.i189
 
-for.body.preheader.i.i195:                        ; preds = %if.then1.i190
-  %mul.i.i196 = zext i1 %cmp.i.i191 to i32
-  %amount.0.i.i197 = shl nuw nsw i32 %87, %mul.i.i196
-  %smax.i.i198 = call i32 @llvm.smax.i32(i32 %amount.0.i.i197, i32 1)
-  br label %for.body.i.i199
+for.body.preheader.i.i190:                        ; preds = %if.then1.i185
+  %mul.i.i191 = zext i1 %cmp.i.i186 to i32
+  %amount.0.i.i192 = shl nuw nsw i32 %87, %mul.i.i191
+  br label %for.body.i.i193
 
-for.body.i.i199:                                  ; preds = %for.body.i.i199, %for.body.preheader.i.i195
-  %i.06.i.i200 = phi i32 [ %inc.i.i201, %for.body.i.i199 ], [ 0, %for.body.preheader.i.i195 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i192)
-  %inc.i.i201 = add nuw nsw i32 %i.06.i.i200, 1
-  %exitcond.not.i.i202 = icmp eq i32 %inc.i.i201, %smax.i.i198
-  br i1 %exitcond.not.i.i202, label %if.end.i194, label %for.body.i.i199, !llvm.loop !7
+for.body.i.i193:                                  ; preds = %for.body.i.i193, %for.body.preheader.i.i190
+  %i.06.i.i194 = phi i32 [ %inc.i.i195, %for.body.i.i193 ], [ 0, %for.body.preheader.i.i190 ]
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i187)
+  %inc.i.i195 = add nuw nsw i32 %i.06.i.i194, 1
+  %exitcond.not.i.i196 = icmp eq i32 %inc.i.i195, %amount.0.i.i192
+  br i1 %exitcond.not.i.i196, label %if.end.i189, label %for.body.i.i193, !llvm.loop !7
 
-if.end.i194:                                      ; preds = %for.body.i.i199, %if.then1.i190, %do.end.i185
+if.end.i189:                                      ; preds = %for.body.i.i193, %if.then1.i185, %do.end.i180
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
-  br label %emitter_json_object_end.exit203
+  br label %emitter_json_object_end.exit197
 
-emitter_json_object_end.exit203:                  ; preds = %if.end250, %if.end.i194
+emitter_json_object_end.exit197:                  ; preds = %if.end250, %if.end.i189
   call void @llvm.stackrestore.p0(ptr %65)
   br label %if.end251
 
-if.end251:                                        ; preds = %emitter_json_object_end.exit140, %emitter_json_object_end.exit203
+if.end251:                                        ; preds = %emitter_json_object_end.exit137, %emitter_json_object_end.exit197
   ret void
 }
 
@@ -3358,14 +3343,13 @@ if.then1:                                         ; preds = %do.end
 for.body.preheader.i:                             ; preds = %if.then1
   %mul.i = zext i1 %cmp.i to i32
   %amount.0.i = shl nuw nsw i32 %1, %mul.i
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %amount.0.i, i32 1)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %i.06.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %for.body.preheader.i ]
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i)
   %inc.i = add nuw nsw i32 %i.06.i, 1
-  %exitcond.not.i = icmp eq i32 %inc.i, %smax.i
+  %exitcond.not.i = icmp eq i32 %inc.i, %amount.0.i
   br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !7
 
 if.end:                                           ; preds = %for.body.i, %if.then1, %do.end
@@ -3550,14 +3534,13 @@ if.then5.i:                                       ; preds = %if.end4.i
 for.body.preheader.i.i:                           ; preds = %if.then5.i
   %mul.i.i = zext i1 %cmp.i.i to i32
   %amount.0.i.i = shl nuw nsw i32 %3, %mul.i.i
-  %smax.i.i = tail call i32 @llvm.smax.i32(i32 %amount.0.i.i, i32 1)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
   %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %smax.i.i
+  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %amount.0.i.i
   br i1 %exitcond.not.i.i, label %emitter_json_key_prefix.exit.loopexit, label %for.body.i.i, !llvm.loop !7
 
 emitter_json_key_prefix.exit.loopexit:            ; preds = %for.body.i.i
@@ -3629,14 +3612,13 @@ if.then5.i:                                       ; preds = %if.end4.i
 for.body.preheader.i.i:                           ; preds = %if.then5.i
   %mul.i.i = zext i1 %cmp.i.i to i32
   %amount.0.i.i = shl nuw nsw i32 %3, %mul.i.i
-  %smax.i.i = tail call i32 @llvm.smax.i32(i32 %amount.0.i.i, i32 1)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
   %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %smax.i.i
+  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %amount.0.i.i
   br i1 %exitcond.not.i.i, label %emitter_json_key_prefix.exit, label %for.body.i.i, !llvm.loop !7
 
 emitter_json_key_prefix.exit:                     ; preds = %for.body.i.i, %if.then.i, %if.end4.i, %if.then5.i
@@ -3759,14 +3741,13 @@ if.then5.i.i:                                     ; preds = %if.end4.i.i
 for.body.preheader.i.i.i:                         ; preds = %if.then5.i.i
   %mul.i.i.i = zext i1 %cmp.i.i.i to i32
   %amount.0.i.i.i = shl nuw nsw i32 %3, %mul.i.i.i
-  %smax.i.i.i = tail call i32 @llvm.smax.i32(i32 %amount.0.i.i.i, i32 1)
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.preheader.i.i.i
   %i.06.i.i.i = phi i32 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %for.body.preheader.i.i.i ]
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i.i)
   %inc.i.i.i = add nuw nsw i32 %i.06.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i32 %inc.i.i.i, %smax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i32 %inc.i.i.i, %amount.0.i.i.i
   br i1 %exitcond.not.i.i.i, label %emitter_json_key_prefix.exit.i, label %for.body.i.i.i, !llvm.loop !7
 
 emitter_json_key_prefix.exit.i:                   ; preds = %for.body.i.i.i, %if.then5.i.i, %if.end4.i.i, %if.then.i.i
@@ -3833,14 +3814,13 @@ if.then5.i:                                       ; preds = %if.end4.i
 for.body.preheader.i.i:                           ; preds = %if.then5.i
   %mul.i.i = zext i1 %cmp.i.i to i32
   %amount.0.i.i = shl nuw nsw i32 %3, %mul.i.i
-  %smax.i.i = tail call i32 @llvm.smax.i32(i32 %amount.0.i.i, i32 1)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
   %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %smax.i.i
+  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %amount.0.i.i
   br i1 %exitcond.not.i.i, label %emitter_json_key_prefix.exit, label %for.body.i.i, !llvm.loop !7
 
 emitter_json_key_prefix.exit:                     ; preds = %for.body.i.i, %if.then.i, %if.end4.i, %if.then5.i
@@ -4816,8 +4796,8 @@ entry:
   %header_ndirty_nonhuge.i = alloca %struct.emitter_col_s, align 8
   %col_nretained_nonhuge.i = alloca %struct.emitter_col_s, align 8
   %header_nretained_nonhuge.i = alloca %struct.emitter_col_s, align 8
-  %stats_arenas_mib.i752 = alloca [7 x i64], align 16
-  %miblen_new.i753 = alloca i64, align 8
+  %stats_arenas_mib.i751 = alloca [7 x i64], align 16
+  %miblen_new.i752 = alloca i64, align 8
   %miblen_new458.i = alloca i64, align 8
   %miblen_new481.i = alloca i64, align 8
   %sz482.i = alloca i64, align 8
@@ -5515,9 +5495,9 @@ emitter_table_row.exit:                           ; preds = %emitter_col_init.ex
   %cmp338 = icmp sgt i64 %27, -1
   %28 = inttoptr i64 %27 to ptr
   %spec.select = select i1 %cmp338, i32 7, i32 9
-  %spec.select913 = select i1 %cmp338, ptr %28, ptr @.str.315
+  %spec.select911 = select i1 %cmp338, ptr %28, ptr @.str.315
   store i32 %spec.select, ptr %type325, align 8
-  store ptr %spec.select913, ptr %15, align 8
+  store ptr %spec.select911, ptr %15, align 8
   store i32 6, ptr %type328, align 8
   %29 = load i64, ptr %pdirty, align 8
   store i64 %29, ptr %16, align 8
@@ -5563,10 +5543,10 @@ emitter_table_row.exit179:                        ; preds = %emitter_table_row.e
   %39 = load i64, ptr %muzzy_decay_ms, align 8
   %cmp348 = icmp sgt i64 %39, -1
   %40 = inttoptr i64 %39 to ptr
-  %spec.select914 = select i1 %cmp348, i32 7, i32 9
-  %spec.select915 = select i1 %cmp348, ptr %40, ptr @.str.315
-  store i32 %spec.select914, ptr %type325, align 8
-  store ptr %spec.select915, ptr %15, align 8
+  %spec.select912 = select i1 %cmp348, i32 7, i32 9
+  %spec.select913 = select i1 %cmp348, ptr %40, ptr @.str.315
+  store i32 %spec.select912, ptr %type325, align 8
+  store ptr %spec.select913, ptr %15, align 8
   store i32 6, ptr %type328, align 8
   %41 = load i64, ptr %pmuzzy, align 8
   store i64 %41, ptr %16, align 8
@@ -6250,14 +6230,13 @@ if.then1.i:                                       ; preds = %do.end.i
 for.body.preheader.i.i:                           ; preds = %if.then1.i
   %mul.i.i = zext i1 %cmp.i.i to i32
   %amount.0.i.i = shl nuw nsw i32 %130, %mul.i.i
-  %smax.i.i = call i32 @llvm.smax.i32(i32 %amount.0.i.i, i32 1)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
   %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %smax.i.i
+  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %amount.0.i.i
   br i1 %exitcond.not.i.i, label %if.end.i418, label %for.body.i.i, !llvm.loop !7
 
 if.end.i418:                                      ; preds = %for.body.i.i, %if.then1.i, %do.end.i
@@ -6570,7 +6549,7 @@ for.end.i480:                                     ; preds = %for.body.i472, %if.
 emitter_table_row.exit481:                        ; preds = %rate_per_second.exit468, %for.end.i480
   %emitter.val.i482 = phi i32 [ %149, %rate_per_second.exit468 ], [ %emitter.val.i482.pr, %for.end.i480 ]
   %spec.select.i.i483 = icmp ult i32 %emitter.val.i482, 2
-  br i1 %spec.select.i.i483, label %do.end.i484, label %emitter_json_object_end.exit502
+  br i1 %spec.select.i.i483, label %do.end.i484, label %emitter_json_object_end.exit501
 
 do.end.i484:                                      ; preds = %emitter_table_row.exit481
   %nesting_depth.i.i485 = getelementptr inbounds i8, ptr %emitter, i64 24
@@ -6594,21 +6573,20 @@ if.then1.i489:                                    ; preds = %do.end.i484
 for.body.preheader.i.i494:                        ; preds = %if.then1.i489
   %mul.i.i495 = zext i1 %cmp.i.i490 to i32
   %amount.0.i.i496 = shl nuw nsw i32 %156, %mul.i.i495
-  %smax.i.i497 = call i32 @llvm.smax.i32(i32 %amount.0.i.i496, i32 1)
-  br label %for.body.i.i498
+  br label %for.body.i.i497
 
-for.body.i.i498:                                  ; preds = %for.body.i.i498, %for.body.preheader.i.i494
-  %i.06.i.i499 = phi i32 [ %inc.i.i500, %for.body.i.i498 ], [ 0, %for.body.preheader.i.i494 ]
+for.body.i.i497:                                  ; preds = %for.body.i.i497, %for.body.preheader.i.i494
+  %i.06.i.i498 = phi i32 [ %inc.i.i499, %for.body.i.i497 ], [ 0, %for.body.preheader.i.i494 ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i491)
-  %inc.i.i500 = add nuw nsw i32 %i.06.i.i499, 1
-  %exitcond.not.i.i501 = icmp eq i32 %inc.i.i500, %smax.i.i497
-  br i1 %exitcond.not.i.i501, label %if.end.i493, label %for.body.i.i498, !llvm.loop !7
+  %inc.i.i499 = add nuw nsw i32 %i.06.i.i498, 1
+  %exitcond.not.i.i500 = icmp eq i32 %inc.i.i499, %amount.0.i.i496
+  br i1 %exitcond.not.i.i500, label %if.end.i493, label %for.body.i.i497, !llvm.loop !7
 
-if.end.i493:                                      ; preds = %for.body.i.i498, %if.then1.i489, %do.end.i484
+if.end.i493:                                      ; preds = %for.body.i.i497, %if.then1.i489, %do.end.i484
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
-  br label %emitter_json_object_end.exit502
+  br label %emitter_json_object_end.exit501
 
-emitter_json_object_end.exit502:                  ; preds = %emitter_table_row.exit481, %if.end.i493
+emitter_json_object_end.exit501:                  ; preds = %emitter_table_row.exit481, %if.end.i493
   store ptr @.str.339, ptr %51, align 8
   %158 = load i64, ptr %small_allocated, align 8
   %159 = load i64, ptr %large_allocated, align 8
@@ -6635,120 +6613,120 @@ emitter_json_object_end.exit502:                  ; preds = %emitter_table_row.e
   %add702 = add i64 %169, %168
   store i64 %add702, ptr %92, align 8
   %170 = load i64, ptr %uptime, align 8
-  %cmp.i503 = icmp eq i64 %170, 0
-  %cmp1.i504 = icmp eq i64 %add698, 0
-  %or.cond.i505 = or i1 %cmp1.i504, %cmp.i503
-  br i1 %or.cond.i505, label %rate_per_second.exit512, label %if.end.i506
+  %cmp.i502 = icmp eq i64 %170, 0
+  %cmp1.i503 = icmp eq i64 %add698, 0
+  %or.cond.i504 = or i1 %cmp1.i503, %cmp.i502
+  br i1 %or.cond.i504, label %rate_per_second.exit511, label %if.end.i505
 
-if.end.i506:                                      ; preds = %emitter_json_object_end.exit502
-  %cmp2.i507 = icmp ult i64 %170, 1000000000
-  br i1 %cmp2.i507, label %rate_per_second.exit512, label %if.else.i508
+if.end.i505:                                      ; preds = %emitter_json_object_end.exit501
+  %cmp2.i506 = icmp ult i64 %170, 1000000000
+  br i1 %cmp2.i506, label %rate_per_second.exit511, label %if.else.i507
 
-if.else.i508:                                     ; preds = %if.end.i506
-  %div.i509 = udiv i64 %170, 1000000000
-  %div4.i510 = udiv i64 %add698, %div.i509
-  br label %rate_per_second.exit512
+if.else.i507:                                     ; preds = %if.end.i505
+  %div.i508 = udiv i64 %170, 1000000000
+  %div4.i509 = udiv i64 %add698, %div.i508
+  br label %rate_per_second.exit511
 
-rate_per_second.exit512:                          ; preds = %emitter_json_object_end.exit502, %if.end.i506, %if.else.i508
-  %retval.0.i511 = phi i64 [ %div4.i510, %if.else.i508 ], [ 0, %emitter_json_object_end.exit502 ], [ %add698, %if.end.i506 ]
-  store i64 %retval.0.i511, ptr %54, align 8
-  %cmp1.i514 = icmp eq i64 %add699, 0
-  %or.cond.i515 = or i1 %cmp1.i514, %cmp.i503
-  br i1 %or.cond.i515, label %rate_per_second.exit522, label %if.end.i516
+rate_per_second.exit511:                          ; preds = %emitter_json_object_end.exit501, %if.end.i505, %if.else.i507
+  %retval.0.i510 = phi i64 [ %div4.i509, %if.else.i507 ], [ 0, %emitter_json_object_end.exit501 ], [ %add698, %if.end.i505 ]
+  store i64 %retval.0.i510, ptr %54, align 8
+  %cmp1.i513 = icmp eq i64 %add699, 0
+  %or.cond.i514 = or i1 %cmp1.i513, %cmp.i502
+  br i1 %or.cond.i514, label %rate_per_second.exit521, label %if.end.i515
 
-if.end.i516:                                      ; preds = %rate_per_second.exit512
-  %cmp2.i517 = icmp ult i64 %170, 1000000000
-  br i1 %cmp2.i517, label %rate_per_second.exit522, label %if.else.i518
+if.end.i515:                                      ; preds = %rate_per_second.exit511
+  %cmp2.i516 = icmp ult i64 %170, 1000000000
+  br i1 %cmp2.i516, label %rate_per_second.exit521, label %if.else.i517
 
-if.else.i518:                                     ; preds = %if.end.i516
-  %div.i519 = udiv i64 %170, 1000000000
-  %div4.i520 = udiv i64 %add699, %div.i519
-  br label %rate_per_second.exit522
+if.else.i517:                                     ; preds = %if.end.i515
+  %div.i518 = udiv i64 %170, 1000000000
+  %div4.i519 = udiv i64 %add699, %div.i518
+  br label %rate_per_second.exit521
 
-rate_per_second.exit522:                          ; preds = %rate_per_second.exit512, %if.end.i516, %if.else.i518
-  %retval.0.i521 = phi i64 [ %div4.i520, %if.else.i518 ], [ 0, %rate_per_second.exit512 ], [ %add699, %if.end.i516 ]
-  store i64 %retval.0.i521, ptr %57, align 8
-  %cmp1.i524 = icmp eq i64 %add700, 0
-  %or.cond.i525 = or i1 %cmp1.i524, %cmp.i503
-  br i1 %or.cond.i525, label %rate_per_second.exit532, label %if.end.i526
+rate_per_second.exit521:                          ; preds = %rate_per_second.exit511, %if.end.i515, %if.else.i517
+  %retval.0.i520 = phi i64 [ %div4.i519, %if.else.i517 ], [ 0, %rate_per_second.exit511 ], [ %add699, %if.end.i515 ]
+  store i64 %retval.0.i520, ptr %57, align 8
+  %cmp1.i523 = icmp eq i64 %add700, 0
+  %or.cond.i524 = or i1 %cmp1.i523, %cmp.i502
+  br i1 %or.cond.i524, label %rate_per_second.exit531, label %if.end.i525
 
-if.end.i526:                                      ; preds = %rate_per_second.exit522
-  %cmp2.i527 = icmp ult i64 %170, 1000000000
-  br i1 %cmp2.i527, label %rate_per_second.exit532, label %if.else.i528
+if.end.i525:                                      ; preds = %rate_per_second.exit521
+  %cmp2.i526 = icmp ult i64 %170, 1000000000
+  br i1 %cmp2.i526, label %rate_per_second.exit531, label %if.else.i527
 
-if.else.i528:                                     ; preds = %if.end.i526
-  %div.i529 = udiv i64 %170, 1000000000
-  %div4.i530 = udiv i64 %add700, %div.i529
-  br label %rate_per_second.exit532
+if.else.i527:                                     ; preds = %if.end.i525
+  %div.i528 = udiv i64 %170, 1000000000
+  %div4.i529 = udiv i64 %add700, %div.i528
+  br label %rate_per_second.exit531
 
-rate_per_second.exit532:                          ; preds = %rate_per_second.exit522, %if.end.i526, %if.else.i528
-  %retval.0.i531 = phi i64 [ %div4.i530, %if.else.i528 ], [ 0, %rate_per_second.exit522 ], [ %add700, %if.end.i526 ]
-  store i64 %retval.0.i531, ptr %71, align 8
-  %cmp1.i534 = icmp eq i64 %add701, 0
-  %or.cond.i535 = or i1 %cmp1.i534, %cmp.i503
-  br i1 %or.cond.i535, label %rate_per_second.exit542, label %if.end.i536
+rate_per_second.exit531:                          ; preds = %rate_per_second.exit521, %if.end.i525, %if.else.i527
+  %retval.0.i530 = phi i64 [ %div4.i529, %if.else.i527 ], [ 0, %rate_per_second.exit521 ], [ %add700, %if.end.i525 ]
+  store i64 %retval.0.i530, ptr %71, align 8
+  %cmp1.i533 = icmp eq i64 %add701, 0
+  %or.cond.i534 = or i1 %cmp1.i533, %cmp.i502
+  br i1 %or.cond.i534, label %rate_per_second.exit541, label %if.end.i535
 
-if.end.i536:                                      ; preds = %rate_per_second.exit532
-  %cmp2.i537 = icmp ult i64 %170, 1000000000
-  br i1 %cmp2.i537, label %rate_per_second.exit542, label %if.else.i538
+if.end.i535:                                      ; preds = %rate_per_second.exit531
+  %cmp2.i536 = icmp ult i64 %170, 1000000000
+  br i1 %cmp2.i536, label %rate_per_second.exit541, label %if.else.i537
 
-if.else.i538:                                     ; preds = %if.end.i536
-  %div.i539 = udiv i64 %170, 1000000000
-  %div4.i540 = udiv i64 %add701, %div.i539
-  br label %rate_per_second.exit542
+if.else.i537:                                     ; preds = %if.end.i535
+  %div.i538 = udiv i64 %170, 1000000000
+  %div4.i539 = udiv i64 %add701, %div.i538
+  br label %rate_per_second.exit541
 
-rate_per_second.exit542:                          ; preds = %rate_per_second.exit532, %if.end.i536, %if.else.i538
-  %retval.0.i541 = phi i64 [ %div4.i540, %if.else.i538 ], [ 0, %rate_per_second.exit532 ], [ %add701, %if.end.i536 ]
-  store i64 %retval.0.i541, ptr %85, align 8
-  %cmp1.i544 = icmp eq i64 %add702, 0
-  %or.cond.i545 = or i1 %cmp1.i544, %cmp.i503
-  br i1 %or.cond.i545, label %rate_per_second.exit552, label %if.end.i546
+rate_per_second.exit541:                          ; preds = %rate_per_second.exit531, %if.end.i535, %if.else.i537
+  %retval.0.i540 = phi i64 [ %div4.i539, %if.else.i537 ], [ 0, %rate_per_second.exit531 ], [ %add701, %if.end.i535 ]
+  store i64 %retval.0.i540, ptr %85, align 8
+  %cmp1.i543 = icmp eq i64 %add702, 0
+  %or.cond.i544 = or i1 %cmp1.i543, %cmp.i502
+  br i1 %or.cond.i544, label %rate_per_second.exit551, label %if.end.i545
 
-if.end.i546:                                      ; preds = %rate_per_second.exit542
-  %cmp2.i547 = icmp ult i64 %170, 1000000000
-  br i1 %cmp2.i547, label %rate_per_second.exit552, label %if.else.i548
+if.end.i545:                                      ; preds = %rate_per_second.exit541
+  %cmp2.i546 = icmp ult i64 %170, 1000000000
+  br i1 %cmp2.i546, label %rate_per_second.exit551, label %if.else.i547
 
-if.else.i548:                                     ; preds = %if.end.i546
-  %div.i549 = udiv i64 %170, 1000000000
-  %div4.i550 = udiv i64 %add702, %div.i549
-  br label %rate_per_second.exit552
+if.else.i547:                                     ; preds = %if.end.i545
+  %div.i548 = udiv i64 %170, 1000000000
+  %div4.i549 = udiv i64 %add702, %div.i548
+  br label %rate_per_second.exit551
 
-rate_per_second.exit552:                          ; preds = %rate_per_second.exit542, %if.end.i546, %if.else.i548
-  %retval.0.i551 = phi i64 [ %div4.i550, %if.else.i548 ], [ 0, %rate_per_second.exit542 ], [ %add702, %if.end.i546 ]
-  store i64 %retval.0.i551, ptr %99, align 8
+rate_per_second.exit551:                          ; preds = %rate_per_second.exit541, %if.end.i545, %if.else.i547
+  %retval.0.i550 = phi i64 [ %div4.i549, %if.else.i547 ], [ 0, %rate_per_second.exit541 ], [ %add702, %if.end.i545 ]
+  store i64 %retval.0.i550, ptr %99, align 8
   %171 = load i32, ptr %emitter, align 8
-  %cmp.not.i553 = icmp eq i32 %171, 2
-  br i1 %cmp.not.i553, label %if.end.i554, label %emitter_col_init.exit591
+  %cmp.not.i552 = icmp eq i32 %171, 2
+  br i1 %cmp.not.i552, label %if.end.i553, label %emitter_col_init.exit590
 
-if.end.i554:                                      ; preds = %rate_per_second.exit552
-  %cmp1.not10.i555 = icmp eq ptr %98, null
-  br i1 %cmp1.not10.i555, label %for.end.i564, label %for.body.i556
+if.end.i553:                                      ; preds = %rate_per_second.exit551
+  %cmp1.not10.i554 = icmp eq ptr %98, null
+  br i1 %cmp1.not10.i554, label %for.end.i563, label %for.body.i555
 
-for.body.i556:                                    ; preds = %if.end.i554, %for.body.i556
-  %col.011.i557 = phi ptr [ %176, %for.body.i556 ], [ %98, %if.end.i554 ]
-  %172 = load i32, ptr %col.011.i557, align 8
-  %width.i558 = getelementptr inbounds i8, ptr %col.011.i557, i64 4
-  %173 = load i32, ptr %width.i558, align 4
-  %type.i559 = getelementptr inbounds i8, ptr %col.011.i557, i64 8
-  %174 = load i32, ptr %type.i559, align 8
-  %175 = getelementptr inbounds i8, ptr %col.011.i557, i64 16
+for.body.i555:                                    ; preds = %if.end.i553, %for.body.i555
+  %col.011.i556 = phi ptr [ %176, %for.body.i555 ], [ %98, %if.end.i553 ]
+  %172 = load i32, ptr %col.011.i556, align 8
+  %width.i557 = getelementptr inbounds i8, ptr %col.011.i556, i64 4
+  %173 = load i32, ptr %width.i557, align 4
+  %type.i558 = getelementptr inbounds i8, ptr %col.011.i556, i64 8
+  %174 = load i32, ptr %type.i558, align 8
+  %175 = getelementptr inbounds i8, ptr %col.011.i556, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %172, i32 noundef %173, i32 noundef %174, ptr noundef nonnull %175)
-  %link.i560 = getelementptr inbounds i8, ptr %col.011.i557, i64 24
-  %176 = load ptr, ptr %link.i560, align 8
-  %cmp4.not.i561 = icmp eq ptr %176, %98
-  %cmp1.not12.i562 = icmp eq ptr %176, null
-  %cmp1.not.i563 = or i1 %cmp4.not.i561, %cmp1.not12.i562
-  br i1 %cmp1.not.i563, label %for.end.i564, label %for.body.i556
+  %link.i559 = getelementptr inbounds i8, ptr %col.011.i556, i64 24
+  %176 = load ptr, ptr %link.i559, align 8
+  %cmp4.not.i560 = icmp eq ptr %176, %98
+  %cmp1.not12.i561 = icmp eq ptr %176, null
+  %cmp1.not.i562 = or i1 %cmp4.not.i560, %cmp1.not12.i561
+  br i1 %cmp1.not.i562, label %for.end.i563, label %for.body.i555
 
-for.end.i564:                                     ; preds = %for.body.i556, %if.end.i554
+for.end.i563:                                     ; preds = %for.body.i555, %if.end.i553
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   %.pre = load i32, ptr %emitter, align 8
-  br label %emitter_col_init.exit591
+  br label %emitter_col_init.exit590
 
-emitter_col_init.exit591:                         ; preds = %for.end.i564, %rate_per_second.exit552
-  %177 = phi i32 [ %.pre, %for.end.i564 ], [ %171, %rate_per_second.exit552 ]
-  %link.i566 = getelementptr inbounds i8, ptr %mem_count_title, i64 24
-  %qre_prev.i567 = getelementptr inbounds i8, ptr %mem_count_title, i64 32
+emitter_col_init.exit590:                         ; preds = %for.end.i563, %rate_per_second.exit551
+  %177 = phi i32 [ %.pre, %for.end.i563 ], [ %171, %rate_per_second.exit551 ]
+  %link.i565 = getelementptr inbounds i8, ptr %mem_count_title, i64 24
+  %qre_prev.i566 = getelementptr inbounds i8, ptr %mem_count_title, i64 32
   store i32 0, ptr %mem_count_title, align 8
   %width709 = getelementptr inbounds i8, ptr %mem_count_title, i64 4
   store i32 21, ptr %width709, align 4
@@ -6756,12 +6734,12 @@ emitter_col_init.exit591:                         ; preds = %for.end.i564, %rate
   store i32 9, ptr %type710, align 8
   %178 = getelementptr inbounds i8, ptr %mem_count_title, i64 16
   store ptr @.str.29, ptr %178, align 8
-  %link.i579 = getelementptr inbounds i8, ptr %mem_count_val, i64 24
-  %qre_prev.i580 = getelementptr inbounds i8, ptr %mem_count_val, i64 32
-  store ptr %mem_count_val, ptr %qre_prev.i567, align 8
-  store ptr %mem_count_title, ptr %qre_prev.i580, align 8
-  store ptr %mem_count_title, ptr %link.i579, align 8
-  store ptr %mem_count_val, ptr %link.i566, align 8
+  %link.i578 = getelementptr inbounds i8, ptr %mem_count_val, i64 24
+  %qre_prev.i579 = getelementptr inbounds i8, ptr %mem_count_val, i64 32
+  store ptr %mem_count_val, ptr %qre_prev.i566, align 8
+  store ptr %mem_count_title, ptr %qre_prev.i579, align 8
+  store ptr %mem_count_title, ptr %link.i578, align 8
+  store ptr %mem_count_val, ptr %link.i565, align 8
   store i32 1, ptr %mem_count_val, align 8
   %width712 = getelementptr inbounds i8, ptr %mem_count_val, i64 4
   store i32 16, ptr %width712, align 4
@@ -6769,74 +6747,74 @@ emitter_col_init.exit591:                         ; preds = %for.end.i564, %rate
   store i32 9, ptr %type713, align 8
   %179 = getelementptr inbounds i8, ptr %mem_count_val, i64 16
   store ptr @.str.29, ptr %179, align 8
-  %cmp.not.i592 = icmp eq i32 %177, 2
-  br i1 %cmp.not.i592, label %for.body.i595, label %emitter_table_row.exit604
+  %cmp.not.i591 = icmp eq i32 %177, 2
+  br i1 %cmp.not.i591, label %for.body.i594, label %emitter_table_row.exit603
 
-for.body.i595:                                    ; preds = %emitter_col_init.exit591, %for.body.i595
-  %col.011.i596 = phi ptr [ %184, %for.body.i595 ], [ %mem_count_title, %emitter_col_init.exit591 ]
-  %180 = load i32, ptr %col.011.i596, align 8
-  %width.i597 = getelementptr inbounds i8, ptr %col.011.i596, i64 4
-  %181 = load i32, ptr %width.i597, align 4
-  %type.i598 = getelementptr inbounds i8, ptr %col.011.i596, i64 8
-  %182 = load i32, ptr %type.i598, align 8
-  %183 = getelementptr inbounds i8, ptr %col.011.i596, i64 16
+for.body.i594:                                    ; preds = %emitter_col_init.exit590, %for.body.i594
+  %col.011.i595 = phi ptr [ %184, %for.body.i594 ], [ %mem_count_title, %emitter_col_init.exit590 ]
+  %180 = load i32, ptr %col.011.i595, align 8
+  %width.i596 = getelementptr inbounds i8, ptr %col.011.i595, i64 4
+  %181 = load i32, ptr %width.i596, align 4
+  %type.i597 = getelementptr inbounds i8, ptr %col.011.i595, i64 8
+  %182 = load i32, ptr %type.i597, align 8
+  %183 = getelementptr inbounds i8, ptr %col.011.i595, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %180, i32 noundef %181, i32 noundef %182, ptr noundef nonnull %183)
-  %link.i599 = getelementptr inbounds i8, ptr %col.011.i596, i64 24
-  %184 = load ptr, ptr %link.i599, align 8
-  %cmp4.not.i600 = icmp eq ptr %184, %mem_count_title
-  %cmp1.not12.i601 = icmp eq ptr %184, null
-  %cmp1.not.i602 = or i1 %cmp4.not.i600, %cmp1.not12.i601
-  br i1 %cmp1.not.i602, label %for.end.i603, label %for.body.i595
+  %link.i598 = getelementptr inbounds i8, ptr %col.011.i595, i64 24
+  %184 = load ptr, ptr %link.i598, align 8
+  %cmp4.not.i599 = icmp eq ptr %184, %mem_count_title
+  %cmp1.not12.i600 = icmp eq ptr %184, null
+  %cmp1.not.i601 = or i1 %cmp4.not.i599, %cmp1.not12.i600
+  br i1 %cmp1.not.i601, label %for.end.i602, label %for.body.i594
 
-for.end.i603:                                     ; preds = %for.body.i595
+for.end.i602:                                     ; preds = %for.body.i594
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   %.pr = load i32, ptr %emitter, align 8
-  br label %emitter_table_row.exit604
+  br label %emitter_table_row.exit603
 
-emitter_table_row.exit604:                        ; preds = %emitter_col_init.exit591, %for.end.i603
-  %185 = phi i32 [ %177, %emitter_col_init.exit591 ], [ %.pr, %for.end.i603 ]
+emitter_table_row.exit603:                        ; preds = %emitter_col_init.exit590, %for.end.i602
+  %185 = phi i32 [ %177, %emitter_col_init.exit590 ], [ %.pr, %for.end.i602 ]
   store i32 6, ptr %type713, align 8
   store ptr @.str.340, ptr %178, align 8
   %186 = load i64, ptr %pactive, align 8
   %187 = load i64, ptr %page, align 8
   %mul = mul i64 %187, %186
   store i64 %mul, ptr %179, align 8
-  %cmp.not.i605 = icmp eq i32 %185, 2
-  br i1 %cmp.not.i605, label %for.body.i608, label %emitter_table_row.exit617
+  %cmp.not.i604 = icmp eq i32 %185, 2
+  br i1 %cmp.not.i604, label %for.body.i607, label %emitter_table_row.exit616
 
-for.body.i608:                                    ; preds = %emitter_table_row.exit604, %for.body.i608
-  %col.011.i609 = phi ptr [ %192, %for.body.i608 ], [ %mem_count_title, %emitter_table_row.exit604 ]
-  %188 = load i32, ptr %col.011.i609, align 8
-  %width.i610 = getelementptr inbounds i8, ptr %col.011.i609, i64 4
-  %189 = load i32, ptr %width.i610, align 4
-  %type.i611 = getelementptr inbounds i8, ptr %col.011.i609, i64 8
-  %190 = load i32, ptr %type.i611, align 8
-  %191 = getelementptr inbounds i8, ptr %col.011.i609, i64 16
+for.body.i607:                                    ; preds = %emitter_table_row.exit603, %for.body.i607
+  %col.011.i608 = phi ptr [ %192, %for.body.i607 ], [ %mem_count_title, %emitter_table_row.exit603 ]
+  %188 = load i32, ptr %col.011.i608, align 8
+  %width.i609 = getelementptr inbounds i8, ptr %col.011.i608, i64 4
+  %189 = load i32, ptr %width.i609, align 4
+  %type.i610 = getelementptr inbounds i8, ptr %col.011.i608, i64 8
+  %190 = load i32, ptr %type.i610, align 8
+  %191 = getelementptr inbounds i8, ptr %col.011.i608, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %188, i32 noundef %189, i32 noundef %190, ptr noundef nonnull %191)
-  %link.i612 = getelementptr inbounds i8, ptr %col.011.i609, i64 24
-  %192 = load ptr, ptr %link.i612, align 8
-  %cmp4.not.i613 = icmp eq ptr %192, %mem_count_title
-  %cmp1.not12.i614 = icmp eq ptr %192, null
-  %cmp1.not.i615 = or i1 %cmp4.not.i613, %cmp1.not12.i614
-  br i1 %cmp1.not.i615, label %for.end.i616, label %for.body.i608
+  %link.i611 = getelementptr inbounds i8, ptr %col.011.i608, i64 24
+  %192 = load ptr, ptr %link.i611, align 8
+  %cmp4.not.i612 = icmp eq ptr %192, %mem_count_title
+  %cmp1.not12.i613 = icmp eq ptr %192, null
+  %cmp1.not.i614 = or i1 %cmp4.not.i612, %cmp1.not12.i613
+  br i1 %cmp1.not.i614, label %for.end.i615, label %for.body.i607
 
-for.end.i616:                                     ; preds = %for.body.i608
+for.end.i615:                                     ; preds = %for.body.i607
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
-  br label %emitter_table_row.exit617
+  br label %emitter_table_row.exit616
 
-emitter_table_row.exit617:                        ; preds = %emitter_table_row.exit604, %for.end.i616
+emitter_table_row.exit616:                        ; preds = %emitter_table_row.exit603, %for.end.i615
   store i64 7, ptr %miblen717, align 8
   store i64 8, ptr %sz718, align 8
   %call721 = call i32 @je_mallctlnametomib(ptr noundef nonnull @.str.341, ptr noundef nonnull %mib716, ptr noundef nonnull %miblen717) #13
   %cmp722.not = icmp eq i32 %call721, 0
   br i1 %cmp722.not, label %do.end726, label %if.then724
 
-if.then724:                                       ; preds = %emitter_table_row.exit617
+if.then724:                                       ; preds = %emitter_table_row.exit616
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.256, ptr noundef nonnull @.str.341) #13
   call void @abort() #14
   unreachable
 
-do.end726:                                        ; preds = %emitter_table_row.exit617
+do.end726:                                        ; preds = %emitter_table_row.exit616
   %arrayidx728 = getelementptr inbounds i8, ptr %mib716, i64 16
   store i64 %conv, ptr %arrayidx728, align 16
   %193 = load i64, ptr %miblen717, align 8
@@ -6856,42 +6834,42 @@ do.end737:                                        ; preds = %do.end726
   %194 = load i64, ptr %mapped, align 8
   store i64 %194, ptr %179, align 8
   %195 = load i32, ptr %emitter, align 8
-  %cmp.not.i618 = icmp eq i32 %195, 2
-  br i1 %cmp.not.i618, label %for.body.i621, label %emitter_table_row.exit630
+  %cmp.not.i617 = icmp eq i32 %195, 2
+  br i1 %cmp.not.i617, label %for.body.i620, label %emitter_table_row.exit629
 
-for.body.i621:                                    ; preds = %do.end737, %for.body.i621
-  %col.011.i622 = phi ptr [ %200, %for.body.i621 ], [ %mem_count_title, %do.end737 ]
-  %196 = load i32, ptr %col.011.i622, align 8
-  %width.i623 = getelementptr inbounds i8, ptr %col.011.i622, i64 4
-  %197 = load i32, ptr %width.i623, align 4
-  %type.i624 = getelementptr inbounds i8, ptr %col.011.i622, i64 8
-  %198 = load i32, ptr %type.i624, align 8
-  %199 = getelementptr inbounds i8, ptr %col.011.i622, i64 16
+for.body.i620:                                    ; preds = %do.end737, %for.body.i620
+  %col.011.i621 = phi ptr [ %200, %for.body.i620 ], [ %mem_count_title, %do.end737 ]
+  %196 = load i32, ptr %col.011.i621, align 8
+  %width.i622 = getelementptr inbounds i8, ptr %col.011.i621, i64 4
+  %197 = load i32, ptr %width.i622, align 4
+  %type.i623 = getelementptr inbounds i8, ptr %col.011.i621, i64 8
+  %198 = load i32, ptr %type.i623, align 8
+  %199 = getelementptr inbounds i8, ptr %col.011.i621, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %196, i32 noundef %197, i32 noundef %198, ptr noundef nonnull %199)
-  %link.i625 = getelementptr inbounds i8, ptr %col.011.i622, i64 24
-  %200 = load ptr, ptr %link.i625, align 8
-  %cmp4.not.i626 = icmp eq ptr %200, %mem_count_title
-  %cmp1.not12.i627 = icmp eq ptr %200, null
-  %cmp1.not.i628 = or i1 %cmp4.not.i626, %cmp1.not12.i627
-  br i1 %cmp1.not.i628, label %for.end.i629, label %for.body.i621
+  %link.i624 = getelementptr inbounds i8, ptr %col.011.i621, i64 24
+  %200 = load ptr, ptr %link.i624, align 8
+  %cmp4.not.i625 = icmp eq ptr %200, %mem_count_title
+  %cmp1.not12.i626 = icmp eq ptr %200, null
+  %cmp1.not.i627 = or i1 %cmp4.not.i625, %cmp1.not12.i626
+  br i1 %cmp1.not.i627, label %for.end.i628, label %for.body.i620
 
-for.end.i629:                                     ; preds = %for.body.i621
+for.end.i628:                                     ; preds = %for.body.i620
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
-  br label %emitter_table_row.exit630
+  br label %emitter_table_row.exit629
 
-emitter_table_row.exit630:                        ; preds = %do.end737, %for.end.i629
+emitter_table_row.exit629:                        ; preds = %do.end737, %for.end.i628
   store i64 7, ptr %miblen740, align 8
   store i64 8, ptr %sz741, align 8
   %call744 = call i32 @je_mallctlnametomib(ptr noundef nonnull @.str.343, ptr noundef nonnull %mib739, ptr noundef nonnull %miblen740) #13
   %cmp745.not = icmp eq i32 %call744, 0
   br i1 %cmp745.not, label %do.end749, label %if.then747
 
-if.then747:                                       ; preds = %emitter_table_row.exit630
+if.then747:                                       ; preds = %emitter_table_row.exit629
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.256, ptr noundef nonnull @.str.343) #13
   call void @abort() #14
   unreachable
 
-do.end749:                                        ; preds = %emitter_table_row.exit630
+do.end749:                                        ; preds = %emitter_table_row.exit629
   %arrayidx751 = getelementptr inbounds i8, ptr %mib739, i64 16
   store i64 %conv, ptr %arrayidx751, align 16
   %201 = load i64, ptr %miblen740, align 8
@@ -6911,42 +6889,42 @@ do.end760:                                        ; preds = %do.end749
   %202 = load i64, ptr %retained, align 8
   store i64 %202, ptr %179, align 8
   %203 = load i32, ptr %emitter, align 8
-  %cmp.not.i631 = icmp eq i32 %203, 2
-  br i1 %cmp.not.i631, label %for.body.i634, label %emitter_table_row.exit643
+  %cmp.not.i630 = icmp eq i32 %203, 2
+  br i1 %cmp.not.i630, label %for.body.i633, label %emitter_table_row.exit642
 
-for.body.i634:                                    ; preds = %do.end760, %for.body.i634
-  %col.011.i635 = phi ptr [ %208, %for.body.i634 ], [ %mem_count_title, %do.end760 ]
-  %204 = load i32, ptr %col.011.i635, align 8
-  %width.i636 = getelementptr inbounds i8, ptr %col.011.i635, i64 4
-  %205 = load i32, ptr %width.i636, align 4
-  %type.i637 = getelementptr inbounds i8, ptr %col.011.i635, i64 8
-  %206 = load i32, ptr %type.i637, align 8
-  %207 = getelementptr inbounds i8, ptr %col.011.i635, i64 16
+for.body.i633:                                    ; preds = %do.end760, %for.body.i633
+  %col.011.i634 = phi ptr [ %208, %for.body.i633 ], [ %mem_count_title, %do.end760 ]
+  %204 = load i32, ptr %col.011.i634, align 8
+  %width.i635 = getelementptr inbounds i8, ptr %col.011.i634, i64 4
+  %205 = load i32, ptr %width.i635, align 4
+  %type.i636 = getelementptr inbounds i8, ptr %col.011.i634, i64 8
+  %206 = load i32, ptr %type.i636, align 8
+  %207 = getelementptr inbounds i8, ptr %col.011.i634, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %204, i32 noundef %205, i32 noundef %206, ptr noundef nonnull %207)
-  %link.i638 = getelementptr inbounds i8, ptr %col.011.i635, i64 24
-  %208 = load ptr, ptr %link.i638, align 8
-  %cmp4.not.i639 = icmp eq ptr %208, %mem_count_title
-  %cmp1.not12.i640 = icmp eq ptr %208, null
-  %cmp1.not.i641 = or i1 %cmp4.not.i639, %cmp1.not12.i640
-  br i1 %cmp1.not.i641, label %for.end.i642, label %for.body.i634
+  %link.i637 = getelementptr inbounds i8, ptr %col.011.i634, i64 24
+  %208 = load ptr, ptr %link.i637, align 8
+  %cmp4.not.i638 = icmp eq ptr %208, %mem_count_title
+  %cmp1.not12.i639 = icmp eq ptr %208, null
+  %cmp1.not.i640 = or i1 %cmp4.not.i638, %cmp1.not12.i639
+  br i1 %cmp1.not.i640, label %for.end.i641, label %for.body.i633
 
-for.end.i642:                                     ; preds = %for.body.i634
+for.end.i641:                                     ; preds = %for.body.i633
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
-  br label %emitter_table_row.exit643
+  br label %emitter_table_row.exit642
 
-emitter_table_row.exit643:                        ; preds = %do.end760, %for.end.i642
+emitter_table_row.exit642:                        ; preds = %do.end760, %for.end.i641
   store i64 7, ptr %miblen763, align 8
   store i64 8, ptr %sz764, align 8
   %call767 = call i32 @je_mallctlnametomib(ptr noundef nonnull @.str.345, ptr noundef nonnull %mib762, ptr noundef nonnull %miblen763) #13
   %cmp768.not = icmp eq i32 %call767, 0
   br i1 %cmp768.not, label %do.end772, label %if.then770
 
-if.then770:                                       ; preds = %emitter_table_row.exit643
+if.then770:                                       ; preds = %emitter_table_row.exit642
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.256, ptr noundef nonnull @.str.345) #13
   call void @abort() #14
   unreachable
 
-do.end772:                                        ; preds = %emitter_table_row.exit643
+do.end772:                                        ; preds = %emitter_table_row.exit642
   %arrayidx774 = getelementptr inbounds i8, ptr %mib762, i64 16
   store i64 %conv, ptr %arrayidx774, align 16
   %209 = load i64, ptr %miblen763, align 8
@@ -6966,42 +6944,42 @@ do.end783:                                        ; preds = %do.end772
   %210 = load i64, ptr %base, align 8
   store i64 %210, ptr %179, align 8
   %211 = load i32, ptr %emitter, align 8
-  %cmp.not.i644 = icmp eq i32 %211, 2
-  br i1 %cmp.not.i644, label %for.body.i647, label %emitter_table_row.exit656
+  %cmp.not.i643 = icmp eq i32 %211, 2
+  br i1 %cmp.not.i643, label %for.body.i646, label %emitter_table_row.exit655
 
-for.body.i647:                                    ; preds = %do.end783, %for.body.i647
-  %col.011.i648 = phi ptr [ %216, %for.body.i647 ], [ %mem_count_title, %do.end783 ]
-  %212 = load i32, ptr %col.011.i648, align 8
-  %width.i649 = getelementptr inbounds i8, ptr %col.011.i648, i64 4
-  %213 = load i32, ptr %width.i649, align 4
-  %type.i650 = getelementptr inbounds i8, ptr %col.011.i648, i64 8
-  %214 = load i32, ptr %type.i650, align 8
-  %215 = getelementptr inbounds i8, ptr %col.011.i648, i64 16
+for.body.i646:                                    ; preds = %do.end783, %for.body.i646
+  %col.011.i647 = phi ptr [ %216, %for.body.i646 ], [ %mem_count_title, %do.end783 ]
+  %212 = load i32, ptr %col.011.i647, align 8
+  %width.i648 = getelementptr inbounds i8, ptr %col.011.i647, i64 4
+  %213 = load i32, ptr %width.i648, align 4
+  %type.i649 = getelementptr inbounds i8, ptr %col.011.i647, i64 8
+  %214 = load i32, ptr %type.i649, align 8
+  %215 = getelementptr inbounds i8, ptr %col.011.i647, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %212, i32 noundef %213, i32 noundef %214, ptr noundef nonnull %215)
-  %link.i651 = getelementptr inbounds i8, ptr %col.011.i648, i64 24
-  %216 = load ptr, ptr %link.i651, align 8
-  %cmp4.not.i652 = icmp eq ptr %216, %mem_count_title
-  %cmp1.not12.i653 = icmp eq ptr %216, null
-  %cmp1.not.i654 = or i1 %cmp4.not.i652, %cmp1.not12.i653
-  br i1 %cmp1.not.i654, label %for.end.i655, label %for.body.i647
+  %link.i650 = getelementptr inbounds i8, ptr %col.011.i647, i64 24
+  %216 = load ptr, ptr %link.i650, align 8
+  %cmp4.not.i651 = icmp eq ptr %216, %mem_count_title
+  %cmp1.not12.i652 = icmp eq ptr %216, null
+  %cmp1.not.i653 = or i1 %cmp4.not.i651, %cmp1.not12.i652
+  br i1 %cmp1.not.i653, label %for.end.i654, label %for.body.i646
 
-for.end.i655:                                     ; preds = %for.body.i647
+for.end.i654:                                     ; preds = %for.body.i646
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
-  br label %emitter_table_row.exit656
+  br label %emitter_table_row.exit655
 
-emitter_table_row.exit656:                        ; preds = %do.end783, %for.end.i655
+emitter_table_row.exit655:                        ; preds = %do.end783, %for.end.i654
   store i64 7, ptr %miblen786, align 8
   store i64 8, ptr %sz787, align 8
   %call790 = call i32 @je_mallctlnametomib(ptr noundef nonnull @.str.347, ptr noundef nonnull %mib785, ptr noundef nonnull %miblen786) #13
   %cmp791.not = icmp eq i32 %call790, 0
   br i1 %cmp791.not, label %do.end795, label %if.then793
 
-if.then793:                                       ; preds = %emitter_table_row.exit656
+if.then793:                                       ; preds = %emitter_table_row.exit655
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.256, ptr noundef nonnull @.str.347) #13
   call void @abort() #14
   unreachable
 
-do.end795:                                        ; preds = %emitter_table_row.exit656
+do.end795:                                        ; preds = %emitter_table_row.exit655
   %arrayidx797 = getelementptr inbounds i8, ptr %mib785, i64 16
   store i64 %conv, ptr %arrayidx797, align 16
   %217 = load i64, ptr %miblen786, align 8
@@ -7021,42 +6999,42 @@ do.end806:                                        ; preds = %do.end795
   %218 = load i64, ptr %internal, align 8
   store i64 %218, ptr %179, align 8
   %219 = load i32, ptr %emitter, align 8
-  %cmp.not.i657 = icmp eq i32 %219, 2
-  br i1 %cmp.not.i657, label %for.body.i660, label %emitter_table_row.exit669
+  %cmp.not.i656 = icmp eq i32 %219, 2
+  br i1 %cmp.not.i656, label %for.body.i659, label %emitter_table_row.exit668
 
-for.body.i660:                                    ; preds = %do.end806, %for.body.i660
-  %col.011.i661 = phi ptr [ %224, %for.body.i660 ], [ %mem_count_title, %do.end806 ]
-  %220 = load i32, ptr %col.011.i661, align 8
-  %width.i662 = getelementptr inbounds i8, ptr %col.011.i661, i64 4
-  %221 = load i32, ptr %width.i662, align 4
-  %type.i663 = getelementptr inbounds i8, ptr %col.011.i661, i64 8
-  %222 = load i32, ptr %type.i663, align 8
-  %223 = getelementptr inbounds i8, ptr %col.011.i661, i64 16
+for.body.i659:                                    ; preds = %do.end806, %for.body.i659
+  %col.011.i660 = phi ptr [ %224, %for.body.i659 ], [ %mem_count_title, %do.end806 ]
+  %220 = load i32, ptr %col.011.i660, align 8
+  %width.i661 = getelementptr inbounds i8, ptr %col.011.i660, i64 4
+  %221 = load i32, ptr %width.i661, align 4
+  %type.i662 = getelementptr inbounds i8, ptr %col.011.i660, i64 8
+  %222 = load i32, ptr %type.i662, align 8
+  %223 = getelementptr inbounds i8, ptr %col.011.i660, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %220, i32 noundef %221, i32 noundef %222, ptr noundef nonnull %223)
-  %link.i664 = getelementptr inbounds i8, ptr %col.011.i661, i64 24
-  %224 = load ptr, ptr %link.i664, align 8
-  %cmp4.not.i665 = icmp eq ptr %224, %mem_count_title
-  %cmp1.not12.i666 = icmp eq ptr %224, null
-  %cmp1.not.i667 = or i1 %cmp4.not.i665, %cmp1.not12.i666
-  br i1 %cmp1.not.i667, label %for.end.i668, label %for.body.i660
+  %link.i663 = getelementptr inbounds i8, ptr %col.011.i660, i64 24
+  %224 = load ptr, ptr %link.i663, align 8
+  %cmp4.not.i664 = icmp eq ptr %224, %mem_count_title
+  %cmp1.not12.i665 = icmp eq ptr %224, null
+  %cmp1.not.i666 = or i1 %cmp4.not.i664, %cmp1.not12.i665
+  br i1 %cmp1.not.i666, label %for.end.i667, label %for.body.i659
 
-for.end.i668:                                     ; preds = %for.body.i660
+for.end.i667:                                     ; preds = %for.body.i659
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
-  br label %emitter_table_row.exit669
+  br label %emitter_table_row.exit668
 
-emitter_table_row.exit669:                        ; preds = %do.end806, %for.end.i668
+emitter_table_row.exit668:                        ; preds = %do.end806, %for.end.i667
   store i64 7, ptr %miblen809, align 8
   store i64 8, ptr %sz810, align 8
   %call813 = call i32 @je_mallctlnametomib(ptr noundef nonnull @.str.350, ptr noundef nonnull %mib808, ptr noundef nonnull %miblen809) #13
   %cmp814.not = icmp eq i32 %call813, 0
   br i1 %cmp814.not, label %do.end818, label %if.then816
 
-if.then816:                                       ; preds = %emitter_table_row.exit669
+if.then816:                                       ; preds = %emitter_table_row.exit668
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.256, ptr noundef nonnull @.str.350) #13
   call void @abort() #14
   unreachable
 
-do.end818:                                        ; preds = %emitter_table_row.exit669
+do.end818:                                        ; preds = %emitter_table_row.exit668
   %arrayidx820 = getelementptr inbounds i8, ptr %mib808, i64 16
   store i64 %conv, ptr %arrayidx820, align 16
   %225 = load i64, ptr %miblen809, align 8
@@ -7076,42 +7054,42 @@ do.end829:                                        ; preds = %do.end818
   %226 = load i64, ptr %metadata_thp, align 8
   store i64 %226, ptr %179, align 8
   %227 = load i32, ptr %emitter, align 8
-  %cmp.not.i670 = icmp eq i32 %227, 2
-  br i1 %cmp.not.i670, label %for.body.i673, label %emitter_table_row.exit682
+  %cmp.not.i669 = icmp eq i32 %227, 2
+  br i1 %cmp.not.i669, label %for.body.i672, label %emitter_table_row.exit681
 
-for.body.i673:                                    ; preds = %do.end829, %for.body.i673
-  %col.011.i674 = phi ptr [ %232, %for.body.i673 ], [ %mem_count_title, %do.end829 ]
-  %228 = load i32, ptr %col.011.i674, align 8
-  %width.i675 = getelementptr inbounds i8, ptr %col.011.i674, i64 4
-  %229 = load i32, ptr %width.i675, align 4
-  %type.i676 = getelementptr inbounds i8, ptr %col.011.i674, i64 8
-  %230 = load i32, ptr %type.i676, align 8
-  %231 = getelementptr inbounds i8, ptr %col.011.i674, i64 16
+for.body.i672:                                    ; preds = %do.end829, %for.body.i672
+  %col.011.i673 = phi ptr [ %232, %for.body.i672 ], [ %mem_count_title, %do.end829 ]
+  %228 = load i32, ptr %col.011.i673, align 8
+  %width.i674 = getelementptr inbounds i8, ptr %col.011.i673, i64 4
+  %229 = load i32, ptr %width.i674, align 4
+  %type.i675 = getelementptr inbounds i8, ptr %col.011.i673, i64 8
+  %230 = load i32, ptr %type.i675, align 8
+  %231 = getelementptr inbounds i8, ptr %col.011.i673, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %228, i32 noundef %229, i32 noundef %230, ptr noundef nonnull %231)
-  %link.i677 = getelementptr inbounds i8, ptr %col.011.i674, i64 24
-  %232 = load ptr, ptr %link.i677, align 8
-  %cmp4.not.i678 = icmp eq ptr %232, %mem_count_title
-  %cmp1.not12.i679 = icmp eq ptr %232, null
-  %cmp1.not.i680 = or i1 %cmp4.not.i678, %cmp1.not12.i679
-  br i1 %cmp1.not.i680, label %for.end.i681, label %for.body.i673
+  %link.i676 = getelementptr inbounds i8, ptr %col.011.i673, i64 24
+  %232 = load ptr, ptr %link.i676, align 8
+  %cmp4.not.i677 = icmp eq ptr %232, %mem_count_title
+  %cmp1.not12.i678 = icmp eq ptr %232, null
+  %cmp1.not.i679 = or i1 %cmp4.not.i677, %cmp1.not12.i678
+  br i1 %cmp1.not.i679, label %for.end.i680, label %for.body.i672
 
-for.end.i681:                                     ; preds = %for.body.i673
+for.end.i680:                                     ; preds = %for.body.i672
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
-  br label %emitter_table_row.exit682
+  br label %emitter_table_row.exit681
 
-emitter_table_row.exit682:                        ; preds = %do.end829, %for.end.i681
+emitter_table_row.exit681:                        ; preds = %do.end829, %for.end.i680
   store i64 7, ptr %miblen832, align 8
   store i64 8, ptr %sz833, align 8
   %call836 = call i32 @je_mallctlnametomib(ptr noundef nonnull @.str.352, ptr noundef nonnull %mib831, ptr noundef nonnull %miblen832) #13
   %cmp837.not = icmp eq i32 %call836, 0
   br i1 %cmp837.not, label %do.end841, label %if.then839
 
-if.then839:                                       ; preds = %emitter_table_row.exit682
+if.then839:                                       ; preds = %emitter_table_row.exit681
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.256, ptr noundef nonnull @.str.352) #13
   call void @abort() #14
   unreachable
 
-do.end841:                                        ; preds = %emitter_table_row.exit682
+do.end841:                                        ; preds = %emitter_table_row.exit681
   %arrayidx843 = getelementptr inbounds i8, ptr %mib831, i64 16
   store i64 %conv, ptr %arrayidx843, align 16
   %233 = load i64, ptr %miblen832, align 8
@@ -7131,42 +7109,42 @@ do.end852:                                        ; preds = %do.end841
   %234 = load i64, ptr %tcache_bytes, align 8
   store i64 %234, ptr %179, align 8
   %235 = load i32, ptr %emitter, align 8
-  %cmp.not.i683 = icmp eq i32 %235, 2
-  br i1 %cmp.not.i683, label %for.body.i686, label %emitter_table_row.exit695
+  %cmp.not.i682 = icmp eq i32 %235, 2
+  br i1 %cmp.not.i682, label %for.body.i685, label %emitter_table_row.exit694
 
-for.body.i686:                                    ; preds = %do.end852, %for.body.i686
-  %col.011.i687 = phi ptr [ %240, %for.body.i686 ], [ %mem_count_title, %do.end852 ]
-  %236 = load i32, ptr %col.011.i687, align 8
-  %width.i688 = getelementptr inbounds i8, ptr %col.011.i687, i64 4
-  %237 = load i32, ptr %width.i688, align 4
-  %type.i689 = getelementptr inbounds i8, ptr %col.011.i687, i64 8
-  %238 = load i32, ptr %type.i689, align 8
-  %239 = getelementptr inbounds i8, ptr %col.011.i687, i64 16
+for.body.i685:                                    ; preds = %do.end852, %for.body.i685
+  %col.011.i686 = phi ptr [ %240, %for.body.i685 ], [ %mem_count_title, %do.end852 ]
+  %236 = load i32, ptr %col.011.i686, align 8
+  %width.i687 = getelementptr inbounds i8, ptr %col.011.i686, i64 4
+  %237 = load i32, ptr %width.i687, align 4
+  %type.i688 = getelementptr inbounds i8, ptr %col.011.i686, i64 8
+  %238 = load i32, ptr %type.i688, align 8
+  %239 = getelementptr inbounds i8, ptr %col.011.i686, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %236, i32 noundef %237, i32 noundef %238, ptr noundef nonnull %239)
-  %link.i690 = getelementptr inbounds i8, ptr %col.011.i687, i64 24
-  %240 = load ptr, ptr %link.i690, align 8
-  %cmp4.not.i691 = icmp eq ptr %240, %mem_count_title
-  %cmp1.not12.i692 = icmp eq ptr %240, null
-  %cmp1.not.i693 = or i1 %cmp4.not.i691, %cmp1.not12.i692
-  br i1 %cmp1.not.i693, label %for.end.i694, label %for.body.i686
+  %link.i689 = getelementptr inbounds i8, ptr %col.011.i686, i64 24
+  %240 = load ptr, ptr %link.i689, align 8
+  %cmp4.not.i690 = icmp eq ptr %240, %mem_count_title
+  %cmp1.not12.i691 = icmp eq ptr %240, null
+  %cmp1.not.i692 = or i1 %cmp4.not.i690, %cmp1.not12.i691
+  br i1 %cmp1.not.i692, label %for.end.i693, label %for.body.i685
 
-for.end.i694:                                     ; preds = %for.body.i686
+for.end.i693:                                     ; preds = %for.body.i685
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
-  br label %emitter_table_row.exit695
+  br label %emitter_table_row.exit694
 
-emitter_table_row.exit695:                        ; preds = %do.end852, %for.end.i694
+emitter_table_row.exit694:                        ; preds = %do.end852, %for.end.i693
   store i64 7, ptr %miblen855, align 8
   store i64 8, ptr %sz856, align 8
   %call859 = call i32 @je_mallctlnametomib(ptr noundef nonnull @.str.355, ptr noundef nonnull %mib854, ptr noundef nonnull %miblen855) #13
   %cmp860.not = icmp eq i32 %call859, 0
   br i1 %cmp860.not, label %do.end864, label %if.then862
 
-if.then862:                                       ; preds = %emitter_table_row.exit695
+if.then862:                                       ; preds = %emitter_table_row.exit694
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.256, ptr noundef nonnull @.str.355) #13
   call void @abort() #14
   unreachable
 
-do.end864:                                        ; preds = %emitter_table_row.exit695
+do.end864:                                        ; preds = %emitter_table_row.exit694
   %arrayidx866 = getelementptr inbounds i8, ptr %mib854, i64 16
   store i64 %conv, ptr %arrayidx866, align 16
   %241 = load i64, ptr %miblen855, align 8
@@ -7186,42 +7164,42 @@ do.end875:                                        ; preds = %do.end864
   %242 = load i64, ptr %tcache_stashed_bytes, align 8
   store i64 %242, ptr %179, align 8
   %243 = load i32, ptr %emitter, align 8
-  %cmp.not.i696 = icmp eq i32 %243, 2
-  br i1 %cmp.not.i696, label %for.body.i699, label %emitter_table_row.exit708
+  %cmp.not.i695 = icmp eq i32 %243, 2
+  br i1 %cmp.not.i695, label %for.body.i698, label %emitter_table_row.exit707
 
-for.body.i699:                                    ; preds = %do.end875, %for.body.i699
-  %col.011.i700 = phi ptr [ %248, %for.body.i699 ], [ %mem_count_title, %do.end875 ]
-  %244 = load i32, ptr %col.011.i700, align 8
-  %width.i701 = getelementptr inbounds i8, ptr %col.011.i700, i64 4
-  %245 = load i32, ptr %width.i701, align 4
-  %type.i702 = getelementptr inbounds i8, ptr %col.011.i700, i64 8
-  %246 = load i32, ptr %type.i702, align 8
-  %247 = getelementptr inbounds i8, ptr %col.011.i700, i64 16
+for.body.i698:                                    ; preds = %do.end875, %for.body.i698
+  %col.011.i699 = phi ptr [ %248, %for.body.i698 ], [ %mem_count_title, %do.end875 ]
+  %244 = load i32, ptr %col.011.i699, align 8
+  %width.i700 = getelementptr inbounds i8, ptr %col.011.i699, i64 4
+  %245 = load i32, ptr %width.i700, align 4
+  %type.i701 = getelementptr inbounds i8, ptr %col.011.i699, i64 8
+  %246 = load i32, ptr %type.i701, align 8
+  %247 = getelementptr inbounds i8, ptr %col.011.i699, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %244, i32 noundef %245, i32 noundef %246, ptr noundef nonnull %247)
-  %link.i703 = getelementptr inbounds i8, ptr %col.011.i700, i64 24
-  %248 = load ptr, ptr %link.i703, align 8
-  %cmp4.not.i704 = icmp eq ptr %248, %mem_count_title
-  %cmp1.not12.i705 = icmp eq ptr %248, null
-  %cmp1.not.i706 = or i1 %cmp4.not.i704, %cmp1.not12.i705
-  br i1 %cmp1.not.i706, label %for.end.i707, label %for.body.i699
+  %link.i702 = getelementptr inbounds i8, ptr %col.011.i699, i64 24
+  %248 = load ptr, ptr %link.i702, align 8
+  %cmp4.not.i703 = icmp eq ptr %248, %mem_count_title
+  %cmp1.not12.i704 = icmp eq ptr %248, null
+  %cmp1.not.i705 = or i1 %cmp4.not.i703, %cmp1.not12.i704
+  br i1 %cmp1.not.i705, label %for.end.i706, label %for.body.i698
 
-for.end.i707:                                     ; preds = %for.body.i699
+for.end.i706:                                     ; preds = %for.body.i698
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
-  br label %emitter_table_row.exit708
+  br label %emitter_table_row.exit707
 
-emitter_table_row.exit708:                        ; preds = %do.end875, %for.end.i707
+emitter_table_row.exit707:                        ; preds = %do.end875, %for.end.i706
   store i64 7, ptr %miblen878, align 8
   store i64 8, ptr %sz879, align 8
   %call882 = call i32 @je_mallctlnametomib(ptr noundef nonnull @.str.358, ptr noundef nonnull %mib877, ptr noundef nonnull %miblen878) #13
   %cmp883.not = icmp eq i32 %call882, 0
   br i1 %cmp883.not, label %do.end887, label %if.then885
 
-if.then885:                                       ; preds = %emitter_table_row.exit708
+if.then885:                                       ; preds = %emitter_table_row.exit707
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.256, ptr noundef nonnull @.str.358) #13
   call void @abort() #14
   unreachable
 
-do.end887:                                        ; preds = %emitter_table_row.exit708
+do.end887:                                        ; preds = %emitter_table_row.exit707
   %arrayidx889 = getelementptr inbounds i8, ptr %mib877, i64 16
   store i64 %conv, ptr %arrayidx889, align 16
   %249 = load i64, ptr %miblen878, align 8
@@ -7241,42 +7219,42 @@ do.end898:                                        ; preds = %do.end887
   %250 = load i64, ptr %resident, align 8
   store i64 %250, ptr %179, align 8
   %251 = load i32, ptr %emitter, align 8
-  %cmp.not.i709 = icmp eq i32 %251, 2
-  br i1 %cmp.not.i709, label %for.body.i712, label %emitter_table_row.exit721
+  %cmp.not.i708 = icmp eq i32 %251, 2
+  br i1 %cmp.not.i708, label %for.body.i711, label %emitter_table_row.exit720
 
-for.body.i712:                                    ; preds = %do.end898, %for.body.i712
-  %col.011.i713 = phi ptr [ %256, %for.body.i712 ], [ %mem_count_title, %do.end898 ]
-  %252 = load i32, ptr %col.011.i713, align 8
-  %width.i714 = getelementptr inbounds i8, ptr %col.011.i713, i64 4
-  %253 = load i32, ptr %width.i714, align 4
-  %type.i715 = getelementptr inbounds i8, ptr %col.011.i713, i64 8
-  %254 = load i32, ptr %type.i715, align 8
-  %255 = getelementptr inbounds i8, ptr %col.011.i713, i64 16
+for.body.i711:                                    ; preds = %do.end898, %for.body.i711
+  %col.011.i712 = phi ptr [ %256, %for.body.i711 ], [ %mem_count_title, %do.end898 ]
+  %252 = load i32, ptr %col.011.i712, align 8
+  %width.i713 = getelementptr inbounds i8, ptr %col.011.i712, i64 4
+  %253 = load i32, ptr %width.i713, align 4
+  %type.i714 = getelementptr inbounds i8, ptr %col.011.i712, i64 8
+  %254 = load i32, ptr %type.i714, align 8
+  %255 = getelementptr inbounds i8, ptr %col.011.i712, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %252, i32 noundef %253, i32 noundef %254, ptr noundef nonnull %255)
-  %link.i716 = getelementptr inbounds i8, ptr %col.011.i713, i64 24
-  %256 = load ptr, ptr %link.i716, align 8
-  %cmp4.not.i717 = icmp eq ptr %256, %mem_count_title
-  %cmp1.not12.i718 = icmp eq ptr %256, null
-  %cmp1.not.i719 = or i1 %cmp4.not.i717, %cmp1.not12.i718
-  br i1 %cmp1.not.i719, label %for.end.i720, label %for.body.i712
+  %link.i715 = getelementptr inbounds i8, ptr %col.011.i712, i64 24
+  %256 = load ptr, ptr %link.i715, align 8
+  %cmp4.not.i716 = icmp eq ptr %256, %mem_count_title
+  %cmp1.not12.i717 = icmp eq ptr %256, null
+  %cmp1.not.i718 = or i1 %cmp4.not.i716, %cmp1.not12.i717
+  br i1 %cmp1.not.i718, label %for.end.i719, label %for.body.i711
 
-for.end.i720:                                     ; preds = %for.body.i712
+for.end.i719:                                     ; preds = %for.body.i711
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
-  br label %emitter_table_row.exit721
+  br label %emitter_table_row.exit720
 
-emitter_table_row.exit721:                        ; preds = %do.end898, %for.end.i720
+emitter_table_row.exit720:                        ; preds = %do.end898, %for.end.i719
   store i64 7, ptr %miblen901, align 8
   store i64 8, ptr %sz902, align 8
   %call905 = call i32 @je_mallctlnametomib(ptr noundef nonnull @.str.360, ptr noundef nonnull %mib900, ptr noundef nonnull %miblen901) #13
   %cmp906.not = icmp eq i32 %call905, 0
   br i1 %cmp906.not, label %do.end910, label %if.then908
 
-if.then908:                                       ; preds = %emitter_table_row.exit721
+if.then908:                                       ; preds = %emitter_table_row.exit720
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.256, ptr noundef nonnull @.str.360) #13
   call void @abort() #14
   unreachable
 
-do.end910:                                        ; preds = %emitter_table_row.exit721
+do.end910:                                        ; preds = %emitter_table_row.exit720
   %arrayidx912 = getelementptr inbounds i8, ptr %mib900, i64 16
   store i64 %conv, ptr %arrayidx912, align 16
   %257 = load i64, ptr %miblen901, align 8
@@ -7296,42 +7274,42 @@ do.end921:                                        ; preds = %do.end910
   %258 = load i64, ptr %abandoned_vm, align 8
   store i64 %258, ptr %179, align 8
   %259 = load i32, ptr %emitter, align 8
-  %cmp.not.i722 = icmp eq i32 %259, 2
-  br i1 %cmp.not.i722, label %for.body.i725, label %emitter_table_row.exit734
+  %cmp.not.i721 = icmp eq i32 %259, 2
+  br i1 %cmp.not.i721, label %for.body.i724, label %emitter_table_row.exit733
 
-for.body.i725:                                    ; preds = %do.end921, %for.body.i725
-  %col.011.i726 = phi ptr [ %264, %for.body.i725 ], [ %mem_count_title, %do.end921 ]
-  %260 = load i32, ptr %col.011.i726, align 8
-  %width.i727 = getelementptr inbounds i8, ptr %col.011.i726, i64 4
-  %261 = load i32, ptr %width.i727, align 4
-  %type.i728 = getelementptr inbounds i8, ptr %col.011.i726, i64 8
-  %262 = load i32, ptr %type.i728, align 8
-  %263 = getelementptr inbounds i8, ptr %col.011.i726, i64 16
+for.body.i724:                                    ; preds = %do.end921, %for.body.i724
+  %col.011.i725 = phi ptr [ %264, %for.body.i724 ], [ %mem_count_title, %do.end921 ]
+  %260 = load i32, ptr %col.011.i725, align 8
+  %width.i726 = getelementptr inbounds i8, ptr %col.011.i725, i64 4
+  %261 = load i32, ptr %width.i726, align 4
+  %type.i727 = getelementptr inbounds i8, ptr %col.011.i725, i64 8
+  %262 = load i32, ptr %type.i727, align 8
+  %263 = getelementptr inbounds i8, ptr %col.011.i725, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %260, i32 noundef %261, i32 noundef %262, ptr noundef nonnull %263)
-  %link.i729 = getelementptr inbounds i8, ptr %col.011.i726, i64 24
-  %264 = load ptr, ptr %link.i729, align 8
-  %cmp4.not.i730 = icmp eq ptr %264, %mem_count_title
-  %cmp1.not12.i731 = icmp eq ptr %264, null
-  %cmp1.not.i732 = or i1 %cmp4.not.i730, %cmp1.not12.i731
-  br i1 %cmp1.not.i732, label %for.end.i733, label %for.body.i725
+  %link.i728 = getelementptr inbounds i8, ptr %col.011.i725, i64 24
+  %264 = load ptr, ptr %link.i728, align 8
+  %cmp4.not.i729 = icmp eq ptr %264, %mem_count_title
+  %cmp1.not12.i730 = icmp eq ptr %264, null
+  %cmp1.not.i731 = or i1 %cmp4.not.i729, %cmp1.not12.i730
+  br i1 %cmp1.not.i731, label %for.end.i732, label %for.body.i724
 
-for.end.i733:                                     ; preds = %for.body.i725
+for.end.i732:                                     ; preds = %for.body.i724
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
-  br label %emitter_table_row.exit734
+  br label %emitter_table_row.exit733
 
-emitter_table_row.exit734:                        ; preds = %do.end921, %for.end.i733
+emitter_table_row.exit733:                        ; preds = %do.end921, %for.end.i732
   store i64 7, ptr %miblen924, align 8
   store i64 8, ptr %sz925, align 8
   %call928 = call i32 @je_mallctlnametomib(ptr noundef nonnull @.str.363, ptr noundef nonnull %mib923, ptr noundef nonnull %miblen924) #13
   %cmp929.not = icmp eq i32 %call928, 0
   br i1 %cmp929.not, label %do.end933, label %if.then931
 
-if.then931:                                       ; preds = %emitter_table_row.exit734
+if.then931:                                       ; preds = %emitter_table_row.exit733
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.256, ptr noundef nonnull @.str.363) #13
   call void @abort() #14
   unreachable
 
-do.end933:                                        ; preds = %emitter_table_row.exit734
+do.end933:                                        ; preds = %emitter_table_row.exit733
   %arrayidx935 = getelementptr inbounds i8, ptr %mib923, i64 16
   store i64 %conv, ptr %arrayidx935, align 16
   %265 = load i64, ptr %miblen924, align 8
@@ -7351,33 +7329,33 @@ do.end944:                                        ; preds = %do.end933
   %266 = load i64, ptr %extent_avail, align 8
   store i64 %266, ptr %179, align 8
   %267 = load i32, ptr %emitter, align 8
-  %cmp.not.i735 = icmp eq i32 %267, 2
-  br i1 %cmp.not.i735, label %for.body.i738, label %emitter_table_row.exit747
+  %cmp.not.i734 = icmp eq i32 %267, 2
+  br i1 %cmp.not.i734, label %for.body.i737, label %emitter_table_row.exit746
 
-for.body.i738:                                    ; preds = %do.end944, %for.body.i738
-  %col.011.i739 = phi ptr [ %272, %for.body.i738 ], [ %mem_count_title, %do.end944 ]
-  %268 = load i32, ptr %col.011.i739, align 8
-  %width.i740 = getelementptr inbounds i8, ptr %col.011.i739, i64 4
-  %269 = load i32, ptr %width.i740, align 4
-  %type.i741 = getelementptr inbounds i8, ptr %col.011.i739, i64 8
-  %270 = load i32, ptr %type.i741, align 8
-  %271 = getelementptr inbounds i8, ptr %col.011.i739, i64 16
+for.body.i737:                                    ; preds = %do.end944, %for.body.i737
+  %col.011.i738 = phi ptr [ %272, %for.body.i737 ], [ %mem_count_title, %do.end944 ]
+  %268 = load i32, ptr %col.011.i738, align 8
+  %width.i739 = getelementptr inbounds i8, ptr %col.011.i738, i64 4
+  %269 = load i32, ptr %width.i739, align 4
+  %type.i740 = getelementptr inbounds i8, ptr %col.011.i738, i64 8
+  %270 = load i32, ptr %type.i740, align 8
+  %271 = getelementptr inbounds i8, ptr %col.011.i738, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %268, i32 noundef %269, i32 noundef %270, ptr noundef nonnull %271)
-  %link.i742 = getelementptr inbounds i8, ptr %col.011.i739, i64 24
-  %272 = load ptr, ptr %link.i742, align 8
-  %cmp4.not.i743 = icmp eq ptr %272, %mem_count_title
-  %cmp1.not12.i744 = icmp eq ptr %272, null
-  %cmp1.not.i745 = or i1 %cmp4.not.i743, %cmp1.not12.i744
-  br i1 %cmp1.not.i745, label %for.end.i746, label %for.body.i738
+  %link.i741 = getelementptr inbounds i8, ptr %col.011.i738, i64 24
+  %272 = load ptr, ptr %link.i741, align 8
+  %cmp4.not.i742 = icmp eq ptr %272, %mem_count_title
+  %cmp1.not12.i743 = icmp eq ptr %272, null
+  %cmp1.not.i744 = or i1 %cmp4.not.i742, %cmp1.not12.i743
+  br i1 %cmp1.not.i744, label %for.end.i745, label %for.body.i737
 
-for.end.i746:                                     ; preds = %for.body.i738
+for.end.i745:                                     ; preds = %for.body.i737
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
-  br label %emitter_table_row.exit747
+  br label %emitter_table_row.exit746
 
-emitter_table_row.exit747:                        ; preds = %do.end944, %for.end.i746
+emitter_table_row.exit746:                        ; preds = %do.end944, %for.end.i745
   br i1 %mutex, label %if.then945, label %if.end946
 
-if.then945:                                       ; preds = %emitter_table_row.exit747
+if.then945:                                       ; preds = %emitter_table_row.exit746
   %273 = load i64, ptr %uptime, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %row.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %col_name.i)
@@ -7397,10 +7375,10 @@ if.then945:                                       ; preds = %emitter_table_row.e
 if.end.i.i:                                       ; preds = %if.then945
   %275 = load ptr, ptr %row.i, align 8
   %cmp1.not10.i.i = icmp eq ptr %275, null
-  br i1 %cmp1.not10.i.i, label %for.end.i.i, label %for.body.i.i751
+  br i1 %cmp1.not10.i.i, label %for.end.i.i, label %for.body.i.i750
 
-for.body.i.i751:                                  ; preds = %if.end.i.i, %for.body.i.i751
-  %col.011.i.i = phi ptr [ %280, %for.body.i.i751 ], [ %275, %if.end.i.i ]
+for.body.i.i750:                                  ; preds = %if.end.i.i, %for.body.i.i750
+  %col.011.i.i = phi ptr [ %280, %for.body.i.i750 ], [ %275, %if.end.i.i ]
   %276 = load i32, ptr %col.011.i.i, align 8
   %width.i.i = getelementptr inbounds i8, ptr %col.011.i.i, i64 4
   %277 = load i32, ptr %width.i.i, align 4
@@ -7414,9 +7392,9 @@ for.body.i.i751:                                  ; preds = %if.end.i.i, %for.bo
   %cmp4.not.i.i = icmp eq ptr %280, %281
   %cmp1.not12.i.i = icmp eq ptr %280, null
   %cmp1.not.i.i = or i1 %cmp1.not12.i.i, %cmp4.not.i.i
-  br i1 %cmp1.not.i.i, label %for.end.i.i, label %for.body.i.i751
+  br i1 %cmp1.not.i.i, label %for.end.i.i, label %for.body.i.i750
 
-for.end.i.i:                                      ; preds = %for.body.i.i751, %if.end.i.i
+for.end.i.i:                                      ; preds = %for.body.i.i750, %if.end.i.i
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %emitter_table_row.exit.i
 
@@ -7435,8 +7413,8 @@ if.then11.i.i:                                    ; preds = %emitter_table_row.e
 tsd_fetch_impl.exit.i:                            ; preds = %if.then11.i.i, %emitter_table_row.exit.i
   %retval.i.0.i = phi ptr [ %call13.i.i, %if.then11.i.i ], [ %282, %emitter_table_row.exit.i ]
   %call5.i = call i32 @ctl_mibnametomib(ptr noundef %retval.i.0.i, ptr noundef nonnull %stats_arenas_mib.i, i64 noundef 0, ptr noundef nonnull @.str.259, ptr noundef nonnull %miblen_new.i) #13
-  %cmp.not.i748 = icmp eq i32 %call5.i, 0
-  br i1 %cmp.not.i748, label %do.end9.i, label %if.then.i
+  %cmp.not.i747 = icmp eq i32 %call5.i, 0
+  br i1 %cmp.not.i747, label %do.end9.i, label %if.then.i
 
 if.then.i:                                        ; preds = %tsd_fetch_impl.exit.i
   call void @malloc_write(ptr noundef nonnull @.str.201) #13
@@ -7492,14 +7470,14 @@ for.cond.preheader.i:                             ; preds = %tsd_fetch_impl.exit
   %297 = getelementptr inbounds i8, ptr %col32.i, i64 16
   %nesting_depth.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
   %item_at_depth.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 28
-  br label %for.body.i749
+  br label %for.body.i748
 
 if.then20.i:                                      ; preds = %tsd_fetch_impl.exit59.i
   call void @malloc_write(ptr noundef nonnull @.str.201) #13
   call void @abort() #14
   unreachable
 
-for.body.i749:                                    ; preds = %emitter_json_object_end.exit.i, %for.cond.preheader.i
+for.body.i748:                                    ; preds = %emitter_json_object_end.exit.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %emitter_json_object_end.exit.i ]
   %arrayidx28.i = getelementptr inbounds [12 x ptr], ptr @arena_mutex_names, i64 0, i64 %indvars.iv.i
   %298 = load ptr, ptr %arrayidx28.i, align 8
@@ -7525,12 +7503,12 @@ for.body.i749:                                    ; preds = %emitter_json_object
   %cmp6.i.not.i.i = icmp eq i8 %299, 0
   br i1 %cmp6.i.not.i.i, label %tsd_fetch_impl.exit.i.i, label %if.then11.i.i.i
 
-if.then11.i.i.i:                                  ; preds = %for.body.i749
+if.then11.i.i.i:                                  ; preds = %for.body.i748
   %call13.i.i.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %282, i1 noundef zeroext false) #13
   br label %tsd_fetch_impl.exit.i.i
 
-tsd_fetch_impl.exit.i.i:                          ; preds = %if.then11.i.i.i, %for.body.i749
-  %retval.i.0.i.i = phi ptr [ %call13.i.i.i, %if.then11.i.i.i ], [ %282, %for.body.i749 ]
+tsd_fetch_impl.exit.i.i:                          ; preds = %if.then11.i.i.i, %for.body.i748
+  %retval.i.0.i.i = phi ptr [ %call13.i.i.i, %if.then11.i.i.i ], [ %282, %for.body.i748 ]
   %call3.i.i = call i32 @ctl_mibnametomib(ptr noundef %retval.i.0.i.i, ptr noundef nonnull %stats_arenas_mib.i, i64 noundef 4, ptr noundef %298, ptr noundef nonnull %miblen_new.i.i) #13
   %cmp.not.i17.i = icmp eq i32 %call3.i.i, 0
   br i1 %cmp.not.i17.i, label %do.end7.i.i, label %if.then.i.i
@@ -7605,16 +7583,16 @@ do.end42.i.i:                                     ; preds = %tsd_fetch_impl.exit
   store i32 5, ptr %type44.i.i, align 16
   %303 = load i64, ptr %288, align 16
   %cmp1.i91.i.i = icmp eq i64 %303, 0
-  %brmerge44.i = or i1 %cmp2.i.i.i, %cmp1.i91.i.i
-  %.mux45.i = select i1 %cmp.i.i.i, i64 0, i64 %303
-  br i1 %brmerge44.i, label %rate_per_second.exit99.i.i, label %if.else.i95.i.i
+  %brmerge43.i = or i1 %cmp2.i.i.i, %cmp1.i91.i.i
+  %.mux44.i = select i1 %cmp.i.i.i, i64 0, i64 %303
+  br i1 %brmerge43.i, label %rate_per_second.exit99.i.i, label %if.else.i95.i.i
 
 if.else.i95.i.i:                                  ; preds = %do.end42.i.i
   %div4.i97.i.i = udiv i64 %303, %div.i.i.i
   br label %rate_per_second.exit99.i.i
 
 rate_per_second.exit99.i.i:                       ; preds = %if.else.i95.i.i, %do.end42.i.i
-  %retval.0.i98.i.i = phi i64 [ %div4.i97.i.i, %if.else.i95.i.i ], [ %.mux45.i, %do.end42.i.i ]
+  %retval.0.i98.i.i = phi i64 [ %div4.i97.i.i, %if.else.i95.i.i ], [ %.mux44.i, %do.end42.i.i ]
   store i64 %retval.0.i98.i.i, ptr %289, align 8
   store i32 5, ptr %type49.i.i, align 8
   store i64 7, ptr %miblen_new53.i.i, align 8
@@ -7642,16 +7620,16 @@ do.end64.i.i:                                     ; preds = %tsd_fetch_impl.exit
   store i32 5, ptr %type66.i.i, align 16
   %305 = load i64, ptr %290, align 16
   %cmp1.i101.i.i = icmp eq i64 %305, 0
-  %brmerge46.i = or i1 %cmp2.i.i.i, %cmp1.i101.i.i
-  %.mux47.i = select i1 %cmp.i.i.i, i64 0, i64 %305
-  br i1 %brmerge46.i, label %rate_per_second.exit109.i.i, label %if.else.i105.i.i
+  %brmerge45.i = or i1 %cmp2.i.i.i, %cmp1.i101.i.i
+  %.mux46.i = select i1 %cmp.i.i.i, i64 0, i64 %305
+  br i1 %brmerge45.i, label %rate_per_second.exit109.i.i, label %if.else.i105.i.i
 
 if.else.i105.i.i:                                 ; preds = %do.end64.i.i
   %div4.i107.i.i = udiv i64 %305, %div.i.i.i
   br label %rate_per_second.exit109.i.i
 
 rate_per_second.exit109.i.i:                      ; preds = %if.else.i105.i.i, %do.end64.i.i
-  %retval.0.i108.i.i = phi i64 [ %div4.i107.i.i, %if.else.i105.i.i ], [ %.mux47.i, %do.end64.i.i ]
+  %retval.0.i108.i.i = phi i64 [ %div4.i107.i.i, %if.else.i105.i.i ], [ %.mux46.i, %do.end64.i.i ]
   store i64 %retval.0.i108.i.i, ptr %291, align 8
   store i32 5, ptr %type71.i.i, align 8
   store i64 7, ptr %miblen_new75.i.i, align 8
@@ -7679,16 +7657,16 @@ do.end86.i.i:                                     ; preds = %tsd_fetch_impl.exit
   store i32 5, ptr %type88.i.i, align 16
   %307 = load i64, ptr %292, align 16
   %cmp1.i111.i.i = icmp eq i64 %307, 0
-  %brmerge48.i = or i1 %cmp2.i.i.i, %cmp1.i111.i.i
-  %.mux49.i = select i1 %cmp.i.i.i, i64 0, i64 %307
-  br i1 %brmerge48.i, label %rate_per_second.exit119.i.i, label %if.else.i115.i.i
+  %brmerge47.i = or i1 %cmp2.i.i.i, %cmp1.i111.i.i
+  %.mux48.i = select i1 %cmp.i.i.i, i64 0, i64 %307
+  br i1 %brmerge47.i, label %rate_per_second.exit119.i.i, label %if.else.i115.i.i
 
 if.else.i115.i.i:                                 ; preds = %do.end86.i.i
   %div4.i117.i.i = udiv i64 %307, %div.i.i.i
   br label %rate_per_second.exit119.i.i
 
 rate_per_second.exit119.i.i:                      ; preds = %if.else.i115.i.i, %do.end86.i.i
-  %retval.0.i118.i.i = phi i64 [ %div4.i117.i.i, %if.else.i115.i.i ], [ %.mux49.i, %do.end86.i.i ]
+  %retval.0.i118.i.i = phi i64 [ %div4.i117.i.i, %if.else.i115.i.i ], [ %.mux48.i, %do.end86.i.i ]
   store i64 %retval.0.i118.i.i, ptr %293, align 8
   store i32 5, ptr %type93.i.i, align 8
   store i64 7, ptr %miblen_new97.i.i, align 8
@@ -7716,16 +7694,16 @@ do.end108.i.i:                                    ; preds = %tsd_fetch_impl.exit
   store i32 5, ptr %type110.i.i, align 16
   %309 = load i64, ptr %294, align 16
   %cmp1.i121.i.i = icmp eq i64 %309, 0
-  %brmerge50.i = or i1 %cmp2.i.i.i, %cmp1.i121.i.i
-  %.mux51.i = select i1 %cmp.i.i.i, i64 0, i64 %309
-  br i1 %brmerge50.i, label %rate_per_second.exit129.i.i, label %if.else.i125.i.i
+  %brmerge49.i = or i1 %cmp2.i.i.i, %cmp1.i121.i.i
+  %.mux50.i = select i1 %cmp.i.i.i, i64 0, i64 %309
+  br i1 %brmerge49.i, label %rate_per_second.exit129.i.i, label %if.else.i125.i.i
 
 if.else.i125.i.i:                                 ; preds = %do.end108.i.i
   %div4.i127.i.i = udiv i64 %309, %div.i.i.i
   br label %rate_per_second.exit129.i.i
 
 rate_per_second.exit129.i.i:                      ; preds = %if.else.i125.i.i, %do.end108.i.i
-  %retval.0.i128.i.i = phi i64 [ %div4.i127.i.i, %if.else.i125.i.i ], [ %.mux51.i, %do.end108.i.i ]
+  %retval.0.i128.i.i = phi i64 [ %div4.i127.i.i, %if.else.i125.i.i ], [ %.mux50.i, %do.end108.i.i ]
   store i64 %retval.0.i128.i.i, ptr %295, align 8
   store i32 5, ptr %type115.i.i, align 8
   store i64 7, ptr %miblen_new119.i.i, align 8
@@ -7813,14 +7791,13 @@ if.then1.i.i:                                     ; preds = %do.end.i.i
 for.body.preheader.i.i.i:                         ; preds = %if.then1.i.i
   %mul.i.i.i = zext i1 %cmp.i.i20.i to i32
   %amount.0.i.i.i = shl nuw nsw i32 %313, %mul.i.i.i
-  %smax.i.i.i = call i32 @llvm.smax.i32(i32 %amount.0.i.i.i, i32 1)
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.preheader.i.i.i
   %i.06.i.i.i = phi i32 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %for.body.preheader.i.i.i ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i.i)
   %inc.i.i.i = add nuw nsw i32 %i.06.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i32 %inc.i.i.i, %smax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i32 %inc.i.i.i, %amount.0.i.i.i
   br i1 %exitcond.not.i.i.i, label %if.end.i21.i, label %for.body.i.i.i, !llvm.loop !7
 
 if.end.i21.i:                                     ; preds = %for.body.i.i.i, %if.then1.i.i, %do.end.i.i
@@ -7830,14 +7807,14 @@ if.end.i21.i:                                     ; preds = %for.body.i.i.i, %if
 emitter_json_object_end.exit.i:                   ; preds = %if.end.i21.i, %mutex_stats_read_arena.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %exitcond.not.i, label %for.end.i750, label %for.body.i749, !llvm.loop !14
+  br i1 %exitcond.not.i, label %for.end.i749, label %for.body.i748, !llvm.loop !14
 
-for.end.i750:                                     ; preds = %emitter_json_object_end.exit.i
+for.end.i749:                                     ; preds = %emitter_json_object_end.exit.i
   %emitter.val.i22.i = load i32, ptr %emitter, align 8
   %spec.select.i.i23.i = icmp ult i32 %emitter.val.i22.i, 2
   br i1 %spec.select.i.i23.i, label %do.end.i24.i, label %stats_arena_mutexes_print.exit
 
-do.end.i24.i:                                     ; preds = %for.end.i750
+do.end.i24.i:                                     ; preds = %for.end.i749
   %315 = load i32, ptr %nesting_depth.i.i.i, align 8
   %dec.i.i26.i = add nsw i32 %315, -1
   store i32 %dec.i.i26.i, ptr %nesting_depth.i.i.i, align 8
@@ -7857,21 +7834,20 @@ if.then1.i29.i:                                   ; preds = %do.end.i24.i
 for.body.preheader.i.i34.i:                       ; preds = %if.then1.i29.i
   %mul.i.i35.i = zext i1 %cmp.i.i30.i to i32
   %amount.0.i.i36.i = shl nuw nsw i32 %316, %mul.i.i35.i
-  %smax.i.i37.i = call i32 @llvm.smax.i32(i32 %amount.0.i.i36.i, i32 1)
-  br label %for.body.i.i38.i
+  br label %for.body.i.i37.i
 
-for.body.i.i38.i:                                 ; preds = %for.body.i.i38.i, %for.body.preheader.i.i34.i
-  %i.06.i.i39.i = phi i32 [ %inc.i.i40.i, %for.body.i.i38.i ], [ 0, %for.body.preheader.i.i34.i ]
+for.body.i.i37.i:                                 ; preds = %for.body.i.i37.i, %for.body.preheader.i.i34.i
+  %i.06.i.i38.i = phi i32 [ %inc.i.i39.i, %for.body.i.i37.i ], [ 0, %for.body.preheader.i.i34.i ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i31.i)
-  %inc.i.i40.i = add nuw nsw i32 %i.06.i.i39.i, 1
-  %exitcond.not.i.i41.i = icmp eq i32 %inc.i.i40.i, %smax.i.i37.i
-  br i1 %exitcond.not.i.i41.i, label %if.end.i33.i, label %for.body.i.i38.i, !llvm.loop !7
+  %inc.i.i39.i = add nuw nsw i32 %i.06.i.i38.i, 1
+  %exitcond.not.i.i40.i = icmp eq i32 %inc.i.i39.i, %amount.0.i.i36.i
+  br i1 %exitcond.not.i.i40.i, label %if.end.i33.i, label %for.body.i.i37.i, !llvm.loop !7
 
-if.end.i33.i:                                     ; preds = %for.body.i.i38.i, %if.then1.i29.i, %do.end.i24.i
+if.end.i33.i:                                     ; preds = %for.body.i.i37.i, %if.then1.i29.i, %do.end.i24.i
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %stats_arena_mutexes_print.exit
 
-stats_arena_mutexes_print.exit:                   ; preds = %for.end.i750, %if.end.i33.i
+stats_arena_mutexes_print.exit:                   ; preds = %for.end.i749, %if.end.i33.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %row.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %col_name.i)
   call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %col64.i)
@@ -7881,7 +7857,7 @@ stats_arena_mutexes_print.exit:                   ; preds = %for.end.i750, %if.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %miblen_new13.i)
   br label %if.end946
 
-if.end946:                                        ; preds = %stats_arena_mutexes_print.exit, %emitter_table_row.exit747
+if.end946:                                        ; preds = %stats_arena_mutexes_print.exit, %emitter_table_row.exit746
   br i1 %bins, label %if.then948, label %if.end950
 
 if.then948:                                       ; preds = %if.end946
@@ -7989,8 +7965,8 @@ if.then958:                                       ; preds = %if.end956
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %header_ndirty_nonhuge.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %col_nretained_nonhuge.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %header_nretained_nonhuge.i)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %stats_arenas_mib.i752)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %miblen_new.i753)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %stats_arenas_mib.i751)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %miblen_new.i752)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %miblen_new458.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %miblen_new481.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz482.i)
@@ -8007,35 +7983,35 @@ if.then958:                                       ; preds = %if.end956
   store i64 7, ptr %miblen.i, align 8
   store i64 8, ptr %sz.i, align 8
   %call.i = call i32 @je_mallctlnametomib(ptr noundef nonnull @.str.412, ptr noundef nonnull %mib.i, ptr noundef nonnull %miblen.i) #13
-  %cmp.not.i754 = icmp eq i32 %call.i, 0
-  br i1 %cmp.not.i754, label %do.end.i756, label %if.then.i755
+  %cmp.not.i753 = icmp eq i32 %call.i, 0
+  br i1 %cmp.not.i753, label %do.end.i755, label %if.then.i754
 
-if.then.i755:                                     ; preds = %if.then958
+if.then.i754:                                     ; preds = %if.then958
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.256, ptr noundef nonnull @.str.412) #13
   call void @abort() #14
   unreachable
 
-do.end.i756:                                      ; preds = %if.then958
-  %arrayidx.i758 = getelementptr inbounds i8, ptr %mib.i, i64 16
-  store i64 %conv, ptr %arrayidx.i758, align 16
+do.end.i755:                                      ; preds = %if.then958
+  %arrayidx.i757 = getelementptr inbounds i8, ptr %mib.i, i64 16
+  store i64 %conv, ptr %arrayidx.i757, align 16
   %321 = load i64, ptr %miblen.i, align 8
   %call4.i = call i32 @je_mallctlbymib(ptr noundef nonnull %mib.i, i64 noundef %321, ptr noundef nonnull %npurge_passes.i, ptr noundef nonnull %sz.i, ptr noundef null, i64 noundef 0) #13
   %cmp5.not.i = icmp eq i32 %call4.i, 0
   br i1 %cmp5.not.i, label %do.body11.i, label %if.then7.i
 
-if.then7.i:                                       ; preds = %do.end.i756
+if.then7.i:                                       ; preds = %do.end.i755
   call void @malloc_write(ptr noundef nonnull @.str.257) #13
   call void @abort() #14
   unreachable
 
-do.body11.i:                                      ; preds = %do.end.i756
+do.body11.i:                                      ; preds = %do.end.i755
   store i64 7, ptr %miblen13.i, align 8
   store i64 8, ptr %sz14.i, align 8
-  %call17.i759 = call i32 @je_mallctlnametomib(ptr noundef nonnull @.str.413, ptr noundef nonnull %mib12.i, ptr noundef nonnull %miblen13.i) #13
-  %cmp18.not.i760 = icmp eq i32 %call17.i759, 0
-  br i1 %cmp18.not.i760, label %do.end22.i, label %if.then20.i761
+  %call17.i758 = call i32 @je_mallctlnametomib(ptr noundef nonnull @.str.413, ptr noundef nonnull %mib12.i, ptr noundef nonnull %miblen13.i) #13
+  %cmp18.not.i759 = icmp eq i32 %call17.i758, 0
+  br i1 %cmp18.not.i759, label %do.end22.i, label %if.then20.i760
 
-if.then20.i761:                                   ; preds = %do.body11.i
+if.then20.i760:                                   ; preds = %do.body11.i
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.256, ptr noundef nonnull @.str.413) #13
   call void @abort() #14
   unreachable
@@ -8131,25 +8107,25 @@ if.then99.i:                                      ; preds = %do.end91.i
 do.end102.i:                                      ; preds = %do.end91.i
   call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.417, ptr noundef nonnull @.str.418, i32 noundef 6, ptr noundef nonnull readonly %sec_bytes.i, ptr noundef null, i32 noundef 0, ptr noundef null)
   %326 = load i64, ptr %npurge_passes.i, align 8
-  %cmp.i.i762 = icmp eq i64 %320, 0
+  %cmp.i.i761 = icmp eq i64 %320, 0
   %cmp1.i.i = icmp eq i64 %326, 0
-  %or.cond.i.i = or i1 %cmp.i.i762, %cmp1.i.i
-  br i1 %or.cond.i.i, label %rate_per_second.exit.i, label %if.end.i.i763
+  %or.cond.i.i = or i1 %cmp.i.i761, %cmp1.i.i
+  br i1 %or.cond.i.i, label %rate_per_second.exit.i, label %if.end.i.i762
 
-if.end.i.i763:                                    ; preds = %do.end102.i
+if.end.i.i762:                                    ; preds = %do.end102.i
   %cmp2.i.i = icmp ult i64 %320, 1000000000
   br i1 %cmp2.i.i, label %rate_per_second.exit.i, label %if.else.i.i
 
-if.else.i.i:                                      ; preds = %if.end.i.i763
+if.else.i.i:                                      ; preds = %if.end.i.i762
   %div.i.i = udiv i64 %320, 1000000000
   %div4.i.i = udiv i64 %326, %div.i.i
   br label %rate_per_second.exit.i
 
-rate_per_second.exit.i:                           ; preds = %if.else.i.i, %if.end.i.i763, %do.end102.i
-  %retval.0.i.i = phi i64 [ %div4.i.i, %if.else.i.i ], [ 0, %do.end102.i ], [ %326, %if.end.i.i763 ]
+rate_per_second.exit.i:                           ; preds = %if.else.i.i, %if.end.i.i762, %do.end102.i
+  %retval.0.i.i = phi i64 [ %div4.i.i, %if.else.i.i ], [ 0, %do.end102.i ], [ %326, %if.end.i.i762 ]
   %327 = load i64, ptr %npurges.i, align 8
   %cmp1.i103.i = icmp eq i64 %327, 0
-  %or.cond.i104.i = or i1 %cmp.i.i762, %cmp1.i103.i
+  %or.cond.i104.i = or i1 %cmp.i.i761, %cmp1.i103.i
   br i1 %or.cond.i104.i, label %rate_per_second.exit111.i, label %if.end.i105.i
 
 if.end.i105.i:                                    ; preds = %rate_per_second.exit.i
@@ -8165,7 +8141,7 @@ rate_per_second.exit111.i:                        ; preds = %if.else.i107.i, %if
   %retval.0.i110.i = phi i64 [ %div4.i109.i, %if.else.i107.i ], [ 0, %rate_per_second.exit.i ], [ %327, %if.end.i105.i ]
   %328 = load i64, ptr %nhugifies.i, align 8
   %cmp1.i113.i = icmp eq i64 %328, 0
-  %or.cond.i114.i = or i1 %cmp.i.i762, %cmp1.i113.i
+  %or.cond.i114.i = or i1 %cmp.i.i761, %cmp1.i113.i
   br i1 %or.cond.i114.i, label %rate_per_second.exit121.i, label %if.end.i115.i
 
 if.end.i115.i:                                    ; preds = %rate_per_second.exit111.i
@@ -8181,7 +8157,7 @@ rate_per_second.exit121.i:                        ; preds = %if.else.i117.i, %if
   %retval.0.i120.i = phi i64 [ %div4.i119.i, %if.else.i117.i ], [ 0, %rate_per_second.exit111.i ], [ %328, %if.end.i115.i ]
   %329 = load i64, ptr %ndehugifies.i, align 8
   %cmp1.i123.i = icmp eq i64 %329, 0
-  %or.cond.i124.i = or i1 %cmp.i.i762, %cmp1.i123.i
+  %or.cond.i124.i = or i1 %cmp.i.i761, %cmp1.i123.i
   br i1 %or.cond.i124.i, label %rate_per_second.exit131.i, label %if.end.i125.i
 
 if.end.i125.i:                                    ; preds = %rate_per_second.exit121.i
@@ -8380,59 +8356,58 @@ do.end244.i:                                      ; preds = %do.end233.i
   call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %nactive_nonhuge.i)
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.436)
   call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %ndirty_nonhuge.i)
-  %emitter.val.i.i764 = load i32, ptr %emitter, align 8
-  %spec.select.i.i.i765 = icmp ult i32 %emitter.val.i.i764, 2
-  br i1 %spec.select.i.i.i765, label %do.end.i.i792, label %emitter_json_object_end.exit.i766
+  %emitter.val.i.i763 = load i32, ptr %emitter, align 8
+  %spec.select.i.i.i764 = icmp ult i32 %emitter.val.i.i763, 2
+  br i1 %spec.select.i.i.i764, label %do.end.i.i791, label %emitter_json_object_end.exit.i765
 
-do.end.i.i792:                                    ; preds = %do.end244.i
-  %nesting_depth.i.i.i793 = getelementptr inbounds i8, ptr %emitter, i64 24
-  %343 = load i32, ptr %nesting_depth.i.i.i793, align 8
-  %dec.i.i.i794 = add nsw i32 %343, -1
-  store i32 %dec.i.i.i794, ptr %nesting_depth.i.i.i793, align 8
-  %item_at_depth.i.i.i795 = getelementptr inbounds i8, ptr %emitter, i64 28
-  store i8 1, ptr %item_at_depth.i.i.i795, align 4
-  %cmp.not.i.i796 = icmp eq i32 %emitter.val.i.i764, 1
-  br i1 %cmp.not.i.i796, label %if.end.i132.i, label %if.then1.i.i797
+do.end.i.i791:                                    ; preds = %do.end244.i
+  %nesting_depth.i.i.i792 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %343 = load i32, ptr %nesting_depth.i.i.i792, align 8
+  %dec.i.i.i793 = add nsw i32 %343, -1
+  store i32 %dec.i.i.i793, ptr %nesting_depth.i.i.i792, align 8
+  %item_at_depth.i.i.i794 = getelementptr inbounds i8, ptr %emitter, i64 28
+  store i8 1, ptr %item_at_depth.i.i.i794, align 4
+  %cmp.not.i.i795 = icmp eq i32 %emitter.val.i.i763, 1
+  br i1 %cmp.not.i.i795, label %if.end.i132.i, label %if.then1.i.i796
 
-if.then1.i.i797:                                  ; preds = %do.end.i.i792
+if.then1.i.i796:                                  ; preds = %do.end.i.i791
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
-  %344 = load i32, ptr %nesting_depth.i.i.i793, align 8
+  %344 = load i32, ptr %nesting_depth.i.i.i792, align 8
   %345 = load i32, ptr %emitter, align 8
-  %cmp.i.i.i798 = icmp ne i32 %345, 0
-  %indent_str.0.i.i.i799 = select i1 %cmp.i.i.i798, ptr @.str.31, ptr @.str.34
-  %cmp15.i.i.i800 = icmp sgt i32 %344, 0
-  br i1 %cmp15.i.i.i800, label %for.body.preheader.i.i.i801, label %if.end.i132.i
+  %cmp.i.i.i797 = icmp ne i32 %345, 0
+  %indent_str.0.i.i.i798 = select i1 %cmp.i.i.i797, ptr @.str.31, ptr @.str.34
+  %cmp15.i.i.i799 = icmp sgt i32 %344, 0
+  br i1 %cmp15.i.i.i799, label %for.body.preheader.i.i.i800, label %if.end.i132.i
 
-for.body.preheader.i.i.i801:                      ; preds = %if.then1.i.i797
-  %mul.i.i.i802 = zext i1 %cmp.i.i.i798 to i32
-  %amount.0.i.i.i803 = shl nuw nsw i32 %344, %mul.i.i.i802
-  %smax.i.i.i804 = call i32 @llvm.smax.i32(i32 %amount.0.i.i.i803, i32 1)
-  br label %for.body.i.i.i805
+for.body.preheader.i.i.i800:                      ; preds = %if.then1.i.i796
+  %mul.i.i.i801 = zext i1 %cmp.i.i.i797 to i32
+  %amount.0.i.i.i802 = shl nuw nsw i32 %344, %mul.i.i.i801
+  br label %for.body.i.i.i803
 
-for.body.i.i.i805:                                ; preds = %for.body.i.i.i805, %for.body.preheader.i.i.i801
-  %i.06.i.i.i806 = phi i32 [ %inc.i.i.i807, %for.body.i.i.i805 ], [ 0, %for.body.preheader.i.i.i801 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i.i799)
-  %inc.i.i.i807 = add nuw nsw i32 %i.06.i.i.i806, 1
-  %exitcond.not.i.i.i808 = icmp eq i32 %inc.i.i.i807, %smax.i.i.i804
-  br i1 %exitcond.not.i.i.i808, label %if.end.i132.i, label %for.body.i.i.i805, !llvm.loop !7
+for.body.i.i.i803:                                ; preds = %for.body.i.i.i803, %for.body.preheader.i.i.i800
+  %i.06.i.i.i804 = phi i32 [ %inc.i.i.i805, %for.body.i.i.i803 ], [ 0, %for.body.preheader.i.i.i800 ]
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i.i798)
+  %inc.i.i.i805 = add nuw nsw i32 %i.06.i.i.i804, 1
+  %exitcond.not.i.i.i806 = icmp eq i32 %inc.i.i.i805, %amount.0.i.i.i802
+  br i1 %exitcond.not.i.i.i806, label %if.end.i132.i, label %for.body.i.i.i803, !llvm.loop !7
 
-if.end.i132.i:                                    ; preds = %for.body.i.i.i805, %if.then1.i.i797, %do.end.i.i792
+if.end.i132.i:                                    ; preds = %for.body.i.i.i803, %if.then1.i.i796, %do.end.i.i791
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
-  br label %emitter_json_object_end.exit.i766
+  br label %emitter_json_object_end.exit.i765
 
-emitter_json_object_end.exit.i766:                ; preds = %if.end.i132.i, %do.end244.i
+emitter_json_object_end.exit.i765:                ; preds = %if.end.i132.i, %do.end244.i
   store i64 7, ptr %miblen248.i, align 8
   store i64 8, ptr %sz249.i, align 8
   %call252.i = call i32 @je_mallctlnametomib(ptr noundef nonnull @.str.437, ptr noundef nonnull %mib247.i, ptr noundef nonnull %miblen248.i) #13
   %cmp253.not.i = icmp eq i32 %call252.i, 0
   br i1 %cmp253.not.i, label %do.end257.i, label %if.then255.i
 
-if.then255.i:                                     ; preds = %emitter_json_object_end.exit.i766
+if.then255.i:                                     ; preds = %emitter_json_object_end.exit.i765
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.256, ptr noundef nonnull @.str.437) #13
   call void @abort() #14
   unreachable
 
-do.end257.i:                                      ; preds = %emitter_json_object_end.exit.i766
+do.end257.i:                                      ; preds = %emitter_json_object_end.exit.i765
   %arrayidx259.i = getelementptr inbounds i8, ptr %mib247.i, i64 16
   store i64 %conv, ptr %arrayidx259.i, align 16
   %346 = load i64, ptr %miblen248.i, align 8
@@ -8597,7 +8572,7 @@ do.end383.i:                                      ; preds = %do.end372.i
   call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %ndirty_nonhuge.i)
   %emitter.val.i133.i = load i32, ptr %emitter, align 8
   %spec.select.i.i134.i = icmp ult i32 %emitter.val.i133.i, 2
-  br i1 %spec.select.i.i134.i, label %do.end.i135.i, label %emitter_col_init.exit376.i
+  br i1 %spec.select.i.i134.i, label %do.end.i135.i, label %emitter_col_init.exit375.i
 
 do.end.i135.i:                                    ; preds = %do.end383.i
   %nesting_depth.i.i136.i = getelementptr inbounds i8, ptr %emitter, i64 24
@@ -8621,30 +8596,29 @@ if.then1.i140.i:                                  ; preds = %do.end.i135.i
 for.body.preheader.i.i145.i:                      ; preds = %if.then1.i140.i
   %mul.i.i146.i = zext i1 %cmp.i.i141.i to i32
   %amount.0.i.i147.i = shl nuw nsw i32 %360, %mul.i.i146.i
-  %smax.i.i148.i = call i32 @llvm.smax.i32(i32 %amount.0.i.i147.i, i32 1)
-  br label %for.body.i.i149.i
+  br label %for.body.i.i148.i
 
-for.body.i.i149.i:                                ; preds = %for.body.i.i149.i, %for.body.preheader.i.i145.i
-  %i.06.i.i150.i = phi i32 [ %inc.i.i151.i, %for.body.i.i149.i ], [ 0, %for.body.preheader.i.i145.i ]
+for.body.i.i148.i:                                ; preds = %for.body.i.i148.i, %for.body.preheader.i.i145.i
+  %i.06.i.i149.i = phi i32 [ %inc.i.i150.i, %for.body.i.i148.i ], [ 0, %for.body.preheader.i.i145.i ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i142.i)
-  %inc.i.i151.i = add nuw nsw i32 %i.06.i.i150.i, 1
-  %exitcond.not.i.i152.i = icmp eq i32 %inc.i.i151.i, %smax.i.i148.i
-  br i1 %exitcond.not.i.i152.i, label %if.end.i144.i, label %for.body.i.i149.i, !llvm.loop !7
+  %inc.i.i150.i = add nuw nsw i32 %i.06.i.i149.i, 1
+  %exitcond.not.i.i151.i = icmp eq i32 %inc.i.i150.i, %amount.0.i.i147.i
+  br i1 %exitcond.not.i.i151.i, label %if.end.i144.i, label %for.body.i.i148.i, !llvm.loop !7
 
-if.end.i144.i:                                    ; preds = %for.body.i.i149.i, %if.then1.i140.i, %do.end.i135.i
+if.end.i144.i:                                    ; preds = %for.body.i.i148.i, %if.then1.i140.i, %do.end.i135.i
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
-  br label %emitter_col_init.exit376.i
+  br label %emitter_col_init.exit375.i
 
-emitter_col_init.exit376.i:                       ; preds = %if.end.i144.i, %do.end383.i
-  %link.i.i767 = getelementptr inbounds i8, ptr %col_size.i, i64 24
+emitter_col_init.exit375.i:                       ; preds = %if.end.i144.i, %do.end383.i
+  %link.i.i766 = getelementptr inbounds i8, ptr %col_size.i, i64 24
   %qre_prev.i.i = getelementptr inbounds i8, ptr %col_size.i, i64 32
   store i32 1, ptr %col_size.i, align 8
-  %width.i768 = getelementptr inbounds i8, ptr %col_size.i, i64 4
-  store i32 20, ptr %width.i768, align 4
-  %type.i769 = getelementptr inbounds i8, ptr %col_size.i, i64 8
-  store i32 6, ptr %type.i769, align 8
-  %link.i156.i = getelementptr inbounds i8, ptr %header_size.i, i64 24
-  %qre_prev.i157.i = getelementptr inbounds i8, ptr %header_size.i, i64 32
+  %width.i767 = getelementptr inbounds i8, ptr %col_size.i, i64 4
+  store i32 20, ptr %width.i767, align 4
+  %type.i768 = getelementptr inbounds i8, ptr %col_size.i, i64 8
+  store i32 6, ptr %type.i768, align 8
+  %link.i155.i = getelementptr inbounds i8, ptr %header_size.i, i64 24
+  %qre_prev.i156.i = getelementptr inbounds i8, ptr %header_size.i, i64 32
   store i32 1, ptr %header_size.i, align 8
   %width388.i = getelementptr inbounds i8, ptr %header_size.i, i64 4
   store i32 20, ptr %width388.i, align 4
@@ -8652,19 +8626,19 @@ emitter_col_init.exit376.i:                       ; preds = %if.end.i144.i, %do.
   store i32 9, ptr %type389.i, align 8
   %362 = getelementptr inbounds i8, ptr %header_size.i, i64 16
   store ptr @.str.202, ptr %362, align 8
-  %link.i169.i = getelementptr inbounds i8, ptr %col_ind.i, i64 24
-  %qre_prev.i170.i = getelementptr inbounds i8, ptr %col_ind.i, i64 32
-  store ptr %col_size.i, ptr %qre_prev.i170.i, align 8
-  store ptr %col_ind.i, ptr %link.i.i767, align 8
+  %link.i168.i = getelementptr inbounds i8, ptr %col_ind.i, i64 24
+  %qre_prev.i169.i = getelementptr inbounds i8, ptr %col_ind.i, i64 32
+  store ptr %col_size.i, ptr %qre_prev.i169.i, align 8
+  store ptr %col_ind.i, ptr %link.i.i766, align 8
   store i32 1, ptr %col_ind.i, align 8
   %width391.i = getelementptr inbounds i8, ptr %col_ind.i, i64 4
   store i32 4, ptr %width391.i, align 4
   %type392.i = getelementptr inbounds i8, ptr %col_ind.i, i64 8
   store i32 3, ptr %type392.i, align 8
-  %link.i182.i = getelementptr inbounds i8, ptr %header_ind.i, i64 24
-  %qre_prev.i183.i = getelementptr inbounds i8, ptr %header_ind.i, i64 32
-  store ptr %header_size.i, ptr %qre_prev.i183.i, align 8
-  store ptr %header_ind.i, ptr %link.i156.i, align 8
+  %link.i181.i = getelementptr inbounds i8, ptr %header_ind.i, i64 24
+  %qre_prev.i182.i = getelementptr inbounds i8, ptr %header_ind.i, i64 32
+  store ptr %header_size.i, ptr %qre_prev.i182.i, align 8
+  store ptr %header_ind.i, ptr %link.i155.i, align 8
   store i32 1, ptr %header_ind.i, align 8
   %width394.i = getelementptr inbounds i8, ptr %header_ind.i, i64 4
   store i32 4, ptr %width394.i, align 4
@@ -8672,17 +8646,17 @@ emitter_col_init.exit376.i:                       ; preds = %if.end.i144.i, %do.
   store i32 9, ptr %type395.i, align 8
   %363 = getelementptr inbounds i8, ptr %header_ind.i, i64 16
   store ptr @.str.365, ptr %363, align 8
-  %qre_prev.i196.i = getelementptr inbounds i8, ptr %col_npageslabs_huge.i, i64 32
-  store ptr %col_ind.i, ptr %qre_prev.i196.i, align 8
-  store ptr %col_npageslabs_huge.i, ptr %link.i169.i, align 8
+  %qre_prev.i195.i = getelementptr inbounds i8, ptr %col_npageslabs_huge.i, i64 32
+  store ptr %col_ind.i, ptr %qre_prev.i195.i, align 8
+  store ptr %col_npageslabs_huge.i, ptr %link.i168.i, align 8
   store i32 1, ptr %col_npageslabs_huge.i, align 8
   %width397.i = getelementptr inbounds i8, ptr %col_npageslabs_huge.i, i64 4
   store i32 16, ptr %width397.i, align 4
   %type398.i = getelementptr inbounds i8, ptr %col_npageslabs_huge.i, i64 8
   store i32 6, ptr %type398.i, align 8
-  %qre_prev.i209.i = getelementptr inbounds i8, ptr %header_npageslabs_huge.i, i64 32
-  store ptr %header_ind.i, ptr %qre_prev.i209.i, align 8
-  store ptr %header_npageslabs_huge.i, ptr %link.i182.i, align 8
+  %qre_prev.i208.i = getelementptr inbounds i8, ptr %header_npageslabs_huge.i, i64 32
+  store ptr %header_ind.i, ptr %qre_prev.i208.i, align 8
+  store ptr %header_npageslabs_huge.i, ptr %link.i181.i, align 8
   store i32 1, ptr %header_npageslabs_huge.i, align 8
   %width400.i = getelementptr inbounds i8, ptr %header_npageslabs_huge.i, i64 4
   store i32 16, ptr %width400.i, align 4
@@ -8690,20 +8664,20 @@ emitter_col_init.exit376.i:                       ; preds = %if.end.i144.i, %do.
   store i32 9, ptr %type401.i, align 8
   %364 = getelementptr inbounds i8, ptr %header_npageslabs_huge.i, i64 16
   store ptr @.str.432, ptr %364, align 8
-  %qre_prev.i222.i = getelementptr inbounds i8, ptr %col_nactive_huge.i, i64 32
-  store ptr %col_npageslabs_huge.i, ptr %qre_prev.i222.i, align 8
-  %link34.i230.i = getelementptr inbounds i8, ptr %col_npageslabs_huge.i, i64 24
-  store ptr %col_nactive_huge.i, ptr %link34.i230.i, align 8
+  %qre_prev.i221.i = getelementptr inbounds i8, ptr %col_nactive_huge.i, i64 32
+  store ptr %col_npageslabs_huge.i, ptr %qre_prev.i221.i, align 8
+  %link34.i229.i = getelementptr inbounds i8, ptr %col_npageslabs_huge.i, i64 24
+  store ptr %col_nactive_huge.i, ptr %link34.i229.i, align 8
   store i32 1, ptr %col_nactive_huge.i, align 8
   %width403.i = getelementptr inbounds i8, ptr %col_nactive_huge.i, i64 4
   store i32 16, ptr %width403.i, align 4
   %type404.i = getelementptr inbounds i8, ptr %col_nactive_huge.i, i64 8
   store i32 6, ptr %type404.i, align 8
-  %link.i234.i = getelementptr inbounds i8, ptr %header_nactive_huge.i, i64 24
-  %qre_prev.i235.i = getelementptr inbounds i8, ptr %header_nactive_huge.i, i64 32
-  store ptr %header_npageslabs_huge.i, ptr %qre_prev.i235.i, align 8
-  %link34.i243.i = getelementptr inbounds i8, ptr %header_npageslabs_huge.i, i64 24
-  store ptr %header_nactive_huge.i, ptr %link34.i243.i, align 8
+  %link.i233.i = getelementptr inbounds i8, ptr %header_nactive_huge.i, i64 24
+  %qre_prev.i234.i = getelementptr inbounds i8, ptr %header_nactive_huge.i, i64 32
+  store ptr %header_npageslabs_huge.i, ptr %qre_prev.i234.i, align 8
+  %link34.i242.i = getelementptr inbounds i8, ptr %header_npageslabs_huge.i, i64 24
+  store ptr %header_nactive_huge.i, ptr %link34.i242.i, align 8
   store i32 1, ptr %header_nactive_huge.i, align 8
   %width406.i = getelementptr inbounds i8, ptr %header_nactive_huge.i, i64 4
   store i32 16, ptr %width406.i, align 4
@@ -8711,20 +8685,20 @@ emitter_col_init.exit376.i:                       ; preds = %if.end.i144.i, %do.
   store i32 9, ptr %type407.i, align 8
   %365 = getelementptr inbounds i8, ptr %header_nactive_huge.i, i64 16
   store ptr @.str.433, ptr %365, align 8
-  %link.i247.i = getelementptr inbounds i8, ptr %col_ndirty_huge.i, i64 24
-  %qre_prev.i248.i = getelementptr inbounds i8, ptr %col_ndirty_huge.i, i64 32
-  store ptr %col_nactive_huge.i, ptr %qre_prev.i248.i, align 8
-  %link34.i256.i = getelementptr inbounds i8, ptr %col_nactive_huge.i, i64 24
-  store ptr %col_ndirty_huge.i, ptr %link34.i256.i, align 8
+  %link.i246.i = getelementptr inbounds i8, ptr %col_ndirty_huge.i, i64 24
+  %qre_prev.i247.i = getelementptr inbounds i8, ptr %col_ndirty_huge.i, i64 32
+  store ptr %col_nactive_huge.i, ptr %qre_prev.i247.i, align 8
+  %link34.i255.i = getelementptr inbounds i8, ptr %col_nactive_huge.i, i64 24
+  store ptr %col_ndirty_huge.i, ptr %link34.i255.i, align 8
   store i32 1, ptr %col_ndirty_huge.i, align 8
   %width409.i = getelementptr inbounds i8, ptr %col_ndirty_huge.i, i64 4
   store i32 16, ptr %width409.i, align 4
   %type410.i = getelementptr inbounds i8, ptr %col_ndirty_huge.i, i64 8
   store i32 6, ptr %type410.i, align 8
-  %link.i260.i = getelementptr inbounds i8, ptr %header_ndirty_huge.i, i64 24
-  %qre_prev.i261.i = getelementptr inbounds i8, ptr %header_ndirty_huge.i, i64 32
-  store ptr %header_nactive_huge.i, ptr %qre_prev.i261.i, align 8
-  store ptr %header_ndirty_huge.i, ptr %link.i234.i, align 8
+  %link.i259.i = getelementptr inbounds i8, ptr %header_ndirty_huge.i, i64 24
+  %qre_prev.i260.i = getelementptr inbounds i8, ptr %header_ndirty_huge.i, i64 32
+  store ptr %header_nactive_huge.i, ptr %qre_prev.i260.i, align 8
+  store ptr %header_ndirty_huge.i, ptr %link.i233.i, align 8
   store i32 1, ptr %header_ndirty_huge.i, align 8
   %width412.i = getelementptr inbounds i8, ptr %header_ndirty_huge.i, i64 4
   store i32 16, ptr %width412.i, align 4
@@ -8732,19 +8706,19 @@ emitter_col_init.exit376.i:                       ; preds = %if.end.i144.i, %do.
   store i32 9, ptr %type413.i, align 8
   %366 = getelementptr inbounds i8, ptr %header_ndirty_huge.i, i64 16
   store ptr @.str.445, ptr %366, align 8
-  %link.i273.i = getelementptr inbounds i8, ptr %col_npageslabs_nonhuge.i, i64 24
-  %qre_prev.i274.i = getelementptr inbounds i8, ptr %col_npageslabs_nonhuge.i, i64 32
-  store ptr %col_ndirty_huge.i, ptr %qre_prev.i274.i, align 8
-  store ptr %col_npageslabs_nonhuge.i, ptr %link.i247.i, align 8
+  %link.i272.i = getelementptr inbounds i8, ptr %col_npageslabs_nonhuge.i, i64 24
+  %qre_prev.i273.i = getelementptr inbounds i8, ptr %col_npageslabs_nonhuge.i, i64 32
+  store ptr %col_ndirty_huge.i, ptr %qre_prev.i273.i, align 8
+  store ptr %col_npageslabs_nonhuge.i, ptr %link.i246.i, align 8
   store i32 1, ptr %col_npageslabs_nonhuge.i, align 8
   %width415.i = getelementptr inbounds i8, ptr %col_npageslabs_nonhuge.i, i64 4
   store i32 20, ptr %width415.i, align 4
   %type416.i = getelementptr inbounds i8, ptr %col_npageslabs_nonhuge.i, i64 8
   store i32 6, ptr %type416.i, align 8
-  %link.i286.i = getelementptr inbounds i8, ptr %header_npageslabs_nonhuge.i, i64 24
-  %qre_prev.i287.i = getelementptr inbounds i8, ptr %header_npageslabs_nonhuge.i, i64 32
-  store ptr %header_ndirty_huge.i, ptr %qre_prev.i287.i, align 8
-  store ptr %header_npageslabs_nonhuge.i, ptr %link.i260.i, align 8
+  %link.i285.i = getelementptr inbounds i8, ptr %header_npageslabs_nonhuge.i, i64 24
+  %qre_prev.i286.i = getelementptr inbounds i8, ptr %header_npageslabs_nonhuge.i, i64 32
+  store ptr %header_ndirty_huge.i, ptr %qre_prev.i286.i, align 8
+  store ptr %header_npageslabs_nonhuge.i, ptr %link.i259.i, align 8
   store i32 1, ptr %header_npageslabs_nonhuge.i, align 8
   %width418.i = getelementptr inbounds i8, ptr %header_npageslabs_nonhuge.i, i64 4
   store i32 20, ptr %width418.i, align 4
@@ -8752,19 +8726,19 @@ emitter_col_init.exit376.i:                       ; preds = %if.end.i144.i, %do.
   store i32 9, ptr %type419.i, align 8
   %367 = getelementptr inbounds i8, ptr %header_npageslabs_nonhuge.i, i64 16
   store ptr @.str.434, ptr %367, align 8
-  %link.i299.i = getelementptr inbounds i8, ptr %col_nactive_nonhuge.i, i64 24
-  %qre_prev.i300.i = getelementptr inbounds i8, ptr %col_nactive_nonhuge.i, i64 32
-  store ptr %col_npageslabs_nonhuge.i, ptr %qre_prev.i300.i, align 8
-  store ptr %col_nactive_nonhuge.i, ptr %link.i273.i, align 8
+  %link.i298.i = getelementptr inbounds i8, ptr %col_nactive_nonhuge.i, i64 24
+  %qre_prev.i299.i = getelementptr inbounds i8, ptr %col_nactive_nonhuge.i, i64 32
+  store ptr %col_npageslabs_nonhuge.i, ptr %qre_prev.i299.i, align 8
+  store ptr %col_nactive_nonhuge.i, ptr %link.i272.i, align 8
   store i32 1, ptr %col_nactive_nonhuge.i, align 8
   %width421.i = getelementptr inbounds i8, ptr %col_nactive_nonhuge.i, i64 4
   store i32 20, ptr %width421.i, align 4
   %type422.i = getelementptr inbounds i8, ptr %col_nactive_nonhuge.i, i64 8
   store i32 6, ptr %type422.i, align 8
-  %link.i312.i = getelementptr inbounds i8, ptr %header_nactive_nonhuge.i, i64 24
-  %qre_prev.i313.i = getelementptr inbounds i8, ptr %header_nactive_nonhuge.i, i64 32
-  store ptr %header_npageslabs_nonhuge.i, ptr %qre_prev.i313.i, align 8
-  store ptr %header_nactive_nonhuge.i, ptr %link.i286.i, align 8
+  %link.i311.i = getelementptr inbounds i8, ptr %header_nactive_nonhuge.i, i64 24
+  %qre_prev.i312.i = getelementptr inbounds i8, ptr %header_nactive_nonhuge.i, i64 32
+  store ptr %header_npageslabs_nonhuge.i, ptr %qre_prev.i312.i, align 8
+  store ptr %header_nactive_nonhuge.i, ptr %link.i285.i, align 8
   store i32 1, ptr %header_nactive_nonhuge.i, align 8
   %width424.i = getelementptr inbounds i8, ptr %header_nactive_nonhuge.i, i64 4
   store i32 20, ptr %width424.i, align 4
@@ -8772,17 +8746,17 @@ emitter_col_init.exit376.i:                       ; preds = %if.end.i144.i, %do.
   store i32 9, ptr %type425.i, align 8
   %368 = getelementptr inbounds i8, ptr %header_nactive_nonhuge.i, i64 16
   store ptr @.str.435, ptr %368, align 8
-  %qre_prev.i326.i = getelementptr inbounds i8, ptr %col_ndirty_nonhuge.i, i64 32
-  store ptr %col_nactive_nonhuge.i, ptr %qre_prev.i326.i, align 8
-  store ptr %col_ndirty_nonhuge.i, ptr %link.i299.i, align 8
+  %qre_prev.i325.i = getelementptr inbounds i8, ptr %col_ndirty_nonhuge.i, i64 32
+  store ptr %col_nactive_nonhuge.i, ptr %qre_prev.i325.i, align 8
+  store ptr %col_ndirty_nonhuge.i, ptr %link.i298.i, align 8
   store i32 1, ptr %col_ndirty_nonhuge.i, align 8
   %width427.i = getelementptr inbounds i8, ptr %col_ndirty_nonhuge.i, i64 4
   store i32 20, ptr %width427.i, align 4
   %type428.i = getelementptr inbounds i8, ptr %col_ndirty_nonhuge.i, i64 8
   store i32 6, ptr %type428.i, align 8
-  %qre_prev.i339.i = getelementptr inbounds i8, ptr %header_ndirty_nonhuge.i, i64 32
-  store ptr %header_nactive_nonhuge.i, ptr %qre_prev.i339.i, align 8
-  store ptr %header_ndirty_nonhuge.i, ptr %link.i312.i, align 8
+  %qre_prev.i338.i = getelementptr inbounds i8, ptr %header_ndirty_nonhuge.i, i64 32
+  store ptr %header_nactive_nonhuge.i, ptr %qre_prev.i338.i, align 8
+  store ptr %header_ndirty_nonhuge.i, ptr %link.i311.i, align 8
   store i32 1, ptr %header_ndirty_nonhuge.i, align 8
   %width430.i = getelementptr inbounds i8, ptr %header_ndirty_nonhuge.i, i64 4
   store i32 20, ptr %width430.i, align 4
@@ -8790,25 +8764,25 @@ emitter_col_init.exit376.i:                       ; preds = %if.end.i144.i, %do.
   store i32 9, ptr %type431.i, align 8
   %369 = getelementptr inbounds i8, ptr %header_ndirty_nonhuge.i, i64 16
   store ptr @.str.436, ptr %369, align 8
-  %link.i351.i = getelementptr inbounds i8, ptr %col_nretained_nonhuge.i, i64 24
-  %qre_prev.i352.i = getelementptr inbounds i8, ptr %col_nretained_nonhuge.i, i64 32
+  %link.i350.i = getelementptr inbounds i8, ptr %col_nretained_nonhuge.i, i64 24
+  %qre_prev.i351.i = getelementptr inbounds i8, ptr %col_nretained_nonhuge.i, i64 32
   store ptr %col_nretained_nonhuge.i, ptr %qre_prev.i.i, align 8
-  store ptr %col_ndirty_nonhuge.i, ptr %qre_prev.i352.i, align 8
-  store ptr %col_size.i, ptr %link.i351.i, align 8
-  %link34.i360.i = getelementptr inbounds i8, ptr %col_ndirty_nonhuge.i, i64 24
-  store ptr %col_nretained_nonhuge.i, ptr %link34.i360.i, align 8
+  store ptr %col_ndirty_nonhuge.i, ptr %qre_prev.i351.i, align 8
+  store ptr %col_size.i, ptr %link.i350.i, align 8
+  %link34.i359.i = getelementptr inbounds i8, ptr %col_ndirty_nonhuge.i, i64 24
+  store ptr %col_nretained_nonhuge.i, ptr %link34.i359.i, align 8
   store i32 1, ptr %col_nretained_nonhuge.i, align 8
   %width433.i = getelementptr inbounds i8, ptr %col_nretained_nonhuge.i, i64 4
   store i32 20, ptr %width433.i, align 4
   %type434.i = getelementptr inbounds i8, ptr %col_nretained_nonhuge.i, i64 8
   store i32 6, ptr %type434.i, align 8
-  %link.i364.i = getelementptr inbounds i8, ptr %header_nretained_nonhuge.i, i64 24
-  %qre_prev.i365.i = getelementptr inbounds i8, ptr %header_nretained_nonhuge.i, i64 32
-  store ptr %header_nretained_nonhuge.i, ptr %qre_prev.i157.i, align 8
-  store ptr %header_ndirty_nonhuge.i, ptr %qre_prev.i365.i, align 8
-  store ptr %header_size.i, ptr %link.i364.i, align 8
-  %link34.i373.i = getelementptr inbounds i8, ptr %header_ndirty_nonhuge.i, i64 24
-  store ptr %header_nretained_nonhuge.i, ptr %link34.i373.i, align 8
+  %link.i363.i = getelementptr inbounds i8, ptr %header_nretained_nonhuge.i, i64 24
+  %qre_prev.i364.i = getelementptr inbounds i8, ptr %header_nretained_nonhuge.i, i64 32
+  store ptr %header_nretained_nonhuge.i, ptr %qre_prev.i156.i, align 8
+  store ptr %header_ndirty_nonhuge.i, ptr %qre_prev.i364.i, align 8
+  store ptr %header_size.i, ptr %link.i363.i, align 8
+  %link34.i372.i = getelementptr inbounds i8, ptr %header_ndirty_nonhuge.i, i64 24
+  store ptr %header_nretained_nonhuge.i, ptr %link34.i372.i, align 8
   store i32 1, ptr %header_nretained_nonhuge.i, align 8
   %width436.i = getelementptr inbounds i8, ptr %header_nretained_nonhuge.i, i64 4
   store i32 20, ptr %width436.i, align 4
@@ -8816,30 +8790,30 @@ emitter_col_init.exit376.i:                       ; preds = %if.end.i144.i, %do.
   store i32 9, ptr %type437.i, align 8
   %370 = getelementptr inbounds i8, ptr %header_nretained_nonhuge.i, i64 16
   store ptr @.str.446, ptr %370, align 8
-  store i64 7, ptr %miblen_new.i753, align 8
+  store i64 7, ptr %miblen_new.i752, align 8
   %371 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
   %state.i807.i = getelementptr inbounds i8, ptr %371, i64 832
   %372 = load i8, ptr %state.i807.i, align 8
-  %cmp6.i.not.i770 = icmp eq i8 %372, 0
-  br i1 %cmp6.i.not.i770, label %tsd_fetch_impl.exit.i773, label %if.then11.i.i771
+  %cmp6.i.not.i769 = icmp eq i8 %372, 0
+  br i1 %cmp6.i.not.i769, label %tsd_fetch_impl.exit.i772, label %if.then11.i.i770
 
-if.then11.i.i771:                                 ; preds = %emitter_col_init.exit376.i
-  %call13.i.i772 = call ptr @tsd_fetch_slow(ptr noundef nonnull %371, i1 noundef zeroext false) #13
-  br label %tsd_fetch_impl.exit.i773
+if.then11.i.i770:                                 ; preds = %emitter_col_init.exit375.i
+  %call13.i.i771 = call ptr @tsd_fetch_slow(ptr noundef nonnull %371, i1 noundef zeroext false) #13
+  br label %tsd_fetch_impl.exit.i772
 
-tsd_fetch_impl.exit.i773:                         ; preds = %if.then11.i.i771, %emitter_col_init.exit376.i
-  %retval.i.0.i774 = phi ptr [ %call13.i.i772, %if.then11.i.i771 ], [ %371, %emitter_col_init.exit376.i ]
-  %call444.i = call i32 @ctl_mibnametomib(ptr noundef %retval.i.0.i774, ptr noundef nonnull %stats_arenas_mib.i752, i64 noundef 0, ptr noundef nonnull @.str.259, ptr noundef nonnull %miblen_new.i753) #13
+tsd_fetch_impl.exit.i772:                         ; preds = %if.then11.i.i770, %emitter_col_init.exit375.i
+  %retval.i.0.i773 = phi ptr [ %call13.i.i771, %if.then11.i.i770 ], [ %371, %emitter_col_init.exit375.i ]
+  %call444.i = call i32 @ctl_mibnametomib(ptr noundef %retval.i.0.i773, ptr noundef nonnull %stats_arenas_mib.i751, i64 noundef 0, ptr noundef nonnull @.str.259, ptr noundef nonnull %miblen_new.i752) #13
   %cmp445.not.i = icmp eq i32 %call444.i, 0
   br i1 %cmp445.not.i, label %do.end452.i, label %if.then447.i
 
-if.then447.i:                                     ; preds = %tsd_fetch_impl.exit.i773
+if.then447.i:                                     ; preds = %tsd_fetch_impl.exit.i772
   call void @malloc_write(ptr noundef nonnull @.str.201) #13
   call void @abort() #14
   unreachable
 
-do.end452.i:                                      ; preds = %tsd_fetch_impl.exit.i773
-  %arrayidx454.i = getelementptr inbounds i8, ptr %stats_arenas_mib.i752, i64 16
+do.end452.i:                                      ; preds = %tsd_fetch_impl.exit.i772
+  %arrayidx454.i = getelementptr inbounds i8, ptr %stats_arenas_mib.i751, i64 16
   store i64 %conv, ptr %arrayidx454.i, align 16
   store i64 7, ptr %miblen_new458.i, align 8
   %373 = load i8, ptr %state.i807.i, align 8
@@ -8852,7 +8826,7 @@ if.then11.i628.i:                                 ; preds = %do.end452.i
 
 tsd_fetch_impl.exit634.i:                         ; preds = %if.then11.i628.i, %do.end452.i
   %retval.i611.0.i = phi ptr [ %call13.i630.i, %if.then11.i628.i ], [ %371, %do.end452.i ]
-  %call462.i = call i32 @ctl_mibnametomib(ptr noundef %retval.i611.0.i, ptr noundef nonnull %stats_arenas_mib.i752, i64 noundef 3, ptr noundef nonnull @.str.447, ptr noundef nonnull %miblen_new458.i) #13
+  %call462.i = call i32 @ctl_mibnametomib(ptr noundef %retval.i611.0.i, ptr noundef nonnull %stats_arenas_mib.i751, i64 noundef 3, ptr noundef nonnull @.str.447, ptr noundef nonnull %miblen_new458.i) #13
   %cmp463.not.i = icmp eq i32 %call462.i, 0
   br i1 %cmp463.not.i, label %do.end470.i, label %if.then465.i
 
@@ -8863,32 +8837,32 @@ if.then465.i:                                     ; preds = %tsd_fetch_impl.exit
 
 do.end470.i:                                      ; preds = %tsd_fetch_impl.exit634.i
   %374 = load i32, ptr %emitter, align 8
-  %cmp.not.i377.i = icmp eq i32 %374, 2
-  br i1 %cmp.not.i377.i, label %for.body.i.i784, label %emitter_table_row.exit.i775
+  %cmp.not.i376.i = icmp eq i32 %374, 2
+  br i1 %cmp.not.i376.i, label %for.body.i.i783, label %emitter_table_row.exit.i774
 
-for.body.i.i784:                                  ; preds = %do.end470.i, %for.body.i.i784
-  %col.011.i.i785 = phi ptr [ %379, %for.body.i.i784 ], [ %header_size.i, %do.end470.i ]
-  %375 = load i32, ptr %col.011.i.i785, align 8
-  %width.i.i786 = getelementptr inbounds i8, ptr %col.011.i.i785, i64 4
-  %376 = load i32, ptr %width.i.i786, align 4
-  %type.i.i787 = getelementptr inbounds i8, ptr %col.011.i.i785, i64 8
-  %377 = load i32, ptr %type.i.i787, align 8
-  %378 = getelementptr inbounds i8, ptr %col.011.i.i785, i64 16
+for.body.i.i783:                                  ; preds = %do.end470.i, %for.body.i.i783
+  %col.011.i.i784 = phi ptr [ %379, %for.body.i.i783 ], [ %header_size.i, %do.end470.i ]
+  %375 = load i32, ptr %col.011.i.i784, align 8
+  %width.i.i785 = getelementptr inbounds i8, ptr %col.011.i.i784, i64 4
+  %376 = load i32, ptr %width.i.i785, align 4
+  %type.i.i786 = getelementptr inbounds i8, ptr %col.011.i.i784, i64 8
+  %377 = load i32, ptr %type.i.i786, align 8
+  %378 = getelementptr inbounds i8, ptr %col.011.i.i784, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %375, i32 noundef %376, i32 noundef %377, ptr noundef nonnull %378)
-  %link.i379.i = getelementptr inbounds i8, ptr %col.011.i.i785, i64 24
-  %379 = load ptr, ptr %link.i379.i, align 8
-  %cmp4.not.i.i788 = icmp eq ptr %379, %header_size.i
-  %cmp1.not12.i.i789 = icmp eq ptr %379, null
-  %cmp1.not.i.i790 = or i1 %cmp4.not.i.i788, %cmp1.not12.i.i789
-  br i1 %cmp1.not.i.i790, label %for.end.i.i791, label %for.body.i.i784
+  %link.i378.i = getelementptr inbounds i8, ptr %col.011.i.i784, i64 24
+  %379 = load ptr, ptr %link.i378.i, align 8
+  %cmp4.not.i.i787 = icmp eq ptr %379, %header_size.i
+  %cmp1.not12.i.i788 = icmp eq ptr %379, null
+  %cmp1.not.i.i789 = or i1 %cmp4.not.i.i787, %cmp1.not12.i.i788
+  br i1 %cmp1.not.i.i789, label %for.end.i.i790, label %for.body.i.i783
 
-for.end.i.i791:                                   ; preds = %for.body.i.i784
+for.end.i.i790:                                   ; preds = %for.body.i.i783
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
-  br label %emitter_table_row.exit.i775
+  br label %emitter_table_row.exit.i774
 
-emitter_table_row.exit.i775:                      ; preds = %for.end.i.i791, %do.end470.i
+emitter_table_row.exit.i774:                      ; preds = %for.end.i.i790, %do.end470.i
   call fastcc void @emitter_json_array_kv_begin(ptr noundef %emitter, ptr noundef nonnull @.str.375)
-  %arrayidx477.i = getelementptr inbounds i8, ptr %stats_arenas_mib.i752, i64 40
+  %arrayidx477.i = getelementptr inbounds i8, ptr %stats_arenas_mib.i751, i64 40
   %380 = getelementptr inbounds i8, ptr %col_size.i, i64 16
   %381 = getelementptr inbounds i8, ptr %col_ind.i, i64 16
   %382 = getelementptr inbounds i8, ptr %col_npageslabs_huge.i, i64 16
@@ -8898,27 +8872,27 @@ emitter_table_row.exit.i775:                      ; preds = %for.end.i.i791, %do
   %386 = getelementptr inbounds i8, ptr %col_nactive_nonhuge.i, i64 16
   %387 = getelementptr inbounds i8, ptr %col_ndirty_nonhuge.i, i64 16
   %388 = getelementptr inbounds i8, ptr %col_nretained_nonhuge.i, i64 16
-  %nesting_depth.i.i396.i = getelementptr inbounds i8, ptr %emitter, i64 24
-  %item_at_depth.i.i398.i = getelementptr inbounds i8, ptr %emitter, i64 28
-  br label %for.body.i776
+  %nesting_depth.i.i395.i = getelementptr inbounds i8, ptr %emitter, i64 24
+  %item_at_depth.i.i397.i = getelementptr inbounds i8, ptr %emitter, i64 28
+  br label %for.body.i775
 
-for.body.i776:                                    ; preds = %emitter_json_object_end.exit413.i, %emitter_table_row.exit.i775
-  %indvars.iv.i777 = phi i64 [ 0, %emitter_table_row.exit.i775 ], [ %indvars.iv.next.i780, %emitter_json_object_end.exit413.i ]
-  %in_gap.0527.i = phi i1 [ false, %emitter_table_row.exit.i775 ], [ %400, %emitter_json_object_end.exit413.i ]
-  store i64 %indvars.iv.i777, ptr %arrayidx477.i, align 8
+for.body.i775:                                    ; preds = %emitter_json_object_end.exit411.i, %emitter_table_row.exit.i774
+  %indvars.iv.i776 = phi i64 [ 0, %emitter_table_row.exit.i774 ], [ %indvars.iv.next.i779, %emitter_json_object_end.exit411.i ]
+  %in_gap.0523.i = phi i1 [ false, %emitter_table_row.exit.i774 ], [ %400, %emitter_json_object_end.exit411.i ]
+  store i64 %indvars.iv.i776, ptr %arrayidx477.i, align 8
   store i64 7, ptr %miblen_new481.i, align 8
   store i64 8, ptr %sz482.i, align 8
   %389 = load i8, ptr %state.i807.i, align 8
   %cmp6.i647.not.i = icmp eq i8 %389, 0
   br i1 %cmp6.i647.not.i, label %tsd_fetch_impl.exit658.i, label %if.then11.i652.i
 
-if.then11.i652.i:                                 ; preds = %for.body.i776
+if.then11.i652.i:                                 ; preds = %for.body.i775
   %call13.i654.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %371, i1 noundef zeroext false) #13
   br label %tsd_fetch_impl.exit658.i
 
-tsd_fetch_impl.exit658.i:                         ; preds = %if.then11.i652.i, %for.body.i776
-  %retval.i635.0.i = phi ptr [ %call13.i654.i, %if.then11.i652.i ], [ %371, %for.body.i776 ]
-  %call486.i = call i32 @ctl_bymibname(ptr noundef %retval.i635.0.i, ptr noundef nonnull %stats_arenas_mib.i752, i64 noundef 6, ptr noundef nonnull @.str.432, ptr noundef nonnull %miblen_new481.i, ptr noundef nonnull %npageslabs_huge.i, ptr noundef nonnull %sz482.i, ptr noundef null, i64 noundef 0) #13
+tsd_fetch_impl.exit658.i:                         ; preds = %if.then11.i652.i, %for.body.i775
+  %retval.i635.0.i = phi ptr [ %call13.i654.i, %if.then11.i652.i ], [ %371, %for.body.i775 ]
+  %call486.i = call i32 @ctl_bymibname(ptr noundef %retval.i635.0.i, ptr noundef nonnull %stats_arenas_mib.i751, i64 noundef 6, ptr noundef nonnull @.str.432, ptr noundef nonnull %miblen_new481.i, ptr noundef nonnull %npageslabs_huge.i, ptr noundef nonnull %sz482.i, ptr noundef null, i64 noundef 0) #13
   %cmp487.not.i = icmp eq i32 %call486.i, 0
   br i1 %cmp487.not.i, label %do.end497.i, label %if.then489.i
 
@@ -8940,7 +8914,7 @@ if.then11.i676.i:                                 ; preds = %do.end497.i
 
 tsd_fetch_impl.exit682.i:                         ; preds = %if.then11.i676.i, %do.end497.i
   %retval.i659.0.i = phi ptr [ %call13.i678.i, %if.then11.i676.i ], [ %371, %do.end497.i ]
-  %call503.i = call i32 @ctl_bymibname(ptr noundef %retval.i659.0.i, ptr noundef nonnull %stats_arenas_mib.i752, i64 noundef 6, ptr noundef nonnull @.str.433, ptr noundef nonnull %miblen_new498.i, ptr noundef nonnull %nactive_huge.i, ptr noundef nonnull %sz499.i, ptr noundef null, i64 noundef 0) #13
+  %call503.i = call i32 @ctl_bymibname(ptr noundef %retval.i659.0.i, ptr noundef nonnull %stats_arenas_mib.i751, i64 noundef 6, ptr noundef nonnull @.str.433, ptr noundef nonnull %miblen_new498.i, ptr noundef nonnull %nactive_huge.i, ptr noundef nonnull %sz499.i, ptr noundef null, i64 noundef 0) #13
   %cmp504.not.i = icmp eq i32 %call503.i, 0
   br i1 %cmp504.not.i, label %do.end514.i, label %if.then506.i
 
@@ -8962,7 +8936,7 @@ if.then11.i700.i:                                 ; preds = %do.end514.i
 
 tsd_fetch_impl.exit706.i:                         ; preds = %if.then11.i700.i, %do.end514.i
   %retval.i683.0.i = phi ptr [ %call13.i702.i, %if.then11.i700.i ], [ %371, %do.end514.i ]
-  %call520.i = call i32 @ctl_bymibname(ptr noundef %retval.i683.0.i, ptr noundef nonnull %stats_arenas_mib.i752, i64 noundef 6, ptr noundef nonnull @.str.445, ptr noundef nonnull %miblen_new515.i, ptr noundef nonnull %ndirty_huge.i, ptr noundef nonnull %sz516.i, ptr noundef null, i64 noundef 0) #13
+  %call520.i = call i32 @ctl_bymibname(ptr noundef %retval.i683.0.i, ptr noundef nonnull %stats_arenas_mib.i751, i64 noundef 6, ptr noundef nonnull @.str.445, ptr noundef nonnull %miblen_new515.i, ptr noundef nonnull %ndirty_huge.i, ptr noundef nonnull %sz516.i, ptr noundef null, i64 noundef 0) #13
   %cmp521.not.i = icmp eq i32 %call520.i, 0
   br i1 %cmp521.not.i, label %do.end531.i, label %if.then523.i
 
@@ -8984,7 +8958,7 @@ if.then11.i724.i:                                 ; preds = %do.end531.i
 
 tsd_fetch_impl.exit730.i:                         ; preds = %if.then11.i724.i, %do.end531.i
   %retval.i707.0.i = phi ptr [ %call13.i726.i, %if.then11.i724.i ], [ %371, %do.end531.i ]
-  %call537.i = call i32 @ctl_bymibname(ptr noundef %retval.i707.0.i, ptr noundef nonnull %stats_arenas_mib.i752, i64 noundef 6, ptr noundef nonnull @.str.434, ptr noundef nonnull %miblen_new532.i, ptr noundef nonnull %npageslabs_nonhuge.i, ptr noundef nonnull %sz533.i, ptr noundef null, i64 noundef 0) #13
+  %call537.i = call i32 @ctl_bymibname(ptr noundef %retval.i707.0.i, ptr noundef nonnull %stats_arenas_mib.i751, i64 noundef 6, ptr noundef nonnull @.str.434, ptr noundef nonnull %miblen_new532.i, ptr noundef nonnull %npageslabs_nonhuge.i, ptr noundef nonnull %sz533.i, ptr noundef null, i64 noundef 0) #13
   %cmp538.not.i = icmp eq i32 %call537.i, 0
   br i1 %cmp538.not.i, label %do.end548.i, label %if.then540.i
 
@@ -9006,7 +8980,7 @@ if.then11.i748.i:                                 ; preds = %do.end548.i
 
 tsd_fetch_impl.exit754.i:                         ; preds = %if.then11.i748.i, %do.end548.i
   %retval.i731.0.i = phi ptr [ %call13.i750.i, %if.then11.i748.i ], [ %371, %do.end548.i ]
-  %call554.i = call i32 @ctl_bymibname(ptr noundef %retval.i731.0.i, ptr noundef nonnull %stats_arenas_mib.i752, i64 noundef 6, ptr noundef nonnull @.str.435, ptr noundef nonnull %miblen_new549.i, ptr noundef nonnull %nactive_nonhuge.i, ptr noundef nonnull %sz550.i, ptr noundef null, i64 noundef 0) #13
+  %call554.i = call i32 @ctl_bymibname(ptr noundef %retval.i731.0.i, ptr noundef nonnull %stats_arenas_mib.i751, i64 noundef 6, ptr noundef nonnull @.str.435, ptr noundef nonnull %miblen_new549.i, ptr noundef nonnull %nactive_nonhuge.i, ptr noundef nonnull %sz550.i, ptr noundef null, i64 noundef 0) #13
   %cmp555.not.i = icmp eq i32 %call554.i, 0
   br i1 %cmp555.not.i, label %do.end565.i, label %if.then557.i
 
@@ -9028,7 +9002,7 @@ if.then11.i772.i:                                 ; preds = %do.end565.i
 
 tsd_fetch_impl.exit778.i:                         ; preds = %if.then11.i772.i, %do.end565.i
   %retval.i755.0.i = phi ptr [ %call13.i774.i, %if.then11.i772.i ], [ %371, %do.end565.i ]
-  %call571.i = call i32 @ctl_bymibname(ptr noundef %retval.i755.0.i, ptr noundef nonnull %stats_arenas_mib.i752, i64 noundef 6, ptr noundef nonnull @.str.436, ptr noundef nonnull %miblen_new566.i, ptr noundef nonnull %ndirty_nonhuge.i, ptr noundef nonnull %sz567.i, ptr noundef null, i64 noundef 0) #13
+  %call571.i = call i32 @ctl_bymibname(ptr noundef %retval.i755.0.i, ptr noundef nonnull %stats_arenas_mib.i751, i64 noundef 6, ptr noundef nonnull @.str.436, ptr noundef nonnull %miblen_new566.i, ptr noundef nonnull %ndirty_nonhuge.i, ptr noundef nonnull %sz567.i, ptr noundef null, i64 noundef 0) #13
   %cmp572.not.i = icmp eq i32 %call571.i, 0
   br i1 %cmp572.not.i, label %do.end579.i, label %if.then574.i
 
@@ -9048,27 +9022,27 @@ do.end579.i:                                      ; preds = %tsd_fetch_impl.exit
   %cmp583.i = icmp eq i64 %399, 0
   %cmp586.i = icmp eq i64 %395, 0
   %400 = select i1 %cmp583.i, i1 %cmp586.i, i1 false
-  %in_gap.0.not.i = xor i1 %in_gap.0527.i, true
-  %brmerge.i778 = select i1 %in_gap.0.not.i, i1 true, i1 %400
-  br i1 %brmerge.i778, label %if.end594.i, label %if.then593.i
+  %in_gap.0.not.i = xor i1 %in_gap.0523.i, true
+  %brmerge.i777 = select i1 %in_gap.0.not.i, i1 true, i1 %400
+  br i1 %brmerge.i777, label %if.end594.i, label %if.then593.i
 
 if.then593.i:                                     ; preds = %do.end579.i
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.390)
-  %.pre.i779 = load i64, ptr %npageslabs_huge.i, align 8
-  %.pre530.i = load i64, ptr %npageslabs_nonhuge.i, align 8
-  %.pre531.i = load i64, ptr %nactive_nonhuge.i, align 8
-  %.pre532.i = load i64, ptr %ndirty_nonhuge.i, align 8
+  %.pre.i778 = load i64, ptr %npageslabs_huge.i, align 8
+  %.pre526.i = load i64, ptr %npageslabs_nonhuge.i, align 8
+  %.pre527.i = load i64, ptr %nactive_nonhuge.i, align 8
+  %.pre528.i = load i64, ptr %ndirty_nonhuge.i, align 8
   br label %if.end594.i
 
 if.end594.i:                                      ; preds = %if.then593.i, %do.end579.i
-  %401 = phi i64 [ %397, %do.end579.i ], [ %.pre532.i, %if.then593.i ]
-  %402 = phi i64 [ %396, %do.end579.i ], [ %.pre531.i, %if.then593.i ]
-  %403 = phi i64 [ %395, %do.end579.i ], [ %.pre530.i, %if.then593.i ]
-  %404 = phi i64 [ %399, %do.end579.i ], [ %.pre.i779, %if.then593.i ]
-  %arrayidx.i.i.i = getelementptr inbounds [200 x i64], ptr @sz_pind2sz_tab, i64 0, i64 %indvars.iv.i777
+  %401 = phi i64 [ %397, %do.end579.i ], [ %.pre528.i, %if.then593.i ]
+  %402 = phi i64 [ %396, %do.end579.i ], [ %.pre527.i, %if.then593.i ]
+  %403 = phi i64 [ %395, %do.end579.i ], [ %.pre526.i, %if.then593.i ]
+  %404 = phi i64 [ %399, %do.end579.i ], [ %.pre.i778, %if.then593.i ]
+  %arrayidx.i.i.i = getelementptr inbounds [200 x i64], ptr @sz_pind2sz_tab, i64 0, i64 %indvars.iv.i776
   %405 = load i64, ptr %arrayidx.i.i.i, align 8
   store i64 %405, ptr %380, align 8
-  store i64 %indvars.iv.i777, ptr %381, align 8
+  store i64 %indvars.iv.i776, ptr %381, align 8
   store i64 %404, ptr %382, align 8
   %406 = load i64, ptr %nactive_huge.i, align 8
   store i64 %406, ptr %383, align 8
@@ -9082,30 +9056,30 @@ if.end594.i:                                      ; preds = %if.then593.i, %do.e
 
 if.then598.i:                                     ; preds = %if.end594.i
   %408 = load i32, ptr %emitter, align 8
-  %cmp.not.i380.i = icmp eq i32 %408, 2
-  br i1 %cmp.not.i380.i, label %for.body.i383.i, label %if.end599.i
+  %cmp.not.i379.i = icmp eq i32 %408, 2
+  br i1 %cmp.not.i379.i, label %for.body.i382.i, label %if.end599.i
 
-for.body.i383.i:                                  ; preds = %if.then598.i, %for.body.i383.i
-  %col.011.i384.i = phi ptr [ %413, %for.body.i383.i ], [ %col_size.i, %if.then598.i ]
-  %409 = load i32, ptr %col.011.i384.i, align 8
-  %width.i385.i = getelementptr inbounds i8, ptr %col.011.i384.i, i64 4
-  %410 = load i32, ptr %width.i385.i, align 4
-  %type.i386.i = getelementptr inbounds i8, ptr %col.011.i384.i, i64 8
-  %411 = load i32, ptr %type.i386.i, align 8
-  %412 = getelementptr inbounds i8, ptr %col.011.i384.i, i64 16
+for.body.i382.i:                                  ; preds = %if.then598.i, %for.body.i382.i
+  %col.011.i383.i = phi ptr [ %413, %for.body.i382.i ], [ %col_size.i, %if.then598.i ]
+  %409 = load i32, ptr %col.011.i383.i, align 8
+  %width.i384.i = getelementptr inbounds i8, ptr %col.011.i383.i, i64 4
+  %410 = load i32, ptr %width.i384.i, align 4
+  %type.i385.i = getelementptr inbounds i8, ptr %col.011.i383.i, i64 8
+  %411 = load i32, ptr %type.i385.i, align 8
+  %412 = getelementptr inbounds i8, ptr %col.011.i383.i, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %409, i32 noundef %410, i32 noundef %411, ptr noundef nonnull %412)
-  %link.i387.i = getelementptr inbounds i8, ptr %col.011.i384.i, i64 24
-  %413 = load ptr, ptr %link.i387.i, align 8
-  %cmp4.not.i388.i = icmp eq ptr %413, %col_size.i
-  %cmp1.not12.i389.i = icmp eq ptr %413, null
-  %cmp1.not.i390.i = or i1 %cmp4.not.i388.i, %cmp1.not12.i389.i
-  br i1 %cmp1.not.i390.i, label %for.end.i391.i, label %for.body.i383.i
+  %link.i386.i = getelementptr inbounds i8, ptr %col.011.i383.i, i64 24
+  %413 = load ptr, ptr %link.i386.i, align 8
+  %cmp4.not.i387.i = icmp eq ptr %413, %col_size.i
+  %cmp1.not12.i388.i = icmp eq ptr %413, null
+  %cmp1.not.i389.i = or i1 %cmp4.not.i387.i, %cmp1.not12.i388.i
+  br i1 %cmp1.not.i389.i, label %for.end.i390.i, label %for.body.i382.i
 
-for.end.i391.i:                                   ; preds = %for.body.i383.i
+for.end.i390.i:                                   ; preds = %for.body.i382.i
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %if.end599.i
 
-if.end599.i:                                      ; preds = %for.end.i391.i, %if.then598.i, %if.end594.i
+if.end599.i:                                      ; preds = %for.end.i390.i, %if.then598.i, %if.end594.i
   call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.432)
   call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %npageslabs_huge.i)
@@ -9119,132 +9093,129 @@ if.end599.i:                                      ; preds = %for.end.i391.i, %if
   call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %nactive_nonhuge.i)
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.436)
   call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %ndirty_nonhuge.i)
-  %emitter.val.i393.i = load i32, ptr %emitter, align 8
-  %spec.select.i.i394.i = icmp ult i32 %emitter.val.i393.i, 2
-  br i1 %spec.select.i.i394.i, label %do.end.i395.i, label %emitter_json_object_end.exit413.i
+  %emitter.val.i392.i = load i32, ptr %emitter, align 8
+  %spec.select.i.i393.i = icmp ult i32 %emitter.val.i392.i, 2
+  br i1 %spec.select.i.i393.i, label %do.end.i394.i, label %emitter_json_object_end.exit411.i
 
-do.end.i395.i:                                    ; preds = %if.end599.i
-  %414 = load i32, ptr %nesting_depth.i.i396.i, align 8
-  %dec.i.i397.i = add nsw i32 %414, -1
-  store i32 %dec.i.i397.i, ptr %nesting_depth.i.i396.i, align 8
-  store i8 1, ptr %item_at_depth.i.i398.i, align 4
-  %cmp.not.i399.i = icmp eq i32 %emitter.val.i393.i, 1
-  br i1 %cmp.not.i399.i, label %if.end.i404.i, label %if.then1.i400.i
+do.end.i394.i:                                    ; preds = %if.end599.i
+  %414 = load i32, ptr %nesting_depth.i.i395.i, align 8
+  %dec.i.i396.i = add nsw i32 %414, -1
+  store i32 %dec.i.i396.i, ptr %nesting_depth.i.i395.i, align 8
+  store i8 1, ptr %item_at_depth.i.i397.i, align 4
+  %cmp.not.i398.i = icmp eq i32 %emitter.val.i392.i, 1
+  br i1 %cmp.not.i398.i, label %if.end.i403.i, label %if.then1.i399.i
 
-if.then1.i400.i:                                  ; preds = %do.end.i395.i
+if.then1.i399.i:                                  ; preds = %do.end.i394.i
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
-  %415 = load i32, ptr %nesting_depth.i.i396.i, align 8
+  %415 = load i32, ptr %nesting_depth.i.i395.i, align 8
   %416 = load i32, ptr %emitter, align 8
-  %cmp.i.i401.i = icmp ne i32 %416, 0
-  %indent_str.0.i.i402.i = select i1 %cmp.i.i401.i, ptr @.str.31, ptr @.str.34
-  %cmp15.i.i403.i = icmp sgt i32 %415, 0
-  br i1 %cmp15.i.i403.i, label %for.body.preheader.i.i405.i, label %if.end.i404.i
+  %cmp.i.i400.i = icmp ne i32 %416, 0
+  %indent_str.0.i.i401.i = select i1 %cmp.i.i400.i, ptr @.str.31, ptr @.str.34
+  %cmp15.i.i402.i = icmp sgt i32 %415, 0
+  br i1 %cmp15.i.i402.i, label %for.body.preheader.i.i404.i, label %if.end.i403.i
 
-for.body.preheader.i.i405.i:                      ; preds = %if.then1.i400.i
-  %mul.i.i406.i = zext i1 %cmp.i.i401.i to i32
-  %amount.0.i.i407.i = shl nuw nsw i32 %415, %mul.i.i406.i
-  %smax.i.i408.i = call i32 @llvm.smax.i32(i32 %amount.0.i.i407.i, i32 1)
-  br label %for.body.i.i409.i
+for.body.preheader.i.i404.i:                      ; preds = %if.then1.i399.i
+  %mul.i.i405.i = zext i1 %cmp.i.i400.i to i32
+  %amount.0.i.i406.i = shl nuw nsw i32 %415, %mul.i.i405.i
+  br label %for.body.i.i407.i
 
-for.body.i.i409.i:                                ; preds = %for.body.i.i409.i, %for.body.preheader.i.i405.i
-  %i.06.i.i410.i = phi i32 [ %inc.i.i411.i, %for.body.i.i409.i ], [ 0, %for.body.preheader.i.i405.i ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i402.i)
-  %inc.i.i411.i = add nuw nsw i32 %i.06.i.i410.i, 1
-  %exitcond.not.i.i412.i = icmp eq i32 %inc.i.i411.i, %smax.i.i408.i
-  br i1 %exitcond.not.i.i412.i, label %if.end.i404.i, label %for.body.i.i409.i, !llvm.loop !7
+for.body.i.i407.i:                                ; preds = %for.body.i.i407.i, %for.body.preheader.i.i404.i
+  %i.06.i.i408.i = phi i32 [ %inc.i.i409.i, %for.body.i.i407.i ], [ 0, %for.body.preheader.i.i404.i ]
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i401.i)
+  %inc.i.i409.i = add nuw nsw i32 %i.06.i.i408.i, 1
+  %exitcond.not.i.i410.i = icmp eq i32 %inc.i.i409.i, %amount.0.i.i406.i
+  br i1 %exitcond.not.i.i410.i, label %if.end.i403.i, label %for.body.i.i407.i, !llvm.loop !7
 
-if.end.i404.i:                                    ; preds = %for.body.i.i409.i, %if.then1.i400.i, %do.end.i395.i
+if.end.i403.i:                                    ; preds = %for.body.i.i407.i, %if.then1.i399.i, %do.end.i394.i
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
-  br label %emitter_json_object_end.exit413.i
+  br label %emitter_json_object_end.exit411.i
 
-emitter_json_object_end.exit413.i:                ; preds = %if.end.i404.i, %if.end599.i
-  %indvars.iv.next.i780 = add nuw nsw i64 %indvars.iv.i777, 1
-  %exitcond.not.i781 = icmp eq i64 %indvars.iv.next.i780, 64
-  br i1 %exitcond.not.i781, label %for.end.i782, label %for.body.i776, !llvm.loop !15
+emitter_json_object_end.exit411.i:                ; preds = %if.end.i403.i, %if.end599.i
+  %indvars.iv.next.i779 = add nuw nsw i64 %indvars.iv.i776, 1
+  %exitcond.not.i780 = icmp eq i64 %indvars.iv.next.i779, 64
+  br i1 %exitcond.not.i780, label %for.end.i781, label %for.body.i775, !llvm.loop !15
 
-for.end.i782:                                     ; preds = %emitter_json_object_end.exit413.i
-  %emitter.val.i414.i = load i32, ptr %emitter, align 8
-  %spec.select.i.i415.i = icmp ult i32 %emitter.val.i414.i, 2
-  br i1 %spec.select.i.i415.i, label %do.end.i416.i, label %emitter_json_object_end.exit454.i
+for.end.i781:                                     ; preds = %emitter_json_object_end.exit411.i
+  %emitter.val.i412.i = load i32, ptr %emitter, align 8
+  %spec.select.i.i413.i = icmp ult i32 %emitter.val.i412.i, 2
+  br i1 %spec.select.i.i413.i, label %do.end.i414.i, label %emitter_json_object_end.exit450.i
 
-do.end.i416.i:                                    ; preds = %for.end.i782
-  %417 = load i32, ptr %nesting_depth.i.i396.i, align 8
-  %dec.i.i418.i = add nsw i32 %417, -1
-  store i32 %dec.i.i418.i, ptr %nesting_depth.i.i396.i, align 8
-  store i8 1, ptr %item_at_depth.i.i398.i, align 4
-  %cmp.not.i420.i = icmp eq i32 %emitter.val.i414.i, 1
-  br i1 %cmp.not.i420.i, label %emitter_json_array_end.exit.i, label %if.then1.i421.i
+do.end.i414.i:                                    ; preds = %for.end.i781
+  %417 = load i32, ptr %nesting_depth.i.i395.i, align 8
+  %dec.i.i416.i = add nsw i32 %417, -1
+  store i32 %dec.i.i416.i, ptr %nesting_depth.i.i395.i, align 8
+  store i8 1, ptr %item_at_depth.i.i397.i, align 4
+  %cmp.not.i418.i = icmp eq i32 %emitter.val.i412.i, 1
+  br i1 %cmp.not.i418.i, label %emitter_json_array_end.exit.i, label %if.then1.i419.i
 
-if.then1.i421.i:                                  ; preds = %do.end.i416.i
+if.then1.i419.i:                                  ; preds = %do.end.i414.i
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
-  %418 = load i32, ptr %nesting_depth.i.i396.i, align 8
+  %418 = load i32, ptr %nesting_depth.i.i395.i, align 8
   %419 = load i32, ptr %emitter, align 8
-  %cmp.i.i422.i = icmp ne i32 %419, 0
-  %indent_str.0.i.i423.i = select i1 %cmp.i.i422.i, ptr @.str.31, ptr @.str.34
-  %cmp15.i.i424.i = icmp sgt i32 %418, 0
-  br i1 %cmp15.i.i424.i, label %for.body.preheader.i.i426.i, label %emitter_json_array_end.exit.i
+  %cmp.i.i420.i = icmp ne i32 %419, 0
+  %indent_str.0.i.i421.i = select i1 %cmp.i.i420.i, ptr @.str.31, ptr @.str.34
+  %cmp15.i.i422.i = icmp sgt i32 %418, 0
+  br i1 %cmp15.i.i422.i, label %for.body.preheader.i.i424.i, label %emitter_json_array_end.exit.i
 
-for.body.preheader.i.i426.i:                      ; preds = %if.then1.i421.i
-  %mul.i.i427.i = zext i1 %cmp.i.i422.i to i32
-  %amount.0.i.i428.i = shl nuw nsw i32 %418, %mul.i.i427.i
-  %smax.i.i429.i = call i32 @llvm.smax.i32(i32 %amount.0.i.i428.i, i32 1)
-  br label %for.body.i.i430.i
+for.body.preheader.i.i424.i:                      ; preds = %if.then1.i419.i
+  %mul.i.i425.i = zext i1 %cmp.i.i420.i to i32
+  %amount.0.i.i426.i = shl nuw nsw i32 %418, %mul.i.i425.i
+  br label %for.body.i.i427.i
 
-for.body.i.i430.i:                                ; preds = %for.body.i.i430.i, %for.body.preheader.i.i426.i
-  %i.06.i.i431.i = phi i32 [ %inc.i.i432.i, %for.body.i.i430.i ], [ 0, %for.body.preheader.i.i426.i ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i423.i)
-  %inc.i.i432.i = add nuw nsw i32 %i.06.i.i431.i, 1
-  %exitcond.not.i.i433.i = icmp eq i32 %inc.i.i432.i, %smax.i.i429.i
-  br i1 %exitcond.not.i.i433.i, label %emitter_json_array_end.exit.i, label %for.body.i.i430.i, !llvm.loop !7
+for.body.i.i427.i:                                ; preds = %for.body.i.i427.i, %for.body.preheader.i.i424.i
+  %i.06.i.i428.i = phi i32 [ %inc.i.i429.i, %for.body.i.i427.i ], [ 0, %for.body.preheader.i.i424.i ]
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i421.i)
+  %inc.i.i429.i = add nuw nsw i32 %i.06.i.i428.i, 1
+  %exitcond.not.i.i430.i = icmp eq i32 %inc.i.i429.i, %amount.0.i.i426.i
+  br i1 %exitcond.not.i.i430.i, label %emitter_json_array_end.exit.i, label %for.body.i.i427.i, !llvm.loop !7
 
-emitter_json_array_end.exit.i:                    ; preds = %for.body.i.i430.i, %if.then1.i421.i, %do.end.i416.i
+emitter_json_array_end.exit.i:                    ; preds = %for.body.i.i427.i, %if.then1.i419.i, %do.end.i414.i
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.229)
-  %emitter.val.i434.pr.i = load i32, ptr %emitter, align 8
-  %spec.select.i.i435.i = icmp ult i32 %emitter.val.i434.pr.i, 2
-  br i1 %spec.select.i.i435.i, label %do.end.i436.i, label %emitter_json_object_end.exit454.i
+  %emitter.val.i431.pr.i = load i32, ptr %emitter, align 8
+  %spec.select.i.i432.i = icmp ult i32 %emitter.val.i431.pr.i, 2
+  br i1 %spec.select.i.i432.i, label %do.end.i433.i, label %emitter_json_object_end.exit450.i
 
-do.end.i436.i:                                    ; preds = %emitter_json_array_end.exit.i
-  %420 = load i32, ptr %nesting_depth.i.i396.i, align 8
-  %dec.i.i438.i = add nsw i32 %420, -1
-  store i32 %dec.i.i438.i, ptr %nesting_depth.i.i396.i, align 8
-  store i8 1, ptr %item_at_depth.i.i398.i, align 4
-  %cmp.not.i440.i = icmp eq i32 %emitter.val.i434.pr.i, 1
-  br i1 %cmp.not.i440.i, label %if.end.i445.i, label %if.then1.i441.i
+do.end.i433.i:                                    ; preds = %emitter_json_array_end.exit.i
+  %420 = load i32, ptr %nesting_depth.i.i395.i, align 8
+  %dec.i.i435.i = add nsw i32 %420, -1
+  store i32 %dec.i.i435.i, ptr %nesting_depth.i.i395.i, align 8
+  store i8 1, ptr %item_at_depth.i.i397.i, align 4
+  %cmp.not.i437.i = icmp eq i32 %emitter.val.i431.pr.i, 1
+  br i1 %cmp.not.i437.i, label %if.end.i442.i, label %if.then1.i438.i
 
-if.then1.i441.i:                                  ; preds = %do.end.i436.i
+if.then1.i438.i:                                  ; preds = %do.end.i433.i
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
-  %421 = load i32, ptr %nesting_depth.i.i396.i, align 8
+  %421 = load i32, ptr %nesting_depth.i.i395.i, align 8
   %422 = load i32, ptr %emitter, align 8
-  %cmp.i.i442.i = icmp ne i32 %422, 0
-  %indent_str.0.i.i443.i = select i1 %cmp.i.i442.i, ptr @.str.31, ptr @.str.34
-  %cmp15.i.i444.i = icmp sgt i32 %421, 0
-  br i1 %cmp15.i.i444.i, label %for.body.preheader.i.i446.i, label %if.end.i445.i
+  %cmp.i.i439.i = icmp ne i32 %422, 0
+  %indent_str.0.i.i440.i = select i1 %cmp.i.i439.i, ptr @.str.31, ptr @.str.34
+  %cmp15.i.i441.i = icmp sgt i32 %421, 0
+  br i1 %cmp15.i.i441.i, label %for.body.preheader.i.i443.i, label %if.end.i442.i
 
-for.body.preheader.i.i446.i:                      ; preds = %if.then1.i441.i
-  %mul.i.i447.i = zext i1 %cmp.i.i442.i to i32
-  %amount.0.i.i448.i = shl nuw nsw i32 %421, %mul.i.i447.i
-  %smax.i.i449.i = call i32 @llvm.smax.i32(i32 %amount.0.i.i448.i, i32 1)
-  br label %for.body.i.i450.i
+for.body.preheader.i.i443.i:                      ; preds = %if.then1.i438.i
+  %mul.i.i444.i = zext i1 %cmp.i.i439.i to i32
+  %amount.0.i.i445.i = shl nuw nsw i32 %421, %mul.i.i444.i
+  br label %for.body.i.i446.i
 
-for.body.i.i450.i:                                ; preds = %for.body.i.i450.i, %for.body.preheader.i.i446.i
-  %i.06.i.i451.i = phi i32 [ %inc.i.i452.i, %for.body.i.i450.i ], [ 0, %for.body.preheader.i.i446.i ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i443.i)
-  %inc.i.i452.i = add nuw nsw i32 %i.06.i.i451.i, 1
-  %exitcond.not.i.i453.i = icmp eq i32 %inc.i.i452.i, %smax.i.i449.i
-  br i1 %exitcond.not.i.i453.i, label %if.end.i445.i, label %for.body.i.i450.i, !llvm.loop !7
+for.body.i.i446.i:                                ; preds = %for.body.i.i446.i, %for.body.preheader.i.i443.i
+  %i.06.i.i447.i = phi i32 [ %inc.i.i448.i, %for.body.i.i446.i ], [ 0, %for.body.preheader.i.i443.i ]
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i440.i)
+  %inc.i.i448.i = add nuw nsw i32 %i.06.i.i447.i, 1
+  %exitcond.not.i.i449.i = icmp eq i32 %inc.i.i448.i, %amount.0.i.i445.i
+  br i1 %exitcond.not.i.i449.i, label %if.end.i442.i, label %for.body.i.i446.i, !llvm.loop !7
 
-if.end.i445.i:                                    ; preds = %for.body.i.i450.i, %if.then1.i441.i, %do.end.i436.i
+if.end.i442.i:                                    ; preds = %for.body.i.i446.i, %if.then1.i438.i, %do.end.i433.i
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
-  br label %emitter_json_object_end.exit454.i
+  br label %emitter_json_object_end.exit450.i
 
-emitter_json_object_end.exit454.i:                ; preds = %if.end.i445.i, %emitter_json_array_end.exit.i, %for.end.i782
+emitter_json_object_end.exit450.i:                ; preds = %if.end.i442.i, %emitter_json_array_end.exit.i, %for.end.i781
   br i1 %400, label %if.then601.i, label %stats_arena_hpa_shard_print.exit
 
-if.then601.i:                                     ; preds = %emitter_json_object_end.exit454.i
+if.then601.i:                                     ; preds = %emitter_json_object_end.exit450.i
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.390)
   br label %stats_arena_hpa_shard_print.exit
 
-stats_arena_hpa_shard_print.exit:                 ; preds = %emitter_json_object_end.exit454.i, %if.then601.i
+stats_arena_hpa_shard_print.exit:                 ; preds = %emitter_json_object_end.exit450.i, %if.then601.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %npurge_passes.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %npurges.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nhugifies.i)
@@ -9325,8 +9296,8 @@ stats_arena_hpa_shard_print.exit:                 ; preds = %emitter_json_object
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %header_ndirty_nonhuge.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %col_nretained_nonhuge.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %header_nretained_nonhuge.i)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %stats_arenas_mib.i752)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %miblen_new.i753)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %stats_arenas_mib.i751)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %miblen_new.i752)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %miblen_new458.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %miblen_new481.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz482.i)
@@ -10990,8 +10961,8 @@ tsd_fetch_impl.exit681:                           ; preds = %do.end218, %if.then
 
 for.cond.preheader:                               ; preds = %tsd_fetch_impl.exit681
   %261 = load i32, ptr %nbins, align 4
-  %cmp251835.not = icmp eq i32 %261, 0
-  br i1 %cmp251835.not, label %for.end, label %for.body.lr.ph
+  %cmp251833.not = icmp eq i32 %261, 0
+  br i1 %cmp251833.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %arrayidx254 = getelementptr inbounds i8, ptr %stats_arenas_mib, i64 32
@@ -11057,7 +11028,7 @@ if.then226:                                       ; preds = %tsd_fetch_impl.exit
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %in_gap.0836 = phi i1 [ false, %for.body.lr.ph ], [ %cmp322, %for.inc ]
+  %in_gap.0834 = phi i1 [ false, %for.body.lr.ph ], [ %cmp322, %for.inc ]
   store i64 %indvars.iv, ptr %arrayidx254, align 16
   store i64 %indvars.iv, ptr %arrayidx256, align 16
   store i64 7, ptr %miblen_new260, align 8
@@ -11084,7 +11055,7 @@ if.then268:                                       ; preds = %tsd_fetch_impl.exit
 if.else:                                          ; preds = %tsd_fetch_impl.exit729
   %298 = load i64, ptr %nslabs, align 8
   %cmp322 = icmp eq i64 %298, 0
-  %in_gap.0.not = xor i1 %in_gap.0836, true
+  %in_gap.0.not = xor i1 %in_gap.0834, true
   %brmerge = select i1 %in_gap.0.not, i1 true, i1 %cmp322
   br i1 %brmerge, label %if.end330, label %if.end330.thread
 
@@ -11452,9 +11423,9 @@ do.end21.i:                                       ; preds = %tsd_fetch_impl.exit
   store i32 5, ptr %type23.i, align 16
   %314 = load i64, ptr %262, align 16
   %cmp1.i.i = icmp eq i64 %314, 0
-  %brmerge838 = or i1 %cmp2.i.i, %cmp1.i.i
+  %brmerge836 = or i1 %cmp2.i.i, %cmp1.i.i
   %.mux = select i1 %cmp.i.i, i64 0, i64 %314
-  br i1 %brmerge838, label %rate_per_second.exit.i, label %if.else.i.i
+  br i1 %brmerge836, label %rate_per_second.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %do.end21.i
   %div4.i.i = udiv i64 %314, %div.i.i
@@ -11489,16 +11460,16 @@ do.end42.i:                                       ; preds = %tsd_fetch_impl.exit
   store i32 5, ptr %type44.i, align 16
   %316 = load i64, ptr %264, align 16
   %cmp1.i90.i = icmp eq i64 %316, 0
-  %brmerge839 = or i1 %cmp2.i.i, %cmp1.i90.i
-  %.mux840 = select i1 %cmp.i.i, i64 0, i64 %316
-  br i1 %brmerge839, label %rate_per_second.exit98.i, label %if.else.i94.i
+  %brmerge837 = or i1 %cmp2.i.i, %cmp1.i90.i
+  %.mux838 = select i1 %cmp.i.i, i64 0, i64 %316
+  br i1 %brmerge837, label %rate_per_second.exit98.i, label %if.else.i94.i
 
 if.else.i94.i:                                    ; preds = %do.end42.i
   %div4.i96.i = udiv i64 %316, %div.i.i
   br label %rate_per_second.exit98.i
 
 rate_per_second.exit98.i:                         ; preds = %do.end42.i, %if.else.i94.i
-  %retval.0.i97.i = phi i64 [ %div4.i96.i, %if.else.i94.i ], [ %.mux840, %do.end42.i ]
+  %retval.0.i97.i = phi i64 [ %div4.i96.i, %if.else.i94.i ], [ %.mux838, %do.end42.i ]
   store i64 %retval.0.i97.i, ptr %265, align 8
   store i32 5, ptr %type49.i, align 8
   store i64 7, ptr %miblen_new53.i, align 8
@@ -11526,16 +11497,16 @@ do.end64.i:                                       ; preds = %tsd_fetch_impl.exit
   store i32 5, ptr %type66.i, align 16
   %318 = load i64, ptr %266, align 16
   %cmp1.i100.i = icmp eq i64 %318, 0
-  %brmerge841 = or i1 %cmp2.i.i, %cmp1.i100.i
-  %.mux842 = select i1 %cmp.i.i, i64 0, i64 %318
-  br i1 %brmerge841, label %rate_per_second.exit108.i, label %if.else.i104.i
+  %brmerge839 = or i1 %cmp2.i.i, %cmp1.i100.i
+  %.mux840 = select i1 %cmp.i.i, i64 0, i64 %318
+  br i1 %brmerge839, label %rate_per_second.exit108.i, label %if.else.i104.i
 
 if.else.i104.i:                                   ; preds = %do.end64.i
   %div4.i106.i = udiv i64 %318, %div.i.i
   br label %rate_per_second.exit108.i
 
 rate_per_second.exit108.i:                        ; preds = %do.end64.i, %if.else.i104.i
-  %retval.0.i107.i = phi i64 [ %div4.i106.i, %if.else.i104.i ], [ %.mux842, %do.end64.i ]
+  %retval.0.i107.i = phi i64 [ %div4.i106.i, %if.else.i104.i ], [ %.mux840, %do.end64.i ]
   store i64 %retval.0.i107.i, ptr %267, align 8
   store i32 5, ptr %type71.i, align 8
   store i64 7, ptr %miblen_new75.i, align 8
@@ -11563,16 +11534,16 @@ do.end86.i:                                       ; preds = %tsd_fetch_impl.exit
   store i32 5, ptr %type88.i, align 16
   %320 = load i64, ptr %268, align 16
   %cmp1.i110.i = icmp eq i64 %320, 0
-  %brmerge843 = or i1 %cmp2.i.i, %cmp1.i110.i
-  %.mux844 = select i1 %cmp.i.i, i64 0, i64 %320
-  br i1 %brmerge843, label %rate_per_second.exit118.i, label %if.else.i114.i
+  %brmerge841 = or i1 %cmp2.i.i, %cmp1.i110.i
+  %.mux842 = select i1 %cmp.i.i, i64 0, i64 %320
+  br i1 %brmerge841, label %rate_per_second.exit118.i, label %if.else.i114.i
 
 if.else.i114.i:                                   ; preds = %do.end86.i
   %div4.i116.i = udiv i64 %320, %div.i.i
   br label %rate_per_second.exit118.i
 
 rate_per_second.exit118.i:                        ; preds = %do.end86.i, %if.else.i114.i
-  %retval.0.i117.i = phi i64 [ %div4.i116.i, %if.else.i114.i ], [ %.mux844, %do.end86.i ]
+  %retval.0.i117.i = phi i64 [ %div4.i116.i, %if.else.i114.i ], [ %.mux842, %do.end86.i ]
   store i64 %retval.0.i117.i, ptr %269, align 8
   store i32 5, ptr %type93.i, align 8
   store i64 7, ptr %miblen_new97.i, align 8
@@ -11600,16 +11571,16 @@ do.end108.i:                                      ; preds = %tsd_fetch_impl.exit
   store i32 5, ptr %type110.i, align 16
   %322 = load i64, ptr %270, align 16
   %cmp1.i120.i = icmp eq i64 %322, 0
-  %brmerge845 = or i1 %cmp2.i.i, %cmp1.i120.i
-  %.mux846 = select i1 %cmp.i.i, i64 0, i64 %322
-  br i1 %brmerge845, label %rate_per_second.exit128.i, label %if.else.i124.i
+  %brmerge843 = or i1 %cmp2.i.i, %cmp1.i120.i
+  %.mux844 = select i1 %cmp.i.i, i64 0, i64 %322
+  br i1 %brmerge843, label %rate_per_second.exit128.i, label %if.else.i124.i
 
 if.else.i124.i:                                   ; preds = %do.end108.i
   %div4.i126.i = udiv i64 %322, %div.i.i
   br label %rate_per_second.exit128.i
 
 rate_per_second.exit128.i:                        ; preds = %do.end108.i, %if.else.i124.i
-  %retval.0.i127.i = phi i64 [ %div4.i126.i, %if.else.i124.i ], [ %.mux846, %do.end108.i ]
+  %retval.0.i127.i = phi i64 [ %div4.i126.i, %if.else.i124.i ], [ %.mux844, %do.end108.i ]
   store i64 %retval.0.i127.i, ptr %271, align 8
   store i32 5, ptr %type115.i, align 8
   store i64 7, ptr %miblen_new119.i, align 8
@@ -11696,7 +11667,7 @@ mutex_stats_read_arena_bin.exit:                  ; preds = %tsd_fetch_impl.exit
   call fastcc void @mutex_stats_emit(ptr noundef %emitter, ptr noundef null, ptr noundef nonnull %col_mutex64, ptr noundef nonnull %col_mutex32)
   %emitter.val.i = load i32, ptr %emitter, align 8
   %spec.select.i.i = icmp ult i32 %emitter.val.i, 2
-  br i1 %spec.select.i.i, label %do.end.i, label %emitter_json_object_end.exit719
+  br i1 %spec.select.i.i, label %do.end.i, label %emitter_json_object_end.exit718
 
 do.end.i:                                         ; preds = %mutex_stats_read_arena_bin.exit
   %325 = load i32, ptr %nesting_depth.i.i, align 8
@@ -11718,14 +11689,13 @@ if.then1.i:                                       ; preds = %do.end.i
 for.body.preheader.i.i:                           ; preds = %if.then1.i
   %mul.i.i = zext i1 %cmp.i.i697 to i32
   %amount.0.i.i = shl nuw nsw i32 %326, %mul.i.i
-  %smax.i.i = call i32 @llvm.smax.i32(i32 %amount.0.i.i, i32 1)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
   %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %smax.i.i
+  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %amount.0.i.i
   br i1 %exitcond.not.i.i, label %if.end.i698, label %for.body.i.i, !llvm.loop !7
 
 if.end.i698:                                      ; preds = %for.body.i.i, %if.then1.i, %do.end.i
@@ -11757,7 +11727,7 @@ if.end574.critedge:                               ; preds = %do.end557
 if.end574:                                        ; preds = %if.end.i698, %if.end574.critedge
   %emitter.val.i699.pr = load i32, ptr %emitter, align 8
   %spec.select.i.i700 = icmp ult i32 %emitter.val.i699.pr, 2
-  br i1 %spec.select.i.i700, label %do.end.i701, label %emitter_json_object_end.exit719
+  br i1 %spec.select.i.i700, label %do.end.i701, label %emitter_json_object_end.exit718
 
 do.end.i701:                                      ; preds = %if.end574
   %328 = load i32, ptr %nesting_depth.i.i, align 8
@@ -11779,43 +11749,42 @@ if.then1.i706:                                    ; preds = %do.end.i701
 for.body.preheader.i.i711:                        ; preds = %if.then1.i706
   %mul.i.i712 = zext i1 %cmp.i.i707 to i32
   %amount.0.i.i713 = shl nuw nsw i32 %329, %mul.i.i712
-  %smax.i.i714 = call i32 @llvm.smax.i32(i32 %amount.0.i.i713, i32 1)
-  br label %for.body.i.i715
+  br label %for.body.i.i714
 
-for.body.i.i715:                                  ; preds = %for.body.i.i715, %for.body.preheader.i.i711
-  %i.06.i.i716 = phi i32 [ %inc.i.i717, %for.body.i.i715 ], [ 0, %for.body.preheader.i.i711 ]
+for.body.i.i714:                                  ; preds = %for.body.i.i714, %for.body.preheader.i.i711
+  %i.06.i.i715 = phi i32 [ %inc.i.i716, %for.body.i.i714 ], [ 0, %for.body.preheader.i.i711 ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i708)
-  %inc.i.i717 = add nuw nsw i32 %i.06.i.i716, 1
-  %exitcond.not.i.i718 = icmp eq i32 %inc.i.i717, %smax.i.i714
-  br i1 %exitcond.not.i.i718, label %if.end.i710, label %for.body.i.i715, !llvm.loop !7
+  %inc.i.i716 = add nuw nsw i32 %i.06.i.i715, 1
+  %exitcond.not.i.i717 = icmp eq i32 %inc.i.i716, %amount.0.i.i713
+  br i1 %exitcond.not.i.i717, label %if.end.i710, label %for.body.i.i714, !llvm.loop !7
 
-if.end.i710:                                      ; preds = %for.body.i.i715, %if.then1.i706, %do.end.i701
+if.end.i710:                                      ; preds = %for.body.i.i714, %if.then1.i706, %do.end.i701
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
-  br label %emitter_json_object_end.exit719
+  br label %emitter_json_object_end.exit718
 
-emitter_json_object_end.exit719:                  ; preds = %mutex_stats_read_arena_bin.exit, %if.end574, %if.end.i710
+emitter_json_object_end.exit718:                  ; preds = %mutex_stats_read_arena_bin.exit, %if.end574, %if.end.i710
   %331 = load i32, ptr %nregs, align 4
   %conv575 = zext i32 %331 to i64
   %332 = load i64, ptr %curslabs, align 8
   %mul = mul i64 %332, %conv575
   %333 = load i64, ptr %curregs, align 8
-  %cmp.i720 = icmp eq i64 %mul, 0
+  %cmp.i719 = icmp eq i64 %mul, 0
   %cmp1.i = icmp ugt i64 %333, %mul
-  %or.cond.i = or i1 %cmp.i720, %cmp1.i
-  br i1 %or.cond.i, label %if.then578, label %if.end.i721
+  %or.cond.i = or i1 %cmp.i719, %cmp1.i
+  br i1 %or.cond.i, label %if.then578, label %if.end.i720
 
-if.end.i721:                                      ; preds = %emitter_json_object_end.exit719
+if.end.i720:                                      ; preds = %emitter_json_object_end.exit718
   %mul.i = mul i64 %333, 1000
   %div.i = udiv i64 %mul.i, %mul
   %conv.i = trunc i64 %div.i to i32
   %cmp5.i = icmp ult i32 %conv.i, 10
   br i1 %cmp5.i, label %if.then7.i, label %if.else.i
 
-if.then7.i:                                       ; preds = %if.end.i721
+if.then7.i:                                       ; preds = %if.end.i720
   %call.i = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %util, i64 noundef 6, ptr noundef nonnull @.str.394, i32 noundef %conv.i) #13
   br label %if.end595
 
-if.else.i:                                        ; preds = %if.end.i721
+if.else.i:                                        ; preds = %if.end.i720
   %cmp8.i = icmp ult i32 %conv.i, 100
   br i1 %cmp8.i, label %if.then10.i, label %if.else12.i
 
@@ -11835,8 +11804,8 @@ if.else17.i:                                      ; preds = %if.else12.i
   %call18.i = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %util, i64 noundef 6, ptr noundef nonnull @.str.392) #13
   br label %if.end595
 
-if.then578:                                       ; preds = %emitter_json_object_end.exit719
-  br i1 %cmp.i720, label %if.then581, label %if.else584
+if.then578:                                       ; preds = %emitter_json_object_end.exit718
+  br i1 %cmp.i719, label %if.then581, label %if.else584
 
 if.then581:                                       ; preds = %if.then578
   %call583 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %util, i64 noundef 6, ptr noundef nonnull @.str.392) #13
@@ -11857,46 +11826,46 @@ if.end595:                                        ; preds = %if.else17.i, %if.th
   store i64 %mul596, ptr %276, align 8
   %337 = load i64, ptr %nmalloc, align 8
   store i64 %337, ptr %277, align 8
-  %cmp1.i723 = icmp eq i64 %337, 0
-  %brmerge847 = or i1 %cmp2.i.i, %cmp1.i723
-  %.mux848 = select i1 %cmp.i.i, i64 0, i64 %337
-  br i1 %brmerge847, label %rate_per_second.exit, label %if.else.i726
+  %cmp1.i722 = icmp eq i64 %337, 0
+  %brmerge845 = or i1 %cmp2.i.i, %cmp1.i722
+  %.mux846 = select i1 %cmp.i.i, i64 0, i64 %337
+  br i1 %brmerge845, label %rate_per_second.exit, label %if.else.i725
 
-if.else.i726:                                     ; preds = %if.end595
+if.else.i725:                                     ; preds = %if.end595
   %div4.i = udiv i64 %337, %div.i.i
   br label %rate_per_second.exit
 
-rate_per_second.exit:                             ; preds = %if.end595, %if.else.i726
-  %retval.0.i = phi i64 [ %div4.i, %if.else.i726 ], [ %.mux848, %if.end595 ]
+rate_per_second.exit:                             ; preds = %if.end595, %if.else.i725
+  %retval.0.i = phi i64 [ %div4.i, %if.else.i725 ], [ %.mux846, %if.end595 ]
   store i64 %retval.0.i, ptr %278, align 8
   %338 = load i64, ptr %ndalloc, align 8
   store i64 %338, ptr %279, align 8
-  %cmp1.i729 = icmp eq i64 %338, 0
-  %brmerge849 = or i1 %cmp2.i.i, %cmp1.i729
-  %.mux850 = select i1 %cmp.i.i, i64 0, i64 %338
-  br i1 %brmerge849, label %rate_per_second.exit737, label %if.else.i733
+  %cmp1.i728 = icmp eq i64 %338, 0
+  %brmerge847 = or i1 %cmp2.i.i, %cmp1.i728
+  %.mux848 = select i1 %cmp.i.i, i64 0, i64 %338
+  br i1 %brmerge847, label %rate_per_second.exit736, label %if.else.i732
 
-if.else.i733:                                     ; preds = %rate_per_second.exit
-  %div4.i735 = udiv i64 %338, %div.i.i
-  br label %rate_per_second.exit737
+if.else.i732:                                     ; preds = %rate_per_second.exit
+  %div4.i734 = udiv i64 %338, %div.i.i
+  br label %rate_per_second.exit736
 
-rate_per_second.exit737:                          ; preds = %rate_per_second.exit, %if.else.i733
-  %retval.0.i736 = phi i64 [ %div4.i735, %if.else.i733 ], [ %.mux850, %rate_per_second.exit ]
-  store i64 %retval.0.i736, ptr %280, align 8
+rate_per_second.exit736:                          ; preds = %rate_per_second.exit, %if.else.i732
+  %retval.0.i735 = phi i64 [ %div4.i734, %if.else.i732 ], [ %.mux848, %rate_per_second.exit ]
+  store i64 %retval.0.i735, ptr %280, align 8
   %339 = load i64, ptr %nrequests, align 8
   store i64 %339, ptr %281, align 8
-  %cmp1.i739 = icmp eq i64 %339, 0
-  %brmerge851 = or i1 %cmp2.i.i, %cmp1.i739
-  %.mux852 = select i1 %cmp.i.i, i64 0, i64 %339
-  br i1 %brmerge851, label %rate_per_second.exit747, label %if.else.i743
+  %cmp1.i738 = icmp eq i64 %339, 0
+  %brmerge849 = or i1 %cmp2.i.i, %cmp1.i738
+  %.mux850 = select i1 %cmp.i.i, i64 0, i64 %339
+  br i1 %brmerge849, label %rate_per_second.exit746, label %if.else.i742
 
-if.else.i743:                                     ; preds = %rate_per_second.exit737
-  %div4.i745 = udiv i64 %339, %div.i.i
-  br label %rate_per_second.exit747
+if.else.i742:                                     ; preds = %rate_per_second.exit736
+  %div4.i744 = udiv i64 %339, %div.i.i
+  br label %rate_per_second.exit746
 
-rate_per_second.exit747:                          ; preds = %rate_per_second.exit737, %if.else.i743
-  %retval.0.i746 = phi i64 [ %div4.i745, %if.else.i743 ], [ %.mux852, %rate_per_second.exit737 ]
-  store i64 %retval.0.i746, ptr %282, align 8
+rate_per_second.exit746:                          ; preds = %rate_per_second.exit736, %if.else.i742
+  %retval.0.i745 = phi i64 [ %div4.i744, %if.else.i742 ], [ %.mux850, %rate_per_second.exit736 ]
+  store i64 %retval.0.i745, ptr %282, align 8
   %340 = load i32, ptr %nshards, align 4
   store i32 %340, ptr %283, align 8
   store i64 %336, ptr %284, align 8
@@ -11913,78 +11882,78 @@ rate_per_second.exit747:                          ; preds = %rate_per_second.exi
   store ptr %util, ptr %289, align 8
   %346 = load i64, ptr %nfills, align 8
   store i64 %346, ptr %290, align 8
-  %cmp1.i749 = icmp eq i64 %346, 0
-  %brmerge853 = or i1 %cmp2.i.i, %cmp1.i749
-  %.mux854 = select i1 %cmp.i.i, i64 0, i64 %346
-  br i1 %brmerge853, label %rate_per_second.exit757, label %if.else.i753
+  %cmp1.i748 = icmp eq i64 %346, 0
+  %brmerge851 = or i1 %cmp2.i.i, %cmp1.i748
+  %.mux852 = select i1 %cmp.i.i, i64 0, i64 %346
+  br i1 %brmerge851, label %rate_per_second.exit756, label %if.else.i752
 
-if.else.i753:                                     ; preds = %rate_per_second.exit747
-  %div4.i755 = udiv i64 %346, %div.i.i
-  br label %rate_per_second.exit757
+if.else.i752:                                     ; preds = %rate_per_second.exit746
+  %div4.i754 = udiv i64 %346, %div.i.i
+  br label %rate_per_second.exit756
 
-rate_per_second.exit757:                          ; preds = %rate_per_second.exit747, %if.else.i753
-  %retval.0.i756 = phi i64 [ %div4.i755, %if.else.i753 ], [ %.mux854, %rate_per_second.exit747 ]
-  store i64 %retval.0.i756, ptr %291, align 8
+rate_per_second.exit756:                          ; preds = %rate_per_second.exit746, %if.else.i752
+  %retval.0.i755 = phi i64 [ %div4.i754, %if.else.i752 ], [ %.mux852, %rate_per_second.exit746 ]
+  store i64 %retval.0.i755, ptr %291, align 8
   %347 = load i64, ptr %nflushes, align 8
   store i64 %347, ptr %292, align 8
-  %cmp1.i759 = icmp eq i64 %347, 0
-  %brmerge855 = or i1 %cmp2.i.i, %cmp1.i759
-  %.mux856 = select i1 %cmp.i.i, i64 0, i64 %347
-  br i1 %brmerge855, label %rate_per_second.exit767, label %if.else.i763
+  %cmp1.i758 = icmp eq i64 %347, 0
+  %brmerge853 = or i1 %cmp2.i.i, %cmp1.i758
+  %.mux854 = select i1 %cmp.i.i, i64 0, i64 %347
+  br i1 %brmerge853, label %rate_per_second.exit766, label %if.else.i762
 
-if.else.i763:                                     ; preds = %rate_per_second.exit757
-  %div4.i765 = udiv i64 %347, %div.i.i
-  br label %rate_per_second.exit767
+if.else.i762:                                     ; preds = %rate_per_second.exit756
+  %div4.i764 = udiv i64 %347, %div.i.i
+  br label %rate_per_second.exit766
 
-rate_per_second.exit767:                          ; preds = %rate_per_second.exit757, %if.else.i763
-  %retval.0.i766 = phi i64 [ %div4.i765, %if.else.i763 ], [ %.mux856, %rate_per_second.exit757 ]
-  store i64 %retval.0.i766, ptr %293, align 8
+rate_per_second.exit766:                          ; preds = %rate_per_second.exit756, %if.else.i762
+  %retval.0.i765 = phi i64 [ %div4.i764, %if.else.i762 ], [ %.mux854, %rate_per_second.exit756 ]
+  store i64 %retval.0.i765, ptr %293, align 8
   %348 = load i64, ptr %nslabs, align 8
   store i64 %348, ptr %294, align 8
   %349 = load i64, ptr %nreslabs, align 8
   store i64 %349, ptr %295, align 8
-  %cmp1.i769 = icmp eq i64 %349, 0
-  %brmerge857 = or i1 %cmp2.i.i, %cmp1.i769
-  %.mux858 = select i1 %cmp.i.i, i64 0, i64 %349
-  br i1 %brmerge857, label %rate_per_second.exit777, label %if.else.i773
+  %cmp1.i768 = icmp eq i64 %349, 0
+  %brmerge855 = or i1 %cmp2.i.i, %cmp1.i768
+  %.mux856 = select i1 %cmp.i.i, i64 0, i64 %349
+  br i1 %brmerge855, label %rate_per_second.exit776, label %if.else.i772
 
-if.else.i773:                                     ; preds = %rate_per_second.exit767
-  %div4.i775 = udiv i64 %349, %div.i.i
-  br label %rate_per_second.exit777
+if.else.i772:                                     ; preds = %rate_per_second.exit766
+  %div4.i774 = udiv i64 %349, %div.i.i
+  br label %rate_per_second.exit776
 
-rate_per_second.exit777:                          ; preds = %rate_per_second.exit767, %if.else.i773
-  %retval.0.i776 = phi i64 [ %div4.i775, %if.else.i773 ], [ %.mux858, %rate_per_second.exit767 ]
-  store i64 %retval.0.i776, ptr %296, align 8
+rate_per_second.exit776:                          ; preds = %rate_per_second.exit766, %if.else.i772
+  %retval.0.i775 = phi i64 [ %div4.i774, %if.else.i772 ], [ %.mux856, %rate_per_second.exit766 ]
+  store i64 %retval.0.i775, ptr %296, align 8
   %350 = load i32, ptr %emitter, align 8
-  %cmp.not.i778 = icmp eq i32 %350, 2
-  br i1 %cmp.not.i778, label %if.end.i779, label %for.inc
+  %cmp.not.i777 = icmp eq i32 %350, 2
+  br i1 %cmp.not.i777, label %if.end.i778, label %for.inc
 
-if.end.i779:                                      ; preds = %rate_per_second.exit777
+if.end.i778:                                      ; preds = %rate_per_second.exit776
   %351 = load ptr, ptr %row, align 8
-  %cmp1.not10.i780 = icmp eq ptr %351, null
-  br i1 %cmp1.not10.i780, label %for.end.i789, label %for.body.i781
+  %cmp1.not10.i779 = icmp eq ptr %351, null
+  br i1 %cmp1.not10.i779, label %for.end.i788, label %for.body.i780
 
-for.body.i781:                                    ; preds = %if.end.i779, %for.body.i781
-  %col.011.i782 = phi ptr [ %356, %for.body.i781 ], [ %351, %if.end.i779 ]
-  %352 = load i32, ptr %col.011.i782, align 8
-  %width.i783 = getelementptr inbounds i8, ptr %col.011.i782, i64 4
-  %353 = load i32, ptr %width.i783, align 4
-  %type.i784 = getelementptr inbounds i8, ptr %col.011.i782, i64 8
-  %354 = load i32, ptr %type.i784, align 8
-  %355 = getelementptr inbounds i8, ptr %col.011.i782, i64 16
+for.body.i780:                                    ; preds = %if.end.i778, %for.body.i780
+  %col.011.i781 = phi ptr [ %356, %for.body.i780 ], [ %351, %if.end.i778 ]
+  %352 = load i32, ptr %col.011.i781, align 8
+  %width.i782 = getelementptr inbounds i8, ptr %col.011.i781, i64 4
+  %353 = load i32, ptr %width.i782, align 4
+  %type.i783 = getelementptr inbounds i8, ptr %col.011.i781, i64 8
+  %354 = load i32, ptr %type.i783, align 8
+  %355 = getelementptr inbounds i8, ptr %col.011.i781, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %352, i32 noundef %353, i32 noundef %354, ptr noundef nonnull %355)
-  %link.i785 = getelementptr inbounds i8, ptr %col.011.i782, i64 24
-  %356 = load ptr, ptr %link.i785, align 8
-  %cmp4.not.i786 = icmp eq ptr %356, %351
-  %cmp1.not12.i787 = icmp eq ptr %356, null
-  %cmp1.not.i788 = or i1 %cmp4.not.i786, %cmp1.not12.i787
-  br i1 %cmp1.not.i788, label %for.end.i789, label %for.body.i781
+  %link.i784 = getelementptr inbounds i8, ptr %col.011.i781, i64 24
+  %356 = load ptr, ptr %link.i784, align 8
+  %cmp4.not.i785 = icmp eq ptr %356, %351
+  %cmp1.not12.i786 = icmp eq ptr %356, null
+  %cmp1.not.i787 = or i1 %cmp4.not.i785, %cmp1.not12.i786
+  br i1 %cmp1.not.i787, label %for.end.i788, label %for.body.i780
 
-for.end.i789:                                     ; preds = %for.body.i781, %if.end.i779
+for.end.i788:                                     ; preds = %for.body.i780, %if.end.i778
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %for.inc
 
-for.inc:                                          ; preds = %for.end.i789, %rate_per_second.exit777, %land.lhs.true333
+for.inc:                                          ; preds = %for.end.i788, %rate_per_second.exit776, %land.lhs.true333
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %357 = load i32, ptr %nbins, align 4
   %358 = zext i32 %357 to i64
@@ -11993,47 +11962,46 @@ for.inc:                                          ; preds = %for.end.i789, %rate
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %in_gap.0.lcssa = phi i1 [ false, %for.cond.preheader ], [ %cmp322, %for.inc ]
-  %emitter.val.i791 = load i32, ptr %emitter, align 8
-  %spec.select.i.i792 = icmp ult i32 %emitter.val.i791, 2
-  br i1 %spec.select.i.i792, label %do.end.i793, label %emitter_json_array_end.exit
+  %emitter.val.i790 = load i32, ptr %emitter, align 8
+  %spec.select.i.i791 = icmp ult i32 %emitter.val.i790, 2
+  br i1 %spec.select.i.i791, label %do.end.i792, label %emitter_json_array_end.exit
 
-do.end.i793:                                      ; preds = %for.end
-  %nesting_depth.i.i794 = getelementptr inbounds i8, ptr %emitter, i64 24
-  %359 = load i32, ptr %nesting_depth.i.i794, align 8
-  %dec.i.i795 = add nsw i32 %359, -1
-  store i32 %dec.i.i795, ptr %nesting_depth.i.i794, align 8
-  %item_at_depth.i.i796 = getelementptr inbounds i8, ptr %emitter, i64 28
-  store i8 1, ptr %item_at_depth.i.i796, align 4
-  %cmp.not.i797 = icmp eq i32 %emitter.val.i791, 1
-  br i1 %cmp.not.i797, label %if.end.i802, label %if.then1.i798
+do.end.i792:                                      ; preds = %for.end
+  %nesting_depth.i.i793 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %359 = load i32, ptr %nesting_depth.i.i793, align 8
+  %dec.i.i794 = add nsw i32 %359, -1
+  store i32 %dec.i.i794, ptr %nesting_depth.i.i793, align 8
+  %item_at_depth.i.i795 = getelementptr inbounds i8, ptr %emitter, i64 28
+  store i8 1, ptr %item_at_depth.i.i795, align 4
+  %cmp.not.i796 = icmp eq i32 %emitter.val.i790, 1
+  br i1 %cmp.not.i796, label %if.end.i801, label %if.then1.i797
 
-if.then1.i798:                                    ; preds = %do.end.i793
+if.then1.i797:                                    ; preds = %do.end.i792
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
-  %360 = load i32, ptr %nesting_depth.i.i794, align 8
+  %360 = load i32, ptr %nesting_depth.i.i793, align 8
   %361 = load i32, ptr %emitter, align 8
-  %cmp.i.i799 = icmp ne i32 %361, 0
-  %indent_str.0.i.i800 = select i1 %cmp.i.i799, ptr @.str.31, ptr @.str.34
-  %cmp15.i.i801 = icmp sgt i32 %360, 0
-  br i1 %cmp15.i.i801, label %for.body.preheader.i.i803, label %if.end.i802
+  %cmp.i.i798 = icmp ne i32 %361, 0
+  %indent_str.0.i.i799 = select i1 %cmp.i.i798, ptr @.str.31, ptr @.str.34
+  %cmp15.i.i800 = icmp sgt i32 %360, 0
+  br i1 %cmp15.i.i800, label %for.body.preheader.i.i802, label %if.end.i801
 
-for.body.preheader.i.i803:                        ; preds = %if.then1.i798
-  %mul.i.i804 = zext i1 %cmp.i.i799 to i32
-  %amount.0.i.i805 = shl nuw nsw i32 %360, %mul.i.i804
-  %smax.i.i806 = call i32 @llvm.smax.i32(i32 %amount.0.i.i805, i32 1)
-  br label %for.body.i.i807
+for.body.preheader.i.i802:                        ; preds = %if.then1.i797
+  %mul.i.i803 = zext i1 %cmp.i.i798 to i32
+  %amount.0.i.i804 = shl nuw nsw i32 %360, %mul.i.i803
+  br label %for.body.i.i805
 
-for.body.i.i807:                                  ; preds = %for.body.i.i807, %for.body.preheader.i.i803
-  %i.06.i.i808 = phi i32 [ %inc.i.i809, %for.body.i.i807 ], [ 0, %for.body.preheader.i.i803 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i800)
-  %inc.i.i809 = add nuw nsw i32 %i.06.i.i808, 1
-  %exitcond.not.i.i810 = icmp eq i32 %inc.i.i809, %smax.i.i806
-  br i1 %exitcond.not.i.i810, label %if.end.i802, label %for.body.i.i807, !llvm.loop !7
+for.body.i.i805:                                  ; preds = %for.body.i.i805, %for.body.preheader.i.i802
+  %i.06.i.i806 = phi i32 [ %inc.i.i807, %for.body.i.i805 ], [ 0, %for.body.preheader.i.i802 ]
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i799)
+  %inc.i.i807 = add nuw nsw i32 %i.06.i.i806, 1
+  %exitcond.not.i.i808 = icmp eq i32 %inc.i.i807, %amount.0.i.i804
+  br i1 %exitcond.not.i.i808, label %if.end.i801, label %for.body.i.i805, !llvm.loop !7
 
-if.end.i802:                                      ; preds = %for.body.i.i807, %if.then1.i798, %do.end.i793
+if.end.i801:                                      ; preds = %for.body.i.i805, %if.then1.i797, %do.end.i792
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.229)
   br label %emitter_json_array_end.exit
 
-emitter_json_array_end.exit:                      ; preds = %for.end, %if.end.i802
+emitter_json_array_end.exit:                      ; preds = %for.end, %if.end.i801
   br i1 %in_gap.0.lcssa, label %if.then612, label %if.end613
 
 if.then612:                                       ; preds = %emitter_json_array_end.exit
@@ -12630,8 +12598,8 @@ tsd_fetch_impl.exit378:                           ; preds = %do.end127, %if.then
 
 for.cond.preheader:                               ; preds = %tsd_fetch_impl.exit378
   %76 = load i32, ptr %nlextents, align 4
-  %cmp160425.not = icmp eq i32 %76, 0
-  br i1 %cmp160425.not, label %for.end, label %for.body.lr.ph
+  %cmp160424.not = icmp eq i32 %76, 0
+  br i1 %cmp160424.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %arrayidx163 = getelementptr inbounds i8, ptr %stats_arenas_mib, i64 32
@@ -12661,7 +12629,7 @@ if.then135:                                       ; preds = %tsd_fetch_impl.exit
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %in_gap.0427 = phi i1 [ false, %for.body.lr.ph ], [ %cmp218, %for.inc ]
+  %in_gap.0426 = phi i1 [ false, %for.body.lr.ph ], [ %cmp218, %for.inc ]
   store i64 %indvars.iv, ptr %arrayidx163, align 16
   store i64 %indvars.iv, ptr %arrayidx165, align 16
   store i64 7, ptr %miblen_new169, align 8
@@ -12732,7 +12700,7 @@ if.then211:                                       ; preds = %tsd_fetch_impl.exit
 do.end216:                                        ; preds = %tsd_fetch_impl.exit474
   %90 = load i64, ptr %nrequests, align 8
   %cmp218 = icmp eq i64 %90, 0
-  %in_gap.0.not = xor i1 %in_gap.0427, true
+  %in_gap.0.not = xor i1 %in_gap.0426, true
   %brmerge = select i1 %in_gap.0.not, i1 true, i1 %cmp218
   br i1 %brmerge, label %do.end228, label %if.then224
 
@@ -12812,14 +12780,13 @@ if.then1.i:                                       ; preds = %do.end.i
 for.body.preheader.i.i:                           ; preds = %if.then1.i
   %mul.i.i = zext i1 %cmp.i.i to i32
   %amount.0.i.i = shl nuw nsw i32 %94, %mul.i.i
-  %smax.i.i = call i32 @llvm.smax.i32(i32 %amount.0.i.i, i32 1)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
   %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %smax.i.i
+  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %amount.0.i.i
   br i1 %exitcond.not.i.i, label %if.end.i302, label %for.body.i.i, !llvm.loop !7
 
 if.end.i302:                                      ; preds = %for.body.i.i, %if.then1.i, %do.end.i
@@ -12839,9 +12806,9 @@ emitter_json_object_end.exit:                     ; preds = %if.end298, %if.end.
   %100 = load i64, ptr %nmalloc, align 8
   store i64 %100, ptr %80, align 8
   %cmp1.i = icmp eq i64 %100, 0
-  %brmerge428 = or i1 %cmp2.i, %cmp1.i
+  %brmerge427 = or i1 %cmp2.i, %cmp1.i
   %.mux = select i1 %cmp.i303, i64 0, i64 %100
-  br i1 %brmerge428, label %rate_per_second.exit, label %if.else.i
+  br i1 %brmerge427, label %rate_per_second.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %emitter_json_object_end.exit
   %div4.i = udiv i64 %100, %div.i
@@ -12853,30 +12820,30 @@ rate_per_second.exit:                             ; preds = %emitter_json_object
   %101 = load i64, ptr %ndalloc, align 8
   store i64 %101, ptr %82, align 8
   %cmp1.i306 = icmp eq i64 %101, 0
-  %brmerge429 = or i1 %cmp2.i, %cmp1.i306
-  %.mux430 = select i1 %cmp.i303, i64 0, i64 %101
-  br i1 %brmerge429, label %rate_per_second.exit314, label %if.else.i310
+  %brmerge428 = or i1 %cmp2.i, %cmp1.i306
+  %.mux429 = select i1 %cmp.i303, i64 0, i64 %101
+  br i1 %brmerge428, label %rate_per_second.exit314, label %if.else.i310
 
 if.else.i310:                                     ; preds = %rate_per_second.exit
   %div4.i312 = udiv i64 %101, %div.i
   br label %rate_per_second.exit314
 
 rate_per_second.exit314:                          ; preds = %rate_per_second.exit, %if.else.i310
-  %retval.0.i313 = phi i64 [ %div4.i312, %if.else.i310 ], [ %.mux430, %rate_per_second.exit ]
+  %retval.0.i313 = phi i64 [ %div4.i312, %if.else.i310 ], [ %.mux429, %rate_per_second.exit ]
   store i64 %retval.0.i313, ptr %83, align 8
   %102 = load i64, ptr %nrequests, align 8
   store i64 %102, ptr %84, align 8
   %cmp1.i316 = icmp eq i64 %102, 0
-  %brmerge431 = or i1 %cmp2.i, %cmp1.i316
-  %.mux432 = select i1 %cmp.i303, i64 0, i64 %102
-  br i1 %brmerge431, label %rate_per_second.exit324, label %if.else.i320
+  %brmerge430 = or i1 %cmp2.i, %cmp1.i316
+  %.mux431 = select i1 %cmp.i303, i64 0, i64 %102
+  br i1 %brmerge430, label %rate_per_second.exit324, label %if.else.i320
 
 if.else.i320:                                     ; preds = %rate_per_second.exit314
   %div4.i322 = udiv i64 %102, %div.i
   br label %rate_per_second.exit324
 
 rate_per_second.exit324:                          ; preds = %rate_per_second.exit314, %if.else.i320
-  %retval.0.i323 = phi i64 [ %div4.i322, %if.else.i320 ], [ %.mux432, %rate_per_second.exit314 ]
+  %retval.0.i323 = phi i64 [ %div4.i322, %if.else.i320 ], [ %.mux431, %rate_per_second.exit314 ]
   store i64 %retval.0.i323, ptr %85, align 8
   store i64 %99, ptr %86, align 8
   br i1 %cmp218, label %for.inc, label %if.then315
@@ -12944,17 +12911,16 @@ if.then1.i345:                                    ; preds = %do.end.i340
 for.body.preheader.i.i350:                        ; preds = %if.then1.i345
   %mul.i.i351 = zext i1 %cmp.i.i346 to i32
   %amount.0.i.i352 = shl nuw nsw i32 %112, %mul.i.i351
-  %smax.i.i353 = call i32 @llvm.smax.i32(i32 %amount.0.i.i352, i32 1)
-  br label %for.body.i.i354
+  br label %for.body.i.i353
 
-for.body.i.i354:                                  ; preds = %for.body.i.i354, %for.body.preheader.i.i350
-  %i.06.i.i355 = phi i32 [ %inc.i.i356, %for.body.i.i354 ], [ 0, %for.body.preheader.i.i350 ]
+for.body.i.i353:                                  ; preds = %for.body.i.i353, %for.body.preheader.i.i350
+  %i.06.i.i354 = phi i32 [ %inc.i.i355, %for.body.i.i353 ], [ 0, %for.body.preheader.i.i350 ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i347)
-  %inc.i.i356 = add nuw nsw i32 %i.06.i.i355, 1
-  %exitcond.not.i.i357 = icmp eq i32 %inc.i.i356, %smax.i.i353
-  br i1 %exitcond.not.i.i357, label %if.end.i349, label %for.body.i.i354, !llvm.loop !7
+  %inc.i.i355 = add nuw nsw i32 %i.06.i.i354, 1
+  %exitcond.not.i.i356 = icmp eq i32 %inc.i.i355, %amount.0.i.i352
+  br i1 %exitcond.not.i.i356, label %if.end.i349, label %for.body.i.i353, !llvm.loop !7
 
-if.end.i349:                                      ; preds = %for.body.i.i354, %if.then1.i345, %do.end.i340
+if.end.i349:                                      ; preds = %for.body.i.i353, %if.then1.i345, %do.end.i340
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.229)
   br label %emitter_json_array_end.exit
 
@@ -13531,7 +13497,7 @@ if.then76:                                        ; preds = %tsd_fetch_impl.exit
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %in_gap.0388 = phi i1 [ false, %for.cond.preheader ], [ %cmp191, %for.inc ]
+  %in_gap.0387 = phi i1 [ false, %for.cond.preheader ], [ %cmp191, %for.inc ]
   store i64 %indvars.iv, ptr %arrayidx86, align 16
   store i64 7, ptr %miblen_new90, align 8
   store i64 8, ptr %sz, align 8
@@ -13676,7 +13642,7 @@ do.end187:                                        ; preds = %tsd_fetch_impl.exit
   %96 = load i64, ptr %retained_bytes, align 8
   %add190 = add i64 %add189, %96
   %cmp191 = icmp eq i64 %add188, 0
-  %in_gap.0.not = xor i1 %in_gap.0388, true
+  %in_gap.0.not = xor i1 %in_gap.0387, true
   %brmerge = select i1 %in_gap.0.not, i1 true, i1 %cmp191
   br i1 %brmerge, label %if.end198, label %if.then197
 
@@ -13722,14 +13688,13 @@ if.then1.i:                                       ; preds = %do.end.i
 for.body.preheader.i.i:                           ; preds = %if.then1.i
   %mul.i.i = zext i1 %cmp.i.i to i32
   %amount.0.i.i = shl nuw nsw i32 %98, %mul.i.i
-  %smax.i.i = call i32 @llvm.smax.i32(i32 %amount.0.i.i, i32 1)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
   %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %smax.i.i
+  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %amount.0.i.i
   br i1 %exitcond.not.i.i, label %if.end.i285, label %for.body.i.i, !llvm.loop !7
 
 if.end.i285:                                      ; preds = %for.body.i.i, %if.then1.i, %do.end.i
@@ -13815,17 +13780,16 @@ if.then1.i306:                                    ; preds = %do.end.i301
 for.body.preheader.i.i311:                        ; preds = %if.then1.i306
   %mul.i.i312 = zext i1 %cmp.i.i307 to i32
   %amount.0.i.i313 = shl nuw nsw i32 %114, %mul.i.i312
-  %smax.i.i314 = call i32 @llvm.smax.i32(i32 %amount.0.i.i313, i32 1)
-  br label %for.body.i.i315
+  br label %for.body.i.i314
 
-for.body.i.i315:                                  ; preds = %for.body.i.i315, %for.body.preheader.i.i311
-  %i.06.i.i316 = phi i32 [ %inc.i.i317, %for.body.i.i315 ], [ 0, %for.body.preheader.i.i311 ]
+for.body.i.i314:                                  ; preds = %for.body.i.i314, %for.body.preheader.i.i311
+  %i.06.i.i315 = phi i32 [ %inc.i.i316, %for.body.i.i314 ], [ 0, %for.body.preheader.i.i311 ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i308)
-  %inc.i.i317 = add nuw nsw i32 %i.06.i.i316, 1
-  %exitcond.not.i.i318 = icmp eq i32 %inc.i.i317, %smax.i.i314
-  br i1 %exitcond.not.i.i318, label %if.end.i310, label %for.body.i.i315, !llvm.loop !7
+  %inc.i.i316 = add nuw nsw i32 %i.06.i.i315, 1
+  %exitcond.not.i.i317 = icmp eq i32 %inc.i.i316, %amount.0.i.i313
+  br i1 %exitcond.not.i.i317, label %if.end.i310, label %for.body.i.i314, !llvm.loop !7
 
-if.end.i310:                                      ; preds = %for.body.i.i315, %if.then1.i306, %do.end.i301
+if.end.i310:                                      ; preds = %for.body.i.i314, %if.then1.i306, %do.end.i301
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.229)
   br label %emitter_json_array_end.exit
 
@@ -13845,9 +13809,6 @@ declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12

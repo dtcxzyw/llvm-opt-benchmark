@@ -31385,12 +31385,12 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9583: ; pred
 
 .thread41655:                                     ; preds = %8374
   %8375 = and i64 %8270, %.sroa.71860.0.copyload
-  %8376 = add i64 %8343, %8375
+  %8376 = add nuw nsw i64 %8343, %8375
   br label %8393
 
 .thread41657:                                     ; preds = %8374
   %8377 = and i64 %8267, %.sroa.71860.0.copyload
-  %8378 = add i64 %8342, %8377
+  %8378 = add nuw nsw i64 %8342, %8377
   br label %8393
 
 8379:                                             ; preds = %8374, %8374, %8374
@@ -33262,12 +33262,12 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9858: ; pred
 
 .thread41677:                                     ; preds = %8890
   %8891 = and i64 %8634, %.sroa.71985.0.copyload
-  %8892 = add i64 %8715, %8891
+  %8892 = add nuw nsw i64 %8715, %8891
   br label %8909
 
 .thread41679:                                     ; preds = %8890
   %8893 = and i64 %8631, %.sroa.71985.0.copyload
-  %8894 = add i64 %8714, %8893
+  %8894 = add nuw nsw i64 %8714, %8893
   br label %8909
 
 8895:                                             ; preds = %8890, %8890, %8890
@@ -35394,12 +35394,12 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i101
 
 .thread41683:                                     ; preds = %9522
   %9523 = and i64 %9113, %.sroa.72116.0.copyload
-  %9524 = add i64 %9186, %9523
+  %9524 = add nuw nsw i64 %9186, %9523
   br label %9541
 
 .thread41685:                                     ; preds = %9522
   %9525 = and i64 %9110, %.sroa.72116.0.copyload
-  %9526 = add i64 %9185, %9525
+  %9526 = add nuw nsw i64 %9185, %9525
   br label %9541
 
 9527:                                             ; preds = %9522, %9522, %9522

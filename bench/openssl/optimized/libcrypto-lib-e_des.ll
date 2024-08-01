@@ -314,7 +314,6 @@ for.cond.preheader:                               ; preds = %for.cond.preheader.
 
 for.body.preheader:                               ; preds = %for.cond.preheader
   %mul = shl nuw nsw i64 %chunk.133, 3
-  %umax = call i64 @llvm.umax.i64(i64 %mul, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -347,7 +346,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %conv21 = trunc nuw i32 %or to i8
   store i8 %conv21, ptr %arrayidx10, align 1
   %inc = add nuw i64 %n.028, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %mul
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
@@ -407,9 +406,6 @@ if.end:                                           ; preds = %if.then, %while.end
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #3
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

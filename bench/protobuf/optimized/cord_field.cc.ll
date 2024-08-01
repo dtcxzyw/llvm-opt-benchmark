@@ -4243,7 +4243,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end3.i:                                        ; preds = %if.end.i
   %mul.i = shl nsw i32 %0, 1
-  %add.i = add i32 %mul.i, 2
+  %add.i = add nsw i32 %mul.i, 2
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %add.i, i32 %new_size)
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeIiLi8EEEiii.exit
 

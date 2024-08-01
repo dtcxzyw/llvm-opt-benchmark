@@ -241,7 +241,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit.i
   %85 = ptrtoint ptr %84 to i64
   %86 = sub i64 %85, %.pre-phi.i
   %87 = ashr exact i64 %86, 2
-  %88 = sub i64 %.0.i.i, %87
+  %88 = sub nsw i64 %.0.i.i, %87
   store float 0.000000e+00, ptr %6, align 4
   %89 = getelementptr inbounds i8, ptr %83, i64 %86
   invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS4_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr %89, i64 noundef %88, ptr noundef nonnull align 4 dereferenceable(4) %6)
@@ -311,7 +311,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit.i
   %116 = ptrtoint ptr %115 to i64
   %117 = sub i64 %116, %.pre-phi.i40
   %118 = ashr exact i64 %117, 2
-  %119 = sub i64 %.0.i.i38, %118
+  %119 = sub nsw i64 %.0.i.i38, %118
   store float 0.000000e+00, ptr %5, align 4
   %120 = getelementptr inbounds i8, ptr %114, i64 %117
   invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS4_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr %120, i64 noundef %119, ptr noundef nonnull align 4 dereferenceable(4) %5)
@@ -381,7 +381,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit.i
   %147 = ptrtoint ptr %146 to i64
   %148 = sub i64 %147, %.pre-phi.i53
   %149 = ashr exact i64 %148, 2
-  %150 = sub i64 %.0.i.i51, %149
+  %150 = sub nsw i64 %.0.i.i51, %149
   store float 0.000000e+00, ptr %4, align 4
   %151 = getelementptr inbounds i8, ptr %145, i64 %148
   invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS4_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %151, i64 noundef %150, ptr noundef nonnull align 4 dereferenceable(4) %4)
@@ -451,7 +451,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit.i
   %178 = ptrtoint ptr %177 to i64
   %179 = sub i64 %178, %.pre-phi.i66
   %180 = ashr exact i64 %179, 2
-  %181 = sub i64 %.0.i.i64, %180
+  %181 = sub nsw i64 %.0.i.i64, %180
   store float 0.000000e+00, ptr %3, align 4
   %182 = getelementptr inbounds i8, ptr %176, i64 %179
   invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS4_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr %182, i64 noundef %181, ptr noundef nonnull align 4 dereferenceable(4) %3)

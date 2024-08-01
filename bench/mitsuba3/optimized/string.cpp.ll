@@ -3231,8 +3231,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
   %216 = shl i64 %.5493, %214
   %217 = trunc i64 %.2502 to i32
   %218 = shl nsw i32 %217, 1
-  %219 = add i32 %218, 684
-  %220 = sext i32 %219 to i64
+  %219 = add nsw i32 %218, 684
+  %220 = zext nneg i32 %219 to i64
   %221 = getelementptr inbounds [1302 x i64], ptr @_ZN10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %220
   %222 = load i64, ptr %221, align 16
   %223 = zext i64 %216 to i128
@@ -3246,8 +3246,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
   br i1 %230, label %231, label %243
 
 231:                                              ; preds = %213
-  %232 = add i32 %218, 685
-  %233 = sext i32 %232 to i64
+  %232 = add nsw i32 %218, 685
+  %233 = zext nneg i32 %232 to i64
   %234 = getelementptr inbounds [1302 x i64], ptr @_ZN10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %233
   %235 = load i64, ptr %234, align 8
   %236 = zext i64 %235 to i128
@@ -3352,8 +3352,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
   %297 = shl i64 %290, %295
   %298 = trunc i64 %.2502 to i32
   %299 = shl nsw i32 %298, 1
-  %300 = add i32 %299, 684
-  %301 = sext i32 %300 to i64
+  %300 = add nsw i32 %299, 684
+  %301 = zext nneg i32 %300 to i64
   %302 = getelementptr inbounds [1302 x i64], ptr @_ZN10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %301
   %303 = load i64, ptr %302, align 16
   %304 = zext i64 %297 to i128
@@ -3367,8 +3367,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
   br i1 %311, label %312, label %324
 
 312:                                              ; preds = %294
-  %313 = add i32 %299, 685
-  %314 = sext i32 %313 to i64
+  %313 = add nsw i32 %299, 685
+  %314 = zext nneg i32 %313 to i64
   %315 = getelementptr inbounds [1302 x i64], ptr @_ZN10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %314
   %316 = load i64, ptr %315, align 8
   %317 = zext i64 %316 to i128
@@ -6138,8 +6138,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   %216 = shl i64 %.5501, %214
   %217 = trunc i64 %.2510 to i32
   %218 = shl nsw i32 %217, 1
-  %219 = add i32 %218, 684
-  %220 = sext i32 %219 to i64
+  %219 = add nsw i32 %218, 684
+  %220 = zext nneg i32 %219 to i64
   %221 = getelementptr inbounds [1302 x i64], ptr @_ZN10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %220
   %222 = load i64, ptr %221, align 16
   %223 = zext i64 %216 to i128
@@ -6153,8 +6153,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   br i1 %230, label %231, label %243
 
 231:                                              ; preds = %213
-  %232 = add i32 %218, 685
-  %233 = sext i32 %232 to i64
+  %232 = add nsw i32 %218, 685
+  %233 = zext nneg i32 %232 to i64
   %234 = getelementptr inbounds [1302 x i64], ptr @_ZN10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %233
   %235 = load i64, ptr %234, align 8
   %236 = zext i64 %235 to i128
@@ -6259,8 +6259,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   %297 = shl i64 %290, %295
   %298 = trunc i64 %.2510 to i32
   %299 = shl nsw i32 %298, 1
-  %300 = add i32 %299, 684
-  %301 = sext i32 %300 to i64
+  %300 = add nsw i32 %299, 684
+  %301 = zext nneg i32 %300 to i64
   %302 = getelementptr inbounds [1302 x i64], ptr @_ZN10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %301
   %303 = load i64, ptr %302, align 16
   %304 = zext i64 %297 to i128
@@ -6274,8 +6274,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   br i1 %311, label %312, label %324
 
 312:                                              ; preds = %294
-  %313 = add i32 %299, 685
-  %314 = sext i32 %313 to i64
+  %313 = add nsw i32 %299, 685
+  %314 = zext nneg i32 %313 to i64
   %315 = getelementptr inbounds [1302 x i64], ptr @_ZN10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %314
   %316 = load i64, ptr %315, align 8
   %317 = zext i64 %316 to i128

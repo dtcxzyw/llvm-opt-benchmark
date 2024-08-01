@@ -1311,7 +1311,7 @@ if.end134:                                        ; preds = %if.else126, %if.the
   %conv140 = sext i32 %0 to i64
   %mul141 = shl nsw i64 %conv140, 3
   %21 = zext nneg i32 %spec.select to i64
-  %mul143 = shl i64 %mul141, %21
+  %mul143 = shl nsw i64 %mul141, %21
   %add.ptr144 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul143
   store ptr %add.ptr144, ptr %tmp, align 8
   %add.ptr147 = getelementptr inbounds i64, ptr %add.ptr144, i64 %conv140

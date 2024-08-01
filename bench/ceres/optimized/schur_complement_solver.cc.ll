@@ -3172,7 +3172,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i:
   %149 = sub nsw i64 %142, %.0.i.i.i.i.i.i.i.i.i.i.i
   %150 = sdiv i64 %149, 2
   %151 = shl nsw i64 %150, 1
-  %152 = add i64 %151, %.0.i.i.i.i.i.i.i.i.i.i.i
+  %152 = add nsw i64 %151, %.0.i.i.i.i.i.i.i.i.i.i.i
   %153 = icmp sgt i64 %.0.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %153, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader.i, label %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEENS5_INS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES8_EEEENS0_9assign_opIddEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i
 
@@ -3191,8 +3191,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %157 = add nsw i64 %.0.i.i.i.i.i.i.i.i.i.i.i, 2
   %smax.i = call i64 @llvm.smax.i64(i64 %152, i64 %157)
   %158 = xor i64 %.0.i.i.i.i.i.i.i.i.i.i.i, -1
-  %159 = add i64 %smax.i, %158
-  %160 = shl i64 %159, 3
+  %159 = add nsw i64 %smax.i, %158
+  %160 = shl nsw i64 %159, 3
   %161 = and i64 %160, -16
   %162 = add i64 %161, 16
   call void @llvm.memset.p0.i64(ptr align 16 %scevgep.i, i8 0, i64 %162, i1 false)
@@ -3207,8 +3207,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %165 = shl nuw nsw i64 %.0.i.i.i.i.i.i.i.i.i.i.i, 3
   %166 = getelementptr i8, ptr %3, i64 %164
   %scevgep1.i = getelementptr i8, ptr %166, i64 %165
-  %167 = sub i64 %149, %151
-  %168 = shl nuw i64 %167, 3
+  %167 = sub nsw i64 %149, %151
+  %168 = shl nuw nsw i64 %167, 3
   call void @llvm.memset.p0.i64(ptr align 8 %scevgep1.i, i8 0, i64 %168, i1 false)
   br label %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE7setZeroEv.exit
 

@@ -16176,11 +16176,6 @@ define internal fastcc i64 @Abc_Tt6IsopCover(i64 noundef %0, i64 noundef %1, i32
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %18, label %.preheader70._crit_edge
 
-.preheader70._crit_edge:                          ; preds = %.preheader70
-  %.pre = shl nuw nsw i32 1, %10
-  %.pre85 = zext nneg i32 %.pre to i64
-  br label %split
-
 18:                                               ; preds = %.preheader70
   %19 = shl nuw i32 1, %indvars
   %20 = zext nneg i32 %19 to i64
@@ -16191,18 +16186,18 @@ define internal fastcc i64 @Abc_Tt6IsopCover(i64 noundef %0, i64 noundef %1, i32
   %25 = xor i64 %21, %0
   %26 = and i64 %24, %25
   %.not69 = icmp eq i64 %26, 0
-  br i1 %.not69, label %27, label %split
+  br i1 %.not69, label %27, label %.preheader70._crit_edge
 
 27:                                               ; preds = %18
   %28 = lshr i64 %1, %20
   %29 = xor i64 %28, %1
   %30 = and i64 %24, %29
   %.not = icmp eq i64 %30, 0
-  br i1 %.not, label %.preheader70, label %split, !llvm.loop !147
+  br i1 %.not, label %.preheader70, label %.preheader70._crit_edge, !llvm.loop !147
 
-split:                                            ; preds = %18, %27, %.preheader70._crit_edge
-  %.pre-phi86 = phi i64 [ %.pre85, %.preheader70._crit_edge ], [ %20, %27 ], [ %20, %18 ]
-  %.064.lcssa = phi i32 [ %10, %.preheader70._crit_edge ], [ %indvars, %27 ], [ %indvars, %18 ]
+.preheader70._crit_edge:                          ; preds = %18, %27, %.preheader70
+  %.pre-phi86 = phi i64 [ 4294967295, %.preheader70 ], [ %20, %27 ], [ %20, %18 ]
+  %.064.lcssa = phi i32 [ %10, %.preheader70 ], [ %indvars, %27 ], [ %indvars, %18 ]
   %31 = sext i32 %.064.lcssa to i64
   %32 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %31
   %33 = load i64, ptr %32, align 8
@@ -16243,14 +16238,14 @@ split:                                            ; preds = %18, %27, %.preheade
   %68 = icmp slt i32 %48, %52
   br i1 %68, label %.lr.ph, label %.preheader
 
-.lr.ph:                                           ; preds = %split
+.lr.ph:                                           ; preds = %.preheader70._crit_edge
   %69 = shl nsw i32 %.064.lcssa, 1
   %70 = shl nuw i32 1, %69
   %71 = sext i32 %48 to i64
   %wide.trip.count = sext i32 %52 to i64
   br label %76
 
-.preheader:                                       ; preds = %76, %split
+.preheader:                                       ; preds = %76, %.preheader70._crit_edge
   %72 = icmp slt i32 %52, %56
   br i1 %72, label %.lr.ph73, label %.loopexit
 
@@ -16583,12 +16578,7 @@ define internal fastcc i64 @Abc_Tt6Isop(i64 noundef %0, i64 noundef %1, i32 noun
   %indvars = trunc i64 %indvars.iv.next to i32
   %12 = trunc nuw i64 %indvars.iv to i32
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %.preheader.tailrecurse_crit_edge
-
-.preheader.tailrecurse_crit_edge:                 ; preds = %.preheader
-  %.pre = shl nuw nsw i32 1, %8
-  %.pre58 = zext nneg i32 %.pre to i64
-  br label %tailrecurse
+  br i1 %13, label %14, label %tailrecurse
 
 14:                                               ; preds = %.preheader
   %15 = shl nuw i32 1, %indvars
@@ -16609,9 +16599,9 @@ define internal fastcc i64 @Abc_Tt6Isop(i64 noundef %0, i64 noundef %1, i32 noun
   %.not = icmp eq i64 %26, 0
   br i1 %.not, label %.preheader, label %tailrecurse, !llvm.loop !154
 
-tailrecurse:                                      ; preds = %14, %23, %.preheader.tailrecurse_crit_edge
-  %.pre-phi59 = phi i64 [ %.pre58, %.preheader.tailrecurse_crit_edge ], [ %16, %23 ], [ %16, %14 ]
-  %.0.lcssa = phi i32 [ %8, %.preheader.tailrecurse_crit_edge ], [ %indvars, %23 ], [ %indvars, %14 ]
+tailrecurse:                                      ; preds = %14, %23, %.preheader
+  %.pre-phi59 = phi i64 [ 4294967295, %.preheader ], [ %16, %23 ], [ %16, %14 ]
+  %.0.lcssa = phi i32 [ %8, %.preheader ], [ %indvars, %23 ], [ %indvars, %14 ]
   %27 = sext i32 %.0.lcssa to i64
   %28 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %27
   %29 = load i64, ptr %28, align 8

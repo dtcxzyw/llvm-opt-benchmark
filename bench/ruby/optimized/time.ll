@@ -10650,7 +10650,7 @@ addv.exit.leap_year_p.exit.thread_crit_edge:      ; preds = %addv.exit
   br label %leap_year_p.exit.thread
 
 244:                                              ; preds = %addv.exit
-  %.lhs.trunc = trunc nuw i64 %242 to i32
+  %.lhs.trunc = trunc nuw nsw i64 %242 to i32
   %245 = udiv i32 %.lhs.trunc, 100
   %.zext = zext nneg i32 %245 to i64
   %246 = mul nuw nsw i64 %.zext, 100

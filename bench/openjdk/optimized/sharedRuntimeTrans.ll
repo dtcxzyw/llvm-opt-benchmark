@@ -1158,7 +1158,7 @@ define internal fastcc noundef double @_ZL7scalbnAdi(double noundef %0, i32 noun
 44:                                               ; preds = %34
   %45 = and i32 %.01844, -2146435073
   %46 = shl nsw i32 %21, 20
-  %47 = add i32 %46, 56623104
+  %47 = add nsw i32 %46, 56623104
   %48 = or i32 %47, %45
   %49 = bitcast double %.03842 to i64
   %.sroa.0.4.insert.ext.i24 = zext i32 %48 to i64

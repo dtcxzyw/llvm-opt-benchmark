@@ -26046,7 +26046,7 @@ rb_obj_write.exit.i:                              ; preds = %101, %rb_ary_ptr_us
 rb_ary_push.exit:                                 ; preds = %109, %104
   %112 = phi i64 [ %102, %109 ], [ %108, %104 ]
   %113 = shl nuw nsw i64 %.074, 1
-  %114 = add nuw i64 %113, 3
+  %114 = add nuw nsw i64 %113, 3
   %115 = and i64 %112, 8192
   %.not.i.i92 = icmp eq i64 %115, 0
   br i1 %.not.i.i92, label %119, label %116

@@ -4952,7 +4952,7 @@ if.end22.i.i.i.i:                                 ; preds = %if.end10.i.i.i.i
   %conv35.i.i.i.i = trunc i64 %bitD.i14.sroa.59852.3907.idx.i.i to i32
   %nbBytes.0.i.i.i.i = select i1 %cmp30.i.i.i.i, i32 %conv35.i.i.i.i, i32 %shr24.i.i.i.i
   %mul.i.i.i.i = shl nsw i32 %nbBytes.0.i.i.i.i, 3
-  %sub.i.i.i.i = sub i32 %add.i.i.i.i.i, %mul.i.i.i.i
+  %sub.i.i.i.i = sub nsw i32 %add.i.i.i.i.i, %mul.i.i.i.i
   br label %BIT_reloadDStream.exit.sink.split.i.i.i
 
 BIT_reloadDStream.exit.sink.split.i.i.i:          ; preds = %if.end22.i.i.i.i, %if.then4.i.i.i.i
@@ -4975,7 +4975,7 @@ FSE_initDState.exit.i.i:                          ; preds = %BIT_reloadDStream.e
   %shl.i.i.i75.i.i = shl i64 %bitD.i14.sroa.0.4.i.i, %sh_prom.i.i.i74.i.i
   %shr.i.i.i76.i.i = lshr i64 %shl.i.i.i75.i.i, 1
   %shr3.i.i.i80.i.i = lshr i64 %shr.i.i.i76.i.i, %sh_prom2.i.i.i.i.i
-  %add.i.i.i81.i.i = add i32 %bitD.i14.sroa.25.4.i.i, %conv.i66.i.i
+  %add.i.i.i81.i.i = add nsw i32 %bitD.i14.sroa.25.4.i.i, %conv.i66.i.i
   %cmp.i.i82.i.i = icmp ugt i32 %add.i.i.i81.i.i, 64
   br i1 %cmp.i.i82.i.i, label %FSE_decompress.exit.thread, label %if.end.i.i83.i.i
 
@@ -5477,7 +5477,7 @@ if.end22.i.i437.i.i:                              ; preds = %if.end10.i.i435.i.i
   %conv35.i.i446.i.i = trunc i64 %bitD.i.sroa.59798.3950.idx.i.i to i32
   %nbBytes.0.i.i447.i.i = select i1 %cmp30.i.i442.i.i, i32 %conv35.i.i446.i.i, i32 %shr24.i.i438.i.i
   %mul.i.i451.i.i = shl nsw i32 %nbBytes.0.i.i447.i.i, 3
-  %sub.i.i452.i.i = sub i32 %add.i.i.i416.i.i, %mul.i.i451.i.i
+  %sub.i.i452.i.i = sub nsw i32 %add.i.i.i416.i.i, %mul.i.i451.i.i
   br label %BIT_reloadDStream.exit.sink.split.i429.i.i
 
 BIT_reloadDStream.exit.sink.split.i429.i.i:       ; preds = %if.end22.i.i437.i.i, %if.then4.i.i423.i.i
@@ -5500,7 +5500,7 @@ FSE_initDState.exit453.i.i:                       ; preds = %BIT_reloadDStream.e
   %shl.i.i.i460.i.i = shl i64 %bitD.i.sroa.0.4.i.i, %sh_prom.i.i.i459.i.i
   %shr.i.i.i461.i.i = lshr i64 %shl.i.i.i460.i.i, 1
   %shr3.i.i.i465.i.i = lshr i64 %shr.i.i.i461.i.i, %sh_prom2.i.i.i414.i.i
-  %add.i.i.i466.i.i = add i32 %bitD.i.sroa.25.4.i.i, %conv.i405.i.i
+  %add.i.i.i466.i.i = add nsw i32 %bitD.i.sroa.25.4.i.i, %conv.i405.i.i
   %cmp.i.i467.i.i = icmp ugt i32 %add.i.i.i466.i.i, 64
   br i1 %cmp.i.i467.i.i, label %FSE_decompress.exit.thread, label %if.end.i.i468.i.i
 

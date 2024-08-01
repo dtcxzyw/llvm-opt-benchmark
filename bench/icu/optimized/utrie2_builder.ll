@@ -1813,7 +1813,7 @@ if.then43:                                        ; preds = %if.end39
 
 if.else47:                                        ; preds = %if.end39
   %mul = shl nsw i32 %allIndexesLength.0120, 1
-  %add40 = add i32 %mul, 16
+  %add40 = add nsw i32 %mul, 16
   %mul49 = shl nsw i32 %95, 2
   %add50 = add nsw i32 %add40, %mul49
   br label %if.end51

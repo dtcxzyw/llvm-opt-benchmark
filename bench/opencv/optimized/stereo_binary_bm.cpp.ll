@@ -3554,7 +3554,7 @@ define linkonce_odr hidden void @_ZN2cv6stereo8Matching13costGatheringERKNS_3Mat
   %44 = sext i32 %37 to i64
   %45 = sext i32 %33 to i64
   %46 = shl nsw i64 %45, 1
-  %47 = mul i64 %46, %43
+  %47 = mul nsw i64 %46, %43
   %48 = mul i64 %47, %44
   tail call void @llvm.memset.p0.i64(ptr align 2 %40, i8 0, i64 %48, i1 false)
   %49 = icmp slt i32 %37, 3
@@ -3808,7 +3808,7 @@ define linkonce_odr hidden void @_ZN2cv6stereo8Matching15blockAgregationERKNS_3M
   %59 = sext i32 %57 to i64
   %60 = sext i32 %54 to i64
   %61 = shl nsw i64 %59, 1
-  %62 = mul i64 %61, %60
+  %62 = mul nsw i64 %61, %60
   %63 = mul i64 %62, %58
   tail call void @llvm.memset.p0.i64(ptr align 2 %52, i8 0, i64 %63, i1 false)
   store i32 0, ptr %11, align 4
@@ -4997,7 +4997,7 @@ _ZN2cv6stereoL13prefilterNormERKNS_3MatERS1_iiPh.exit: ; preds = %._crit_edge196
   %335 = add nsw i32 %312, 1024
   %336 = add nuw nsw i32 %335, %322
   %337 = add nsw i32 %336, %334
-  %338 = sub nsw i32 %337, %325
+  %338 = sub nuw nsw i32 %337, %325
   %339 = zext nneg i32 %338 to i64
   %340 = getelementptr inbounds [2304 x i8], ptr %3, i64 0, i64 %339
   %341 = load i8, ptr %340, align 1

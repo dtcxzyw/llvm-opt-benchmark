@@ -370,7 +370,7 @@ Vec_WecStart.exit:                                ; preds = %173, %Vec_BitFree.e
   %174 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
   %spec.store.select.i.i = call i32 @llvm.umax.i32(i32 %.1140, i32 8)
   store i32 %spec.store.select.i.i, ptr %174, align 8
-  %175 = sext i32 %spec.store.select.i.i to i64
+  %175 = zext nneg i32 %spec.store.select.i.i to i64
   %176 = call noalias ptr @calloc(i64 noundef %175, i64 noundef 16) #14
   %177 = getelementptr inbounds i8, ptr %174, i64 4
   %178 = getelementptr inbounds i8, ptr %174, i64 8

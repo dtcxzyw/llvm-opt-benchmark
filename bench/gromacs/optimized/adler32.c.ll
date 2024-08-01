@@ -353,7 +353,7 @@ define range(i64 0, 8589934592) i64 @adler32_combine(i64 noundef %0, i64 noundef
   %.024.i = select i1 %25, i64 %26, i64 %20
   %27 = icmp ugt i64 %.024.i, 65520
   %28 = shl nsw i64 %.024.i, 16
-  %29 = add i64 %28, -4293984256
+  %29 = add nsw i64 %28, -4293984256
   %30 = select i1 %27, i64 %29, i64 %28
   %31 = or i64 %30, %.126.i
   br label %adler32_combine_.exit
@@ -397,7 +397,7 @@ define range(i64 0, 8589934592) i64 @adler32_combine64(i64 noundef %0, i64 nound
   %.024.i = select i1 %25, i64 %26, i64 %20
   %27 = icmp ugt i64 %.024.i, 65520
   %28 = shl nsw i64 %.024.i, 16
-  %29 = add i64 %28, -4293984256
+  %29 = add nsw i64 %28, -4293984256
   %30 = select i1 %27, i64 %29, i64 %28
   %31 = or i64 %30, %.126.i
   br label %adler32_combine_.exit

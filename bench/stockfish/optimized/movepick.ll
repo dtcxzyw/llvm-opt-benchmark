@@ -1316,7 +1316,7 @@ _ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE4EEEmNS_5ColorE.exit: ; preds
 222:                                              ; preds = %.thread, %214, %215, %220, %218
   %223 = phi i32 [ %202, %215 ], [ %202, %218 ], [ %202, %220 ], [ %202, %214 ], [ %213, %.thread ]
   %.neg86 = phi i32 [ %.neg83, %215 ], [ %.neg84, %218 ], [ %.neg85, %220 ], [ 0, %214 ], [ 0, %.thread ]
-  %224 = add i32 %.neg86, %223
+  %224 = add nsw i32 %.neg86, %223
   store i32 %224, ptr %134, align 4
   %225 = getelementptr inbounds i8, ptr %.0102, i64 8
   %.not = icmp eq ptr %225, %110

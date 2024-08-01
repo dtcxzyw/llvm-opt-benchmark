@@ -42773,14 +42773,14 @@ stbi__get8.exit231:                               ; preds = %323, %stbi__refill_
   store <2 x i32> %363, ptr %362, align 8
   %364 = load i32, ptr %3, align 8
   %365 = extractelement <2 x i32> %363, i64 0
-  %366 = add i32 %365, -1
+  %366 = add nsw i32 %365, -1
   %367 = add i32 %366, %364
   %368 = udiv i32 %367, %365
   %369 = getelementptr inbounds i8, ptr %0, i64 18064
   store i32 %368, ptr %369, align 8
   %370 = load i32, ptr %150, align 4
   %371 = extractelement <2 x i32> %363, i64 1
-  %372 = add i32 %371, -1
+  %372 = add nsw i32 %371, -1
   %373 = add i32 %372, %370
   %374 = udiv i32 %373, %371
   %375 = getelementptr inbounds i8, ptr %0, i64 18068
@@ -42795,7 +42795,7 @@ stbi__get8.exit231:                               ; preds = %323, %stbi__refill_
   %380 = add nsw i32 %379, -1
   %381 = extractelement <2 x i32> %360, i64 1
   %382 = add nsw i32 %381, -1
-  %383 = shl i32 %368, 3
+  %383 = shl nuw i32 %368, 3
   %384 = getelementptr inbounds i8, ptr %0, i64 18480
   br label %385
 
@@ -50799,8 +50799,8 @@ stbi__skip.exit.i.backedge:                       ; preds = %._crit_edge.i124.i,
   br i1 %497, label %498, label %516
 
 498:                                              ; preds = %496
-  %499 = add nsw i32 %.084.i.ph, 1
-  %500 = sext i32 %.084.i.ph to i64
+  %499 = add nuw nsw i32 %.084.i.ph, 1
+  %500 = zext nneg i32 %.084.i.ph to i64
   %501 = getelementptr inbounds [8192 x %struct.stbi__gif_lzw], ptr %368, i64 0, i64 %500
   %502 = icmp sgt i32 %.084.i.ph, 8191
   br i1 %502, label %stbi__process_gif_raster.exit.thread.sink.split, label %503

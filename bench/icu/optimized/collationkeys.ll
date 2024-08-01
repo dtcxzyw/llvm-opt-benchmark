@@ -3562,10 +3562,7 @@ lor.lhs.false.i1295:                              ; preds = %if.then426
   br i1 %tobool.not.i.i1297, label %if.end457, label %if.end.i.i1298
 
 if.end.i.i1298:                                   ; preds = %lor.lhs.false.i1295
-  %mul.i.i1299 = shl nsw i32 %296, 1
-  %spec.store.select.i.i1302 = call i32 @llvm.smax.i32(i32 %mul.i.i1299, i32 200)
-  %conv.i.i.i1303 = zext nneg i32 %spec.store.select.i.i1302 to i64
-  %call.i.i.i1326 = invoke noalias ptr @uprv_malloc_75(i64 noundef %conv.i.i.i1303) #12
+  %call.i.i.i1326 = invoke noalias dereferenceable_or_null(200) ptr @uprv_malloc_75(i64 noundef 200) #12
           to label %call.i.i.i.noexc1325 unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp
 
 call.i.i.i.noexc1325:                             ; preds = %if.end.i.i1298
@@ -3588,7 +3585,7 @@ if.then12.i.i1322:                                ; preds = %call.i.i.i.noexc132
 
 _ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1311: ; preds = %if.then.i.i.i.i1310, %if.end14.i.i.i1307
   store ptr %call.i.i.i1326, ptr %quaternaries, align 8
-  store i32 %spec.store.select.i.i1302, ptr %capacity.i.i249, align 8
+  store i32 200, ptr %capacity.i.i249, align 8
   store i8 1, ptr %needToRelease.i.i250, align 4
   %.pre.i1312 = load i32, ptr %len.i251, align 8
   br label %if.then.i1313

@@ -206,7 +206,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %40 = add nsw i32 %39, 1
   %41 = sext i32 %40 to i64
   %42 = shl nsw i64 %36, 2
-  %43 = mul i64 %42, %41
+  %43 = mul nsw i64 %42, %41
   %44 = tail call ptr @dt_alloc_aligned(i64 noundef %43) #24, !noalias !49
   call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 64) ]
   %45 = icmp eq ptr %44, null

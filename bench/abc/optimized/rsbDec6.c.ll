@@ -194,7 +194,7 @@ define i32 @Rsb_DecCheck(i32 noundef %0, ptr nocapture noundef readonly %1, ptr 
 
 131:                                              ; preds = %125
   %132 = trunc nuw nsw i64 %indvars.iv295 to i32
-  %133 = zext i32 %129 to i64
+  %133 = zext nneg i32 %129 to i64
   %134 = and i64 %133, 65535
   %135 = icmp eq i64 %134, 0
   %136 = lshr exact i64 %133, 16
@@ -218,7 +218,7 @@ define i32 @Rsb_DecCheck(i32 noundef %0, ptr nocapture noundef readonly %1, ptr 
   %148 = lshr exact i64 %.323.i, 2
   %.424.i = select i1 %146, i64 %148, i64 %.323.i
   %.4.i = select i1 %146, i32 %147, i32 %.3.i
-  %149 = trunc nuw i64 %.424.i to i32
+  %149 = trunc nuw nsw i64 %.424.i to i32
   %150 = and i32 %149, 1
   %151 = xor i32 %150, 1
   %.5.i = add nuw nsw i32 %151, %.4.i
@@ -370,7 +370,7 @@ Abc_Tt6FirstBit.exit171.preheader:                ; preds = %224, %Abc_Tt6FirstB
 Abc_Tt6FirstBit.exit184:                          ; preds = %Abc_Tt6FirstBit.exit171.preheader
   %236 = trunc nuw nsw i64 %indvars.iv295 to i32
   %237 = trunc nuw nsw i64 %indvars.iv to i32
-  %238 = zext i32 %234 to i64
+  %238 = zext nneg i32 %234 to i64
   %239 = and i64 %238, 65535
   %240 = icmp eq i64 %239, 0
   %241 = lshr exact i64 %238, 16
@@ -394,7 +394,7 @@ Abc_Tt6FirstBit.exit184:                          ; preds = %Abc_Tt6FirstBit.exi
   %253 = lshr exact i64 %.323.i178, 2
   %.424.i180 = select i1 %251, i64 %253, i64 %.323.i178
   %.4.i181 = select i1 %251, i32 %252, i32 %.3.i179
-  %254 = trunc nuw i64 %.424.i180 to i32
+  %254 = trunc nuw nsw i64 %.424.i180 to i32
   %255 = and i32 %254, 1
   %256 = xor i32 %255, 1
   %.5.i182 = add nuw nsw i32 %256, %.4.i181
@@ -3735,8 +3735,7 @@ Abc_TtPrintBinary.exit63:                         ; preds = %._crit_edge.us.i61,
 
 .preheader.us.preheader.i66:                      ; preds = %Abc_TtPrintBinary.exit63
   %112 = shl nuw nsw i32 1, %5
-  %113 = call noundef i32 @llvm.smin.i32(i32 %112, i32 64)
-  %smax.i67 = call i32 @llvm.smax.i32(i32 %113, i32 1)
+  %113 = call i32 @llvm.umin.i32(i32 %112, i32 64)
   br label %.preheader.us.i68
 
 .preheader.us.i68:                                ; preds = %._crit_edge.us.i72, %.preheader.us.preheader.i66
@@ -3754,7 +3753,7 @@ Abc_TtPrintBinary.exit63:                         ; preds = %._crit_edge.us.i61,
   %121 = and i32 %120, 1
   %122 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %121)
   %123 = add nuw nsw i32 %.01112.us.i70, 1
-  %exitcond.not.i71 = icmp eq i32 %123, %smax.i67
+  %exitcond.not.i71 = icmp eq i32 %123, %113
   br i1 %exitcond.not.i71, label %._crit_edge.us.i72, label %114, !llvm.loop !42
 
 ._crit_edge.us.i72:                               ; preds = %114
@@ -3837,12 +3836,7 @@ define internal fastcc i64 @Abc_Tt6Isop(i64 noundef %0, i64 noundef %1, i32 noun
   %indvars = trunc i64 %indvars.iv.next to i32
   %9 = trunc nuw i64 %indvars.iv to i32
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %11, label %.tailrecurse_crit_edge
-
-.tailrecurse_crit_edge:                           ; preds = %8
-  %.pre = shl nuw nsw i32 1, %7
-  %.pre9 = zext nneg i32 %.pre to i64
-  br label %tailrecurse
+  br i1 %10, label %11, label %tailrecurse
 
 11:                                               ; preds = %8
   %12 = shl nuw i32 1, %indvars
@@ -3863,9 +3857,9 @@ define internal fastcc i64 @Abc_Tt6Isop(i64 noundef %0, i64 noundef %1, i32 noun
   %.not = icmp eq i64 %23, 0
   br i1 %.not, label %8, label %tailrecurse, !llvm.loop !46
 
-tailrecurse:                                      ; preds = %11, %20, %.tailrecurse_crit_edge
-  %.pre-phi10 = phi i64 [ %.pre9, %.tailrecurse_crit_edge ], [ %13, %20 ], [ %13, %11 ]
-  %.0.lcssa = phi i32 [ %7, %.tailrecurse_crit_edge ], [ %indvars, %20 ], [ %indvars, %11 ]
+tailrecurse:                                      ; preds = %11, %20, %8
+  %.pre-phi10 = phi i64 [ 4294967295, %8 ], [ %13, %20 ], [ %13, %11 ]
+  %.0.lcssa = phi i32 [ %7, %8 ], [ %indvars, %20 ], [ %indvars, %11 ]
   %24 = sext i32 %.0.lcssa to i64
   %25 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %24
   %26 = load i64, ptr %25, align 8
@@ -4299,7 +4293,7 @@ define range(i32 0, 2) i32 @Rsb_ManPerformResub6(ptr nocapture noundef readonly 
   store i64 %.5.i, ptr %4, align 8
   %47 = shl nuw i32 1, %.val
   %48 = lshr i32 %16, %47
-  %49 = zext i32 %48 to i64
+  %49 = zext nneg i32 %48 to i64
   %50 = trunc i32 %48 to i1
   %51 = select i1 %50, i64 3, i64 0
   %.025.i36 = select i1 %29, i64 %51, i64 %49
@@ -4392,6 +4386,9 @@ declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #14
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

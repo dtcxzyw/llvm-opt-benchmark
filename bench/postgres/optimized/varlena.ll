@@ -5857,13 +5857,12 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @byteaGetBit(ptr nocaptu
   %.not26 = icmp eq i8 %40, 0
   %.v = select i1 %.not26, i64 4, i64 1
   %41 = getelementptr inbounds i8, ptr %5, i64 %.v
-  %42 = and i64 %37, 4294967295
-  %43 = getelementptr i8, ptr %41, i64 %42
-  %44 = load i8, ptr %43, align 1
-  %45 = zext i8 %44 to i32
-  %46 = shl nuw nsw i32 1, %39
-  %47 = and i32 %46, %45
-  %.not27 = icmp ne i32 %47, 0
+  %42 = getelementptr i8, ptr %41, i64 %37
+  %43 = load i8, ptr %42, align 1
+  %44 = zext i8 %43 to i32
+  %45 = shl nuw nsw i32 1, %39
+  %46 = and i32 %45, %44
+  %.not27 = icmp ne i32 %46, 0
   %spec.select = zext i1 %.not27 to i64
   ret i64 %spec.select
 }
@@ -5953,18 +5952,17 @@ define dso_local noundef i64 @byteaSetBit(ptr nocapture noundef readonly %0) loc
   %26 = and i8 %25, 7
   %27 = lshr i64 %7, 3
   %28 = getelementptr inbounds i8, ptr %5, i64 4
-  %29 = and i64 %27, 4294967295
-  %30 = getelementptr i8, ptr %28, i64 %29
-  %31 = load i8, ptr %30, align 1
-  %32 = icmp eq i32 %10, 0
-  %33 = shl nuw i8 1, %26
-  %34 = xor i8 %33, -1
-  %35 = and i8 %31, %34
-  %36 = or i8 %31, %33
-  %.0 = select i1 %32, i8 %35, i8 %36
-  store i8 %.0, ptr %30, align 1
-  %37 = ptrtoint ptr %5 to i64
-  ret i64 %37
+  %29 = getelementptr i8, ptr %28, i64 %27
+  %30 = load i8, ptr %29, align 1
+  %31 = icmp eq i32 %10, 0
+  %32 = shl nuw i8 1, %26
+  %33 = xor i8 %32, -1
+  %34 = and i8 %30, %33
+  %35 = or i8 %30, %32
+  %.0 = select i1 %31, i8 %34, i8 %35
+  store i8 %.0, ptr %29, align 1
+  %36 = ptrtoint ptr %5 to i64
+  ret i64 %36
 }
 
 ; Function Attrs: nounwind uwtable

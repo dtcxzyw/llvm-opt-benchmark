@@ -6303,7 +6303,7 @@ _ZN11PhaseValues13find_long_conEP4Nodel.exit:     ; preds = %_ZN11PhaseValues12f
   %85 = add nuw nsw i64 %64, %53
   %86 = shl nsw i64 %85, %68
   %87 = add nuw nsw i64 %67, 7
-  %88 = add i64 %87, %86
+  %88 = add nsw i64 %87, %86
   %89 = and i64 %88, -8
   br label %90
 

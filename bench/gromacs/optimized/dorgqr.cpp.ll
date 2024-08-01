@@ -85,7 +85,7 @@ define void @dorgqr_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 46:                                               ; preds = %44
   store i32 %28, ptr %15, align 4
   %47 = shl nsw i32 %28, 5
-  %48 = icmp slt i32 %23, %47
+  %48 = icmp ult i32 %23, %47
   br i1 %48, label %49, label %.thread174
 
 49:                                               ; preds = %46

@@ -5583,8 +5583,8 @@ _ZNK4absl7debian211string_viewixEm.exit93:        ; preds = %_ZN4absl7debian211s
 _ZN4absl7debian211string_view13remove_prefixEm.exit99: ; preds = %_ZNK4absl7debian211string_viewixEm.exit93
   %conv41 = zext nneg i8 %14 to i32
   %mul46 = shl nsw i32 %sub37, 3
-  %add47 = add i32 %mul46, -48
-  %sub48 = add i32 %add47, %conv41
+  %add47 = add nsw i32 %mul46, -48
+  %sub48 = add nsw i32 %add47, %conv41
   %add.ptr.i96 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 2
   store ptr %add.ptr.i96, ptr %s, align 8
   %sub.i97 = add i64 %sub.i.i, -2

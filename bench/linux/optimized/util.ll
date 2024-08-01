@@ -894,7 +894,7 @@ define internal fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef readonly
 define internal fastcc i32 @ipc_search_maxidx(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
-  %4 = add nuw i32 %1, 1
+  %4 = add nuw nsw i32 %1, 1
   %5 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %4, i32 -1) #18, !srcloc !51
   %6 = icmp sgt i32 %5, -1
   br i1 %6, label %7, label %21

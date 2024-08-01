@@ -20273,7 +20273,7 @@ if.then.i124:                                     ; preds = %if.then161
   br label %while.cond.backedge
 
 if.then3.i121:                                    ; preds = %if.then161
-  %conv4.i122 = trunc i32 %54 to i16
+  %conv4.i122 = trunc nsw i32 %54 to i16
   %arrayidx5.i123 = getelementptr i16, ptr %57, i64 %58
   store i16 %conv4.i122, ptr %arrayidx5.i123, align 2
   br label %while.cond.backedge
@@ -20304,7 +20304,7 @@ if.then.i.i151:                                   ; preds = %if.end.i141
   br label %_PyUnicodeWriter_WriteCharInline.exit155
 
 if.then3.i.i145:                                  ; preds = %if.end.i141
-  %conv4.i.i146 = trunc i32 %54 to i16
+  %conv4.i.i146 = trunc nsw i32 %54 to i16
   %arrayidx5.i.i147 = getelementptr i16, ptr %61, i64 %.pre.i140
   store i16 %conv4.i.i146, ptr %arrayidx5.i.i147, align 2
   br label %_PyUnicodeWriter_WriteCharInline.exit155

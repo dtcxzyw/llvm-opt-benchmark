@@ -403,7 +403,7 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr nocapture noundef readonly 
   %123 = add nsw i32 %notmask, 1
   %isneg = icmp slt i32 %122, 0
   %124 = select i1 %isneg, i32 %123, i32 0
-  %125 = add i32 %124, %120
+  %125 = add nsw i32 %124, %120
   br label %126
 
 126:                                              ; preds = %105, %106, %114

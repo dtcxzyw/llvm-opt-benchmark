@@ -927,7 +927,7 @@ Is8bOptimizable.exit.thread:                      ; preds = %52, %48, %43, %33, 
   %77 = sext i32 %69 to i64
   %78 = shl nsw i64 %77, 4
   %79 = add nsw i64 %78, %76
-  %80 = add i64 %79, %74
+  %80 = add nsw i64 %79, %74
   %81 = tail call ptr @WebPSafeMalloc(i64 noundef %80, i64 noundef 4) #7
   %82 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %81, ptr %82, align 8
@@ -3396,7 +3396,7 @@ define hidden range(i32 0, 2) i32 @VP8LDecodeImage(ptr noundef %0) local_unnamed
   %29 = sext i32 %19 to i64
   %30 = shl nsw i64 %29, 4
   %31 = add nsw i64 %30, %28
-  %32 = add i64 %31, %26
+  %32 = add nsw i64 %31, %26
   %33 = tail call ptr @WebPSafeMalloc(i64 noundef %32, i64 noundef 4) #7
   %34 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %33, ptr %34, align 8

@@ -3870,7 +3870,7 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i: ; preds = %239, %230
   %257 = shl nsw i64 %.038.i.i.i, 23
   %258 = select i1 %.0134.i.i, i64 2147483648, i64 0
   %259 = select i1 %.not49.i.i.i, i64 0, i64 %257
-  %260 = add i64 %259, %258
+  %260 = add nsw i64 %259, %258
   %261 = and i64 %260, 4286578688
   %262 = add nuw nsw i64 %261, %256
   br label %_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.exit
@@ -4722,7 +4722,7 @@ _ZN2cvL24softfloat_roundPackToF32Eblm.exit.i:     ; preds = %_ZN2cvL25softfloat_
   %124 = shl nuw nsw i64 %.038.i.i, 23
   %125 = select i1 %.not49.i.i, i64 0, i64 %124
   %126 = add nuw nsw i64 %125, %123
-  %127 = trunc i64 %126 to i32
+  %127 = trunc nsw i64 %126 to i32
   br label %_ZN2cvL8f32_sqrtENS_9softfloatE.exit
 
 128:                                              ; preds = %21, %19, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i

@@ -149,7 +149,7 @@ define internal fastcc zeroext i16 @BinarySearchRange(ptr nocapture noundef read
   %44 = srem i32 %40, 94
   %45 = or disjoint i32 %41, 33
   %46 = add nsw i32 %45, %44
-  %47 = add i32 %46, %43
+  %47 = add nsw i32 %46, %43
   %48 = trunc i32 %47 to i16
   br label %.loopexit
 

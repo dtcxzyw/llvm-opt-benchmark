@@ -164,7 +164,7 @@ define dso_local void @intel_dmc_enable_pipe(ptr noundef %0, i32 noundef %1) loc
   %16 = load i16, ptr %15, align 8
   %17 = icmp ugt i16 %16, 13
   %18 = shl nsw i32 %1, 2
-  %19 = add i32 %18, 283216
+  %19 = add nsw i32 %18, 283216
   %20 = zext nneg i32 %18 to i64
   %21 = shl nuw i64 1, %20
   %22 = trunc i64 %21 to i32
@@ -233,7 +233,7 @@ define dso_local void @intel_dmc_disable_pipe(ptr noundef %0, i32 noundef %1) lo
   br label %41
 
 32:                                               ; preds = %15
-  %33 = add i32 %19, 283216
+  %33 = add nsw i32 %19, 283216
   %34 = getelementptr inbounds i8, ptr %0, i64 7368
   %35 = getelementptr inbounds i8, ptr %0, i64 7512
   %36 = load ptr, ptr %35, align 8

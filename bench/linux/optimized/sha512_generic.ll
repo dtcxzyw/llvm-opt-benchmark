@@ -616,19 +616,18 @@ define dso_local noundef i32 @crypto_sha512_finup(ptr noundef %0, ptr nocapture 
   br i1 %84, label %sha512_final.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %64, %.preheader.i
-  %85 = phi i32 [ %93, %.preheader.i ], [ 0, %64 ]
-  %86 = phi ptr [ %91, %.preheader.i ], [ %3, %64 ]
-  %87 = phi i32 [ %94, %.preheader.i ], [ %83, %64 ]
-  %88 = sext i32 %85 to i64
-  %89 = getelementptr [8 x i64], ptr %5, i64 0, i64 %88
-  %90 = load i64, ptr %89, align 8
-  %91 = getelementptr i8, ptr %86, i64 8
-  %92 = tail call i64 @llvm.bswap.i64(i64 %90)
-  store i64 %92, ptr %86, align 1
-  %93 = add i32 %85, 1
-  %94 = add i32 %87, -8
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %sha512_final.exit, label %.preheader.i, !llvm.loop !13
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %64 ]
+  %85 = phi ptr [ %89, %.preheader.i ], [ %3, %64 ]
+  %86 = phi i32 [ %91, %.preheader.i ], [ %83, %64 ]
+  %87 = getelementptr [8 x i64], ptr %5, i64 0, i64 %indvars.iv.i
+  %88 = load i64, ptr %87, align 8
+  %89 = getelementptr i8, ptr %85, i64 8
+  %90 = tail call i64 @llvm.bswap.i64(i64 %88)
+  store i64 %90, ptr %85, align 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %91 = add i32 %86, -8
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %sha512_final.exit, label %.preheader.i, !llvm.loop !13
 
 sha512_final.exit:                                ; preds = %.preheader.i, %64
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(208) %5, i8 0, i64 208, i1 false)
@@ -688,19 +687,18 @@ define internal noundef i32 @sha512_final(ptr noundef %0, ptr nocapture noundef 
   br i1 %38, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %18, %.preheader
-  %39 = phi i32 [ %47, %.preheader ], [ 0, %18 ]
-  %40 = phi ptr [ %45, %.preheader ], [ %1, %18 ]
-  %41 = phi i32 [ %48, %.preheader ], [ %37, %18 ]
-  %42 = sext i32 %39 to i64
-  %43 = getelementptr [8 x i64], ptr %3, i64 0, i64 %42
-  %44 = load i64, ptr %43, align 8
-  %45 = getelementptr i8, ptr %40, i64 8
-  %46 = tail call i64 @llvm.bswap.i64(i64 %44)
-  store i64 %46, ptr %40, align 1
-  %47 = add i32 %39, 1
-  %48 = add i32 %41, -8
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %.loopexit, label %.preheader, !llvm.loop !13
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %18 ]
+  %39 = phi ptr [ %43, %.preheader ], [ %1, %18 ]
+  %40 = phi i32 [ %45, %.preheader ], [ %37, %18 ]
+  %41 = getelementptr [8 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %42 = load i64, ptr %41, align 8
+  %43 = getelementptr i8, ptr %39, i64 8
+  %44 = tail call i64 @llvm.bswap.i64(i64 %42)
+  store i64 %44, ptr %39, align 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %45 = add i32 %40, -8
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.preheader, %18
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(208) %3, i8 0, i64 208, i1 false)

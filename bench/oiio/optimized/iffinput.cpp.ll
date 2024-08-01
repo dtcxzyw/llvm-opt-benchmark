@@ -34409,7 +34409,7 @@ if.then54.i:                                      ; preds = %if.then50.i
   br label %if.then61
 
 if.else60.i:                                      ; preds = %if.then50.i
-  %inc61.i = sub i32 349, %mul6.i
+  %inc61.i = sub nsw i32 349, %mul6.i
   br label %if.then61
 
 if.end78.i:                                       ; preds = %sw.epilog.i
@@ -34508,7 +34508,7 @@ if.then54.i161:                                   ; preds = %if.then50.i155
   br label %if.then61
 
 if.else60.i158:                                   ; preds = %if.then50.i155
-  %inc61.i160 = sub i32 349, %mul6.i
+  %inc61.i160 = sub nsw i32 349, %mul6.i
   br label %if.then61
 
 if.then61:                                        ; preds = %if.then54.i161, %if.else60.i158, %for.end.i153, %land.lhs.true.i.i138, %if.then54.i, %if.else60.i, %for.end.i, %land.lhs.true.i.i, %if.then30.i, %if.end44.i

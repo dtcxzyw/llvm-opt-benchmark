@@ -363,7 +363,7 @@ if.end.i:                                         ; preds = %entry
   %sum2.0.i = select i1 %cmp24.i, i64 %sub27.i, i64 %add13.i
   %cmp29.i = icmp ugt i64 %sum2.0.i, 65520
   %0 = shl nsw i64 %sum2.0.i, 16
-  %1 = add i64 %0, -4293984256
+  %1 = add nsw i64 %0, -4293984256
   %shl.i = select i1 %cmp29.i, i64 %1, i64 %0
   %or.i = or i64 %shl.i, %sum1.1.i
   br label %adler32_combine_.exit
@@ -408,7 +408,7 @@ if.end.i:                                         ; preds = %entry
   %sum2.0.i = select i1 %cmp24.i, i64 %sub27.i, i64 %add13.i
   %cmp29.i = icmp ugt i64 %sum2.0.i, 65520
   %0 = shl nsw i64 %sum2.0.i, 16
-  %1 = add i64 %0, -4293984256
+  %1 = add nsw i64 %0, -4293984256
   %shl.i = select i1 %cmp29.i, i64 %1, i64 %0
   %or.i = or i64 %shl.i, %sum1.1.i
   br label %adler32_combine_.exit

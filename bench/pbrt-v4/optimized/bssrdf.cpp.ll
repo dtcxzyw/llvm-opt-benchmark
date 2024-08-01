@@ -211,7 +211,7 @@ if.end.i:                                         ; preds = %for.body
 if.end5.i:                                        ; preds = %if.end.i
   %and.i = and i32 %4, -2139095041
   %add7.i = shl nsw i32 %add.i, 23
-  %shl.i = add i32 %add7.i, 1065353216
+  %shl.i = add nsw i32 %add7.i, 1065353216
   %or.i = or i32 %shl.i, %and.i
   %5 = bitcast i32 %or.i to float
   br label %_ZN4pbrt7FastExpEf.exit
@@ -241,7 +241,7 @@ if.end.i50:                                       ; preds = %_ZN4pbrt7FastExpEf.
 if.end5.i52:                                      ; preds = %if.end.i50
   %and.i53 = and i32 %10, -2139095041
   %add7.i54 = shl nsw i32 %add.i48, 23
-  %shl.i55 = add i32 %add7.i54, 1065353216
+  %shl.i55 = add nsw i32 %add7.i54, 1065353216
   %or.i56 = or i32 %shl.i55, %and.i53
   %11 = bitcast i32 %or.i56 to float
   br label %_ZN4pbrt7FastExpEf.exit58
@@ -263,7 +263,7 @@ if.end.i66:                                       ; preds = %_ZN4pbrt7FastExpEf.
 if.end5.i68:                                      ; preds = %if.end.i66
   %and.i69 = and i32 %4, -2139095041
   %add7.i70 = shl nsw i32 %add.i, 23
-  %shl.i71 = add i32 %add7.i70, 1065353216
+  %shl.i71 = add nsw i32 %add7.i70, 1065353216
   %or.i72 = or i32 %shl.i71, %and.i69
   %12 = bitcast i32 %or.i72 to float
   br label %_ZN4pbrt7FastExpEf.exit74
@@ -286,7 +286,7 @@ if.end.i83:                                       ; preds = %_ZN4pbrt7FastExpEf.
 if.end5.i85:                                      ; preds = %if.end.i83
   %and.i86 = and i32 %10, -2139095041
   %add7.i87 = shl nsw i32 %add.i48, 23
-  %shl.i88 = add i32 %add7.i87, 1065353216
+  %shl.i88 = add nsw i32 %add7.i87, 1065353216
   %or.i89 = or i32 %shl.i88, %and.i86
   %13 = bitcast i32 %or.i89 to float
   br label %_ZN4pbrt7FastExpEf.exit91
@@ -325,7 +325,7 @@ if.end.i101:                                      ; preds = %_ZN4pbrt7FastExpEf.
 if.end5.i103:                                     ; preds = %if.end.i101
   %and.i104 = and i32 %18, -2139095041
   %add7.i105 = shl nsw i32 %add.i99, 23
-  %shl.i106 = add i32 %add7.i105, 1065353216
+  %shl.i106 = add nsw i32 %add7.i105, 1065353216
   %or.i107 = or i32 %shl.i106, %and.i104
   %19 = bitcast i32 %or.i107 to float
   br label %_ZN4pbrt7FastExpEf.exit109
@@ -413,7 +413,7 @@ if.end.i:                                         ; preds = %for.body
 if.end5.i:                                        ; preds = %if.end.i
   %and.i = and i32 %5, -2139095041
   %add7.i = shl nsw i32 %add.i, 23
-  %shl.i = add i32 %add7.i, 1065353216
+  %shl.i = add nsw i32 %add7.i, 1065353216
   %or.i = or i32 %shl.i, %and.i
   %6 = bitcast i32 %or.i to float
   br label %_ZN4pbrt7FastExpEf.exit
@@ -561,7 +561,7 @@ if.end.i:                                         ; preds = %for.body16
 if.end5.i:                                        ; preds = %if.end.i
   %and.i = and i32 %15, -2139095041
   %add7.i = shl nsw i32 %add.i, 23
-  %shl.i = add i32 %add7.i, 1065353216
+  %shl.i = add nsw i32 %add7.i, 1065353216
   %or.i = or i32 %shl.i, %and.i
   %16 = bitcast i32 %or.i to float
   br label %_ZN4pbrt7FastExpEf.exit

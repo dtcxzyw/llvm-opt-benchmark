@@ -7020,7 +7020,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %111
   %131 = zext nneg i32 %74 to i64
   %132 = shl nsw i64 %121, %131
   %133 = sub nsw i64 %130, %132
-  %134 = add i64 %133, 2147483648
+  %134 = add nsw i64 %133, 2147483648
   %.not106 = icmp ult i64 %134, 4294967296
   br i1 %.not106, label %135, label %.thread
 

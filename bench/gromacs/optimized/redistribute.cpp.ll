@@ -1892,7 +1892,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i398: ; preds = %971
   %974 = shl nsw i64 %962, 2
-  %975 = add i64 %974, -4
+  %975 = add nsw i64 %974, -4
   call void @llvm.memset.p0.i64(ptr align 4 %972, i8 0, i64 %975, i1 false)
   %976 = getelementptr i32, ptr %952, i64 %962
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i399

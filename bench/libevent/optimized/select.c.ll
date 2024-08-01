@@ -140,7 +140,7 @@ if.then:                                          ; preds = %entry
 while.cond:                                       ; preds = %while.cond, %if.then
   %fdsz.0 = phi i32 [ %spec.store.select, %if.then ], [ %mul9, %while.cond ]
   %cmp7 = icmp slt i32 %fdsz.0, %mul
-  %mul9 = shl nsw i32 %fdsz.0, 1
+  %mul9 = shl nuw nsw i32 %fdsz.0, 1
   br i1 %cmp7, label %while.cond, label %while.end, !llvm.loop !5
 
 while.end:                                        ; preds = %while.cond
@@ -150,7 +150,7 @@ while.end:                                        ; preds = %while.cond
 if.then13:                                        ; preds = %while.end
   %event_readset_in.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %event_readset_in.i, align 8
-  %conv.i = sext i32 %fdsz.0 to i64
+  %conv.i = zext nneg i32 %fdsz.0 to i64
   %call.i = tail call ptr @event_mm_realloc_(ptr noundef %3, i64 noundef %conv.i) #7
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %select_resize.exit, label %if.end4.i

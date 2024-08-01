@@ -1115,7 +1115,7 @@ define dso_local i64 @like_escape(ptr nocapture noundef readonly %0) local_unnam
 select.unfold.i:                                  ; preds = %47, %55, %52
   %59 = phi i32 [ %54, %52 ], [ %58, %55 ], [ %spec.select, %47 ]
   %60 = shl nsw i32 %39, 1
-  %61 = add i32 %60, 4
+  %61 = add nsw i32 %60, 4
   %62 = sext i32 %61 to i64
   %63 = tail call ptr @palloc(i64 noundef %62) #7
   %64 = getelementptr inbounds i8, ptr %63, i64 4
@@ -1415,7 +1415,7 @@ define internal fastcc ptr @SB_do_like_escape(ptr nocapture noundef readonly %0,
 
 .thread:                                          ; preds = %33
   %46 = shl nsw i32 %27, 1
-  %47 = add i32 %46, 4
+  %47 = add nsw i32 %46, 4
   %48 = sext i32 %47 to i64
   %49 = tail call ptr @palloc(i64 noundef %48) #7
   br label %68
@@ -1423,7 +1423,7 @@ define internal fastcc ptr @SB_do_like_escape(ptr nocapture noundef readonly %0,
 50:                                               ; preds = %33, %39, %42
   %51 = phi i32 [ %36, %33 ], [ %41, %39 ], [ %45, %42 ]
   %52 = shl nsw i32 %27, 1
-  %53 = add i32 %52, 4
+  %53 = add nsw i32 %52, 4
   %54 = sext i32 %53 to i64
   %55 = tail call ptr @palloc(i64 noundef %54) #7
   %56 = getelementptr inbounds i8, ptr %55, i64 4

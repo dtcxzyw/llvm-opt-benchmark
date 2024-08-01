@@ -93340,7 +93340,7 @@ if.then7.i.i:                                     ; preds = %_ZN4absl10CordBuffe
   %sub.i.i.i.i = sub nuw nsw i64 64, %5
   %shl.i.i = shl nuw nsw i64 1, %sub.i.i.i.i
   %reass.sub = sub nsw i64 %shl.i.i, %.sroa.speculated.i.i
-  %6 = add i64 %reass.sub, -13
+  %6 = add nsw i64 %reass.sub, -13
   %or.cond.i.i = icmp ult i64 %6, 129
   br i1 %or.cond.i.i, label %_ZN4absl10CordBuffer21CreateWithCustomLimitEmm.exit, label %if.else12.i.i
 

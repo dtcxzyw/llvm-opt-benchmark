@@ -323,7 +323,7 @@ while.body.i:                                     ; preds = %if.end, %while.body
 
 power.exit:                                       ; preds = %while.body.i
   %mul10 = mul i64 %result.05.i, 20
-  %conv11 = sitofp i64 %mul10 to double
+  %conv11 = uitofp nneg i64 %mul10 to double
   %call12 = tail call double @log(double noundef %conv11) #21
   %div = fdiv double %call12, 0x3FE62E42FEFA39EF
   %2 = tail call double @llvm.ceil.f64(double %div)

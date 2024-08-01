@@ -3701,7 +3701,7 @@ while.end354:                                     ; preds = %while.end354.loopex
   %sub.ptr.sub10.i.i.i1322 = sub i64 %sub.ptr.lhs.cast8.i.i.i1320, %sub.ptr.rhs.cast9.i.i.i1321
   %sub.ptr.div11.i.i.i1323 = ashr exact i64 %sub.ptr.sub10.i.i.i1322, 7
   %add.i.i.i1318 = add nsw i64 %sub.ptr.div6.i.i.i1317, %sub.ptr.div11.i.i.i1323
-  %add12.i.i.i1324 = add i64 %add.i.i.i1318, %mul.i.i.i1312
+  %add12.i.i.i1324 = add nsw i64 %add.i.i.i1318, %mul.i.i.i1312
   %cmp336 = icmp ugt i64 %add12.i.i.i1324, %conv332
   br i1 %cmp336, label %for.body338, label %for.cond361.preheader, !llvm.loop !172
 

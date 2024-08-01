@@ -18524,7 +18524,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %.lcssa.i.i = phi i16 [ %140, %134 ], [ %146, %.lr.ph.i.i ]
   %147 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %148 = zext nneg i16 %147 to i64
-  %149 = add i64 %.sroa.0.0.lcssa.i.i, %148
+  %149 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %148
   %150 = and i64 %149, %61
   %151 = getelementptr inbounds i8, ptr %64, i64 %150
   %152 = load i8, ptr %151, align 1, !noalias !4362, !noundef !4
@@ -18546,7 +18546,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %162 = getelementptr inbounds i8, ptr %64, i64 %.0.i.i.i8
   %163 = lshr i64 %136, 57
   %164 = trunc nuw nsw i64 %163 to i8
-  %165 = add i64 %.0.i.i.i8, -16
+  %165 = add nsw i64 %.0.i.i.i8, -16
   %166 = and i64 %165, %61
   store i8 %164, ptr %162, align 1, !noalias !4362
   %gep = getelementptr i8, ptr %invariant.gep, i64 %166
@@ -18908,7 +18908,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %.lcssa.i.i = phi i16 [ %141, %135 ], [ %147, %.lr.ph.i.i ]
   %148 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %149 = zext nneg i16 %148 to i64
-  %150 = add i64 %.sroa.0.0.lcssa.i.i, %149
+  %150 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %149
   %151 = and i64 %150, %62
   %152 = getelementptr inbounds i8, ptr %65, i64 %151
   %153 = load i8, ptr %152, align 1, !noalias !4484, !noundef !4
@@ -18930,7 +18930,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %163 = getelementptr inbounds i8, ptr %65, i64 %.0.i.i.i8
   %164 = lshr i64 %137, 57
   %165 = trunc nuw nsw i64 %164 to i8
-  %166 = add i64 %.0.i.i.i8, -16
+  %166 = add nsw i64 %.0.i.i.i8, -16
   %167 = and i64 %166, %62
   store i8 %165, ptr %163, align 1, !noalias !4484
   %gep = getelementptr i8, ptr %invariant.gep, i64 %167
@@ -19296,7 +19296,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %.lcssa.i.i = phi i16 [ %146, %140 ], [ %152, %.lr.ph.i.i ]
   %153 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %154 = zext nneg i16 %153 to i64
-  %155 = add i64 %.sroa.0.0.lcssa.i.i, %154
+  %155 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %154
   %156 = and i64 %155, %64
   %157 = getelementptr inbounds i8, ptr %67, i64 %156
   %158 = load i8, ptr %157, align 1, !noalias !4597, !noundef !4
@@ -19318,7 +19318,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %168 = getelementptr inbounds i8, ptr %67, i64 %.0.i.i.i8
   %169 = lshr i64 %142, 57
   %170 = trunc nuw nsw i64 %169 to i8
-  %171 = add i64 %.0.i.i.i8, -16
+  %171 = add nsw i64 %.0.i.i.i8, -16
   %172 = and i64 %171, %64
   store i8 %170, ptr %168, align 1, !noalias !4597
   %gep = getelementptr i8, ptr %invariant.gep, i64 %172
@@ -19684,7 +19684,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %.lcssa.i.i = phi i16 [ %146, %140 ], [ %152, %.lr.ph.i.i ]
   %153 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %154 = zext nneg i16 %153 to i64
-  %155 = add i64 %.sroa.0.0.lcssa.i.i, %154
+  %155 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %154
   %156 = and i64 %155, %64
   %157 = getelementptr inbounds i8, ptr %67, i64 %156
   %158 = load i8, ptr %157, align 1, !noalias !4710, !noundef !4
@@ -19706,7 +19706,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %168 = getelementptr inbounds i8, ptr %67, i64 %.0.i.i.i8
   %169 = lshr i64 %142, 57
   %170 = trunc nuw nsw i64 %169 to i8
-  %171 = add i64 %.0.i.i.i8, -16
+  %171 = add nsw i64 %.0.i.i.i8, -16
   %172 = and i64 %171, %64
   store i8 %170, ptr %168, align 1, !noalias !4710
   %gep = getelementptr i8, ptr %invariant.gep, i64 %172
@@ -20071,7 +20071,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %.lcssa.i.i = phi i16 [ %149, %143 ], [ %155, %.lr.ph.i.i ]
   %156 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %157 = zext nneg i16 %156 to i64
-  %158 = add i64 %.sroa.0.0.lcssa.i.i, %157
+  %158 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %157
   %159 = and i64 %158, %66
   %160 = getelementptr inbounds i8, ptr %69, i64 %159
   %161 = load i8, ptr %160, align 1, !noalias !4820, !noundef !4
@@ -20093,7 +20093,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %171 = getelementptr inbounds i8, ptr %69, i64 %.0.i.i.i7
   %172 = lshr i64 %145, 57
   %173 = trunc nuw nsw i64 %172 to i8
-  %174 = add i64 %.0.i.i.i7, -16
+  %174 = add nsw i64 %.0.i.i.i7, -16
   %175 = and i64 %174, %66
   store i8 %173, ptr %171, align 1, !noalias !4820
   %gep = getelementptr i8, ptr %invariant.gep, i64 %175
@@ -20459,7 +20459,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %.lcssa.i.i = phi i16 [ %149, %143 ], [ %155, %.lr.ph.i.i ]
   %156 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %157 = zext nneg i16 %156 to i64
-  %158 = add i64 %.sroa.0.0.lcssa.i.i, %157
+  %158 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %157
   %159 = and i64 %158, %66
   %160 = getelementptr inbounds i8, ptr %69, i64 %159
   %161 = load i8, ptr %160, align 1, !noalias !4930, !noundef !4
@@ -20481,7 +20481,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %171 = getelementptr inbounds i8, ptr %69, i64 %.0.i.i.i7
   %172 = lshr i64 %145, 57
   %173 = trunc nuw nsw i64 %172 to i8
-  %174 = add i64 %.0.i.i.i7, -16
+  %174 = add nsw i64 %.0.i.i.i7, -16
   %175 = and i64 %174, %66
   store i8 %173, ptr %171, align 1, !noalias !4930
   %gep = getelementptr i8, ptr %invariant.gep, i64 %175
@@ -20865,7 +20865,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %.lcssa.i.i = phi i16 [ %158, %152 ], [ %164, %.lr.ph.i.i ]
   %165 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %166 = zext nneg i16 %165 to i64
-  %167 = add i64 %.sroa.0.0.lcssa.i.i, %166
+  %167 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %166
   %168 = and i64 %167, %70
   %169 = getelementptr inbounds i8, ptr %73, i64 %168
   %170 = load i8, ptr %169, align 1, !noalias !5055, !noundef !4
@@ -20887,7 +20887,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %180 = getelementptr inbounds i8, ptr %73, i64 %.0.i.i.i8
   %181 = lshr i64 %154, 57
   %182 = trunc nuw nsw i64 %181 to i8
-  %183 = add i64 %.0.i.i.i8, -16
+  %183 = add nsw i64 %.0.i.i.i8, -16
   %184 = and i64 %183, %70
   store i8 %182, ptr %180, align 1, !noalias !5055
   %gep = getelementptr i8, ptr %invariant.gep, i64 %184
@@ -21261,7 +21261,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %.lcssa.i.i = phi i16 [ %153, %147 ], [ %159, %.lr.ph.i.i ]
   %160 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %161 = zext nneg i16 %160 to i64
-  %162 = add i64 %.sroa.0.0.lcssa.i.i, %161
+  %162 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %161
   %163 = and i64 %162, %66
   %164 = getelementptr inbounds i8, ptr %69, i64 %163
   %165 = load i8, ptr %164, align 1, !noalias !5168, !noundef !4
@@ -21283,7 +21283,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %175 = getelementptr inbounds i8, ptr %69, i64 %.0.i.i.i8
   %176 = lshr i64 %149, 57
   %177 = trunc nuw nsw i64 %176 to i8
-  %178 = add i64 %.0.i.i.i8, -16
+  %178 = add nsw i64 %.0.i.i.i8, -16
   %179 = and i64 %178, %66
   store i8 %177, ptr %175, align 1, !noalias !5168
   %gep = getelementptr i8, ptr %invariant.gep, i64 %179
@@ -21651,7 +21651,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %.lcssa.i.i = phi i16 [ %153, %147 ], [ %159, %.lr.ph.i.i ]
   %160 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %161 = zext nneg i16 %160 to i64
-  %162 = add i64 %.sroa.0.0.lcssa.i.i, %161
+  %162 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %161
   %163 = and i64 %162, %66
   %164 = getelementptr inbounds i8, ptr %69, i64 %163
   %165 = load i8, ptr %164, align 1, !noalias !5281, !noundef !4
@@ -21673,7 +21673,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %175 = getelementptr inbounds i8, ptr %69, i64 %.0.i.i.i7
   %176 = lshr i64 %149, 57
   %177 = trunc nuw nsw i64 %176 to i8
-  %178 = add i64 %.0.i.i.i7, -16
+  %178 = add nsw i64 %.0.i.i.i7, -16
   %179 = and i64 %178, %66
   store i8 %177, ptr %175, align 1, !noalias !5281
   %gep = getelementptr i8, ptr %invariant.gep, i64 %179
@@ -22031,7 +22031,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %.lcssa.i.i = phi i16 [ %140, %134 ], [ %146, %.lr.ph.i.i ]
   %147 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %148 = zext nneg i16 %147 to i64
-  %149 = add i64 %.sroa.0.0.lcssa.i.i, %148
+  %149 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %148
   %150 = and i64 %149, %61
   %151 = getelementptr inbounds i8, ptr %64, i64 %150
   %152 = load i8, ptr %151, align 1, !noalias !5394, !noundef !4
@@ -22053,7 +22053,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %162 = getelementptr inbounds i8, ptr %64, i64 %.0.i.i.i8
   %163 = lshr i64 %136, 57
   %164 = trunc nuw nsw i64 %163 to i8
-  %165 = add i64 %.0.i.i.i8, -16
+  %165 = add nsw i64 %.0.i.i.i8, -16
   %166 = and i64 %165, %61
   store i8 %164, ptr %162, align 1, !noalias !5394
   %gep = getelementptr i8, ptr %invariant.gep, i64 %166
@@ -22418,7 +22418,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %.lcssa.i.i = phi i16 [ %149, %143 ], [ %155, %.lr.ph.i.i ]
   %156 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %157 = zext nneg i16 %156 to i64
-  %158 = add i64 %.sroa.0.0.lcssa.i.i, %157
+  %158 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %157
   %159 = and i64 %158, %66
   %160 = getelementptr inbounds i8, ptr %69, i64 %159
   %161 = load i8, ptr %160, align 1, !noalias !5504, !noundef !4
@@ -22440,7 +22440,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %171 = getelementptr inbounds i8, ptr %69, i64 %.0.i.i.i7
   %172 = lshr i64 %145, 57
   %173 = trunc nuw nsw i64 %172 to i8
-  %174 = add i64 %.0.i.i.i7, -16
+  %174 = add nsw i64 %.0.i.i.i7, -16
   %175 = and i64 %174, %66
   store i8 %173, ptr %171, align 1, !noalias !5504
   %gep = getelementptr i8, ptr %invariant.gep, i64 %175
@@ -22793,7 +22793,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %.lcssa.i.i = phi i16 [ %140, %134 ], [ %146, %.lr.ph.i.i ]
   %147 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %148 = zext nneg i16 %147 to i64
-  %149 = add i64 %.sroa.0.0.lcssa.i.i, %148
+  %149 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %148
   %150 = and i64 %149, %61
   %151 = getelementptr inbounds i8, ptr %64, i64 %150
   %152 = load i8, ptr %151, align 1, !noalias !5617, !noundef !4
@@ -22815,7 +22815,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %162 = getelementptr inbounds i8, ptr %64, i64 %.0.i.i.i7
   %163 = lshr i64 %136, 57
   %164 = trunc nuw nsw i64 %163 to i8
-  %165 = add i64 %.0.i.i.i7, -16
+  %165 = add nsw i64 %.0.i.i.i7, -16
   %166 = and i64 %165, %61
   store i8 %164, ptr %162, align 1, !noalias !5617
   %gep = getelementptr i8, ptr %invariant.gep, i64 %166
@@ -23183,7 +23183,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %.lcssa.i.i = phi i16 [ %152, %146 ], [ %158, %.lr.ph.i.i ]
   %159 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %160 = zext nneg i16 %159 to i64
-  %161 = add i64 %.sroa.0.0.lcssa.i.i, %160
+  %161 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %160
   %162 = and i64 %161, %66
   %163 = getelementptr inbounds i8, ptr %69, i64 %162
   %164 = load i8, ptr %163, align 1, !noalias !5727, !noundef !4
@@ -23205,7 +23205,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %174 = getelementptr inbounds i8, ptr %69, i64 %.0.i.i.i7
   %175 = lshr i64 %148, 57
   %176 = trunc nuw nsw i64 %175 to i8
-  %177 = add i64 %.0.i.i.i7, -16
+  %177 = add nsw i64 %.0.i.i.i7, -16
   %178 = and i64 %177, %66
   store i8 %176, ptr %174, align 1, !noalias !5727
   %gep = getelementptr i8, ptr %invariant.gep, i64 %178
@@ -23563,7 +23563,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %.lcssa.i.i = phi i16 [ %141, %135 ], [ %147, %.lr.ph.i.i ]
   %148 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %149 = zext nneg i16 %148 to i64
-  %150 = add i64 %.sroa.0.0.lcssa.i.i, %149
+  %150 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %149
   %151 = and i64 %150, %61
   %152 = getelementptr inbounds i8, ptr %64, i64 %151
   %153 = load i8, ptr %152, align 1, !noalias !5843, !noundef !4
@@ -23585,7 +23585,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %163 = getelementptr inbounds i8, ptr %64, i64 %.0.i.i.i8
   %164 = lshr i64 %137, 57
   %165 = trunc nuw nsw i64 %164 to i8
-  %166 = add i64 %.0.i.i.i8, -16
+  %166 = add nsw i64 %.0.i.i.i8, -16
   %167 = and i64 %166, %61
   store i8 %165, ptr %163, align 1, !noalias !5843
   %gep = getelementptr i8, ptr %invariant.gep, i64 %167
@@ -23950,7 +23950,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %.lcssa.i.i = phi i16 [ %149, %143 ], [ %155, %.lr.ph.i.i ]
   %156 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %157 = zext nneg i16 %156 to i64
-  %158 = add i64 %.sroa.0.0.lcssa.i.i, %157
+  %158 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %157
   %159 = and i64 %158, %66
   %160 = getelementptr inbounds i8, ptr %69, i64 %159
   %161 = load i8, ptr %160, align 1, !noalias !5953, !noundef !4
@@ -23972,7 +23972,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %171 = getelementptr inbounds i8, ptr %69, i64 %.0.i.i.i7
   %172 = lshr i64 %145, 57
   %173 = trunc nuw nsw i64 %172 to i8
-  %174 = add i64 %.0.i.i.i7, -16
+  %174 = add nsw i64 %.0.i.i.i7, -16
   %175 = and i64 %174, %66
   store i8 %173, ptr %171, align 1, !noalias !5953
   %gep = getelementptr i8, ptr %invariant.gep, i64 %175
@@ -24339,7 +24339,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %.lcssa.i.i = phi i16 [ %146, %140 ], [ %152, %.lr.ph.i.i ]
   %153 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %154 = zext nneg i16 %153 to i64
-  %155 = add i64 %.sroa.0.0.lcssa.i.i, %154
+  %155 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %154
   %156 = and i64 %155, %64
   %157 = getelementptr inbounds i8, ptr %67, i64 %156
   %158 = load i8, ptr %157, align 1, !noalias !6066, !noundef !4
@@ -24361,7 +24361,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %168 = getelementptr inbounds i8, ptr %67, i64 %.0.i.i.i8
   %169 = lshr i64 %142, 57
   %170 = trunc nuw nsw i64 %169 to i8
-  %171 = add i64 %.0.i.i.i8, -16
+  %171 = add nsw i64 %.0.i.i.i8, -16
   %172 = and i64 %171, %64
   store i8 %170, ptr %168, align 1, !noalias !6066
   %gep = getelementptr i8, ptr %invariant.gep, i64 %172
@@ -24713,7 +24713,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %.lcssa.i.i = phi i16 [ %140, %134 ], [ %146, %.lr.ph.i.i ]
   %147 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %148 = zext nneg i16 %147 to i64
-  %149 = add i64 %.sroa.0.0.lcssa.i.i, %148
+  %149 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %148
   %150 = and i64 %149, %61
   %151 = getelementptr inbounds i8, ptr %64, i64 %150
   %152 = load i8, ptr %151, align 1, !noalias !6179, !noundef !4
@@ -24735,7 +24735,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %162 = getelementptr inbounds i8, ptr %64, i64 %.0.i.i.i7
   %163 = lshr i64 %136, 57
   %164 = trunc nuw nsw i64 %163 to i8
-  %165 = add i64 %.0.i.i.i7, -16
+  %165 = add nsw i64 %.0.i.i.i7, -16
   %166 = and i64 %165, %61
   store i8 %164, ptr %162, align 1, !noalias !6179
   %gep = getelementptr i8, ptr %invariant.gep, i64 %166
@@ -25113,7 +25113,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %.lcssa.i.i = phi i16 [ %155, %149 ], [ %161, %.lr.ph.i.i ]
   %162 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %163 = zext nneg i16 %162 to i64
-  %164 = add i64 %.sroa.0.0.lcssa.i.i, %163
+  %164 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %163
   %165 = and i64 %164, %67
   %166 = getelementptr inbounds i8, ptr %70, i64 %165
   %167 = load i8, ptr %166, align 1, !noalias !6304, !noundef !4
@@ -25135,7 +25135,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %177 = getelementptr inbounds i8, ptr %70, i64 %.0.i.i.i8
   %178 = lshr i64 %151, 57
   %179 = trunc nuw nsw i64 %178 to i8
-  %180 = add i64 %.0.i.i.i8, -16
+  %180 = add nsw i64 %.0.i.i.i8, -16
   %181 = and i64 %180, %67
   store i8 %179, ptr %177, align 1, !noalias !6304
   %gep = getelementptr i8, ptr %invariant.gep, i64 %181
@@ -25487,7 +25487,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %.lcssa.i.i = phi i16 [ %139, %133 ], [ %145, %.lr.ph.i.i ]
   %146 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %147 = zext nneg i16 %146 to i64
-  %148 = add i64 %.sroa.0.0.lcssa.i.i, %147
+  %148 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %147
   %149 = and i64 %148, %61
   %150 = getelementptr inbounds i8, ptr %64, i64 %149
   %151 = load i8, ptr %150, align 1, !noalias !6414, !noundef !4
@@ -25509,7 +25509,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %161 = getelementptr inbounds i8, ptr %64, i64 %.0.i.i.i7
   %162 = lshr i64 %135, 57
   %163 = trunc nuw nsw i64 %162 to i8
-  %164 = add i64 %.0.i.i.i7, -16
+  %164 = add nsw i64 %.0.i.i.i7, -16
   %165 = and i64 %164, %61
   store i8 %163, ptr %161, align 1, !noalias !6414
   %gep = getelementptr i8, ptr %invariant.gep, i64 %165
@@ -25874,7 +25874,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %.lcssa.i.i = phi i16 [ %150, %144 ], [ %156, %.lr.ph.i.i ]
   %157 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %158 = zext nneg i16 %157 to i64
-  %159 = add i64 %.sroa.0.0.lcssa.i.i, %158
+  %159 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %158
   %160 = and i64 %159, %66
   %161 = getelementptr inbounds i8, ptr %69, i64 %160
   %162 = load i8, ptr %161, align 1, !noalias !6527, !noundef !4
@@ -25896,7 +25896,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %172 = getelementptr inbounds i8, ptr %69, i64 %.0.i.i.i7
   %173 = lshr i64 %146, 57
   %174 = trunc nuw nsw i64 %173 to i8
-  %175 = add i64 %.0.i.i.i7, -16
+  %175 = add nsw i64 %.0.i.i.i7, -16
   %176 = and i64 %175, %66
   store i8 %174, ptr %172, align 1, !noalias !6527
   %gep = getelementptr i8, ptr %invariant.gep, i64 %176
@@ -26249,7 +26249,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %.lcssa.i.i = phi i16 [ %139, %133 ], [ %145, %.lr.ph.i.i ]
   %146 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %147 = zext nneg i16 %146 to i64
-  %148 = add i64 %.sroa.0.0.lcssa.i.i, %147
+  %148 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %147
   %149 = and i64 %148, %61
   %150 = getelementptr inbounds i8, ptr %64, i64 %149
   %151 = load i8, ptr %150, align 1, !noalias !6637, !noundef !4
@@ -26271,7 +26271,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %161 = getelementptr inbounds i8, ptr %64, i64 %.0.i.i.i7
   %162 = lshr i64 %135, 57
   %163 = trunc nuw nsw i64 %162 to i8
-  %164 = add i64 %.0.i.i.i7, -16
+  %164 = add nsw i64 %.0.i.i.i7, -16
   %165 = and i64 %164, %61
   store i8 %163, ptr %161, align 1, !noalias !6637
   %gep = getelementptr i8, ptr %invariant.gep, i64 %165

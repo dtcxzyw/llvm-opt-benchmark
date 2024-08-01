@@ -1274,7 +1274,7 @@ if.then10:                                        ; preds = %if.end
   %3 = load i16, ptr %arrayidx, align 2
   %conv = zext i16 %3 to i32
   store i32 %conv, ptr %pStart, align 4
-  %cmp11 = icmp slt i32 %inc, %2
+  %cmp11 = icmp ult i32 %inc, %2
   br i1 %cmp11, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.then10

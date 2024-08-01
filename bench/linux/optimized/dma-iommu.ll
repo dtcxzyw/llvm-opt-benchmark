@@ -2644,7 +2644,7 @@ define internal i64 @iommu_dma_opt_mapping_size() #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @iommu_dma_get_merge_boundary(ptr noundef %0) #1 align 16 {
+define internal range(i64 0, -9223372036854775808) i64 @iommu_dma_get_merge_boundary(ptr noundef %0) #1 align 16 {
   %2 = tail call ptr @iommu_get_dma_domain(ptr noundef %0) #15
   %3 = getelementptr inbounds i8, ptr %2, i64 32
   %4 = load i64, ptr %3, align 8

@@ -216,7 +216,7 @@ if.end.i44:                                       ; preds = %entry
 
 sz_psz2u.exit:                                    ; preds = %entry, %if.end.i44
   %retval.0.i = phi i64 [ %and.i, %if.end.i44 ], [ 8070450532247932928, %entry ]
-  %add12 = add i64 %retval.0.i, 2097151
+  %add12 = add nuw i64 %retval.0.i, 2097151
   %3 = load i32, ptr %pind_last, align 4
   %add14 = add i32 %3, 1
   %cmp = icmp ult i32 %add14, 198

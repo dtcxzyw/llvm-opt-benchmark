@@ -2649,11 +2649,11 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %m_size.i.i = getelementptr inbounds i8, ptr %hull, i64 4
   %m_capacity.i.i = getelementptr inbounds i8, ptr %hull, i64 8
   %m_data.i47 = getelementptr inbounds i8, ptr %hull, i64 16
-  %.pre221 = load i32, ptr %m_size.i.i, align 4
+  %.pre220 = load i32, ptr %m_size.i.i, align 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit
-  %14 = phi i32 [ %.pre221, %for.body.lr.ph ], [ %inc.i, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit ]
+  %14 = phi i32 [ %.pre220, %for.body.lr.ph ], [ %inc.i, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit ]
   %i.0204 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit ]
   %15 = load ptr, ptr %m_data.i, align 8
   %16 = load i32, ptr %m_capacity.i.i, align 8
@@ -2911,17 +2911,13 @@ if.else:                                          ; preds = %while.body
 
 if.then.i168:                                     ; preds = %if.else
   %mul.i.i170 = shl nuw nsw i32 %79, 1
-  %cmp.i175 = icmp slt i32 %79, %mul.i.i170
-  br i1 %cmp.i175, label %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E8allocateEi.exit.i, label %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit173
-
-_ZN20b3AlignedObjectArrayI15b3GrahamVector3E8allocateEi.exit.i: ; preds = %if.then.i168
   %conv.i.i.i = zext nneg i32 %mul.i.i170 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 5
   %call.i.i.i = call noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef %mul.i.i.i, i32 noundef 16)
   %cmp3.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp3.i, label %_ZNK20b3AlignedObjectArrayI15b3GrahamVector3E4copyEiiPS0_.exit18.i, label %if.then.split.i
 
-if.then.split.i:                                  ; preds = %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E8allocateEi.exit.i
+if.then.split.i:                                  ; preds = %if.then.i168
   %104 = load i32, ptr %m_size.i.i90, align 4
   %cmp4.i.i = icmp sgt i32 %104, 0
   br i1 %cmp4.i.i, label %for.body.lr.ph.i.i, label %if.end.i
@@ -2940,7 +2936,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %if.end.i, label %for.body.i.i, !llvm.loop !17
 
-_ZNK20b3AlignedObjectArrayI15b3GrahamVector3E4copyEiiPS0_.exit18.i: ; preds = %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E8allocateEi.exit.i
+_ZNK20b3AlignedObjectArrayI15b3GrahamVector3E4copyEiiPS0_.exit18.i: ; preds = %if.then.i168
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 301)
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.2)
   store i32 0, ptr %m_size.i.i90, align 4
@@ -2965,12 +2961,12 @@ _ZN20b3AlignedObjectArrayI15b3GrahamVector3E10deallocateEv.exit.i: ; preds = %if
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   store ptr %call.i.i.i, ptr %m_data.i93, align 8
   store i32 %_Count.addr.0.i, ptr %m_capacity.i.i91, align 8
-  %.pre.i172.pre = load i32, ptr %m_size.i.i90, align 4
+  %.pre.i172 = load i32, ptr %m_size.i.i90, align 4
   br label %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit173
 
-_ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit173: ; preds = %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E10deallocateEv.exit.i, %if.then.i168, %if.else
-  %108 = phi ptr [ %78, %if.else ], [ %78, %if.then.i168 ], [ %call.i.i.i, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E10deallocateEv.exit.i ]
-  %109 = phi i32 [ %79, %if.else ], [ %79, %if.then.i168 ], [ %.pre.i172.pre, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E10deallocateEv.exit.i ]
+_ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit173: ; preds = %if.else, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E10deallocateEv.exit.i
+  %108 = phi ptr [ %call.i.i.i, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E10deallocateEv.exit.i ], [ %78, %if.else ]
+  %109 = phi i32 [ %.pre.i172, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E10deallocateEv.exit.i ], [ %79, %if.else ]
   %idxprom.i165 = sext i32 %109 to i64
   %arrayidx.i166 = getelementptr inbounds %struct.b3GrahamVector3, ptr %108, i64 %idxprom.i165
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %arrayidx.i166, ptr noundef nonnull align 16 dereferenceable(32) %arrayidx.i127, i64 32, i1 false)
@@ -2981,11 +2977,11 @@ _ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit173: ; preds = 
 
 for.inc80.loopexit:                               ; preds = %land.rhs.critedge, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit173
   %111 = phi i32 [ %inc.i167, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit173 ], [ 1, %land.rhs.critedge ]
-  %.pre220 = load i32, ptr %m_size.i, align 4
+  %.pre219 = load i32, ptr %m_size.i, align 4
   br label %for.inc80
 
 for.inc80:                                        ; preds = %for.inc80.loopexit, %land.rhs.preheader
-  %112 = phi i32 [ %.pre220, %for.inc80.loopexit ], [ %76, %land.rhs.preheader ]
+  %112 = phi i32 [ %.pre219, %for.inc80.loopexit ], [ %76, %land.rhs.preheader ]
   %113 = phi i32 [ %111, %for.inc80.loopexit ], [ %77, %land.rhs.preheader ]
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %114 = zext i32 %112 to i64

@@ -12633,9 +12633,9 @@ if.else:                                          ; preds = %for.body, %land.lhs
   %add92 = add nsw i32 %mul84, %mul76
   %add93 = add nsw i32 %add92, %add81
   %add58 = add nsw i32 %add50, 512
-  %add94 = add i32 %add58, %mul56
+  %add94 = add nsw i32 %add58, %mul56
   %add60 = add nsw i32 %add48, 512
-  %add95 = add i32 %add60, %mul57
+  %add95 = add nsw i32 %add60, %mul57
   %add96 = add nsw i32 %sub61, 512
   %add97 = add nsw i32 %sub59, 512
   %add98 = add nsw i32 %add87, %add94
@@ -16164,13 +16164,13 @@ for.end209:                                       ; preds = %for.cond183, %for.c
   %img_mcu_h = getelementptr inbounds i8, ptr %z, i64 18076
   store i32 %mul211, ptr %img_mcu_h, align 4
   %84 = load i32, ptr %0, align 8
-  %add214 = add i32 %mul210, -1
+  %add214 = add nsw i32 %mul210, -1
   %sub = add i32 %add214, %84
   %div = udiv i32 %sub, %mul210
   %img_mcu_x = getelementptr inbounds i8, ptr %z, i64 18064
   store i32 %div, ptr %img_mcu_x, align 8
   %85 = load i32, ptr %img_y, align 4
-  %add218 = add i32 %mul211, -1
+  %add218 = add nsw i32 %mul211, -1
   %sub219 = add i32 %add218, %85
   %div221 = udiv i32 %sub219, %mul211
   %img_mcu_y = getelementptr inbounds i8, ptr %z, i64 18068
@@ -29232,8 +29232,8 @@ if.end61:                                         ; preds = %if.then57
   br i1 %cmp62, label %if.then64, label %if.else95
 
 if.then64:                                        ; preds = %if.end61
-  %inc66 = add nsw i32 %avail.0.ph, 1
-  %idxprom67 = sext i32 %avail.0.ph to i64
+  %inc66 = add nuw nsw i32 %avail.0.ph, 1
+  %idxprom67 = zext nneg i32 %avail.0.ph to i64
   %arrayidx68 = getelementptr inbounds [8192 x %struct.stbi__gif_lzw], ptr %codes, i64 0, i64 %idxprom67
   %cmp69 = icmp sgt i32 %avail.0.ph, 8191
   br i1 %cmp69, label %if.then71, label %if.end75

@@ -13823,7 +13823,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %shl.i.i.i = shl i64 %i.1.i, %26
   %27 = trunc i64 %exponent.1.i to i32
   %conv17.i.i.i = shl nsw i32 %27, 1
-  %mul18.i.i.i = add i32 %conv17.i.i.i, 684
+  %mul18.i.i.i = add nsw i32 %conv17.i.i.i, 684
   %idxprom.i.i.i = zext nneg i32 %mul18.i.i.i to i64
   %arrayidx19.i.i.i = getelementptr inbounds [1302 x i64], ptr @_ZN8simdjson8internal17power_of_five_128E, i64 0, i64 %idxprom.i.i.i
   %28 = load i64, ptr %arrayidx19.i.i.i, align 16
@@ -13838,7 +13838,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   br i1 %cmp21.i.i.i, label %if.then22.i.i.i, label %if.end35.i.i.i
 
 if.then22.i.i.i:                                  ; preds = %if.end13.i.i.i
-  %add23.i.i.i = add i32 %conv17.i.i.i, 685
+  %add23.i.i.i = add nsw i32 %conv17.i.i.i, 685
   %idxprom24.i.i.i = zext nneg i32 %add23.i.i.i to i64
   %arrayidx25.i.i.i = getelementptr inbounds [1302 x i64], ptr @_ZN8simdjson8internal17power_of_five_128E, i64 0, i64 %idxprom24.i.i.i
   %29 = load i64, ptr %arrayidx25.i.i.i, align 8
@@ -15840,7 +15840,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %shl.i.i.i = shl i64 %i.1.i, %27
   %28 = trunc i64 %exponent.1.i to i32
   %conv17.i.i.i = shl nsw i32 %28, 1
-  %mul18.i.i.i = add i32 %conv17.i.i.i, 684
+  %mul18.i.i.i = add nsw i32 %conv17.i.i.i, 684
   %idxprom.i.i.i = zext nneg i32 %mul18.i.i.i to i64
   %arrayidx19.i.i.i = getelementptr inbounds [1302 x i64], ptr @_ZN8simdjson8internal17power_of_five_128E, i64 0, i64 %idxprom.i.i.i
   %29 = load i64, ptr %arrayidx19.i.i.i, align 16
@@ -15855,7 +15855,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   br i1 %cmp21.i.i.i, label %if.then22.i.i.i, label %if.end35.i.i.i
 
 if.then22.i.i.i:                                  ; preds = %if.end13.i.i.i
-  %add23.i.i.i = add i32 %conv17.i.i.i, 685
+  %add23.i.i.i = add nsw i32 %conv17.i.i.i, 685
   %idxprom24.i.i.i = zext nneg i32 %add23.i.i.i to i64
   %arrayidx25.i.i.i = getelementptr inbounds [1302 x i64], ptr @_ZN8simdjson8internal17power_of_five_128E, i64 0, i64 %idxprom24.i.i.i
   %30 = load i64, ptr %arrayidx25.i.i.i, align 8
@@ -17201,7 +17201,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %shl.i.i.i = shl i64 %i.1.i, %27
   %28 = trunc i64 %exponent.1.i to i32
   %conv17.i.i.i = shl nsw i32 %28, 1
-  %mul18.i.i.i = add i32 %conv17.i.i.i, 684
+  %mul18.i.i.i = add nsw i32 %conv17.i.i.i, 684
   %idxprom.i.i.i = zext nneg i32 %mul18.i.i.i to i64
   %arrayidx19.i.i.i = getelementptr inbounds [1302 x i64], ptr @_ZN8simdjson8internal17power_of_five_128E, i64 0, i64 %idxprom.i.i.i
   %29 = load i64, ptr %arrayidx19.i.i.i, align 16
@@ -17216,7 +17216,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   br i1 %cmp21.i.i.i, label %if.then22.i.i.i, label %if.end35.i.i.i
 
 if.then22.i.i.i:                                  ; preds = %if.end13.i.i.i
-  %add23.i.i.i = add i32 %conv17.i.i.i, 685
+  %add23.i.i.i = add nsw i32 %conv17.i.i.i, 685
   %idxprom24.i.i.i = zext nneg i32 %add23.i.i.i to i64
   %arrayidx25.i.i.i = getelementptr inbounds [1302 x i64], ptr @_ZN8simdjson8internal17power_of_five_128E, i64 0, i64 %idxprom24.i.i.i
   %30 = load i64, ptr %arrayidx25.i.i.i, align 8
@@ -18755,7 +18755,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %shl.i.i.i = shl i64 %i.1.i, %27
   %28 = trunc i64 %exponent.1.i to i32
   %conv17.i.i.i = shl nsw i32 %28, 1
-  %mul18.i.i.i = add i32 %conv17.i.i.i, 684
+  %mul18.i.i.i = add nsw i32 %conv17.i.i.i, 684
   %idxprom.i.i.i = zext nneg i32 %mul18.i.i.i to i64
   %arrayidx19.i.i.i = getelementptr inbounds [1302 x i64], ptr @_ZN8simdjson8internal17power_of_five_128E, i64 0, i64 %idxprom.i.i.i
   %29 = load i64, ptr %arrayidx19.i.i.i, align 16
@@ -18770,7 +18770,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   br i1 %cmp21.i.i.i, label %if.then22.i.i.i, label %if.end35.i.i.i
 
 if.then22.i.i.i:                                  ; preds = %if.end13.i.i.i
-  %add23.i.i.i = add i32 %conv17.i.i.i, 685
+  %add23.i.i.i = add nsw i32 %conv17.i.i.i, 685
   %idxprom24.i.i.i = zext nneg i32 %add23.i.i.i to i64
   %arrayidx25.i.i.i = getelementptr inbounds [1302 x i64], ptr @_ZN8simdjson8internal17power_of_five_128E, i64 0, i64 %idxprom24.i.i.i
   %30 = load i64, ptr %arrayidx25.i.i.i, align 8

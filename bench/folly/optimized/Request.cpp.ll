@@ -2829,7 +2829,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i
 
 _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i: ; preds = %if.then.i.i, %if.end.i
-  %add.i190 = add i64 %add.i.i188, %and.i25.i
+  %add.i190 = add nuw i64 %add.i.i188, %and.i25.i
   %and.i.i = and i64 %add.i190, %sub.i.i
   %arrayidx.i191 = getelementptr inbounds i8, ptr %fullness.0, i64 %and.i.i
   %40 = load i8, ptr %arrayidx.i191, align 1, !tbaa !85

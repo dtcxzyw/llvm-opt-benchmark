@@ -7696,7 +7696,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %10 = load i16, ptr %add.ptr5.i, align 1, !tbaa !301
   %conv7.i = zext i16 %10 to i64
   %mul8.i = shl nsw i64 %sub4.i, 3
-  %shl9.i = shl i64 %conv7.i, %mul8.i
+  %shl9.i = shl nuw nsw i64 %conv7.i, %mul8.i
   %or.i = or i64 %shl9.i, %value.0.i
   br label %if.end10.i
 
@@ -8385,7 +8385,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %8 = load i16, ptr %add.ptr5.i, align 1, !tbaa !301
   %conv7.i = zext i16 %8 to i64
   %mul8.i = shl nsw i64 %sub4.i, 3
-  %shl9.i = shl i64 %conv7.i, %mul8.i
+  %shl9.i = shl nuw nsw i64 %conv7.i, %mul8.i
   %or.i = or i64 %shl9.i, %value.0.i
   br label %if.end10.i
 
@@ -14166,7 +14166,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i
 
 _ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i: ; preds = %if.then.i.i, %if.end.i
-  %add.i240 = add i64 %add.i.i, %and.i25.i
+  %add.i240 = add nuw i64 %add.i.i, %and.i25.i
   %and.i.i = and i64 %add.i240, %sub.i.i
   %arrayidx.i241 = getelementptr inbounds i8, ptr %fullness.0, i64 %and.i.i
   %25 = load i8, ptr %arrayidx.i241, align 1, !tbaa !7

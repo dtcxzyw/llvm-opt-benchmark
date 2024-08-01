@@ -500,7 +500,7 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
   %69 = getelementptr inbounds i16, ptr %2, i64 %68
   %70 = load i16, ptr %69, align 2
   %71 = sext i16 %70 to i32
-  %72 = shl nsw i32 %.0127200, 1
+  %72 = shl nuw nsw i32 %.0127200, 1
   %73 = xor i32 %.0129199, -1
   %74 = add i32 %72, %73
   %75 = tail call i32 @llvm.abs.i32(i32 %71, i1 true)
@@ -528,7 +528,7 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
   %.1128193 = phi i32 [ %89, %.lr.ph194 ], [ %.0127200, %.preheader ]
   %.1131192 = phi i32 [ %88, %.lr.ph194 ], [ %.0130198, %.preheader ]
   %88 = add nsw i32 %.1131192, -1
-  %89 = ashr i32 %.1128193, 1
+  %89 = lshr i32 %.1128193, 1
   %90 = icmp slt i32 %76, %89
   br i1 %90, label %.lr.ph194, label %._crit_edge195, !llvm.loop !18
 

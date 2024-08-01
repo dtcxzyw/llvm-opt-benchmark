@@ -16588,8 +16588,8 @@ define internal fastcc noundef range(i32 -2, 2) i32 @_ZL6yy_lacPsPS_PlS_15yysymb
 
 .thread2.i:                                       ; preds = %111
   %115 = shl nsw i64 %109, 1
-  %116 = add i64 %115, 2
-  %spec.store.select.i = tail call i64 @llvm.smin.i64(i64 %116, i64 10000000)
+  %116 = tail call i64 @llvm.smin.i64(i64 %115, i64 9999998)
+  %spec.store.select.i = add nsw i64 %116, 2
   %117 = shl nsw i64 %spec.store.select.i, 1
   %118 = tail call noalias ptr @malloc(i64 noundef %117) #32
   %.not36.i = icmp eq ptr %118, null

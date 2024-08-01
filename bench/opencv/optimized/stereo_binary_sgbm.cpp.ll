@@ -1580,7 +1580,7 @@ _ZNK2cv11_InputArray6getMatEi.exit66:             ; preds = %74, %77
   %212 = add nsw i32 %209, 3
   %213 = sext i32 %212 to i64
   %214 = shl nsw i64 %213, 1
-  %215 = mul i64 %214, %200
+  %215 = mul nsw i64 %214, %200
   %216 = shl i32 %.val50, 1
   %217 = and i32 %216, 8176
   %218 = add nuw nsw i32 %217, 16
@@ -1591,7 +1591,7 @@ _ZNK2cv11_InputArray6getMatEi.exit66:             ; preds = %74, %77
   %reass.add.i = add nsw i64 %222, %211
   %reass.mul.i = shl i64 %reass.add.i, 2
   %223 = add nsw i64 %220, 1024
-  %224 = add i64 %223, %215
+  %224 = add nsw i64 %223, %215
   %225 = add i64 %224, %reass.mul.i
   %226 = invoke noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %143)
           to label %.noexc68 unwind label %99

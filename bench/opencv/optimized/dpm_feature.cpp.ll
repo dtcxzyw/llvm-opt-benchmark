@@ -890,9 +890,9 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit375:              ; preds = %93
   %101 = getelementptr inbounds i8, ptr %17, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %101) #18
   %102 = shl nsw i32 %78, 5
-  %.sroa.2.0.insert.ext = zext i32 %81 to i64
-  %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
-  %.sroa.0.0.insert.ext = zext i32 %102 to i64
+  %.sroa.2.0.insert.ext = zext nneg i32 %81 to i64
+  %.sroa.2.0.insert.shift = shl nuw nsw i64 %.sroa.2.0.insert.ext, 32
+  %.sroa.0.0.insert.ext = zext nneg i32 %102 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   invoke void @_ZN2cv3Mat5zerosENS_5Size_IiEEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %18, i64 %.sroa.0.0.insert.insert, i32 noundef 6)
           to label %103 unwind label %274

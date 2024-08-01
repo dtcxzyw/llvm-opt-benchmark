@@ -3230,11 +3230,11 @@ entry:
   %call.i7 = tail call range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef %f)
   store i32 0, ptr %valid_bits.i, align 8
   %shl = shl nsw i32 %call.i7, 8
-  %add = add i32 %shl, %call.i
+  %add = add nsw i32 %shl, %call.i
   %call.i9 = tail call range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef %f)
   store i32 0, ptr %valid_bits.i, align 8
   %shl3 = shl nsw i32 %call.i9, 16
-  %add4 = add i32 %add, %shl3
+  %add4 = add nsw i32 %add, %shl3
   %call.i11 = tail call range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef %f)
   store i32 0, ptr %valid_bits.i, align 8
   %shl6 = shl i32 %call.i11, 24

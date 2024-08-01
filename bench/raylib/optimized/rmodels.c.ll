@@ -34009,7 +34009,7 @@ LoadVOX.exit:                                     ; preds = %1845, %1849, %Vox_F
   %2032 = getelementptr inbounds %struct.Mesh, ptr %.sroa.14.3, i64 %2026, i32 2
   store ptr %2031, ptr %2032, align 8
   %2033 = mul i32 %.2436.lcssa.i, 6
-  %2034 = sext i32 %2033 to i64
+  %2034 = zext nneg i32 %2033 to i64
   %2035 = call noalias ptr @calloc(i64 noundef %2034, i64 noundef 4) #56
   %2036 = getelementptr inbounds %struct.Mesh, ptr %.sroa.14.3, i64 %2026, i32 3
   store ptr %2035, ptr %2036, align 8
@@ -34023,7 +34023,7 @@ LoadVOX.exit:                                     ; preds = %1845, %1849, %Vox_F
 
 2041:                                             ; preds = %.critedge.i112
   %2042 = mul i32 %.2436.lcssa.i, 12
-  %2043 = sext i32 %2042 to i64
+  %2043 = zext nneg i32 %2042 to i64
   %2044 = call noalias ptr @calloc(i64 noundef %2043, i64 noundef 1) #56
   %2045 = getelementptr inbounds %struct.Mesh, ptr %.sroa.14.3, i64 %2026, i32 7
   store ptr %2044, ptr %2045, align 8
@@ -34041,7 +34041,7 @@ LoadVOX.exit:                                     ; preds = %1845, %1849, %Vox_F
 
 2050:                                             ; preds = %2048
   %2051 = mul i32 %.2436.lcssa.i, 12
-  %2052 = sext i32 %2051 to i64
+  %2052 = zext nneg i32 %2051 to i64
   %2053 = call noalias ptr @calloc(i64 noundef %2052, i64 noundef 1) #56
   %2054 = getelementptr inbounds %struct.Mesh, ptr %.sroa.14.3, i64 %2026, i32 11
   store ptr %2053, ptr %2054, align 8

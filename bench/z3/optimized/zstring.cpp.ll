@@ -220,8 +220,8 @@ if.then48:                                        ; preds = %land.lhs.true45, %i
   %mul51 = add nsw i32 %sub21.i61, %conv.i52
   %add52 = add nsw i32 %mul51, %.sink.i60
   %mul53 = shl nsw i32 %add52, 4
-  %sub21.i72 = add i32 %mul53, %conv.i63
-  %add54 = add i32 %sub21.i72, %.sink.i71
+  %sub21.i72 = add nsw i32 %mul53, %conv.i63
+  %add54 = add nsw i32 %sub21.i72, %.sink.i71
   store i32 %add54, ptr %result, align 4
   %call.i74 = tail call noundef i32 @_ZN7zstring12get_encodingEv()
   %32 = zext nneg i32 %call.i74 to i64

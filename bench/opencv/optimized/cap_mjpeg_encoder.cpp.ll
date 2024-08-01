@@ -2173,7 +2173,7 @@ _ZN2cv5mjpeg19mjpeg_buffer_keeperixEi.exit:       ; preds = %153, %161
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i227.us: ; preds = %276
   %279 = shl nsw i64 %269, 2
-  %280 = add i64 %279, -4
+  %280 = add nsw i64 %279, -4
   call void @llvm.memset.p0.i64(ptr align 4 %277, i8 0, i64 %280, i1 false)
   %281 = getelementptr i32, ptr %248, i64 %269
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i228.us
@@ -2349,7 +2349,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit181.us: ; preds = %314, %304
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.us: ; preds = %364
   %367 = shl nsw i64 %357, 2
-  %368 = add i64 %367, -4
+  %368 = add nsw i64 %367, -4
   call void @llvm.memset.p0.i64(ptr align 4 %365, i8 0, i64 %368, i1 false)
   %369 = getelementptr i32, ptr %336, i64 %357
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i.us
@@ -2534,7 +2534,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit.us:   ; preds = %401, %391
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i266.us: ; preds = %456
   %459 = shl nsw i64 %449, 2
-  %460 = add i64 %459, -4
+  %460 = add nsw i64 %459, -4
   call void @llvm.memset.p0.i64(ptr align 4 %457, i8 0, i64 %460, i1 false)
   %461 = getelementptr i32, ptr %428, i64 %449
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i267.us
@@ -2742,7 +2742,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit224.us: ; preds = %494, %484
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i253.us: ; preds = %563
   %566 = shl nsw i64 %556, 2
-  %567 = add i64 %566, -4
+  %567 = add nsw i64 %566, -4
   call void @llvm.memset.p0.i64(ptr align 4 %564, i8 0, i64 %567, i1 false)
   %568 = getelementptr i32, ptr %535, i64 %556
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i254.us
@@ -2919,7 +2919,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit201.us: ; preds = %601, %591
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i204.us: ; preds = %652
   %655 = shl nsw i64 %645, 2
-  %656 = add i64 %655, -4
+  %656 = add nsw i64 %655, -4
   call void @llvm.memset.p0.i64(ptr align 4 %653, i8 0, i64 %656, i1 false)
   %657 = getelementptr i32, ptr %624, i64 %645
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i205.us
@@ -3095,7 +3095,7 @@ _ZN2cv5mjpeg12mjpeg_buffer6resizeEi.exit.i166.us: ; preds = %_ZNSt6vectorIjSaIjE
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i240.us: ; preds = %742
   %745 = shl nsw i64 %735, 2
-  %746 = add i64 %745, -4
+  %746 = add nsw i64 %745, -4
   call void @llvm.memset.p0.i64(ptr align 4 %743, i8 0, i64 %746, i1 false)
   %747 = getelementptr i32, ptr %714, i64 %735
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i241.us

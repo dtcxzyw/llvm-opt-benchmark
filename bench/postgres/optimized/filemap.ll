@@ -214,9 +214,9 @@ define internal fastcc noundef ptr @insert_filehash_entry(ptr noundef %0) unname
 
 10:                                               ; preds = %.backedge.i.i, %1
   %11 = phi i32 [ 0, %.backedge.i.i ], [ %.pre173.i.i, %1 ]
-  %12 = phi i32 [ %119, %.backedge.i.i ], [ %.pre.i.i, %1 ]
+  %12 = phi i32 [ %118, %.backedge.i.i ], [ %.pre.i.i, %1 ]
   %.not.i.i = icmp ult i32 %12, %11
-  br i1 %.not.i.i, label %81, label %13
+  br i1 %.not.i.i, label %80, label %13
 
 13:                                               ; preds = %10
   %14 = load i64, ptr %2, align 8
@@ -250,257 +250,256 @@ define internal fastcc noundef ptr @insert_filehash_entry(ptr noundef %0) unname
 filehash_compute_size.exit.i.i.i:                 ; preds = %17
   %29 = tail call ptr @pg_malloc0(i64 noundef %26) #11
   store ptr %29, ptr %8, align 8
-  %30 = tail call i64 @llvm.umax.i64(i64 %.0.i.i.i.i.i, i64 2)
-  %31 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %30)
-  %32 = icmp ult i64 %31, 2
-  %33 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %30, i1 true)
-  %34 = sub nuw nsw i64 64, %33
-  %35 = shl nuw i64 1, %34
-  %.0.i.i.i.i.i.i = select i1 %32, i64 %30, i64 %35
-  %36 = mul i64 %.0.i.i.i.i.i.i, 88
-  %37 = icmp ugt i64 %36, 9223372036854775806
-  br i1 %37, label %38, label %filehash_update_parameters.exit.i.i.i
+  %30 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i.i.i)
+  %31 = icmp ult i64 %30, 2
+  %32 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i.i.i.i, i1 true)
+  %33 = sub nuw nsw i64 64, %32
+  %34 = shl nuw i64 1, %33
+  %.0.i.i.i.i.i.i = select i1 %31, i64 %.0.i.i.i.i.i, i64 %34
+  %35 = mul i64 %.0.i.i.i.i.i.i, 88
+  %36 = icmp ugt i64 %35, 9223372036854775806
+  br i1 %36, label %37, label %filehash_update_parameters.exit.i.i.i
 
-38:                                               ; preds = %filehash_compute_size.exit.i.i.i
+37:                                               ; preds = %filehash_compute_size.exit.i.i.i
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.5) #11
   tail call void @exit(i32 noundef 1) #13
   unreachable
 
 filehash_update_parameters.exit.i.i.i:            ; preds = %filehash_compute_size.exit.i.i.i
   store i64 %.0.i.i.i.i.i.i, ptr %2, align 8
-  %39 = trunc i64 %.0.i.i.i.i.i.i to i32
-  %40 = add i32 %39, -1
-  store i32 %40, ptr %9, align 4
-  %41 = icmp eq i64 %.0.i.i.i.i.i.i, 4294967296
-  %42 = uitofp i64 %.0.i.i.i.i.i.i to double
-  %43 = fmul double %42, 9.000000e-01
-  %44 = fptoui double %43 to i32
-  %.sink.i.i.i.i = select i1 %41, i32 -85899346, i32 %44
+  %38 = trunc i64 %.0.i.i.i.i.i.i to i32
+  %39 = add i32 %38, -1
+  store i32 %39, ptr %9, align 4
+  %40 = icmp eq i64 %.0.i.i.i.i.i.i, 4294967296
+  %41 = uitofp i64 %.0.i.i.i.i.i.i to double
+  %42 = fmul double %41, 9.000000e-01
+  %43 = fptoui double %42 to i32
+  %.sink.i.i.i.i = select i1 %40, i32 -85899346, i32 %43
   store i32 %.sink.i.i.i.i, ptr %7, align 8
   %.not67.i.i.i = icmp eq i64 %14, 0
   br i1 %.not67.i.i.i, label %filehash_grow.exit.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %filehash_update_parameters.exit.i.i.i, %55
-  %45 = phi i64 [ %57, %55 ], [ 0, %filehash_update_parameters.exit.i.i.i ]
-  %.057.i.i.i = phi i32 [ %56, %55 ], [ 0, %filehash_update_parameters.exit.i.i.i ]
-  %46 = getelementptr %struct.file_entry_t, ptr %19, i64 %45
-  %47 = load i32, ptr %46, align 8
-  %.not.i.i.i = icmp eq i32 %47, 1
-  br i1 %.not.i.i.i, label %48, label %.lr.ph65.i.i.i.preheader
+.lr.ph.i.i.i:                                     ; preds = %filehash_update_parameters.exit.i.i.i, %54
+  %44 = phi i64 [ %56, %54 ], [ 0, %filehash_update_parameters.exit.i.i.i ]
+  %.057.i.i.i = phi i32 [ %55, %54 ], [ 0, %filehash_update_parameters.exit.i.i.i ]
+  %45 = getelementptr %struct.file_entry_t, ptr %19, i64 %44
+  %46 = load i32, ptr %45, align 8
+  %.not.i.i.i = icmp eq i32 %46, 1
+  br i1 %.not.i.i.i, label %47, label %.lr.ph65.i.i.i.preheader
 
-48:                                               ; preds = %.lr.ph.i.i.i
-  %49 = getelementptr i8, ptr %46, i64 8
-  %.val.i.i.i = load ptr, ptr %49, align 8
-  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.i.i.i) #12
-  %51 = trunc i64 %50 to i32
-  %52 = tail call i32 @hash_bytes(ptr noundef %.val.i.i.i, i32 noundef %51) #11
+47:                                               ; preds = %.lr.ph.i.i.i
+  %48 = getelementptr i8, ptr %45, i64 8
+  %.val.i.i.i = load ptr, ptr %48, align 8
+  %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.i.i.i) #12
+  %50 = trunc i64 %49 to i32
+  %51 = tail call i32 @hash_bytes(ptr noundef %.val.i.i.i, i32 noundef %50) #11
   %.val54.i.i.i = load i32, ptr %9, align 4
-  %53 = and i32 %.val54.i.i.i, %52
-  %54 = icmp eq i32 %53, %.057.i.i.i
-  br i1 %54, label %.lr.ph65.i.i.i.preheader, label %55
+  %52 = and i32 %.val54.i.i.i, %51
+  %53 = icmp eq i32 %52, %.057.i.i.i
+  br i1 %53, label %.lr.ph65.i.i.i.preheader, label %54
 
-55:                                               ; preds = %48
-  %56 = add i32 %.057.i.i.i, 1
-  %57 = zext i32 %56 to i64
-  %58 = icmp ugt i64 %14, %57
-  br i1 %58, label %.lr.ph.i.i.i, label %.lr.ph65.i.i.i.preheader, !llvm.loop !5
+54:                                               ; preds = %47
+  %55 = add i32 %.057.i.i.i, 1
+  %56 = zext i32 %55 to i64
+  %57 = icmp ugt i64 %14, %56
+  br i1 %57, label %.lr.ph.i.i.i, label %.lr.ph65.i.i.i.preheader, !llvm.loop !5
 
-.lr.ph65.i.i.i.preheader:                         ; preds = %55, %48, %.lr.ph.i.i.i
-  %.04962.i.i.i.ph = phi i32 [ %.057.i.i.i, %.lr.ph.i.i.i ], [ %.057.i.i.i, %48 ], [ 0, %55 ]
+.lr.ph65.i.i.i.preheader:                         ; preds = %54, %47, %.lr.ph.i.i.i
+  %.04962.i.i.i.ph = phi i32 [ %.057.i.i.i, %.lr.ph.i.i.i ], [ %.057.i.i.i, %47 ], [ 0, %54 ]
   br label %.lr.ph65.i.i.i
 
-.lr.ph65.i.i.i:                                   ; preds = %.lr.ph65.i.i.i.preheader, %75
-  %.163.i.i.i = phi i32 [ %78, %75 ], [ 0, %.lr.ph65.i.i.i.preheader ]
-  %.04962.i.i.i = phi i32 [ %spec.store.select.i.i.i, %75 ], [ %.04962.i.i.i.ph, %.lr.ph65.i.i.i.preheader ]
-  %59 = zext i32 %.04962.i.i.i to i64
-  %60 = getelementptr %struct.file_entry_t, ptr %19, i64 %59
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp eq i32 %61, 1
-  br i1 %62, label %63, label %75
+.lr.ph65.i.i.i:                                   ; preds = %.lr.ph65.i.i.i.preheader, %74
+  %.163.i.i.i = phi i32 [ %77, %74 ], [ 0, %.lr.ph65.i.i.i.preheader ]
+  %.04962.i.i.i = phi i32 [ %spec.store.select.i.i.i, %74 ], [ %.04962.i.i.i.ph, %.lr.ph65.i.i.i.preheader ]
+  %58 = zext i32 %.04962.i.i.i to i64
+  %59 = getelementptr %struct.file_entry_t, ptr %19, i64 %58
+  %60 = load i32, ptr %59, align 8
+  %61 = icmp eq i32 %60, 1
+  br i1 %61, label %62, label %74
 
-63:                                               ; preds = %.lr.ph65.i.i.i
-  %64 = getelementptr i8, ptr %60, i64 8
-  %.val53.i.i.i = load ptr, ptr %64, align 8
-  %65 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val53.i.i.i) #12
-  %66 = trunc i64 %65 to i32
-  %67 = tail call i32 @hash_bytes(ptr noundef %.val53.i.i.i, i32 noundef %66) #11
+62:                                               ; preds = %.lr.ph65.i.i.i
+  %63 = getelementptr i8, ptr %59, i64 8
+  %.val53.i.i.i = load ptr, ptr %63, align 8
+  %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val53.i.i.i) #12
+  %65 = trunc i64 %64 to i32
+  %66 = tail call i32 @hash_bytes(ptr noundef %.val53.i.i.i, i32 noundef %65) #11
   %.val55.i.i.i = load i32, ptr %9, align 4
-  br label %68
+  br label %67
 
-68:                                               ; preds = %68, %63
-  %.pn.i.i.i = phi i32 [ %67, %63 ], [ %73, %68 ]
+67:                                               ; preds = %67, %62
+  %.pn.i.i.i = phi i32 [ %66, %62 ], [ %72, %67 ]
   %.047.i.i.i = and i32 %.pn.i.i.i, %.val55.i.i.i
-  %69 = zext i32 %.047.i.i.i to i64
-  %70 = getelementptr %struct.file_entry_t, ptr %29, i64 %69
-  %71 = load i32, ptr %70, align 8
-  %72 = icmp eq i32 %71, 0
-  %73 = add i32 %.047.i.i.i, 1
-  br i1 %72, label %74, label %68
+  %68 = zext i32 %.047.i.i.i to i64
+  %69 = getelementptr %struct.file_entry_t, ptr %29, i64 %68
+  %70 = load i32, ptr %69, align 8
+  %71 = icmp eq i32 %70, 0
+  %72 = add i32 %.047.i.i.i, 1
+  br i1 %71, label %73, label %67
 
-74:                                               ; preds = %68
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %70, ptr noundef nonnull align 8 dereferenceable(88) %60, i64 88, i1 false)
-  br label %75
+73:                                               ; preds = %67
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %69, ptr noundef nonnull align 8 dereferenceable(88) %59, i64 88, i1 false)
+  br label %74
 
-75:                                               ; preds = %74, %.lr.ph65.i.i.i
-  %76 = add i32 %.04962.i.i.i, 1
-  %77 = zext i32 %76 to i64
-  %.not52.i.i.i = icmp ugt i64 %14, %77
-  %spec.store.select.i.i.i = select i1 %.not52.i.i.i, i32 %76, i32 0
-  %78 = add i32 %.163.i.i.i, 1
-  %79 = zext i32 %78 to i64
-  %80 = icmp ugt i64 %14, %79
-  br i1 %80, label %.lr.ph65.i.i.i, label %filehash_grow.exit.i.i, !llvm.loop !7
+74:                                               ; preds = %73, %.lr.ph65.i.i.i
+  %75 = add i32 %.04962.i.i.i, 1
+  %76 = zext i32 %75 to i64
+  %.not52.i.i.i = icmp ugt i64 %14, %76
+  %spec.store.select.i.i.i = select i1 %.not52.i.i.i, i32 %75, i32 0
+  %77 = add i32 %.163.i.i.i, 1
+  %78 = zext i32 %77 to i64
+  %79 = icmp ugt i64 %14, %78
+  br i1 %79, label %.lr.ph65.i.i.i, label %filehash_grow.exit.i.i, !llvm.loop !7
 
-filehash_grow.exit.i.i:                           ; preds = %75, %filehash_update_parameters.exit.i.i.i
+filehash_grow.exit.i.i:                           ; preds = %74, %filehash_update_parameters.exit.i.i.i
   tail call void @pfree(ptr noundef %19) #11
-  br label %81
+  br label %80
 
-81:                                               ; preds = %filehash_grow.exit.i.i, %10
-  %82 = load ptr, ptr %8, align 8
+80:                                               ; preds = %filehash_grow.exit.i.i, %10
+  %81 = load ptr, ptr %8, align 8
   %.val76.i.i = load i32, ptr %9, align 4
-  %83 = and i32 %.val76.i.i, %5
-  %84 = zext i32 %83 to i64
-  %85 = getelementptr %struct.file_entry_t, ptr %82, i64 %84
-  %86 = load i32, ptr %85, align 8
-  %87 = icmp eq i32 %86, 0
-  br i1 %87, label %.loopexit, label %.lr.ph.i.i
+  %82 = and i32 %.val76.i.i, %5
+  %83 = zext i32 %82 to i64
+  %84 = getelementptr %struct.file_entry_t, ptr %81, i64 %83
+  %85 = load i32, ptr %84, align 8
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %.loopexit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %81, %141
-  %88 = phi ptr [ %143, %141 ], [ %85, %81 ]
-  %.069113.i.i = phi i32 [ %104, %141 ], [ %83, %81 ]
-  %.074112.i.i = phi i32 [ %132, %141 ], [ 0, %81 ]
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
-  %90 = load ptr, ptr %89, align 8
-  %91 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %90, ptr noundef nonnull dereferenceable(1) %0) #12
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %filehash_insert.exit.thread, label %93
+.lr.ph.i.i:                                       ; preds = %80, %140
+  %87 = phi ptr [ %142, %140 ], [ %84, %80 ]
+  %.069113.i.i = phi i32 [ %103, %140 ], [ %82, %80 ]
+  %.074112.i.i = phi i32 [ %131, %140 ], [ 0, %80 ]
+  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  %89 = load ptr, ptr %88, align 8
+  %90 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(1) %0) #12
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %filehash_insert.exit.thread, label %92
 
-93:                                               ; preds = %.lr.ph.i.i
-  %94 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %90) #12
-  %95 = trunc i64 %94 to i32
-  %96 = tail call i32 @hash_bytes(ptr noundef %90, i32 noundef %95) #11
+92:                                               ; preds = %.lr.ph.i.i
+  %93 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %89) #12
+  %94 = trunc i64 %93 to i32
+  %95 = tail call i32 @hash_bytes(ptr noundef %89, i32 noundef %94) #11
   %.val77.i.i = load i32, ptr %9, align 4
-  %97 = and i32 %.val77.i.i, %96
-  %.not.i81.i.i = icmp ugt i32 %97, %.069113.i.i
-  br i1 %.not.i81.i.i, label %98, label %filehash_distance.exit.i.i
+  %96 = and i32 %.val77.i.i, %95
+  %.not.i81.i.i = icmp ugt i32 %96, %.069113.i.i
+  br i1 %.not.i81.i.i, label %97, label %filehash_distance.exit.i.i
 
-98:                                               ; preds = %93
-  %99 = load i64, ptr %2, align 8
-  %100 = trunc i64 %99 to i32
-  %101 = add i32 %.069113.i.i, %100
+97:                                               ; preds = %92
+  %98 = load i64, ptr %2, align 8
+  %99 = trunc i64 %98 to i32
+  %100 = add i32 %.069113.i.i, %99
   br label %filehash_distance.exit.i.i
 
-filehash_distance.exit.i.i:                       ; preds = %98, %93
-  %.pn.i82.i.i = phi i32 [ %101, %98 ], [ %.069113.i.i, %93 ]
-  %.0.i.i.i = sub i32 %.pn.i82.i.i, %97
-  %102 = icmp ugt i32 %.074112.i.i, %.0.i.i.i
-  %103 = add i32 %.069113.i.i, 1
-  %104 = and i32 %.val77.i.i, %103
-  br i1 %102, label %.preheader83.i.i, label %131
+filehash_distance.exit.i.i:                       ; preds = %97, %92
+  %.pn.i82.i.i = phi i32 [ %100, %97 ], [ %.069113.i.i, %92 ]
+  %.0.i.i.i = sub i32 %.pn.i82.i.i, %96
+  %101 = icmp ugt i32 %.074112.i.i, %.0.i.i.i
+  %102 = add i32 %.069113.i.i, 1
+  %103 = and i32 %.val77.i.i, %102
+  br i1 %101, label %.preheader83.i.i, label %130
 
 .preheader83.i.i:                                 ; preds = %filehash_distance.exit.i.i
-  %105 = zext i32 %104 to i64
-  %106 = getelementptr %struct.file_entry_t, ptr %82, i64 %105
-  %107 = load i32, ptr %106, align 8
-  %108 = icmp eq i32 %107, 0
-  br i1 %108, label %.preheader.i.i, label %.lr.ph119.i.i
+  %104 = zext i32 %103 to i64
+  %105 = getelementptr %struct.file_entry_t, ptr %81, i64 %104
+  %106 = load i32, ptr %105, align 8
+  %107 = icmp eq i32 %106, 0
+  br i1 %107, label %.preheader.i.i, label %.lr.ph119.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader83.i.i, %120
-  %.lcssa97.i.i = phi i32 [ %122, %120 ], [ %104, %.preheader83.i.i ]
-  %.lcssa95.i.i = phi ptr [ %124, %120 ], [ %106, %.preheader83.i.i ]
+.preheader.i.i:                                   ; preds = %.preheader83.i.i, %119
+  %.lcssa97.i.i = phi i32 [ %121, %119 ], [ %103, %.preheader83.i.i ]
+  %.lcssa95.i.i = phi ptr [ %123, %119 ], [ %105, %.preheader83.i.i ]
   %.not75137.i.i = icmp eq i32 %.lcssa97.i.i, %.069113.i.i
   br i1 %.not75137.i.i, label %.loopexit, label %.lr.ph140.i.i
 
-.lr.ph119.i.i:                                    ; preds = %.preheader83.i.i, %120
-  %109 = phi i32 [ %122, %120 ], [ %104, %.preheader83.i.i ]
-  %.070118.i.i = phi i32 [ %110, %120 ], [ 0, %.preheader83.i.i ]
-  %110 = add i32 %.070118.i.i, 1
-  %111 = icmp sgt i32 %110, 150
-  br i1 %111, label %112, label %120
+.lr.ph119.i.i:                                    ; preds = %.preheader83.i.i, %119
+  %108 = phi i32 [ %121, %119 ], [ %103, %.preheader83.i.i ]
+  %.070118.i.i = phi i32 [ %109, %119 ], [ 0, %.preheader83.i.i ]
+  %109 = add i32 %.070118.i.i, 1
+  %110 = icmp sgt i32 %109, 150
+  br i1 %110, label %111, label %119
 
-112:                                              ; preds = %.lr.ph119.i.i
-  %113 = load i32, ptr %6, align 8
-  %114 = uitofp i32 %113 to double
-  %115 = load i64, ptr %2, align 8
-  %116 = uitofp i64 %115 to double
-  %117 = fdiv double %114, %116
-  %118 = fcmp ult double %117, 1.000000e-01
-  br i1 %118, label %120, label %.backedge.i.i
+111:                                              ; preds = %.lr.ph119.i.i
+  %112 = load i32, ptr %6, align 8
+  %113 = uitofp i32 %112 to double
+  %114 = load i64, ptr %2, align 8
+  %115 = uitofp i64 %114 to double
+  %116 = fdiv double %113, %115
+  %117 = fcmp ult double %116, 1.000000e-01
+  br i1 %117, label %119, label %.backedge.i.i
 
-.backedge.i.i:                                    ; preds = %134, %112
-  %119 = phi i32 [ %113, %112 ], [ %135, %134 ]
+.backedge.i.i:                                    ; preds = %133, %111
+  %118 = phi i32 [ %112, %111 ], [ %134, %133 ]
   store i32 0, ptr %7, align 8
   br label %10
 
-120:                                              ; preds = %112, %.lr.ph119.i.i
-  %121 = add i32 %109, 1
-  %122 = and i32 %121, %.val77.i.i
-  %123 = zext i32 %122 to i64
-  %124 = getelementptr %struct.file_entry_t, ptr %82, i64 %123
-  %125 = load i32, ptr %124, align 8
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %.preheader.i.i, label %.lr.ph119.i.i
+119:                                              ; preds = %111, %.lr.ph119.i.i
+  %120 = add i32 %108, 1
+  %121 = and i32 %120, %.val77.i.i
+  %122 = zext i32 %121 to i64
+  %123 = getelementptr %struct.file_entry_t, ptr %81, i64 %122
+  %124 = load i32, ptr %123, align 8
+  %125 = icmp eq i32 %124, 0
+  br i1 %125, label %.preheader.i.i, label %.lr.ph119.i.i
 
 .lr.ph140.i.i:                                    ; preds = %.preheader.i.i, %.lr.ph140.i.i
-  %.071139.i.i = phi i32 [ %128, %.lr.ph140.i.i ], [ %.lcssa97.i.i, %.preheader.i.i ]
-  %.073138.i.i = phi ptr [ %130, %.lr.ph140.i.i ], [ %.lcssa95.i.i, %.preheader.i.i ]
+  %.071139.i.i = phi i32 [ %127, %.lr.ph140.i.i ], [ %.lcssa97.i.i, %.preheader.i.i ]
+  %.073138.i.i = phi ptr [ %129, %.lr.ph140.i.i ], [ %.lcssa95.i.i, %.preheader.i.i ]
   %.val80.i.i = load i32, ptr %9, align 4
-  %127 = add i32 %.071139.i.i, -1
-  %128 = and i32 %.val80.i.i, %127
-  %129 = zext i32 %128 to i64
-  %130 = getelementptr %struct.file_entry_t, ptr %82, i64 %129
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.073138.i.i, ptr noundef nonnull align 8 dereferenceable(88) %130, i64 88, i1 false)
-  %.not75.i.i = icmp eq i32 %128, %.069113.i.i
+  %126 = add i32 %.071139.i.i, -1
+  %127 = and i32 %.val80.i.i, %126
+  %128 = zext i32 %127 to i64
+  %129 = getelementptr %struct.file_entry_t, ptr %81, i64 %128
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.073138.i.i, ptr noundef nonnull align 8 dereferenceable(88) %129, i64 88, i1 false)
+  %.not75.i.i = icmp eq i32 %127, %.069113.i.i
   br i1 %.not75.i.i, label %.loopexit, label %.lr.ph140.i.i, !llvm.loop !8
 
-131:                                              ; preds = %filehash_distance.exit.i.i
-  %132 = add i32 %.074112.i.i, 1
-  %133 = icmp ugt i32 %132, 25
-  br i1 %133, label %134, label %141
+130:                                              ; preds = %filehash_distance.exit.i.i
+  %131 = add i32 %.074112.i.i, 1
+  %132 = icmp ugt i32 %131, 25
+  br i1 %132, label %133, label %140
 
-134:                                              ; preds = %131
-  %135 = load i32, ptr %6, align 8
-  %136 = uitofp i32 %135 to double
-  %137 = load i64, ptr %2, align 8
-  %138 = uitofp i64 %137 to double
-  %139 = fdiv double %136, %138
-  %140 = fcmp ult double %139, 1.000000e-01
-  br i1 %140, label %141, label %.backedge.i.i
+133:                                              ; preds = %130
+  %134 = load i32, ptr %6, align 8
+  %135 = uitofp i32 %134 to double
+  %136 = load i64, ptr %2, align 8
+  %137 = uitofp i64 %136 to double
+  %138 = fdiv double %135, %137
+  %139 = fcmp ult double %138, 1.000000e-01
+  br i1 %139, label %140, label %.backedge.i.i
 
-141:                                              ; preds = %134, %131
-  %142 = zext i32 %104 to i64
-  %143 = getelementptr %struct.file_entry_t, ptr %82, i64 %142
-  %144 = load i32, ptr %143, align 8
-  %145 = icmp eq i32 %144, 0
-  br i1 %145, label %.loopexit, label %.lr.ph.i.i
+140:                                              ; preds = %133, %130
+  %141 = zext i32 %103 to i64
+  %142 = getelementptr %struct.file_entry_t, ptr %81, i64 %141
+  %143 = load i32, ptr %142, align 8
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %.loopexit, label %.lr.ph.i.i
 
-.loopexit:                                        ; preds = %81, %141, %.lr.ph140.i.i, %.preheader.i.i
-  %.lcssa215.lcssa.sink.sink.i.i = phi ptr [ %88, %.preheader.i.i ], [ %88, %.lr.ph140.i.i ], [ %143, %141 ], [ %85, %81 ]
+.loopexit:                                        ; preds = %80, %140, %.lr.ph140.i.i, %.preheader.i.i
+  %.lcssa215.lcssa.sink.sink.i.i = phi ptr [ %87, %.preheader.i.i ], [ %87, %.lr.ph140.i.i ], [ %142, %140 ], [ %84, %80 ]
   %storemerge.in.i = load i32, ptr %6, align 8
   %storemerge.i = add i32 %storemerge.in.i, 1
   store i32 %storemerge.i, ptr %6, align 8
   %.sink217.i.i = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 8
   store ptr %0, ptr %.sink217.i.i, align 8
   store i32 1, ptr %.lcssa215.lcssa.sink.sink.i.i, align 8
-  %146 = tail call ptr @pg_strdup(ptr noundef %0) #11
-  store ptr %146, ptr %.sink217.i.i, align 8
-  %147 = tail call fastcc zeroext i1 @isRelDataFile(ptr noundef %0)
-  %148 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 16
-  %149 = zext i1 %147 to i8
-  store i8 %149, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 17
-  store i8 0, ptr %150, align 1
-  %151 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 20
-  %152 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 56
-  store i8 0, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 60
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %151, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %153, i8 0, i64 24, i1 false)
+  %145 = tail call ptr @pg_strdup(ptr noundef %0) #11
+  store ptr %145, ptr %.sink217.i.i, align 8
+  %146 = tail call fastcc zeroext i1 @isRelDataFile(ptr noundef %0)
+  %147 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 16
+  %148 = zext i1 %146 to i8
+  store i8 %148, ptr %147, align 8
+  %149 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 17
+  store i8 0, ptr %149, align 1
+  %150 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 20
+  %151 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 56
+  store i8 0, ptr %151, align 8
+  %152 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 60
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %150, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %152, i8 0, i64 24, i1 false)
   br label %filehash_insert.exit.thread
 
 filehash_insert.exit.thread:                      ; preds = %.lr.ph.i.i, %.loopexit
-  %154 = phi ptr [ %.lcssa215.lcssa.sink.sink.i.i, %.loopexit ], [ %88, %.lr.ph.i.i ]
-  ret ptr %154
+  %153 = phi ptr [ %.lcssa215.lcssa.sink.sink.i.i, %.loopexit ], [ %87, %.lr.ph.i.i ]
+  ret ptr %153
 }
 
 declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #2

@@ -252,9 +252,9 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr no
 
 131:                                              ; preds = %122
   %132 = shl nsw i8 %123, 4
-  %133 = add i8 %132, 32
+  %133 = add nsw i8 %132, 32
   %134 = shl nsw i8 %124, 2
-  %135 = add i8 %134, 8
+  %135 = add nsw i8 %134, 8
   %136 = or i8 %133, %135
   %137 = or disjoint i8 %136, %129
   %138 = or i8 %137, 64

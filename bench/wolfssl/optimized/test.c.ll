@@ -6060,7 +6060,7 @@ if.end204:                                        ; preds = %if.end194
   br i1 %cmp213.not, label %if.end216, label %return
 
 if.end216:                                        ; preds = %if.end204
-  %conv219 = sext i32 %sub184 to i64
+  %conv219 = zext nneg i32 %sub184 to i64
   %bcmp136 = call i32 @bcmp(ptr nonnull %plain_big, ptr nonnull %input_big, i64 %conv219)
   %tobool221.not = icmp eq i32 %bcmp136, 0
   br i1 %tobool221.not, label %if.end232, label %if.then222

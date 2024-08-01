@@ -2132,7 +2132,7 @@ if.then7.i.i:                                     ; preds = %_ZN4absl10CordBuffe
   %sub.i.i.i.i = sub nuw nsw i64 64, %15
   %shl.i.i = shl nuw nsw i64 1, %sub.i.i.i.i
   %reass.sub = sub nsw i64 %shl.i.i, %.sroa.speculated.i.i
-  %16 = add i64 %reass.sub, -13
+  %16 = add nsw i64 %reass.sub, -13
   %or.cond.i.i = icmp ult i64 %16, 129
   br i1 %or.cond.i.i, label %_ZN4absl10CordBuffer25CreateWithCustomLimitImplIJEEES0_mmDpT_.exit.i, label %if.else12.i.i
 
@@ -2266,7 +2266,7 @@ if.then7.i.i.i:                                   ; preds = %_ZN4absl10CordBuffe
   %sub.i.i.i.i.i34 = sub nuw nsw i64 64, %27
   %shl.i.i.i = shl nuw nsw i64 1, %sub.i.i.i.i.i34
   %reass.sub68 = sub nsw i64 %shl.i.i.i, %.sroa.speculated.i.i.i
-  %28 = add i64 %reass.sub68, -13
+  %28 = add nsw i64 %reass.sub68, -13
   %or.cond.i.i.i = icmp ult i64 %28, 129
   br i1 %or.cond.i.i.i, label %_ZN4absl10CordBuffer21CreateWithCustomLimitEmm.exit.i, label %if.else12.i.i.i
 

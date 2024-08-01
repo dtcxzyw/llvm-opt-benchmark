@@ -3256,7 +3256,7 @@ finishbinexpneg.exit:                             ; preds = %if.else.i128
   %53 = load i32, ptr %arrayidx.i, align 4
   %and.i131 = and i32 %53, -16711681
   %add9.i = shl nsw i32 %conv.i130, 16
-  %shl.i132 = add i32 %add9.i, 8323072
+  %shl.i132 = add nsw i32 %add9.i, 8323072
   %and10.i = and i32 %shl.i132, 16711680
   %or.i133 = or disjoint i32 %and.i131, %and10.i
   store i32 %or.i133, ptr %arrayidx.i, align 4
@@ -3779,7 +3779,7 @@ if.else6:                                         ; preds = %if.else
   %10 = load i32, ptr %arrayidx, align 4
   %and = and i32 %10, -16711681
   %add9 = shl nsw i32 %conv, 16
-  %shl = add i32 %add9, 8323072
+  %shl = add nsw i32 %add9, 8323072
   %and10 = and i32 %shl, 16711680
   %or = or disjoint i32 %and, %and10
   store i32 %or, ptr %arrayidx, align 4

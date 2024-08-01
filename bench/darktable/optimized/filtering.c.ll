@@ -7542,7 +7542,7 @@ define internal void @_rating_range_widget_init(ptr noundef %0, i32 noundef %1, 
 
 23:                                               ; preds = %5
   %24 = shl nsw i32 %21, 3
-  %25 = sitofp i32 %24 to double
+  %25 = uitofp nneg i32 %24 to double
   %26 = fmul reassoc nsz arcp contract afn double %25, 8.000000e-01
   %27 = fptosi double %26 to i32
   %28 = getelementptr inbounds i8, ptr %12, i64 352

@@ -590,8 +590,8 @@ if.end11.i138:                                    ; preds = %if.end.i133
   %shl.i142 = shl i64 %i.i.4, %39
   %40 = trunc i64 %exponent.i.2 to i32
   %conv.i356 = shl nsw i32 %40, 1
-  %mul.i357 = add i32 %conv.i356, 684
-  %idxprom.i358 = sext i32 %mul.i357 to i64
+  %mul.i357 = add nsw i32 %conv.i356, 684
+  %idxprom.i358 = zext nneg i32 %mul.i357 to i64
   %arrayidx.i359 = getelementptr inbounds [1302 x i64], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom.i358
   %41 = load i64, ptr %arrayidx.i359, align 16
   %conv.i454 = zext i64 %shl.i142 to i128
@@ -605,8 +605,8 @@ if.end11.i138:                                    ; preds = %if.end.i133
   br i1 %cmp.i362, label %if.then.i364, label %_ZN14arrow_vendored10fast_float29compute_product_approximationILi26EEENS0_8value128Elm.exit380
 
 if.then.i364:                                     ; preds = %if.end11.i138
-  %add.i365 = add i32 %conv.i356, 685
-  %idxprom1.i366 = sext i32 %add.i365 to i64
+  %add.i365 = add nsw i32 %conv.i356, 685
+  %idxprom1.i366 = zext nneg i32 %add.i365 to i64
   %arrayidx2.i367 = getelementptr inbounds [1302 x i64], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom1.i366
   %42 = load i64, ptr %arrayidx2.i367, align 8
   %conv1.i444 = zext i64 %42 to i128
@@ -696,8 +696,8 @@ if.end11.i:                                       ; preds = %if.end.i105
   %shl.i = shl i64 %add, %46
   %47 = trunc i64 %exponent.i.2 to i32
   %conv.i388 = shl nsw i32 %47, 1
-  %mul.i389 = add i32 %conv.i388, 684
-  %idxprom.i390 = sext i32 %mul.i389 to i64
+  %mul.i389 = add nsw i32 %conv.i388, 684
+  %idxprom.i390 = zext nneg i32 %mul.i389 to i64
   %arrayidx.i391 = getelementptr inbounds [1302 x i64], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom.i390
   %48 = load i64, ptr %arrayidx.i391, align 16
   %conv.i432 = zext i64 %shl.i to i128
@@ -711,8 +711,8 @@ if.end11.i:                                       ; preds = %if.end.i105
   br i1 %cmp.i394, label %if.then.i396, label %_ZN14arrow_vendored10fast_float29compute_product_approximationILi26EEENS0_8value128Elm.exit412
 
 if.then.i396:                                     ; preds = %if.end11.i
-  %add.i397 = add i32 %conv.i388, 685
-  %idxprom1.i398 = sext i32 %add.i397 to i64
+  %add.i397 = add nsw i32 %conv.i388, 685
+  %idxprom1.i398 = zext nneg i32 %add.i397 to i64
   %arrayidx2.i399 = getelementptr inbounds [1302 x i64], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom1.i398
   %49 = load i64, ptr %arrayidx2.i399, align 8
   %conv1.i423 = zext i64 %49 to i128
@@ -1414,8 +1414,8 @@ if.end11.i191:                                    ; preds = %if.end.i186
   %shl.i194 = shl i64 %i.i.4, %39
   %40 = trunc i64 %exponent.i.2 to i32
   %conv.i357 = shl nsw i32 %40, 1
-  %mul.i358 = add i32 %conv.i357, 684
-  %idxprom.i359 = sext i32 %mul.i358 to i64
+  %mul.i358 = add nsw i32 %conv.i357, 684
+  %idxprom.i359 = zext nneg i32 %mul.i358 to i64
   %arrayidx.i360 = getelementptr inbounds [1302 x i64], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom.i359
   %41 = load i64, ptr %arrayidx.i360, align 16
   %conv.i16.i361 = zext i64 %shl.i194 to i128
@@ -1429,8 +1429,8 @@ if.end11.i191:                                    ; preds = %if.end.i186
   br i1 %cmp.i370, label %if.then.i372, label %_ZN14arrow_vendored10fast_float29compute_product_approximationILi55EEENS0_8value128Elm.exit391
 
 if.then.i372:                                     ; preds = %if.end11.i191
-  %add.i373 = add i32 %conv.i357, 685
-  %idxprom1.i374 = sext i32 %add.i373 to i64
+  %add.i373 = add nsw i32 %conv.i357, 685
+  %idxprom1.i374 = zext nneg i32 %add.i373 to i64
   %arrayidx2.i375 = getelementptr inbounds [1302 x i64], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom1.i374
   %42 = load i64, ptr %arrayidx2.i375, align 8
   %conv1.i.i377 = zext i64 %42 to i128
@@ -1520,8 +1520,8 @@ if.end11.i:                                       ; preds = %if.end.i159
   %shl.i = shl i64 %add, %46
   %47 = trunc i64 %exponent.i.2 to i32
   %conv.i407 = shl nsw i32 %47, 1
-  %mul.i408 = add i32 %conv.i407, 684
-  %idxprom.i409 = sext i32 %mul.i408 to i64
+  %mul.i408 = add nsw i32 %conv.i407, 684
+  %idxprom.i409 = zext nneg i32 %mul.i408 to i64
   %arrayidx.i410 = getelementptr inbounds [1302 x i64], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom.i409
   %48 = load i64, ptr %arrayidx.i410, align 16
   %conv.i16.i411 = zext i64 %shl.i to i128
@@ -1535,8 +1535,8 @@ if.end11.i:                                       ; preds = %if.end.i159
   br i1 %cmp.i420, label %if.then.i422, label %_ZN14arrow_vendored10fast_float29compute_product_approximationILi55EEENS0_8value128Elm.exit441
 
 if.then.i422:                                     ; preds = %if.end11.i
-  %add.i423 = add i32 %conv.i407, 685
-  %idxprom1.i424 = sext i32 %add.i423 to i64
+  %add.i423 = add nsw i32 %conv.i407, 685
+  %idxprom1.i424 = zext nneg i32 %add.i423 to i64
   %arrayidx2.i425 = getelementptr inbounds [1302 x i64], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom1.i424
   %49 = load i64, ptr %arrayidx2.i425, align 8
   %conv1.i.i427 = zext i64 %49 to i128

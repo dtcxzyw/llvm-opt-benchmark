@@ -5128,7 +5128,7 @@ define internal void @atom_get_vid(ptr nocapture noundef %0) #0 align 16 {
   %23 = shl nsw i64 %22, 8
   %24 = shl nsw i64 %16, 8
   %25 = sdiv i64 %24, %23
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nsw i64 %25 to i32
   %27 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 %26, ptr %27, align 4
   %28 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 1645) #26, !srcloc !12

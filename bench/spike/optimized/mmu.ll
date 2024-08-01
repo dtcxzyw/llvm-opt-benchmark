@@ -686,7 +686,7 @@ _Z14decode_vm_infoibmm.exit:                      ; preds = %2, %27, %31
   %79 = lshr i64 %5, %78
   %80 = and i64 %79, %73
   %81 = mul nuw nsw i64 %80, %.sroa.24.0.ph
-  %82 = add nsw i64 %81, %.0119208
+  %82 = add nuw nsw i64 %81, %.0119208
   %83 = tail call noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %5, i64 noundef %82, i32 noundef 0, i32 noundef %4, i1 noundef zeroext %8, i1 noundef zeroext false, i1 noundef zeroext true)
   br i1 %or.cond3.i, label %84, label %86
 
@@ -3033,7 +3033,7 @@ define noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull 
   %64 = xor i64 %notmask, -1
   %65 = and i64 %62, %64
   %66 = mul nuw nsw i64 %65, %.sroa.21.0.ph
-  %67 = add i64 %66, %.096168
+  %67 = add nuw i64 %66, %.096168
   br i1 %29, label %68, label %70
 
 68:                                               ; preds = %56
