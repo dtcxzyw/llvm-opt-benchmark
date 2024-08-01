@@ -2163,12 +2163,12 @@ _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i: ; preds = %46
           to label %_ZNSt6vectorImSaImEE7reserveEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZNSt6vectorImSaImEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i
-  %57 = getelementptr inbounds i8, ptr %6, i64 8
-  %58 = getelementptr inbounds i8, ptr %6, i64 16
+  %57 = getelementptr inbounds i8, ptr %6, i64 16
+  %58 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %56, ptr %6, align 8
-  store ptr %56, ptr %57, align 8
+  store ptr %56, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %56, i64 8
-  store ptr %59, ptr %58, align 8
+  store ptr %59, ptr %57, align 8
   %60 = icmp eq ptr %25, %26
   br i1 %60, label %._crit_edge, label %.lr.ph
 

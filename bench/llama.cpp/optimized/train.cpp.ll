@@ -5603,22 +5603,22 @@ call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorIcSaIc
   store i8 0, ptr %call5.i.i.i.i.i114, align 1
   %sub.i.i.i23.i.i = add nsw i64 %9, -1
   %cmp.i.i.i.i.i24.i.i = icmp eq i64 %sub.i.i.i23.i.i, 0
-  br i1 %cmp.i.i.i.i.i24.i.i, label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit32.i.i, label %if.then.i.i.i.i.i.i.i25.i.i
+  br i1 %cmp.i.i.i.i.i24.i.i, label %try.cont.i.i, label %if.then.i.i.i.i.i.i.i25.i.i
 
 if.then.i.i.i.i.i.i.i25.i.i:                      ; preds = %call5.i.i.i.i.i.noexc
   %incdec.ptr.i.i.i22.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i114, i64 1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i22.i.i, i8 0, i64 %sub.i.i.i23.i.i, i1 false)
-  br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit32.i.i
+  br label %try.cont.i.i
 
-_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit32.i.i: ; preds = %call5.i.i.i.i.i.noexc, %if.then.i.i.i.i.i.i.i25.i.i
+try.cont.i.i:                                     ; preds = %if.then.i.i.i.i.i.i.i25.i.i, %call5.i.i.i.i.i.noexc
   store ptr %call5.i.i.i.i.i114, ptr %buf, align 8
   %add.ptr36.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i114, i64 %9
   store ptr %add.ptr36.i.i, ptr %_M_finish.i.i111, align 8
   store ptr %add.ptr36.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %invoke.cont5
 
-invoke.cont5:                                     ; preds = %if.end, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit32.i.i
-  %10 = phi ptr [ %call5.i.i.i.i.i114, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit32.i.i ], [ null, %if.end ]
+invoke.cont5:                                     ; preds = %if.end, %try.cont.i.i
+  %10 = phi ptr [ %call5.i.i.i.i.i114, %try.cont.i.i ], [ null, %if.end ]
   invoke void @_ZN10llama_file8read_rawEPvm(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef %10, i64 noundef %9)
           to label %invoke.cont8 unwind label %lpad4
 

@@ -2278,11 +2278,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %43, %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %65, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
   %66 = getelementptr inbounds i8, ptr %53, i64 40
-  %67 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
-  %68 = getelementptr inbounds i8, ptr %53, i64 32
-  store ptr %67, ptr %61, align 8
-  store ptr %67, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %67, i64 24
+  %67 = getelementptr inbounds i8, ptr %53, i64 32
+  %68 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
+  store ptr %68, ptr %61, align 8
+  store ptr %68, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 24
   store ptr %69, ptr %66, align 8
   %70 = getelementptr inbounds i8, ptr %53, i64 48
   call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %70, i64 noundef 6)
@@ -3255,11 +3255,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %34, %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %55, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
   %56 = getelementptr inbounds i8, ptr %44, i64 40
-  %57 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %58 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr %57, ptr %51, align 8
-  store ptr %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %57, i64 8
+  %57 = getelementptr inbounds i8, ptr %44, i64 32
+  %58 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %58, ptr %51, align 8
+  store ptr %58, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 8
   store ptr %59, ptr %56, align 8
   %60 = getelementptr inbounds i8, ptr %44, i64 48
   call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %60, i64 noundef 2)
@@ -3733,11 +3733,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %34, %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %48, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
   %49 = getelementptr inbounds i8, ptr %36, i64 40
-  %50 = call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #23
-  %51 = getelementptr inbounds i8, ptr %36, i64 32
-  store ptr %50, ptr %44, align 8
-  store ptr %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %50, i64 20
+  %50 = getelementptr inbounds i8, ptr %36, i64 32
+  %51 = call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #23
+  store ptr %51, ptr %44, align 8
+  store ptr %51, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 20
   store ptr %52, ptr %49, align 8
   %53 = getelementptr inbounds i8, ptr %36, i64 48
   call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %53, i64 noundef 5)
@@ -4305,11 +4305,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %36, %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %54, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
   %55 = getelementptr inbounds i8, ptr %46, i64 40
-  %56 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %57 = getelementptr inbounds i8, ptr %46, i64 32
-  store ptr %56, ptr %50, align 8
-  store ptr %56, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %56, i64 8
+  %56 = getelementptr inbounds i8, ptr %46, i64 32
+  %57 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %57, ptr %50, align 8
+  store ptr %57, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 8
   store ptr %58, ptr %55, align 8
   %59 = getelementptr inbounds i8, ptr %46, i64 48
   call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %59, i64 noundef 2)
@@ -4574,11 +4574,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %36, %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %57, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
   %58 = getelementptr inbounds i8, ptr %46, i64 40
-  %59 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %60 = getelementptr inbounds i8, ptr %46, i64 32
-  store ptr %59, ptr %53, align 8
-  store ptr %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %59, i64 8
+  %59 = getelementptr inbounds i8, ptr %46, i64 32
+  %60 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %60, ptr %53, align 8
+  store ptr %60, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 8
   store ptr %61, ptr %58, align 8
   %62 = getelementptr inbounds i8, ptr %46, i64 48
   call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %62, i64 noundef 2)
@@ -4945,11 +4945,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %54, %18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %76, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false)
   %77 = getelementptr inbounds i8, ptr %64, i64 40
-  %78 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
-  %79 = getelementptr inbounds i8, ptr %64, i64 32
-  store ptr %78, ptr %72, align 8
-  store ptr %78, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %78, i64 24
+  %78 = getelementptr inbounds i8, ptr %64, i64 32
+  %79 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
+  store ptr %79, ptr %72, align 8
+  store ptr %79, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 24
   store ptr %80, ptr %77, align 8
   %81 = getelementptr inbounds i8, ptr %64, i64 48
   call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %81, i64 noundef 6)
@@ -5533,11 +5533,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %42, %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %64, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   %65 = getelementptr inbounds i8, ptr %52, i64 40
-  %66 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
-  %67 = getelementptr inbounds i8, ptr %52, i64 32
-  store ptr %66, ptr %60, align 8
-  store ptr %66, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %66, i64 24
+  %66 = getelementptr inbounds i8, ptr %52, i64 32
+  %67 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
+  store ptr %67, ptr %60, align 8
+  store ptr %67, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 24
   store ptr %68, ptr %65, align 8
   %69 = getelementptr inbounds i8, ptr %52, i64 48
   call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %69, i64 noundef 6)
@@ -5955,11 +5955,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %13 = getelementptr inbounds i8, ptr %4, i64 40
-  %14 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %15 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %14, ptr %8, align 8
-  store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %15 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %15, ptr %8, align 8
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %16, ptr %13, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %17, i64 noundef 2)
@@ -6207,11 +6207,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %34, %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %55, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
   %56 = getelementptr inbounds i8, ptr %44, i64 40
-  %57 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %58 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr %57, ptr %51, align 8
-  store ptr %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %57, i64 8
+  %57 = getelementptr inbounds i8, ptr %44, i64 32
+  %58 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %58, ptr %51, align 8
+  store ptr %58, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 8
   store ptr %59, ptr %56, align 8
   %60 = getelementptr inbounds i8, ptr %44, i64 48
   call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %60, i64 noundef 2)
@@ -6476,11 +6476,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %36, %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %57, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
   %58 = getelementptr inbounds i8, ptr %46, i64 40
-  %59 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %60 = getelementptr inbounds i8, ptr %46, i64 32
-  store ptr %59, ptr %53, align 8
-  store ptr %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %59, i64 8
+  %59 = getelementptr inbounds i8, ptr %46, i64 32
+  %60 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %60, ptr %53, align 8
+  store ptr %60, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 8
   store ptr %61, ptr %58, align 8
   %62 = getelementptr inbounds i8, ptr %46, i64 48
   call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %62, i64 noundef 2)
@@ -6738,11 +6738,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %37, %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %59, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false)
   %60 = getelementptr inbounds i8, ptr %47, i64 40
-  %61 = call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #23
-  %62 = getelementptr inbounds i8, ptr %47, i64 32
-  store ptr %61, ptr %55, align 8
-  store ptr %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %61, i64 20
+  %61 = getelementptr inbounds i8, ptr %47, i64 32
+  %62 = call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #23
+  store ptr %62, ptr %55, align 8
+  store ptr %62, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 20
   store ptr %63, ptr %60, align 8
   %64 = getelementptr inbounds i8, ptr %47, i64 48
   call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %64, i64 noundef 5)
@@ -7012,11 +7012,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %48, %6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %69, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 0, i64 16, i1 false)
   %70 = getelementptr inbounds i8, ptr %58, i64 40
-  %71 = call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #23
-  %72 = getelementptr inbounds i8, ptr %58, i64 32
-  store ptr %71, ptr %65, align 8
-  store ptr %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %71, i64 20
+  %71 = getelementptr inbounds i8, ptr %58, i64 32
+  %72 = call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #23
+  store ptr %72, ptr %65, align 8
+  store ptr %72, ptr %71, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 20
   store ptr %73, ptr %70, align 8
   %74 = getelementptr inbounds i8, ptr %58, i64 48
   call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %74, i64 noundef 5)
@@ -7272,11 +7272,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %43, %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %64, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   %65 = getelementptr inbounds i8, ptr %53, i64 40
-  %66 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
-  %67 = getelementptr inbounds i8, ptr %53, i64 32
-  store ptr %66, ptr %60, align 8
-  store ptr %66, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %66, i64 16
+  %66 = getelementptr inbounds i8, ptr %53, i64 32
+  %67 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
+  store ptr %67, ptr %60, align 8
+  store ptr %67, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 16
   store ptr %68, ptr %65, align 8
   %69 = getelementptr inbounds i8, ptr %53, i64 48
   call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %69, i64 noundef 4)
@@ -7869,7 +7869,7 @@ define noundef i32 @_ZN3spv7Builder13makeArrayTypeEjji(ptr noundef nonnull align
   %45 = icmp slt i64 %indvars.iv.next, %44
   br i1 %45, label %.lr.ph, label %_ZN3spv11Instruction15reserveOperandsEm.exit, !llvm.loop !37
 
-_ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %36, %4, %.preheader
+_ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %36, %.preheader, %4
   %46 = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   %47 = getelementptr inbounds i8, ptr %0, i64 464
   %48 = load i32, ptr %47, align 8
@@ -7892,11 +7892,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %36, %4, %.preheader
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %57, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
   %58 = getelementptr inbounds i8, ptr %46, i64 40
-  %59 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %60 = getelementptr inbounds i8, ptr %46, i64 32
-  store ptr %59, ptr %53, align 8
-  store ptr %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %59, i64 8
+  %59 = getelementptr inbounds i8, ptr %46, i64 32
+  %60 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %60, ptr %53, align 8
+  store ptr %60, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 8
   store ptr %61, ptr %58, align 8
   %62 = getelementptr inbounds i8, ptr %46, i64 48
   call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %62, i64 noundef 2)
@@ -8935,11 +8935,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %64, %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %85, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, i8 0, i64 16, i1 false)
   %86 = getelementptr inbounds i8, ptr %74, i64 40
-  %87 = call noalias noundef nonnull dereferenceable(28) ptr @_Znwm(i64 noundef 28) #23
-  %88 = getelementptr inbounds i8, ptr %74, i64 32
-  store ptr %87, ptr %81, align 8
-  store ptr %87, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %87, i64 28
+  %87 = getelementptr inbounds i8, ptr %74, i64 32
+  %88 = call noalias noundef nonnull dereferenceable(28) ptr @_Znwm(i64 noundef 28) #23
+  store ptr %88, ptr %81, align 8
+  store ptr %88, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 28
   store ptr %89, ptr %86, align 8
   %90 = getelementptr inbounds i8, ptr %74, i64 48
   call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %90, i64 noundef 7)
@@ -10099,11 +10099,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %17, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %18 = getelementptr inbounds i8, ptr %5, i64 40
-  %19 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %20 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %19, ptr %13, align 8
-  store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %19 = getelementptr inbounds i8, ptr %5, i64 32
+  %20 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %20, ptr %13, align 8
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %21, ptr %18, align 8
   %22 = getelementptr inbounds i8, ptr %5, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %22, i64 noundef 2)
@@ -10460,11 +10460,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %37, %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %59, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false)
   %60 = getelementptr inbounds i8, ptr %47, i64 40
-  %61 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
-  %62 = getelementptr inbounds i8, ptr %47, i64 32
-  store ptr %61, ptr %55, align 8
-  store ptr %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %61, i64 16
+  %61 = getelementptr inbounds i8, ptr %47, i64 32
+  %62 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
+  store ptr %62, ptr %55, align 8
+  store ptr %62, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 16
   store ptr %63, ptr %60, align 8
   %64 = getelementptr inbounds i8, ptr %47, i64 48
   call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %64, i64 noundef 4)
@@ -10908,11 +10908,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %18, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %19 = getelementptr inbounds i8, ptr %6, i64 40
-  %20 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
-  %21 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %20, ptr %14, align 8
-  store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 40
+  %20 = getelementptr inbounds i8, ptr %6, i64 32
+  %21 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
+  store ptr %21, ptr %14, align 8
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 40
   store ptr %22, ptr %19, align 8
   %23 = getelementptr inbounds i8, ptr %6, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %23, i64 noundef 10)
@@ -11168,7 +11168,7 @@ _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit:
   %37 = load i32, ptr %36, align 4
   br label %119
 
-_ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %.lr.ph.i.i.i.i, %31, %10, %15
+_ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %31, %.lr.ph.i.i.i.i, %10, %15
   %38 = getelementptr inbounds i8, ptr %0, i64 464
   %39 = load i32, ptr %38, align 8
   %40 = add i32 %39, 1
@@ -11192,11 +11192,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %.lr.ph.i.i.i.i, %31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %50, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
   %51 = getelementptr inbounds i8, ptr %41, i64 40
-  %52 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
-  %53 = getelementptr inbounds i8, ptr %41, i64 32
-  store ptr %52, ptr %46, align 8
-  store ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %52, i64 12
+  %52 = getelementptr inbounds i8, ptr %41, i64 32
+  %53 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
+  store ptr %53, ptr %46, align 8
+  store ptr %53, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 12
   store ptr %54, ptr %51, align 8
   %55 = getelementptr inbounds i8, ptr %41, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %55, i64 noundef 3)
@@ -11381,11 +11381,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %17, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %18 = getelementptr inbounds i8, ptr %8, i64 40
-  %19 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
-  %20 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr %19, ptr %13, align 8
-  store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 24
+  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %20 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
+  store ptr %20, ptr %13, align 8
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 24
   store ptr %21, ptr %18, align 8
   %22 = getelementptr inbounds i8, ptr %8, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %22, i64 noundef 6)
@@ -11539,11 +11539,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %21, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   %22 = getelementptr inbounds i8, ptr %9, i64 40
-  %23 = tail call noalias noundef nonnull dereferenceable(44) ptr @_Znwm(i64 noundef 44) #23
-  %24 = getelementptr inbounds i8, ptr %9, i64 32
-  store ptr %23, ptr %17, align 8
-  store ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %23, i64 44
+  %23 = getelementptr inbounds i8, ptr %9, i64 32
+  %24 = tail call noalias noundef nonnull dereferenceable(44) ptr @_Znwm(i64 noundef 44) #23
+  store ptr %24, ptr %17, align 8
+  store ptr %24, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 44
   store ptr %25, ptr %22, align 8
   %26 = getelementptr inbounds i8, ptr %9, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %26, i64 noundef 11)
@@ -11705,11 +11705,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %19, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %20 = getelementptr inbounds i8, ptr %7, i64 40
-  %21 = tail call noalias noundef nonnull dereferenceable(36) ptr @_Znwm(i64 noundef 36) #23
-  %22 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr %21, ptr %15, align 8
-  store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %21, i64 36
+  %21 = getelementptr inbounds i8, ptr %7, i64 32
+  %22 = tail call noalias noundef nonnull dereferenceable(36) ptr @_Znwm(i64 noundef 36) #23
+  store ptr %22, ptr %15, align 8
+  store ptr %22, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 36
   store ptr %23, ptr %20, align 8
   %24 = getelementptr inbounds i8, ptr %7, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %24, i64 noundef 9)
@@ -11892,11 +11892,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %17, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %18 = getelementptr inbounds i8, ptr %5, i64 40
-  %19 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %20 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %19, ptr %13, align 8
-  store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %19 = getelementptr inbounds i8, ptr %5, i64 32
+  %20 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %20, ptr %13, align 8
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %21, ptr %18, align 8
   %22 = getelementptr inbounds i8, ptr %5, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %22, i64 noundef 2)
@@ -12014,11 +12014,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %17 = getelementptr inbounds i8, ptr %4, i64 40
-  %18 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #23
-  %19 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %18, ptr %12, align 8
-  store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 20
+  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %19 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #23
+  store ptr %19, ptr %12, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 20
   store ptr %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %4, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %21, i64 noundef 5)
@@ -12123,11 +12123,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %_ZNSt5stackIjSt5deq
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %49, i8 0, i64 12, i1 false), !noalias !54
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false), !noalias !54
   %50 = getelementptr inbounds i8, ptr %41, i64 40
-  %51 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
-  %52 = getelementptr inbounds i8, ptr %41, i64 32
-  store ptr %51, ptr %45, align 8
-  store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %51, i64 12
+  %51 = getelementptr inbounds i8, ptr %41, i64 32
+  %52 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
+  store ptr %52, ptr %45, align 8
+  store ptr %52, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 12
   store ptr %53, ptr %50, align 8
   %54 = getelementptr inbounds i8, ptr %41, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %54, i64 noundef 3)
@@ -12329,11 +12329,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit12:   ; preds = %142
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %154, i8 0, i64 12, i1 false), !noalias !60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %153, i8 0, i64 16, i1 false), !noalias !60
   %155 = getelementptr inbounds i8, ptr %146, i64 40
-  %156 = call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
-  %157 = getelementptr inbounds i8, ptr %146, i64 32
-  store ptr %156, ptr %150, align 8
-  store ptr %156, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %156, i64 12
+  %156 = getelementptr inbounds i8, ptr %146, i64 32
+  %157 = call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
+  store ptr %157, ptr %150, align 8
+  store ptr %157, ptr %156, align 8
+  %158 = getelementptr inbounds i8, ptr %157, i64 12
   store ptr %158, ptr %155, align 8
   %159 = getelementptr inbounds i8, ptr %146, i64 48
   call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %159, i64 noundef 3)
@@ -12465,11 +12465,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit31:   ; preds = %206
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %221, i8 0, i64 12, i1 false), !noalias !63
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %220, i8 0, i64 16, i1 false), !noalias !63
   %222 = getelementptr inbounds i8, ptr %213, i64 40
-  %223 = call noalias noundef nonnull dereferenceable(28) ptr @_Znwm(i64 noundef 28) #23
-  %224 = getelementptr inbounds i8, ptr %213, i64 32
-  store ptr %223, ptr %217, align 8
-  store ptr %223, ptr %224, align 8
-  %225 = getelementptr inbounds i8, ptr %223, i64 28
+  %223 = getelementptr inbounds i8, ptr %213, i64 32
+  %224 = call noalias noundef nonnull dereferenceable(28) ptr @_Znwm(i64 noundef 28) #23
+  store ptr %224, ptr %217, align 8
+  store ptr %224, ptr %223, align 8
+  %225 = getelementptr inbounds i8, ptr %224, i64 28
   store ptr %225, ptr %222, align 8
   %226 = getelementptr inbounds i8, ptr %213, i64 48
   call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %226, i64 noundef 7)
@@ -12718,11 +12718,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %17 = getelementptr inbounds i8, ptr %4, i64 40
-  %18 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #23
-  %19 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %18, ptr %12, align 8
-  store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 20
+  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %19 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #23
+  store ptr %19, ptr %12, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 20
   store ptr %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %4, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %21, i64 noundef 5)
@@ -14627,7 +14627,7 @@ _ZN3spv7Builder18findScalarConstantENS_2OpES1_jjj.exit: ; preds = %41
   %.not = icmp eq i32 %56, 0
   br i1 %.not, label %_ZN3spv11Instruction15reserveOperandsEm.exit, label %141
 
-_ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %4, %_ZN3spv7Builder18findScalarConstantENS_2OpES1_jjj.exit, %_ZN3spv7Builder18findScalarConstantENS_2OpES1_jjj.exit.thread
+_ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %_ZN3spv7Builder18findScalarConstantENS_2OpES1_jjj.exit.thread, %_ZN3spv7Builder18findScalarConstantENS_2OpES1_jjj.exit, %4
   %57 = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   %58 = getelementptr inbounds i8, ptr %0, i64 464
   %59 = load i32, ptr %58, align 8
@@ -14650,11 +14650,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %4, %_ZN3spv7Builder
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %68, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
   %69 = getelementptr inbounds i8, ptr %57, i64 40
-  %70 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %71 = getelementptr inbounds i8, ptr %57, i64 32
-  store ptr %70, ptr %64, align 8
-  store ptr %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %70, i64 8
+  %70 = getelementptr inbounds i8, ptr %57, i64 32
+  %71 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %71, ptr %64, align 8
+  store ptr %71, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 8
   store ptr %72, ptr %69, align 8
   %73 = getelementptr inbounds i8, ptr %57, i64 48
   call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %73, i64 noundef 2)
@@ -15163,7 +15163,7 @@ _ZN3spv7Builder18findScalarConstantENS_2OpES1_jjj.exit: ; preds = %42
   %.not = icmp eq i32 %57, 0
   br i1 %.not, label %_ZN3spv11Instruction15reserveOperandsEm.exit, label %142
 
-_ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %3, %_ZN3spv7Builder18findScalarConstantENS_2OpES1_jjj.exit, %_ZN3spv7Builder18findScalarConstantENS_2OpES1_jjj.exit.thread
+_ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %_ZN3spv7Builder18findScalarConstantENS_2OpES1_jjj.exit.thread, %_ZN3spv7Builder18findScalarConstantENS_2OpES1_jjj.exit, %3
   %58 = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   %59 = getelementptr inbounds i8, ptr %0, i64 464
   %60 = load i32, ptr %59, align 8
@@ -15186,11 +15186,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %3, %_ZN3spv7Builder
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %69, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 0, i64 16, i1 false)
   %70 = getelementptr inbounds i8, ptr %58, i64 40
-  %71 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %72 = getelementptr inbounds i8, ptr %58, i64 32
-  store ptr %71, ptr %65, align 8
-  store ptr %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %71, i64 8
+  %71 = getelementptr inbounds i8, ptr %58, i64 32
+  %72 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %72, ptr %65, align 8
+  store ptr %72, ptr %71, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 8
   store ptr %73, ptr %70, align 8
   %74 = getelementptr inbounds i8, ptr %58, i64 48
   call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %74, i64 noundef 2)
@@ -16564,11 +16564,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %5, i64 40
-  %15 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
-  %16 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %15, ptr %9, align 8
-  store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 12
+  %15 = getelementptr inbounds i8, ptr %5, i64 32
+  %16 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
+  store ptr %16, ptr %9, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 12
   store ptr %17, ptr %14, align 8
   %18 = getelementptr inbounds i8, ptr %5, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %18, i64 noundef 3)
@@ -16673,11 +16673,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %17 = getelementptr inbounds i8, ptr %8, i64 40
-  %18 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr %18, ptr %12, align 8
-  store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 12
+  %18 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
+  store ptr %19, ptr %12, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 12
   store ptr %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %8, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %21, i64 noundef 3)
@@ -16981,11 +16981,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %5, i64 40
-  %15 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
-  %16 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %15, ptr %9, align 8
-  store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 12
+  %15 = getelementptr inbounds i8, ptr %5, i64 32
+  %16 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
+  store ptr %16, ptr %9, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 12
   store ptr %17, ptr %14, align 8
   %18 = getelementptr inbounds i8, ptr %5, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %18, i64 noundef 3)
@@ -17088,11 +17088,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds i8, ptr %7, i64 40
-  %17 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %18 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr %17, ptr %11, align 8
-  store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %17 = getelementptr inbounds i8, ptr %7, i64 32
+  %18 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %18, ptr %11, align 8
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %19, ptr %16, align 8
   %20 = getelementptr inbounds i8, ptr %7, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %20, i64 noundef 2)
@@ -17165,11 +17165,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds i8, ptr %7, i64 40
-  %17 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
-  %18 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr %17, ptr %11, align 8
-  store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 12
+  %17 = getelementptr inbounds i8, ptr %7, i64 32
+  %18 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
+  store ptr %18, ptr %11, align 8
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 12
   store ptr %19, ptr %16, align 8
   %20 = getelementptr inbounds i8, ptr %7, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %20, i64 noundef 3)
@@ -17626,11 +17626,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %5, i64 40
-  %15 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
-  %16 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %15, ptr %9, align 8
-  store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 16
+  %15 = getelementptr inbounds i8, ptr %5, i64 32
+  %16 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
+  store ptr %16, ptr %9, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 16
   store ptr %17, ptr %14, align 8
   %18 = getelementptr inbounds i8, ptr %5, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %18, i64 noundef 4)
@@ -17734,11 +17734,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds i8, ptr %7, i64 40
-  %17 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
-  %18 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr %17, ptr %11, align 8
-  store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 12
+  %17 = getelementptr inbounds i8, ptr %7, i64 32
+  %18 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
+  store ptr %18, ptr %11, align 8
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 12
   store ptr %19, ptr %16, align 8
   %20 = getelementptr inbounds i8, ptr %7, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %20, i64 noundef 3)
@@ -17910,11 +17910,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %17 = getelementptr inbounds i8, ptr %8, i64 40
-  %18 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr %18, ptr %12, align 8
-  store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 12
+  %18 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
+  store ptr %19, ptr %12, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 12
   store ptr %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %8, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %21, i64 noundef 3)
@@ -17988,11 +17988,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %17 = getelementptr inbounds i8, ptr %8, i64 40
-  %18 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr %18, ptr %12, align 8
-  store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 16
+  %18 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
+  store ptr %19, ptr %12, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 16
   store ptr %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %8, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %21, i64 noundef 4)
@@ -18605,10 +18605,10 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit.i:        ; preds = %76
   %90 = getelementptr inbounds i8, ptr %81, i64 88
   store i64 0, ptr %90, align 8
   %91 = getelementptr inbounds i8, ptr %81, i64 40
-  %92 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %93 = getelementptr inbounds i8, ptr %81, i64 32
-  store ptr %92, ptr %85, align 8
-  %94 = getelementptr inbounds i8, ptr %92, i64 8
+  %92 = getelementptr inbounds i8, ptr %81, i64 32
+  %93 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %93, ptr %85, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 8
   store ptr %94, ptr %91, align 8
   %95 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
   store ptr %95, ptr %89, align 8
@@ -18617,14 +18617,14 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit.i:        ; preds = %76
   store ptr %95, ptr %86, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 8
   store ptr %96, ptr %88, align 8
-  store i32 %75, ptr %92, align 4
-  %97 = getelementptr inbounds i8, ptr %92, i64 4
-  store ptr %97, ptr %93, align 8
+  store i32 %75, ptr %93, align 4
+  %97 = getelementptr inbounds i8, ptr %93, i64 4
+  store ptr %97, ptr %92, align 8
   store i32 1, ptr %87, align 8
   store i64 -1, ptr %95, align 8
   store i32 %79, ptr %97, align 4
-  %98 = getelementptr inbounds i8, ptr %92, i64 8
-  store ptr %98, ptr %93, align 8
+  %98 = getelementptr inbounds i8, ptr %93, i64 8
+  store ptr %98, ptr %92, align 8
   %99 = load ptr, ptr %86, align 8
   %100 = load ptr, ptr %88, align 8
   %.not.i1.i = icmp eq ptr %99, %100
@@ -19711,11 +19711,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %18, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %19 = getelementptr inbounds i8, ptr %9, i64 40
-  %20 = tail call noalias noundef nonnull dereferenceable(44) ptr @_Znwm(i64 noundef 44) #23
-  %21 = getelementptr inbounds i8, ptr %9, i64 32
-  store ptr %20, ptr %14, align 8
-  store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 44
+  %20 = getelementptr inbounds i8, ptr %9, i64 32
+  %21 = tail call noalias noundef nonnull dereferenceable(44) ptr @_Znwm(i64 noundef 44) #23
+  store ptr %21, ptr %14, align 8
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 44
   store ptr %22, ptr %19, align 8
   %23 = getelementptr inbounds i8, ptr %9, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %23, i64 noundef 11)
@@ -19854,11 +19854,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds i8, ptr %6, i64 40
-  %17 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
-  %18 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %17, ptr %11, align 8
-  store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 24
+  %17 = getelementptr inbounds i8, ptr %6, i64 32
+  %18 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
+  store ptr %18, ptr %11, align 8
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 24
   store ptr %19, ptr %16, align 8
   %20 = getelementptr inbounds i8, ptr %6, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %20, i64 noundef 6)
@@ -20255,7 +20255,7 @@ define void @_ZN3spv7Builder13enterFunctionEPKNS_8FunctionE(ptr noundef nonnull 
   call void @_ZNSt5dequeIjSaIjEE16_M_push_back_auxIJRKjEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %32, ptr noundef nonnull align 4 dereferenceable(4) %21)
   br label %_ZN3spv11Instruction15reserveOperandsEm.exit
 
-_ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %31, %27
+_ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %27, %31
   %33 = getelementptr inbounds i8, ptr %0, i64 464
   %34 = load i32, ptr %33, align 8
   %35 = add i32 %34, 1
@@ -20279,11 +20279,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %31, %27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %45, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   %46 = getelementptr inbounds i8, ptr %36, i64 40
-  %47 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
-  %48 = getelementptr inbounds i8, ptr %36, i64 32
-  store ptr %47, ptr %41, align 8
-  store ptr %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %47, i64 16
+  %47 = getelementptr inbounds i8, ptr %36, i64 32
+  %48 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
+  store ptr %48, ptr %41, align 8
+  store ptr %48, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 16
   store ptr %49, ptr %46, align 8
   %50 = getelementptr inbounds i8, ptr %36, i64 48
   call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %50, i64 noundef 4)
@@ -21028,11 +21028,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds i8, ptr %7, i64 40
-  %17 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %18 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr %17, ptr %11, align 8
-  store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %17 = getelementptr inbounds i8, ptr %7, i64 32
+  %18 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %18, ptr %11, align 8
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %19, ptr %16, align 8
   %20 = getelementptr inbounds i8, ptr %7, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %20, i64 noundef 2)
@@ -21379,11 +21379,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %17 = getelementptr inbounds i8, ptr %5, i64 40
-  %18 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %19 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %18, ptr %12, align 8
-  store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %18 = getelementptr inbounds i8, ptr %5, i64 32
+  %19 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %19, ptr %12, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %5, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %21, i64 noundef 2)
@@ -21974,11 +21974,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %31, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   %32 = getelementptr inbounds i8, ptr %20, i64 40
-  %33 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %34 = getelementptr inbounds i8, ptr %20, i64 32
-  store ptr %33, ptr %27, align 8
-  store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %33, i64 8
+  %33 = getelementptr inbounds i8, ptr %20, i64 32
+  %34 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %34, ptr %27, align 8
+  store ptr %34, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 8
   store ptr %35, ptr %32, align 8
   %36 = getelementptr inbounds i8, ptr %20, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %36, i64 noundef 2)
@@ -22159,11 +22159,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %17, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %18 = getelementptr inbounds i8, ptr %6, i64 40
-  %19 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
-  %20 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %19, ptr %13, align 8
-  store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 12
+  %19 = getelementptr inbounds i8, ptr %6, i64 32
+  %20 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
+  store ptr %20, ptr %13, align 8
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 12
   store ptr %21, ptr %18, align 8
   %22 = getelementptr inbounds i8, ptr %6, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %22, i64 noundef 3)
@@ -22318,11 +22318,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %17 = getelementptr inbounds i8, ptr %5, i64 40
-  %18 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %19 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %18, ptr %12, align 8
-  store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %18 = getelementptr inbounds i8, ptr %5, i64 32
+  %19 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %19, ptr %12, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %5, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %21, i64 noundef 2)
@@ -22372,11 +22372,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %17, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %18 = getelementptr inbounds i8, ptr %6, i64 40
-  %19 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
-  %20 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %19, ptr %13, align 8
-  store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 12
+  %19 = getelementptr inbounds i8, ptr %6, i64 32
+  %20 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
+  store ptr %20, ptr %13, align 8
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 12
   store ptr %21, ptr %18, align 8
   %22 = getelementptr inbounds i8, ptr %6, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %22, i64 noundef 3)
@@ -22594,11 +22594,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %5, i64 40
-  %15 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
-  %16 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %15, ptr %9, align 8
-  store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 12
+  %15 = getelementptr inbounds i8, ptr %5, i64 32
+  %16 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
+  store ptr %16, ptr %9, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 12
   store ptr %17, ptr %14, align 8
   %18 = getelementptr inbounds i8, ptr %5, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %18, i64 noundef 3)
@@ -22650,11 +22650,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %13 = getelementptr inbounds i8, ptr %4, i64 40
-  %14 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %15 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %14, ptr %8, align 8
-  store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %15 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %15, ptr %8, align 8
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %16, ptr %13, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %17, i64 noundef 2)
@@ -22798,11 +22798,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %29, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   %30 = getelementptr inbounds i8, ptr %18, i64 40
-  %31 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %32 = getelementptr inbounds i8, ptr %18, i64 32
-  store ptr %31, ptr %25, align 8
-  store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %31, i64 8
+  %31 = getelementptr inbounds i8, ptr %18, i64 32
+  %32 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %32, ptr %25, align 8
+  store ptr %32, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 8
   store ptr %33, ptr %30, align 8
   %34 = getelementptr inbounds i8, ptr %18, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %34, i64 noundef 2)
@@ -22881,11 +22881,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %31, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   %32 = getelementptr inbounds i8, ptr %20, i64 40
-  %33 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
-  %34 = getelementptr inbounds i8, ptr %20, i64 32
-  store ptr %33, ptr %27, align 8
-  store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %33, i64 12
+  %33 = getelementptr inbounds i8, ptr %20, i64 32
+  %34 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
+  store ptr %34, ptr %27, align 8
+  store ptr %34, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 12
   store ptr %35, ptr %32, align 8
   %36 = getelementptr inbounds i8, ptr %20, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %36, i64 noundef 3)
@@ -23470,7 +23470,7 @@ _ZNK3spv7Builder16getNumComponentsEj.exit.thread: ; preds = %_ZNK3spv7Builder9ge
   %59 = tail call noundef i32 @_ZN3spv7Builder21createCompositeInsertEjjjj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %3, i32 noundef %2, i32 noundef %1, i32 noundef %58)
   br label %172
 
-_ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %5, %_ZNK3spv7Builder16getNumComponentsEj.exit
+_ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %_ZNK3spv7Builder16getNumComponentsEj.exit, %5
   %60 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   %61 = getelementptr inbounds i8, ptr %0, i64 464
   %62 = load i32, ptr %61, align 8
@@ -23493,11 +23493,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %5, %_ZNK3spv7Builde
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %71, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
   %72 = getelementptr inbounds i8, ptr %60, i64 40
-  %73 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %74 = getelementptr inbounds i8, ptr %60, i64 32
-  store ptr %73, ptr %67, align 8
-  store ptr %73, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %73, i64 8
+  %73 = getelementptr inbounds i8, ptr %60, i64 32
+  %74 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %74, ptr %67, align 8
+  store ptr %74, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 8
   store ptr %75, ptr %72, align 8
   %76 = getelementptr inbounds i8, ptr %60, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %76, i64 noundef 2)
@@ -28484,10 +28484,10 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit.i:        ; preds = %_ZNSt6vectorIjSaIjE
   %455 = getelementptr inbounds i8, ptr %446, i64 88
   store i64 0, ptr %455, align 8
   %456 = getelementptr inbounds i8, ptr %446, i64 40
-  %457 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %458 = getelementptr inbounds i8, ptr %446, i64 32
-  store ptr %457, ptr %450, align 8
-  %459 = getelementptr inbounds i8, ptr %457, i64 8
+  %457 = getelementptr inbounds i8, ptr %446, i64 32
+  %458 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %458, ptr %450, align 8
+  %459 = getelementptr inbounds i8, ptr %458, i64 8
   store ptr %459, ptr %456, align 8
   %460 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
   store ptr %460, ptr %454, align 8
@@ -28496,14 +28496,14 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit.i:        ; preds = %_ZNSt6vectorIjSaIjE
   store ptr %460, ptr %451, align 8
   %461 = getelementptr inbounds i8, ptr %460, i64 8
   store ptr %461, ptr %453, align 8
-  store i32 %443, ptr %457, align 4
-  %462 = getelementptr inbounds i8, ptr %457, i64 4
-  store ptr %462, ptr %458, align 8
+  store i32 %443, ptr %458, align 4
+  %462 = getelementptr inbounds i8, ptr %458, i64 4
+  store ptr %462, ptr %457, align 8
   store i32 1, ptr %452, align 8
   store i64 -1, ptr %460, align 8
   store i32 %1, ptr %462, align 4
-  %463 = getelementptr inbounds i8, ptr %457, i64 8
-  store ptr %463, ptr %458, align 8
+  %463 = getelementptr inbounds i8, ptr %458, i64 8
+  store ptr %463, ptr %457, align 8
   %464 = load ptr, ptr %451, align 8
   %465 = load ptr, ptr %453, align 8
   %.not.i1.i = icmp eq ptr %464, %465
@@ -29632,11 +29632,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %13 = getelementptr inbounds i8, ptr %4, i64 40
-  %14 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %15 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %14, ptr %8, align 8
-  store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %15 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %15, ptr %8, align 8
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %16, ptr %13, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %17, i64 noundef 2)
@@ -29686,11 +29686,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %5, i64 40
-  %15 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
-  %16 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %15, ptr %9, align 8
-  store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 12
+  %15 = getelementptr inbounds i8, ptr %5, i64 32
+  %16 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
+  store ptr %16, ptr %9, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 12
   store ptr %17, ptr %14, align 8
   %18 = getelementptr inbounds i8, ptr %5, i64 48
   tail call void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %18, i64 noundef 3)
@@ -34848,11 +34848,11 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %4
   %18 = getelementptr inbounds i8, ptr %5, i64 88
   store i64 0, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %5, i64 40
-  %20 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
-  %21 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %20, ptr %14, align 8
-  store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 12
+  %20 = getelementptr inbounds i8, ptr %5, i64 32
+  %21 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
+  store ptr %21, ptr %14, align 8
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 12
   store ptr %22, ptr %19, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 48
   %24 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23

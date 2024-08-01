@@ -2093,9 +2093,9 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_9RiffChunkE.exit.thread: ; preds = %3, %_ZN2
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %27
   %31 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #25
-          to label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i unwind label %46
+          to label %.noexc unwind label %46
 
-_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i
+.noexc:                                           ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i
   %32 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %31, ptr %0, align 8
   store ptr %31, ptr %32, align 8
@@ -2103,7 +2103,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %_ZNSt12_Vector
   store ptr %33, ptr %30, align 8
   br label %_ZNSt6vectorIcSaIcEE7reserveEm.exit
 
-_ZNSt6vectorIcSaIcEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %27
+_ZNSt6vectorIcSaIcEE7reserveEm.exit:              ; preds = %.noexc, %27
   invoke void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %29)
           to label %34 unwind label %46
 

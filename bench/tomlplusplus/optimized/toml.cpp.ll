@@ -17019,22 +17019,22 @@ call5.i.i.i.i.i.noexc.i:                          ; preds = %_ZNKSt6vectorIcSaIc
   store i8 0, ptr %call5.i.i.i.i.i7.i, align 1, !noalias !197
   %sub.i.i.i23.i.i.i = add nsw i64 %10, -1
   %cmp.i.i.i.i.i24.i.i.i = icmp eq i64 %sub.i.i.i23.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i24.i.i.i, label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit33.i.i.i, label %if.then.i.i.i.i.i.i.i25.i.i.i
+  br i1 %cmp.i.i.i.i.i24.i.i.i, label %try.cont.i.i.i, label %if.then.i.i.i.i.i.i.i25.i.i.i
 
 if.then.i.i.i.i.i.i.i25.i.i.i:                    ; preds = %call5.i.i.i.i.i.noexc.i
   %incdec.ptr.i.i.i22.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i7.i, i64 1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i22.i.i.i, i8 0, i64 %sub.i.i.i23.i.i.i, i1 false), !noalias !197
-  br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit33.i.i.i
+  br label %try.cont.i.i.i
 
-_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit33.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i25.i.i.i, %call5.i.i.i.i.i.noexc.i
+try.cont.i.i.i:                                   ; preds = %if.then.i.i.i.i.i.i.i25.i.i.i, %call5.i.i.i.i.i.noexc.i
   store ptr %call5.i.i.i.i.i7.i, ptr %file_data.i, align 8, !noalias !197
   %add.ptr36.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i7.i, i64 %10
   store ptr %add.ptr36.i.i.i, ptr %_M_finish.i.i.i, align 8, !noalias !197
   store ptr %add.ptr36.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !noalias !197
   br label %invoke.cont48.i
 
-invoke.cont48.i:                                  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit33.i.i.i, %if.then44.i
-  %13 = phi ptr [ %call5.i.i.i.i.i7.i, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit33.i.i.i ], [ null, %if.then44.i ]
+invoke.cont48.i:                                  ; preds = %try.cont.i.i.i, %if.then44.i
+  %13 = phi ptr [ %call5.i.i.i.i.i7.i, %try.cont.i.i.i ], [ null, %if.then44.i ]
   %call53.i = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %file.i, ptr noundef %13, i64 noundef %10)
           to label %invoke.cont52.i unwind label %lpad45.i, !noalias !197
 

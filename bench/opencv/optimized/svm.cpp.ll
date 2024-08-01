@@ -7817,7 +7817,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i269: ; preds = %.noexc275
   call void @llvm.memset.p0.i64(ptr align 4 %272, i8 0, i64 %273, i1 false)
   br label %.lr.ph.preheader.i189
 
-.lr.ph.preheader.i189:                            ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i269, %.noexc275
+.lr.ph.preheader.i189:                            ; preds = %.noexc275, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i269
   store ptr %270, ptr %25, align 8
   %274 = getelementptr inbounds i32, ptr %270, i64 %263
   store ptr %274, ptr %264, align 8

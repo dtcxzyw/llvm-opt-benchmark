@@ -10874,13 +10874,7 @@ invoke.cont.i.i.i.i:                              ; preds = %for.body
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i.i.i
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, %5
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt6vectorI19boneIndexWeightPairSaIS1_EEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %invoke.cont.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4294967296 null, ptr align 4 %5, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i.i, i1 false)
-  br label %_ZNSt16allocator_traitsISaISt6vectorI19boneIndexWeightPairSaIS1_EEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i
-
-_ZNSt16allocator_traitsISaISt6vectorI19boneIndexWeightPairSaIS1_EEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i
+  call void @llvm.assume(i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i)
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i, align 8
   %7 = load ptr, ptr %_M_finish.i, align 8
@@ -10896,8 +10890,8 @@ if.else.i.invoke.cont_crit_edge:                  ; preds = %if.else.i
   %.pre476 = load ptr, ptr %vertexPair, align 8
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %if.else.i.invoke.cont_crit_edge, %_ZNSt16allocator_traitsISaISt6vectorI19boneIndexWeightPairSaIS1_EEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i
-  %8 = phi ptr [ %.pre476, %if.else.i.invoke.cont_crit_edge ], [ %5, %_ZNSt16allocator_traitsISaISt6vectorI19boneIndexWeightPairSaIS1_EEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i ]
+invoke.cont:                                      ; preds = %if.else.i.invoke.cont_crit_edge, %invoke.cont.i.i.i.i
+  %8 = phi ptr [ %.pre476, %if.else.i.invoke.cont_crit_edge ], [ %5, %invoke.cont.i.i.i.i ]
   %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorI19boneIndexWeightPairSaIS0_EED2Ev.exit, label %if.then.i.i.i
 

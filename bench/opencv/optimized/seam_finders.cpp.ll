@@ -13959,14 +13959,14 @@ define void @_ZN2cv6detail18GraphCutSeamFinder4Impl10findInPairEmmNS_5Rect_IiEE(
 _ZNSt12_Vector_baseIN2cv6detail7GCGraphIfE3VtxESaIS4_EE11_M_allocateEm.exit.i.i: ; preds = %._crit_edge213
   %321 = shl nuw nsw i64 %319, 5
   %322 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %321) #25
-          to label %_ZNSt12_Vector_baseIN2cv6detail7GCGraphIfE3VtxESaIS4_EE13_M_deallocateEPS4_m.exit.i.i unwind label %_ZNSt6vectorIN2cv6detail7GCGraphIfE4EdgeESaIS4_EED2Ev.exit.i.thread
+          to label %.noexc unwind label %_ZNSt6vectorIN2cv6detail7GCGraphIfE4EdgeESaIS4_EED2Ev.exit.i.thread
 
 _ZNSt6vectorIN2cv6detail7GCGraphIfE4EdgeESaIS4_EED2Ev.exit.i.thread: ; preds = %_ZNSt12_Vector_baseIN2cv6detail7GCGraphIfE3VtxESaIS4_EE11_M_allocateEm.exit.i.i
   %323 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZNSt12_Vector_baseIN2cv6detail7GCGraphIfE3VtxESaIS4_EE13_M_deallocateEPS4_m.exit.i.i: ; preds = %_ZNSt12_Vector_baseIN2cv6detail7GCGraphIfE3VtxESaIS4_EE11_M_allocateEm.exit.i.i
+.noexc:                                           ; preds = %_ZNSt12_Vector_baseIN2cv6detail7GCGraphIfE3VtxESaIS4_EE11_M_allocateEm.exit.i.i
   %324 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %322, ptr %24, align 8
   store ptr %322, ptr %324, align 8
@@ -13974,8 +13974,8 @@ _ZNSt12_Vector_baseIN2cv6detail7GCGraphIfE3VtxESaIS4_EE13_M_deallocateEPS4_m.exi
   store ptr %325, ptr %320, align 8
   br label %_ZNSt6vectorIN2cv6detail7GCGraphIfE3VtxESaIS4_EE7reserveEm.exit.i
 
-_ZNSt6vectorIN2cv6detail7GCGraphIfE3VtxESaIS4_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_baseIN2cv6detail7GCGraphIfE3VtxESaIS4_EE13_M_deallocateEPS4_m.exit.i.i, %._crit_edge213
-  %326 = phi ptr [ %322, %_ZNSt12_Vector_baseIN2cv6detail7GCGraphIfE3VtxESaIS4_EE13_M_deallocateEPS4_m.exit.i.i ], [ null, %._crit_edge213 ]
+_ZNSt6vectorIN2cv6detail7GCGraphIfE3VtxESaIS4_EE7reserveEm.exit.i: ; preds = %.noexc, %._crit_edge213
+  %326 = phi ptr [ %322, %.noexc ], [ null, %._crit_edge213 ]
   %327 = getelementptr inbounds i8, ptr %24, i64 24
   %328 = add i32 %318, 2
   %329 = add i32 %328, %316

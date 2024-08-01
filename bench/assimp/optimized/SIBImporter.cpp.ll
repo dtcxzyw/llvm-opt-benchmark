@@ -6482,8 +6482,8 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i: ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %str, i64 8
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %str, i64 16
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %str, i64 8
   store ptr %call5.i.i.i.i12, ptr %str, align 8
   store ptr %call5.i.i.i.i12, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds i8, ptr %call5.i.i.i.i12, i64 %conv

@@ -198,16 +198,16 @@ if.end.i.i:                                       ; preds = %_ZN11struct_pack6de
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i: ; preds = %if.end.i.i
   %call5.i.i.i.i.i40 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i) #18
-          to label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i unwind label %lpad.i
+          to label %call5.i.i.i.i.i.noexc unwind label %lpad.i
 
-_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i: ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i
+call5.i.i.i.i.i.noexc:                            ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i
   store ptr %call5.i.i.i.i.i40, ptr %buffer, align 8
   %add.ptr21.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i40, i64 %add.i
   store ptr %add.ptr21.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   br label %.noexc34
 
-.noexc34:                                         ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i, %if.end.i.i
-  %13 = phi ptr [ null, %if.end.i.i ], [ %call5.i.i.i.i.i40, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i ]
+.noexc34:                                         ; preds = %call5.i.i.i.i.i.noexc, %if.end.i.i
+  %13 = phi ptr [ null, %if.end.i.i ], [ %call5.i.i.i.i.i40, %call5.i.i.i.i.i.noexc ]
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %13, i64 %add.i
   store ptr %add.ptr.i3.i, ptr %_M_finish.i35, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %13, i64 4

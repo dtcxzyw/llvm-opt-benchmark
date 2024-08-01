@@ -4154,8 +4154,8 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %for.end79
           to label %invoke.cont82 unwind label %lpad81.loopexit.split-lp
 
 invoke.cont82:                                    ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
-  %_M_finish.i.i101 = getelementptr inbounds i8, ptr %poResult, i64 8
   %_M_end_of_storage.i.i96 = getelementptr inbounds i8, ptr %poResult, i64 16
+  %_M_finish.i.i101 = getelementptr inbounds i8, ptr %poResult, i64 8
   store ptr %call5.i.i.i.i104, ptr %poResult, align 8
   store ptr %call5.i.i.i.i104, ptr %_M_finish.i.i101, align 8
   %add.ptr21.i = getelementptr inbounds i8, ptr %call5.i.i.i.i104, i64 80

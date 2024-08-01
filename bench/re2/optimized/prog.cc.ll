@@ -2903,9 +2903,9 @@ _ZN3re210SparseSetTIvEC2Ei.exit:                  ; preds = %if.end4.i.i.i
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %_ZN3re210SparseSetTIvEC2Ei.exit
   %call5.i.i.i.i24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #24
-          to label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i unwind label %lpad
+          to label %call5.i.i.i.i.noexc unwind label %lpad
 
-_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
+call5.i.i.i.i.noexc:                              ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
   %_M_finish.i.i = getelementptr inbounds i8, ptr %stk, i64 8
   store ptr %call5.i.i.i.i24, ptr %stk, align 8
   store ptr %call5.i.i.i.i24, ptr %_M_finish.i.i, align 8
@@ -2913,8 +2913,8 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   br label %if.end4.i.i.i27
 
-if.end4.i.i.i27:                                  ; preds = %_ZN3re210SparseSetTIvEC2Ei.exit, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i
-  %5 = phi ptr [ %call5.i.i.i.i24, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i ], [ null, %_ZN3re210SparseSetTIvEC2Ei.exit ]
+if.end4.i.i.i27:                                  ; preds = %_ZN3re210SparseSetTIvEC2Ei.exit, %call5.i.i.i.i.noexc
+  %5 = phi ptr [ %call5.i.i.i.i24, %call5.i.i.i.i.noexc ], [ null, %_ZN3re210SparseSetTIvEC2Ei.exit ]
   store i32 0, ptr %rootmap, align 8
   %call5.i3.i.i3137 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #24
           to label %call5.i3.i.i31.noexc unwind label %lpad

@@ -1058,9 +1058,9 @@ for.end:                                          ; preds = %for.inc
 _ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i: ; preds = %for.end
   %mul.i.i.i.i = shl nuw nsw i64 %conv22, 3
   %call5.i.i.i.i60 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #21
-          to label %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE13_M_deallocateEPS1_m.exit.i unwind label %lpad23.loopexit.split-lp
+          to label %call5.i.i.i.i.noexc unwind label %lpad23.loopexit.split-lp
 
-_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i
+call5.i.i.i.i.noexc:                              ; preds = %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i
   %_M_finish.i.i59 = getelementptr inbounds i8, ptr %MeshArray, i64 8
   store ptr %call5.i.i.i.i60, ptr %MeshArray, align 8
   store ptr %call5.i.i.i.i60, ptr %_M_finish.i.i59, align 8
@@ -1068,7 +1068,7 @@ _ZNSt12_Vector_baseIP6aiMeshSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %_ZN
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit
 
-_ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit:     ; preds = %for.end, %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE13_M_deallocateEPS1_m.exit.i
+_ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit:     ; preds = %for.end, %call5.i.i.i.i.noexc
   %10 = load ptr, ptr %_M_finish.i.i, align 8
   %11 = load ptr, ptr %mObjects, align 8
   %cmp28115.not = icmp eq ptr %10, %11

@@ -22437,7 +22437,7 @@ if.end.i.i.i.i.i25.i:                             ; preds = %call5.i.i.i.i.noexc
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i23.i, i8 0, i64 %34, i1 false)
   br label %for.body.i.i.i.i.preheader.i.i
 
-for.body.i.i.i.i.preheader.i.i:                   ; preds = %call5.i.i.i.i.noexc, %if.end.i.i.i.i.i25.i
+for.body.i.i.i.i.preheader.i.i:                   ; preds = %if.end.i.i.i.i.i25.i, %call5.i.i.i.i.noexc
   store ptr %call5.i.i.i.i549, ptr %squash_states.i, align 8
   %add.ptr37.i = getelementptr inbounds i64, ptr %call5.i.i.i.i549, i64 %add.i.i.i.i
   store ptr %add.ptr37.i, ptr %_M_finish.i.i, align 8

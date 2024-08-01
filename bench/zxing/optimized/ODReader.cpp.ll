@@ -1219,12 +1219,12 @@ _ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i: ; preds = %_ZNSt12_Vector_bas
           to label %_ZNSt6vectorItSaItEE7reserveEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZNSt6vectorItSaItEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i
-  %49 = getelementptr inbounds i8, ptr %13, i64 8
-  %50 = getelementptr inbounds i8, ptr %13, i64 16
+  %49 = getelementptr inbounds i8, ptr %13, i64 16
+  %50 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %48, ptr %13, align 8
-  store ptr %48, ptr %49, align 8
+  store ptr %48, ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %48, i64 256
-  store ptr %51, ptr %50, align 8
+  store ptr %51, ptr %49, align 8
   %52 = icmp sgt i32 %47, 0
   br i1 %52, label %.lr.ph393, label %.loopexit368
 

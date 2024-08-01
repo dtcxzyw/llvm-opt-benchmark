@@ -23,13 +23,13 @@ define noundef ptr @Cnf_ManStart() local_unnamed_addr #0 {
   %calloc = tail call dereferenceable_or_null(112) ptr @calloc(i64 1, i64 112)
   %1 = getelementptr inbounds i8, ptr %calloc, i64 8
   %2 = getelementptr inbounds i8, ptr %calloc, i64 16
-  tail call void @Cnf_ReadMsops(ptr noundef nonnull %1, ptr noundef nonnull %2) #14
-  %3 = tail call ptr (...) @Aig_MmFlexStart() #14
+  tail call void @Cnf_ReadMsops(ptr noundef nonnull %1, ptr noundef nonnull %2) #15
+  %3 = tail call ptr (...) @Aig_MmFlexStart() #15
   %4 = getelementptr inbounds i8, ptr %calloc, i64 32
   store ptr %3, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %calloc, i64 40
   store i32 10, ptr %5, align 8
-  %6 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #15
+  %6 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #16
   %7 = getelementptr inbounds i8, ptr %calloc, i64 48
   store ptr %6, ptr %7, align 8
   br label %8
@@ -45,11 +45,11 @@ define noundef ptr @Cnf_ManStart() local_unnamed_addr #0 {
   br i1 %exitcond.not, label %12, label %8, !llvm.loop !4
 
 12:                                               ; preds = %8
-  %13 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
+  %13 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
   %14 = getelementptr inbounds i8, ptr %13, i64 4
   store i32 0, ptr %14, align 4
   store i32 262144, ptr %13, align 8
-  %15 = tail call noalias dereferenceable_or_null(1048576) ptr @malloc(i64 noundef 1048576) #15
+  %15 = tail call noalias dereferenceable_or_null(1048576) ptr @malloc(i64 noundef 1048576) #16
   %16 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %calloc, i64 80
@@ -74,32 +74,32 @@ define void @Cnf_ManStop(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %Vec_IntFree.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %5) #14
+  tail call void @free(ptr noundef nonnull %5) #15
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %1, %6
-  tail call void @free(ptr noundef nonnull %3) #14
+  tail call void @free(ptr noundef nonnull %3) #15
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %Vec_IntFree.exit
-  tail call void @free(ptr noundef nonnull %8) #14
+  tail call void @free(ptr noundef nonnull %8) #15
   store ptr null, ptr %7, align 8
   br label %10
 
 10:                                               ; preds = %Vec_IntFree.exit, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
-  tail call void @Aig_MmFlexStop(ptr noundef %12, i32 noundef 0) #14
+  tail call void @Aig_MmFlexStop(ptr noundef %12, i32 noundef 0) #15
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not20 = icmp eq ptr %14, null
   br i1 %.not20, label %16, label %15
 
 15:                                               ; preds = %10
-  tail call void @free(ptr noundef nonnull %14) #14
+  tail call void @free(ptr noundef nonnull %14) #15
   store ptr null, ptr %13, align 8
   br label %16
 
@@ -112,7 +112,7 @@ Vec_IntFree.exit:                                 ; preds = %1, %6
   br i1 %.not21, label %.thread, label %21
 
 21:                                               ; preds = %16
-  tail call void @free(ptr noundef nonnull %20) #14
+  tail call void @free(ptr noundef nonnull %20) #15
   %22 = load ptr, ptr %17, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr null, ptr %23, align 8
@@ -122,11 +122,11 @@ Vec_IntFree.exit:                                 ; preds = %1, %6
 
 .thread:                                          ; preds = %16, %21
   %24 = phi ptr [ %.pr, %21 ], [ %18, %16 ]
-  tail call void @free(ptr noundef nonnull %24) #14
+  tail call void @free(ptr noundef nonnull %24) #15
   br label %25
 
 25:                                               ; preds = %21, %.thread
-  tail call void @free(ptr noundef nonnull %0) #14
+  tail call void @free(ptr noundef nonnull %0) #15
   ret void
 }
 
@@ -139,7 +139,7 @@ declare void @Aig_MmFlexStop(ptr noundef, i32 noundef) local_unnamed_addr #2
 define noalias noundef ptr @Cnf_DataCollectPiSatNums(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 136
   %.val = load i32, ptr %3, align 8
-  %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
+  %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
   %5 = add i32 %.val, -1
   %or.cond.i = icmp ult i32 %5, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %.val
@@ -152,7 +152,7 @@ define noalias noundef ptr @Cnf_DataCollectPiSatNums(ptr nocapture noundef reado
 7:                                                ; preds = %2
   %8 = sext i32 %spec.store.select.i to i64
   %9 = shl nsw i64 %8, 2
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #15
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #16
   br label %Vec_IntAlloc.exit
 
 Vec_IntAlloc.exit:                                ; preds = %2, %7
@@ -202,11 +202,11 @@ Vec_IntAlloc.exit:                                ; preds = %2, %7
   br i1 %.not9.i.i, label %38, label %36
 
 36:                                               ; preds = %34
-  %37 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %35, i64 noundef 64) #16
+  %37 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %35, i64 noundef 64) #17
   br label %Vec_IntGrow.exit.i
 
 38:                                               ; preds = %34
-  %39 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #15
+  %39 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #16
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %38, %36
@@ -224,11 +224,11 @@ Vec_IntGrow.exit.i:                               ; preds = %38, %36
   br i1 %.not9.i9.i, label %48, label %46
 
 46:                                               ; preds = %41
-  %47 = tail call ptr @realloc(ptr noundef nonnull %43, i64 noundef %45) #16
+  %47 = tail call ptr @realloc(ptr noundef nonnull %43, i64 noundef %45) #17
   br label %50
 
 48:                                               ; preds = %41
-  %49 = tail call noalias ptr @malloc(i64 noundef %45) #15
+  %49 = tail call noalias ptr @malloc(i64 noundef %45) #16
   br label %50
 
 50:                                               ; preds = %48, %46
@@ -258,7 +258,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @Cnf_DataAlloc(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
-  %5 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #17
+  %5 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #18
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %1, ptr %6, align 8
@@ -269,12 +269,12 @@ define noalias noundef ptr @Cnf_DataAlloc(ptr noundef %0, i32 noundef %1, i32 no
   %9 = add nsw i32 %2, 1
   %10 = sext i32 %9 to i64
   %11 = shl nsw i64 %10, 3
-  %12 = tail call noalias ptr @malloc(i64 noundef %11) #15
+  %12 = tail call noalias ptr @malloc(i64 noundef %11) #16
   %13 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %12, ptr %13, align 8
   %14 = sext i32 %3 to i64
   %15 = shl nsw i64 %14, 2
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #15
+  %16 = tail call noalias ptr @malloc(i64 noundef %15) #16
   store ptr %16, ptr %12, align 8
   %17 = getelementptr inbounds i32, ptr %16, i64 %14
   %18 = sext i32 %2 to i64
@@ -295,7 +295,7 @@ define noalias noundef ptr @Cnf_DataDup(ptr nocapture noundef readonly %0) local
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
-  %9 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #17
+  %9 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #18
   store ptr %2, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %4, ptr %10, align 8
@@ -306,12 +306,12 @@ define noalias noundef ptr @Cnf_DataDup(ptr nocapture noundef readonly %0) local
   %13 = add nsw i32 %6, 1
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 3
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #15
+  %16 = tail call noalias ptr @malloc(i64 noundef %15) #16
   %17 = getelementptr inbounds i8, ptr %9, i64 24
   store ptr %16, ptr %17, align 8
   %18 = sext i32 %8 to i64
   %19 = shl nsw i64 %18, 2
-  %20 = tail call noalias ptr @malloc(i64 noundef %19) #15
+  %20 = tail call noalias ptr @malloc(i64 noundef %19) #16
   store ptr %20, ptr %16, align 8
   %21 = getelementptr inbounds i32, ptr %20, i64 %18
   %22 = sext i32 %6 to i64
@@ -325,7 +325,7 @@ define noalias noundef ptr @Cnf_DataDup(ptr nocapture noundef readonly %0) local
   %28 = getelementptr inbounds i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %36, label %30
+  br i1 %.not, label %35, label %30
 
 30:                                               ; preds = %1
   %31 = load ptr, ptr %0, align 8
@@ -333,38 +333,37 @@ define noalias noundef ptr @Cnf_DataDup(ptr nocapture noundef readonly %0) local
   %.val = load ptr, ptr %32, align 8
   %33 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %33, align 4
-  %34 = sext i32 %.val.val to i64
-  %35 = shl nsw i64 %34, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4294967296 null, ptr nonnull align 4 %29, i64 %35, i1 false)
-  br label %36
+  %34 = icmp eq i32 %.val.val, 0
+  tail call void @llvm.assume(i1 %34)
+  br label %35
 
-36:                                               ; preds = %30, %1
-  %37 = load i32, ptr %5, align 8
-  %38 = icmp sgt i32 %37, 1
-  br i1 %38, label %.lr.ph, label %._crit_edge
+35:                                               ; preds = %30, %1
+  %36 = load i32, ptr %5, align 8
+  %37 = icmp sgt i32 %36, 1
+  br i1 %37, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %36
-  %39 = load ptr, ptr %16, align 8
-  %40 = load ptr, ptr %25, align 8
-  %wide.trip.count = zext nneg i32 %37 to i64
-  br label %41
+.lr.ph:                                           ; preds = %35
+  %38 = load ptr, ptr %16, align 8
+  %39 = load ptr, ptr %25, align 8
+  %wide.trip.count = zext nneg i32 %36 to i64
+  br label %40
 
-41:                                               ; preds = %.lr.ph, %41
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %40, align 8
+40:                                               ; preds = %.lr.ph, %40
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %40 ]
+  %41 = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv
+  %42 = load ptr, ptr %41, align 8
+  %43 = load ptr, ptr %39, align 8
+  %44 = ptrtoint ptr %42 to i64
   %45 = ptrtoint ptr %43 to i64
-  %46 = ptrtoint ptr %44 to i64
-  %47 = sub i64 %45, %46
-  %48 = getelementptr inbounds i8, ptr %39, i64 %47
-  %49 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
-  store ptr %48, ptr %49, align 8
+  %46 = sub i64 %44, %45
+  %47 = getelementptr inbounds i8, ptr %38, i64 %46
+  %48 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+  store ptr %47, ptr %48, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %41, %36
+._crit_edge:                                      ; preds = %40, %35
   ret ptr %9
 }
 
@@ -382,7 +381,7 @@ define noalias noundef ptr @Cnf_DataDupCof(ptr nocapture noundef readonly %0, i3
   %9 = getelementptr inbounds i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = add nsw i32 %10, 1
-  %12 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #17
+  %12 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #18
   store ptr %3, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   store i32 %5, ptr %13, align 8
@@ -393,12 +392,12 @@ define noalias noundef ptr @Cnf_DataDupCof(ptr nocapture noundef readonly %0, i3
   %16 = add nsw i32 %7, 2
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 3
-  %19 = tail call noalias ptr @malloc(i64 noundef %18) #15
+  %19 = tail call noalias ptr @malloc(i64 noundef %18) #16
   %20 = getelementptr inbounds i8, ptr %12, i64 24
   store ptr %19, ptr %20, align 8
   %21 = sext i32 %11 to i64
   %22 = shl nsw i64 %21, 2
-  %23 = tail call noalias ptr @malloc(i64 noundef %22) #15
+  %23 = tail call noalias ptr @malloc(i64 noundef %22) #16
   store ptr %23, ptr %19, align 8
   %24 = getelementptr inbounds i32, ptr %23, i64 %21
   %25 = sext i32 %8 to i64
@@ -460,7 +459,7 @@ define noalias noundef ptr @Cnf_DataDupCofArray(ptr nocapture noundef readonly %
   %10 = getelementptr inbounds i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = add nsw i32 %11, %.val38
-  %13 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #17
+  %13 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #18
   store ptr %3, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store i32 %5, ptr %14, align 8
@@ -471,12 +470,12 @@ define noalias noundef ptr @Cnf_DataDupCofArray(ptr nocapture noundef readonly %
   %17 = add nsw i32 %9, 1
   %18 = sext i32 %17 to i64
   %19 = shl nsw i64 %18, 3
-  %20 = tail call noalias ptr @malloc(i64 noundef %19) #15
+  %20 = tail call noalias ptr @malloc(i64 noundef %19) #16
   %21 = getelementptr inbounds i8, ptr %13, i64 24
   store ptr %20, ptr %21, align 8
   %22 = sext i32 %12 to i64
   %23 = shl nsw i64 %22, 2
-  %24 = tail call noalias ptr @malloc(i64 noundef %23) #15
+  %24 = tail call noalias ptr @malloc(i64 noundef %23) #16
   store ptr %24, ptr %20, align 8
   %25 = getelementptr inbounds i32, ptr %24, i64 %22
   %26 = sext i32 %9 to i64
@@ -568,7 +567,7 @@ define void @Cnf_DataFree(ptr noundef %0) local_unnamed_addr #8 {
   br i1 %.not.i, label %.thread.i, label %10
 
 10:                                               ; preds = %7
-  tail call void @free(ptr noundef nonnull %9) #14
+  tail call void @free(ptr noundef nonnull %9) #15
   %11 = load ptr, ptr %4, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr null, ptr %12, align 8
@@ -578,7 +577,7 @@ define void @Cnf_DataFree(ptr noundef %0) local_unnamed_addr #8 {
 
 .thread.i:                                        ; preds = %10, %7
   %13 = phi ptr [ %.pre.i, %10 ], [ %5, %7 ]
-  tail call void @free(ptr noundef nonnull %13) #14
+  tail call void @free(ptr noundef nonnull %13) #15
   store ptr null, ptr %4, align 8
   br label %Vec_IntFreeP.exit
 
@@ -589,7 +588,7 @@ Vec_IntFreeP.exit:                                ; preds = %3, %10, %.thread.i
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %Vec_IntFreeP.exit
-  tail call void @free(ptr noundef nonnull %15) #14
+  tail call void @free(ptr noundef nonnull %15) #15
   store ptr null, ptr %14, align 8
   br label %17
 
@@ -600,7 +599,7 @@ Vec_IntFreeP.exit:                                ; preds = %3, %10, %.thread.i
   br i1 %.not28, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @free(ptr noundef nonnull %19) #14
+  tail call void @free(ptr noundef nonnull %19) #15
   store ptr null, ptr %18, align 8
   br label %21
 
@@ -611,7 +610,7 @@ Vec_IntFreeP.exit:                                ; preds = %3, %10, %.thread.i
   br i1 %.not29, label %25, label %24
 
 24:                                               ; preds = %21
-  tail call void @free(ptr noundef nonnull %23) #14
+  tail call void @free(ptr noundef nonnull %23) #15
   store ptr null, ptr %22, align 8
   br label %25
 
@@ -623,7 +622,7 @@ Vec_IntFreeP.exit:                                ; preds = %3, %10, %.thread.i
   br i1 %.not30, label %.thread, label %29
 
 29:                                               ; preds = %25
-  tail call void @free(ptr noundef nonnull %28) #14
+  tail call void @free(ptr noundef nonnull %28) #15
   %30 = load ptr, ptr %26, align 8
   store ptr null, ptr %30, align 8
   %.pr = load ptr, ptr %26, align 8
@@ -632,7 +631,7 @@ Vec_IntFreeP.exit:                                ; preds = %3, %10, %.thread.i
 
 .thread:                                          ; preds = %25, %29
   %31 = phi ptr [ %.pr, %29 ], [ %27, %25 ]
-  tail call void @free(ptr noundef nonnull %31) #14
+  tail call void @free(ptr noundef nonnull %31) #15
   store ptr null, ptr %26, align 8
   br label %32
 
@@ -643,11 +642,11 @@ Vec_IntFreeP.exit:                                ; preds = %3, %10, %.thread.i
   br i1 %.not32, label %36, label %35
 
 35:                                               ; preds = %32
-  tail call void @free(ptr noundef nonnull %34) #14
+  tail call void @free(ptr noundef nonnull %34) #15
   br label %36
 
 36:                                               ; preds = %35, %32
-  tail call void @free(ptr noundef nonnull %0) #14
+  tail call void @free(ptr noundef nonnull %0) #15
   br label %37
 
 37:                                               ; preds = %36, %1
@@ -784,11 +783,11 @@ define void @Cnf_DataCollectFlipLits(ptr nocapture noundef readonly %0, i32 noun
   br i1 %.not9.i.i, label %27, label %25
 
 25:                                               ; preds = %23
-  %26 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %24, i64 noundef 64) #16
+  %26 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %24, i64 noundef 64) #17
   br label %Vec_IntGrow.exit.i
 
 27:                                               ; preds = %23
-  %28 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #15
+  %28 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #16
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %27, %25
@@ -806,11 +805,11 @@ Vec_IntGrow.exit.i:                               ; preds = %27, %25
   br i1 %.not9.i9.i, label %37, label %35
 
 35:                                               ; preds = %30
-  %36 = tail call ptr @realloc(ptr noundef nonnull %32, i64 noundef %34) #16
+  %36 = tail call ptr @realloc(ptr noundef nonnull %32, i64 noundef %34) #17
   br label %39
 
 37:                                               ; preds = %30
-  %38 = tail call noalias ptr @malloc(i64 noundef %34) #15
+  %38 = tail call noalias ptr @malloc(i64 noundef %34) #16
   br label %39
 
 39:                                               ; preds = %37, %35
@@ -885,7 +884,7 @@ define void @Cnf_DataPrint(ptr nocapture noundef readonly %0, i32 noundef %1) lo
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef %5, i32 noundef %7) #14
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef %5, i32 noundef %7) #15
   %9 = load i32, ptr %6, align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph25, label %._crit_edge26
@@ -921,7 +920,7 @@ define void @Cnf_DataPrint(ptr nocapture noundef readonly %0, i32 noundef %1) lo
   %23 = select i1 %.not.us.us, ptr @.str.3, ptr @.str.2
   %24 = ashr i32 %21, 1
   %25 = add nsw i32 %24, 1
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.1, ptr noundef nonnull %23, i32 noundef %25) #14
+  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.1, ptr noundef nonnull %23, i32 noundef %25) #15
   %27 = getelementptr inbounds i8, ptr %.01922.us.us, i64 4
   %28 = icmp ult ptr %27, %16
   br i1 %28, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !16
@@ -944,7 +943,7 @@ define void @Cnf_DataPrint(ptr nocapture noundef readonly %0, i32 noundef %1) lo
   %.not = icmp eq i32 %36, 0
   %37 = select i1 %.not, ptr @.str.3, ptr @.str.2
   %38 = ashr i32 %35, 1
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.1, ptr noundef nonnull %37, i32 noundef %38) #14
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.1, ptr noundef nonnull %37, i32 noundef %38) #15
   %40 = getelementptr inbounds i8, ptr %.01922, i64 4
   %41 = icmp ult ptr %40, %33
   br i1 %41, label %.lr.ph, label %._crit_edge.split, !llvm.loop !16
@@ -966,7 +965,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 
 ; Function Attrs: nounwind uwtable
 define void @Cnf_DataWriteIntoFileGz(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4) local_unnamed_addr #0 {
-  %6 = tail call ptr @gzopen(ptr noundef %1, ptr noundef nonnull @.str.5) #14
+  %6 = tail call ptr @gzopen(ptr noundef %1, ptr noundef nonnull @.str.5) #15
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9
 
@@ -975,17 +974,17 @@ define void @Cnf_DataWriteIntoFileGz(ptr nocapture noundef readonly %0, ptr noun
   br label %88
 
 9:                                                ; preds = %5
-  %10 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7) #14
+  %10 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7) #15
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8
-  %15 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str, i32 noundef %12, i32 noundef %14) #14
+  %15 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str, i32 noundef %12, i32 noundef %14) #15
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %30, label %16
 
 16:                                               ; preds = %9
-  %17 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.8) #14
+  %17 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.8) #15
   %18 = getelementptr i8, ptr %3, i64 4
   %.val5660 = load i32, ptr %18, align 4
   %19 = icmp sgt i32 %.val5660, 0
@@ -1003,7 +1002,7 @@ define void @Cnf_DataWriteIntoFileGz(ptr nocapture noundef readonly %0, ptr noun
   %23 = getelementptr inbounds i32, ptr %.val58, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %25 = add nsw i32 %24, %21
-  %26 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, i32 noundef %25) #14
+  %26 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, i32 noundef %25) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val56 = load i32, ptr %18, align 4
   %27 = sext i32 %.val56 to i64
@@ -1011,7 +1010,7 @@ define void @Cnf_DataWriteIntoFileGz(ptr nocapture noundef readonly %0, ptr noun
   br i1 %28, label %22, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %22, %16
-  %29 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.10) #14
+  %29 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.10) #15
   br label %30
 
 30:                                               ; preds = %.critedge, %9
@@ -1019,7 +1018,7 @@ define void @Cnf_DataWriteIntoFileGz(ptr nocapture noundef readonly %0, ptr noun
   br i1 %.not52, label %45, label %31
 
 31:                                               ; preds = %30
-  %32 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.11) #14
+  %32 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.11) #15
   %33 = getelementptr i8, ptr %4, i64 4
   %.val62 = load i32, ptr %33, align 4
   %34 = icmp sgt i32 %.val62, 0
@@ -1037,7 +1036,7 @@ define void @Cnf_DataWriteIntoFileGz(ptr nocapture noundef readonly %0, ptr noun
   %38 = getelementptr inbounds i32, ptr %.val57, i64 %indvars.iv73
   %39 = load i32, ptr %38, align 4
   %40 = add nsw i32 %39, %36
-  %41 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, i32 noundef %40) #14
+  %41 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, i32 noundef %40) #15
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %.val = load i32, ptr %33, align 4
   %42 = sext i32 %.val to i64
@@ -1045,7 +1044,7 @@ define void @Cnf_DataWriteIntoFileGz(ptr nocapture noundef readonly %0, ptr noun
   br i1 %43, label %37, label %.critedge2, !llvm.loop !18
 
 .critedge2:                                       ; preds = %37, %31
-  %44 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.10) #14
+  %44 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.10) #15
   br label %45
 
 45:                                               ; preds = %.critedge2, %30
@@ -1070,7 +1069,7 @@ define void @Cnf_DataWriteIntoFileGz(ptr nocapture noundef readonly %0, ptr noun
   br i1 %54, label %.lr.ph66.us, label %._crit_edge.split.us.us
 
 ._crit_edge.split.us.us:                          ; preds = %.lr.ph66.us, %.lr.ph69.split.us
-  %55 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.10) #14
+  %55 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.10) #15
   %56 = load i32, ptr %13, align 8
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next80, %57
@@ -1085,7 +1084,7 @@ define void @Cnf_DataWriteIntoFileGz(ptr nocapture noundef readonly %0, ptr noun
   %62 = xor i32 %61, -1
   %63 = add nsw i32 %61, 1
   %64 = select i1 %.not.i59.us.us, i32 %63, i32 %62
-  %65 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, i32 noundef %64) #14
+  %65 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, i32 noundef %64) #15
   %66 = getelementptr inbounds i8, ptr %.04865.us.us, i64 4
   %67 = icmp ult ptr %66, %53
   br i1 %67, label %.lr.ph66.us, label %._crit_edge.split.us.us, !llvm.loop !20
@@ -1109,21 +1108,21 @@ define void @Cnf_DataWriteIntoFileGz(ptr nocapture noundef readonly %0, ptr noun
   %76 = ashr i32 %74, 1
   %77 = sub nsw i32 0, %76
   %78 = select i1 %.not.i, i32 %76, i32 %77
-  %79 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, i32 noundef %78) #14
+  %79 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, i32 noundef %78) #15
   %80 = getelementptr inbounds i8, ptr %.04865, i64 4
   %81 = icmp ult ptr %80, %72
   br i1 %81, label %.lr.ph66, label %._crit_edge.split, !llvm.loop !20
 
 ._crit_edge.split:                                ; preds = %.lr.ph66, %.lr.ph69.split
-  %82 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.10) #14
+  %82 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.10) #15
   %83 = load i32, ptr %13, align 8
   %84 = sext i32 %83 to i64
   %85 = icmp slt i64 %indvars.iv.next77, %84
   br i1 %85, label %.lr.ph69.split, label %._crit_edge70, !llvm.loop !19
 
 ._crit_edge70:                                    ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %45
-  %86 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.4) #14
-  %87 = tail call i32 @gzclose(ptr noundef nonnull %6) #14
+  %86 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.4) #15
+  %87 = tail call i32 @gzclose(ptr noundef nonnull %6) #15
   br label %88
 
 88:                                               ; preds = %._crit_edge70, %8
@@ -1138,7 +1137,7 @@ declare i32 @gzclose(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @Cnf_DataWriteIntoFileInvGz(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5) local_unnamed_addr #0 {
-  %7 = tail call ptr @gzopen(ptr noundef %1, ptr noundef nonnull @.str.5) #14
+  %7 = tail call ptr @gzopen(ptr noundef %1, ptr noundef nonnull @.str.5) #15
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
@@ -1147,17 +1146,17 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr nocapture noundef readonly %0, ptr n
   br label %104
 
 10:                                               ; preds = %6
-  %11 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.7) #14
+  %11 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.7) #15
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 8
-  %16 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str, i32 noundef %13, i32 noundef %15) #14
+  %16 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str, i32 noundef %13, i32 noundef %15) #15
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %31, label %17
 
 17:                                               ; preds = %10
-  %18 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.11) #14
+  %18 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.11) #15
   %19 = getelementptr i8, ptr %3, i64 4
   %.val7479 = load i32, ptr %19, align 4
   %20 = icmp sgt i32 %.val7479, 0
@@ -1175,7 +1174,7 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr nocapture noundef readonly %0, ptr n
   %24 = getelementptr inbounds i32, ptr %.val77, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   %26 = add nsw i32 %25, %22
-  %27 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.9, i32 noundef %26) #14
+  %27 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.9, i32 noundef %26) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val74 = load i32, ptr %19, align 4
   %28 = sext i32 %.val74 to i64
@@ -1183,7 +1182,7 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr nocapture noundef readonly %0, ptr n
   br i1 %29, label %23, label %.critedge, !llvm.loop !21
 
 .critedge:                                        ; preds = %23, %17
-  %30 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.10) #14
+  %30 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.10) #15
   br label %31
 
 31:                                               ; preds = %.critedge, %10
@@ -1191,7 +1190,7 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr nocapture noundef readonly %0, ptr n
   br i1 %.not67, label %46, label %32
 
 32:                                               ; preds = %31
-  %33 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.8) #14
+  %33 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.8) #15
   %34 = getelementptr i8, ptr %4, i64 4
   %.val7381 = load i32, ptr %34, align 4
   %35 = icmp sgt i32 %.val7381, 0
@@ -1209,7 +1208,7 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr nocapture noundef readonly %0, ptr n
   %39 = getelementptr inbounds i32, ptr %.val76, i64 %indvars.iv95
   %40 = load i32, ptr %39, align 4
   %41 = add nsw i32 %40, %37
-  %42 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.9, i32 noundef %41) #14
+  %42 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.9, i32 noundef %41) #15
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %.val73 = load i32, ptr %34, align 4
   %43 = sext i32 %.val73 to i64
@@ -1217,7 +1216,7 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr nocapture noundef readonly %0, ptr n
   br i1 %44, label %38, label %.critedge2, !llvm.loop !22
 
 .critedge2:                                       ; preds = %38, %32
-  %45 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.10) #14
+  %45 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.10) #15
   br label %46
 
 46:                                               ; preds = %.critedge2, %31
@@ -1225,7 +1224,7 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr nocapture noundef readonly %0, ptr n
   br i1 %.not68, label %61, label %47
 
 47:                                               ; preds = %46
-  %48 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.11) #14
+  %48 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.11) #15
   %49 = getelementptr i8, ptr %5, i64 4
   %.val84 = load i32, ptr %49, align 4
   %50 = icmp sgt i32 %.val84, 0
@@ -1243,7 +1242,7 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr nocapture noundef readonly %0, ptr n
   %54 = getelementptr inbounds i32, ptr %.val75, i64 %indvars.iv98
   %55 = load i32, ptr %54, align 4
   %56 = add nsw i32 %55, %52
-  %57 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.9, i32 noundef %56) #14
+  %57 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.9, i32 noundef %56) #15
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %.val = load i32, ptr %49, align 4
   %58 = sext i32 %.val to i64
@@ -1251,7 +1250,7 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr nocapture noundef readonly %0, ptr n
   br i1 %59, label %53, label %.critedge4, !llvm.loop !23
 
 .critedge4:                                       ; preds = %53, %47
-  %60 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.10) #14
+  %60 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.10) #15
   br label %61
 
 61:                                               ; preds = %.critedge4, %46
@@ -1276,7 +1275,7 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr nocapture noundef readonly %0, ptr n
   br i1 %70, label %.lr.ph88.us, label %._crit_edge.split.us.us
 
 ._crit_edge.split.us.us:                          ; preds = %.lr.ph88.us, %.lr.ph91.split.us
-  %71 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.10) #14
+  %71 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.10) #15
   %72 = load i32, ptr %14, align 8
   %73 = sext i32 %72 to i64
   %74 = icmp slt i64 %indvars.iv.next105, %73
@@ -1291,7 +1290,7 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr nocapture noundef readonly %0, ptr n
   %78 = xor i32 %77, -1
   %79 = add nsw i32 %77, 1
   %80 = select i1 %.not.i78.us.us, i32 %79, i32 %78
-  %81 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.9, i32 noundef %80) #14
+  %81 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.9, i32 noundef %80) #15
   %82 = getelementptr inbounds i8, ptr %.06287.us.us, i64 4
   %83 = icmp ult ptr %82, %69
   br i1 %83, label %.lr.ph88.us, label %._crit_edge.split.us.us, !llvm.loop !25
@@ -1315,21 +1314,21 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr nocapture noundef readonly %0, ptr n
   %92 = ashr i32 %90, 1
   %93 = sub nsw i32 0, %92
   %94 = select i1 %.not.i, i32 %92, i32 %93
-  %95 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.9, i32 noundef %94) #14
+  %95 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.9, i32 noundef %94) #15
   %96 = getelementptr inbounds i8, ptr %.06287, i64 4
   %97 = icmp ult ptr %96, %88
   br i1 %97, label %.lr.ph88, label %._crit_edge.split, !llvm.loop !25
 
 ._crit_edge.split:                                ; preds = %.lr.ph88, %.lr.ph91.split
-  %98 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.10) #14
+  %98 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.10) #15
   %99 = load i32, ptr %14, align 8
   %100 = sext i32 %99 to i64
   %101 = icmp slt i64 %indvars.iv.next102, %100
   br i1 %101, label %.lr.ph91.split, label %._crit_edge92, !llvm.loop !24
 
 ._crit_edge92:                                    ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %61
-  %102 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.4) #14
-  %103 = tail call i32 @gzclose(ptr noundef nonnull %7) #14
+  %102 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.4) #15
+  %103 = tail call i32 @gzclose(ptr noundef nonnull %7) #15
   br label %104
 
 104:                                              ; preds = %._crit_edge92, %9
@@ -1339,7 +1338,7 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr nocapture noundef readonly %0, ptr n
 ; Function Attrs: nounwind uwtable
 define void @Cnf_DataWriteIntoFile(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
 sub_0:
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -3
   %8 = load i8, ptr %7, align 1
@@ -1377,7 +1376,7 @@ sub_1:                                            ; preds = %sub_0
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   %23 = load i32, ptr %22, align 8
-  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %15, ptr noundef nonnull @.str, i32 noundef %21, i32 noundef %23) #14
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %15, ptr noundef nonnull @.str, i32 noundef %21, i32 noundef %23) #15
   %.not59 = icmp eq ptr %3, null
   br i1 %.not59, label %39, label %25
 
@@ -1400,7 +1399,7 @@ sub_1:                                            ; preds = %sub_0
   %32 = getelementptr inbounds i32, ptr %.val66, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
   %34 = add nsw i32 %33, %30
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %15, ptr noundef nonnull @.str.9, i32 noundef %34) #14
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %15, ptr noundef nonnull @.str.9, i32 noundef %34) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val64 = load i32, ptr %27, align 4
   %36 = sext i32 %.val64 to i64
@@ -1434,7 +1433,7 @@ sub_1:                                            ; preds = %sub_0
   %47 = getelementptr inbounds i32, ptr %.val65, i64 %indvars.iv83
   %48 = load i32, ptr %47, align 4
   %49 = add nsw i32 %48, %45
-  %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %15, ptr noundef nonnull @.str.9, i32 noundef %49) #14
+  %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %15, ptr noundef nonnull @.str.9, i32 noundef %49) #15
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %.val = load i32, ptr %42, align 4
   %51 = sext i32 %.val to i64
@@ -1482,7 +1481,7 @@ sub_1:                                            ; preds = %sub_0
   %71 = xor i32 %70, -1
   %72 = add nsw i32 %70, 1
   %73 = select i1 %.not.i67.us.us, i32 %72, i32 %71
-  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %15, ptr noundef nonnull @.str.9, i32 noundef %73) #14
+  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %15, ptr noundef nonnull @.str.9, i32 noundef %73) #15
   %75 = getelementptr inbounds i8, ptr %.05573.us.us, i64 4
   %76 = icmp ult ptr %75, %62
   br i1 %76, label %.lr.ph74.us, label %._crit_edge.split.us.us, !llvm.loop !29
@@ -1506,7 +1505,7 @@ sub_1:                                            ; preds = %sub_0
   %85 = ashr i32 %83, 1
   %86 = sub nsw i32 0, %85
   %87 = select i1 %.not.i, i32 %85, i32 %86
-  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %15, ptr noundef nonnull @.str.9, i32 noundef %87) #14
+  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %15, ptr noundef nonnull @.str.9, i32 noundef %87) #15
   %89 = getelementptr inbounds i8, ptr %.05573, i64 4
   %90 = icmp ult ptr %89, %81
   br i1 %90, label %.lr.ph74, label %._crit_edge.split, !llvm.loop !29
@@ -1539,7 +1538,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #10
 ; Function Attrs: nounwind uwtable
 define void @Cnf_DataWriteIntoFileInv(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
 sub_0:
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %7 = getelementptr inbounds i8, ptr %1, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 -3
   %9 = load i8, ptr %8, align 1
@@ -1577,7 +1576,7 @@ sub_1:                                            ; preds = %sub_0
   %22 = load i32, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 16
   %24 = load i32, ptr %23, align 8
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str, i32 noundef %22, i32 noundef %24) #14
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str, i32 noundef %22, i32 noundef %24) #15
   %.not75 = icmp eq ptr %3, null
   br i1 %.not75, label %40, label %26
 
@@ -1600,7 +1599,7 @@ sub_1:                                            ; preds = %sub_0
   %33 = getelementptr inbounds i32, ptr %.val86, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4
   %35 = add nsw i32 %34, %31
-  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.9, i32 noundef %35) #14
+  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.9, i32 noundef %35) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val83 = load i32, ptr %28, align 4
   %37 = sext i32 %.val83 to i64
@@ -1634,7 +1633,7 @@ sub_1:                                            ; preds = %sub_0
   %48 = getelementptr inbounds i32, ptr %.val85, i64 %indvars.iv106
   %49 = load i32, ptr %48, align 4
   %50 = add nsw i32 %49, %46
-  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.9, i32 noundef %50) #14
+  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.9, i32 noundef %50) #15
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %.val82 = load i32, ptr %43, align 4
   %52 = sext i32 %.val82 to i64
@@ -1668,7 +1667,7 @@ sub_1:                                            ; preds = %sub_0
   %63 = getelementptr inbounds i32, ptr %.val84, i64 %indvars.iv109
   %64 = load i32, ptr %63, align 4
   %65 = add nsw i32 %64, %61
-  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.9, i32 noundef %65) #14
+  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.9, i32 noundef %65) #15
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %.val = load i32, ptr %58, align 4
   %67 = sext i32 %.val to i64
@@ -1716,7 +1715,7 @@ sub_1:                                            ; preds = %sub_0
   %87 = xor i32 %86, -1
   %88 = add nsw i32 %86, 1
   %89 = select i1 %.not.i87.us.us, i32 %88, i32 %87
-  %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.9, i32 noundef %89) #14
+  %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.9, i32 noundef %89) #15
   %91 = getelementptr inbounds i8, ptr %.07096.us.us, i64 4
   %92 = icmp ult ptr %91, %78
   br i1 %92, label %.lr.ph97.us, label %._crit_edge.split.us.us, !llvm.loop !34
@@ -1740,7 +1739,7 @@ sub_1:                                            ; preds = %sub_0
   %101 = ashr i32 %99, 1
   %102 = sub nsw i32 0, %101
   %103 = select i1 %.not.i, i32 %101, i32 %102
-  %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.9, i32 noundef %103) #14
+  %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.9, i32 noundef %103) #15
   %105 = getelementptr inbounds i8, ptr %.07096, i64 4
   %106 = icmp ult ptr %105, %97
   br i1 %106, label %.lr.ph97, label %._crit_edge.split, !llvm.loop !34
@@ -1768,7 +1767,7 @@ define noundef ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %0, ptr nocapture nou
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = mul nsw i32 %8, %2
-  tail call void @sat_solver_setnvars(ptr noundef %0, i32 noundef %9) #14
+  tail call void @sat_solver_setnvars(ptr noundef %0, i32 noundef %9) #15
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   %11 = getelementptr inbounds i8, ptr %1, i64 24
   br label %12
@@ -1787,12 +1786,12 @@ define noundef ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %0, ptr nocapture nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.next
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef %19, ptr noundef %21) #14
+  %22 = tail call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef %19, ptr noundef %21) #15
   %.not86 = icmp eq i32 %22, 0
   br i1 %.not86, label %23, label %12, !llvm.loop !35
 
 23:                                               ; preds = %16
-  tail call void @sat_solver_delete(ptr noundef %0) #14
+  tail call void @sat_solver_delete(ptr noundef %0) #15
   br label %156
 
 24:                                               ; preds = %12
@@ -1880,24 +1879,24 @@ define noundef ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %0, ptr nocapture nou
   %81 = shl nsw i32 %80, 1
   %82 = add i32 %41, %81
   store i32 %82, ptr %32, align 4
-  %83 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %33) #14
+  %83 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %33) #15
   %.not84 = icmp eq i32 %83, 0
   br i1 %.not84, label %84, label %85
 
 84:                                               ; preds = %49
-  call void @sat_solver_delete(ptr noundef %0) #14
+  call void @sat_solver_delete(ptr noundef %0) #15
   br label %156
 
 85:                                               ; preds = %49
   %86 = load <2 x i32>, ptr %5, align 8
   %87 = add nsw <2 x i32> %86, <i32 1, i32 -1>
   store <2 x i32> %87, ptr %5, align 8
-  %88 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %33) #14
+  %88 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %33) #15
   %.not85 = icmp eq i32 %88, 0
   br i1 %.not85, label %89, label %42
 
 89:                                               ; preds = %85
-  call void @sat_solver_delete(ptr noundef %0) #14
+  call void @sat_solver_delete(ptr noundef %0) #15
   br label %156
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
@@ -1929,12 +1928,12 @@ define noundef ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %0, ptr nocapture nou
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %103 = getelementptr inbounds ptr, ptr %100, i64 %indvars.iv.next120
   %104 = load ptr, ptr %103, align 8
-  %105 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef %102, ptr noundef %104) #14
+  %105 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef %102, ptr noundef %104) #15
   %.not83 = icmp eq i32 %105, 0
   br i1 %.not83, label %106, label %.preheader, !llvm.loop !38
 
 106:                                              ; preds = %99
-  call void @sat_solver_delete(ptr noundef %0) #14
+  call void @sat_solver_delete(ptr noundef %0) #15
   br label %156
 
 107:                                              ; preds = %.preheader
@@ -2011,21 +2010,21 @@ define noundef ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %0, ptr nocapture nou
   %149 = shl nsw i32 %148, 1
   %150 = or disjoint i32 %149, 1
   store i32 %150, ptr %6, align 4
-  %151 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %129) #14
+  %151 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %129) #15
   %.not82 = icmp eq i32 %151, 0
   br i1 %.not82, label %152, label %131
 
 152:                                              ; preds = %138
-  call void @sat_solver_delete(ptr noundef %0) #14
+  call void @sat_solver_delete(ptr noundef %0) #15
   br label %156
 
 .critedge2:                                       ; preds = %131, %119, %.loopexit
-  %153 = call i32 @sat_solver_simplify(ptr noundef %0) #14
+  %153 = call i32 @sat_solver_simplify(ptr noundef %0) #15
   %154 = icmp eq i32 %153, 0
   br i1 %154, label %155, label %156
 
 155:                                              ; preds = %.critedge2
-  call void @sat_solver_delete(ptr noundef %0) #14
+  call void @sat_solver_delete(ptr noundef %0) #15
   br label %156
 
 156:                                              ; preds = %.critedge2, %155, %152, %106, %89, %84, %23
@@ -2043,7 +2042,7 @@ declare i32 @sat_solver_simplify(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Cnf_DataWriteIntoSolver(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @sat_solver_new() #14
+  %4 = tail call ptr @sat_solver_new() #15
   %5 = tail call ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef %2)
   ret ptr %5
 }
@@ -2054,11 +2053,11 @@ declare ptr @sat_solver_new() local_unnamed_addr #2
 define noundef ptr @Cnf_DataWriteIntoSolver2(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [2 x i32], align 8
   %5 = alloca [1 x i32], align 4
-  %6 = tail call ptr @sat_solver2_new() #14
+  %6 = tail call ptr @sat_solver2_new() #15
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = mul nsw i32 %8, %1
-  tail call void @sat_solver2_setnvars(ptr noundef %6, i32 noundef %9) #14
+  tail call void @sat_solver2_setnvars(ptr noundef %6, i32 noundef %9) #15
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   br label %12
@@ -2077,12 +2076,12 @@ define noundef ptr @Cnf_DataWriteIntoSolver2(ptr nocapture noundef readonly %0, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.next
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 @sat_solver2_addclause(ptr noundef %6, ptr noundef %19, ptr noundef %21, i32 noundef 0) #14
+  %22 = tail call i32 @sat_solver2_addclause(ptr noundef %6, ptr noundef %19, ptr noundef %21, i32 noundef 0) #15
   %.not85 = icmp eq i32 %22, 0
   br i1 %.not85, label %23, label %12, !llvm.loop !42
 
 23:                                               ; preds = %16
-  tail call void @sat_solver2_delete(ptr noundef %6) #14
+  tail call void @sat_solver2_delete(ptr noundef %6) #15
   br label %156
 
 24:                                               ; preds = %12
@@ -2170,24 +2169,24 @@ define noundef ptr @Cnf_DataWriteIntoSolver2(ptr nocapture noundef readonly %0, 
   %81 = shl nsw i32 %80, 1
   %82 = add i32 %41, %81
   store i32 %82, ptr %32, align 4
-  %83 = call i32 @sat_solver2_addclause(ptr noundef %6, ptr noundef nonnull %4, ptr noundef nonnull %33, i32 noundef 0) #14
+  %83 = call i32 @sat_solver2_addclause(ptr noundef %6, ptr noundef nonnull %4, ptr noundef nonnull %33, i32 noundef 0) #15
   %.not83 = icmp eq i32 %83, 0
   br i1 %.not83, label %84, label %85
 
 84:                                               ; preds = %49
-  call void @sat_solver2_delete(ptr noundef %6) #14
+  call void @sat_solver2_delete(ptr noundef %6) #15
   br label %156
 
 85:                                               ; preds = %49
   %86 = load <2 x i32>, ptr %4, align 8
   %87 = add nsw <2 x i32> %86, <i32 1, i32 -1>
   store <2 x i32> %87, ptr %4, align 8
-  %88 = call i32 @sat_solver2_addclause(ptr noundef %6, ptr noundef nonnull %4, ptr noundef nonnull %33, i32 noundef 0) #14
+  %88 = call i32 @sat_solver2_addclause(ptr noundef %6, ptr noundef nonnull %4, ptr noundef nonnull %33, i32 noundef 0) #15
   %.not84 = icmp eq i32 %88, 0
   br i1 %.not84, label %89, label %42
 
 89:                                               ; preds = %85
-  call void @sat_solver2_delete(ptr noundef %6) #14
+  call void @sat_solver2_delete(ptr noundef %6) #15
   br label %156
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
@@ -2219,12 +2218,12 @@ define noundef ptr @Cnf_DataWriteIntoSolver2(ptr nocapture noundef readonly %0, 
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %103 = getelementptr inbounds ptr, ptr %100, i64 %indvars.iv.next119
   %104 = load ptr, ptr %103, align 8
-  %105 = call i32 @sat_solver2_addclause(ptr noundef %6, ptr noundef %102, ptr noundef %104, i32 noundef 0) #14
+  %105 = call i32 @sat_solver2_addclause(ptr noundef %6, ptr noundef %102, ptr noundef %104, i32 noundef 0) #15
   %.not82 = icmp eq i32 %105, 0
   br i1 %.not82, label %106, label %.preheader, !llvm.loop !45
 
 106:                                              ; preds = %99
-  call void @sat_solver2_delete(ptr noundef %6) #14
+  call void @sat_solver2_delete(ptr noundef %6) #15
   br label %156
 
 107:                                              ; preds = %.preheader
@@ -2301,21 +2300,21 @@ define noundef ptr @Cnf_DataWriteIntoSolver2(ptr nocapture noundef readonly %0, 
   %149 = shl nsw i32 %148, 1
   %150 = or disjoint i32 %149, 1
   store i32 %150, ptr %5, align 4
-  %151 = call i32 @sat_solver2_addclause(ptr noundef %6, ptr noundef nonnull %5, ptr noundef nonnull %129, i32 noundef 0) #14
+  %151 = call i32 @sat_solver2_addclause(ptr noundef %6, ptr noundef nonnull %5, ptr noundef nonnull %129, i32 noundef 0) #15
   %.not81 = icmp eq i32 %151, 0
   br i1 %.not81, label %152, label %131
 
 152:                                              ; preds = %138
-  call void @sat_solver2_delete(ptr noundef %6) #14
+  call void @sat_solver2_delete(ptr noundef %6) #15
   br label %156
 
 .critedge2:                                       ; preds = %131, %119, %.loopexit
-  %153 = call i32 @sat_solver2_simplify(ptr noundef %6) #14
+  %153 = call i32 @sat_solver2_simplify(ptr noundef %6) #15
   %154 = icmp eq i32 %153, 0
   br i1 %154, label %155, label %156
 
 155:                                              ; preds = %.critedge2
-  call void @sat_solver2_delete(ptr noundef %6) #14
+  call void @sat_solver2_delete(ptr noundef %6) #15
   br label %156
 
 156:                                              ; preds = %.critedge2, %155, %152, %106, %89, %84, %23
@@ -2340,7 +2339,7 @@ define range(i32 0, 2) i32 @Cnf_DataWriteOrClause(ptr noundef %0, ptr nocapture 
   %.val24 = load i32, ptr %4, align 4
   %5 = sext i32 %.val24 to i64
   %6 = shl nsw i64 %5, 2
-  %7 = tail call noalias ptr @malloc(i64 noundef %6) #15
+  %7 = tail call noalias ptr @malloc(i64 noundef %6) #16
   %8 = getelementptr inbounds i8, ptr %3, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 4
@@ -2374,12 +2373,12 @@ define range(i32 0, 2) i32 @Cnf_DataWriteOrClause(ptr noundef %0, ptr nocapture 
 
 .critedge:                                        ; preds = %15, %2
   %26 = getelementptr inbounds i32, ptr %7, i64 %5
-  %27 = tail call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef %7, ptr noundef %26) #14
+  %27 = tail call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef %7, ptr noundef %26) #15
   %.not21 = icmp eq ptr %7, null
   br i1 %.not21, label %28, label %.sink.split
 
 .sink.split:                                      ; preds = %.critedge
-  tail call void @free(ptr noundef nonnull %7) #14
+  tail call void @free(ptr noundef nonnull %7) #15
   br label %28
 
 28:                                               ; preds = %.critedge, %.sink.split
@@ -2395,7 +2394,7 @@ define range(i32 0, 2) i32 @Cnf_DataWriteOrClause2(ptr noundef %0, ptr nocapture
   %.val25 = load i32, ptr %4, align 4
   %5 = sext i32 %.val25 to i64
   %6 = shl nsw i64 %5, 2
-  %7 = tail call noalias ptr @malloc(i64 noundef %6) #15
+  %7 = tail call noalias ptr @malloc(i64 noundef %6) #16
   %8 = getelementptr inbounds i8, ptr %3, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 4
@@ -2429,12 +2428,12 @@ define range(i32 0, 2) i32 @Cnf_DataWriteOrClause2(ptr noundef %0, ptr nocapture
 
 .critedge:                                        ; preds = %15, %2
   %26 = getelementptr inbounds i32, ptr %7, i64 %5
-  %27 = tail call i32 @sat_solver2_addclause(ptr noundef %0, ptr noundef %7, ptr noundef %26, i32 noundef 0) #14
+  %27 = tail call i32 @sat_solver2_addclause(ptr noundef %0, ptr noundef %7, ptr noundef %26, i32 noundef 0) #15
   %.not21 = icmp eq ptr %7, null
   br i1 %.not21, label %28, label %.sink.split
 
 .sink.split:                                      ; preds = %.critedge
-  tail call void @free(ptr noundef nonnull %7) #14
+  tail call void @free(ptr noundef nonnull %7) #15
   br label %28
 
 28:                                               ; preds = %.critedge, %.sink.split
@@ -2485,7 +2484,7 @@ define range(i32 0, 2) i32 @Cnf_DataWriteAndClauses(ptr noundef %0, ptr nocaptur
   %28 = load i32, ptr %27, align 4
   %29 = shl nsw i32 %28, 1
   store i32 %29, ptr %3, align 4
-  %30 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %10) #14
+  %30 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %10) #15
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %.critedge, label %11
 
@@ -2499,7 +2498,7 @@ define void @Cnf_DataTranformPolarity(ptr nocapture noundef readonly %0, i32 nou
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
-  %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 4) #17
+  %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 4) #18
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
@@ -2629,7 +2628,7 @@ define void @Cnf_DataTranformPolarity(ptr nocapture noundef readonly %0, i32 nou
   br i1 %.not, label %74, label %.critedge._crit_edge.thread
 
 .critedge._crit_edge.thread:                      ; preds = %.critedge, %.critedge._crit_edge
-  tail call void @free(ptr noundef nonnull %6) #14
+  tail call void @free(ptr noundef nonnull %6) #15
   br label %74
 
 74:                                               ; preds = %.critedge._crit_edge, %.critedge._crit_edge.thread
@@ -2651,7 +2650,7 @@ define range(i32 0, 2) i32 @Cnf_DataAddXorClause(ptr noundef %0, i32 noundef %1,
   %13 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %12, ptr %13, align 4
   %14 = getelementptr inbounds i8, ptr %5, i64 12
-  %15 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %14) #14
+  %15 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %14) #15
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %22, label %16
 
@@ -2659,7 +2658,7 @@ define range(i32 0, 2) i32 @Cnf_DataAddXorClause(ptr noundef %0, i32 noundef %1,
   store i32 %7, ptr %5, align 4
   store i32 %8, ptr %10, align 4
   store i32 %11, ptr %13, align 4
-  %17 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %14) #14
+  %17 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %14) #15
   %.not16 = icmp eq i32 %17, 0
   br i1 %.not16, label %22, label %18
 
@@ -2667,7 +2666,7 @@ define range(i32 0, 2) i32 @Cnf_DataAddXorClause(ptr noundef %0, i32 noundef %1,
   store i32 %6, ptr %5, align 4
   store i32 %9, ptr %10, align 4
   store i32 %11, ptr %13, align 4
-  %19 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %14) #14
+  %19 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %14) #15
   %.not17 = icmp eq i32 %19, 0
   br i1 %.not17, label %22, label %20
 
@@ -2675,7 +2674,7 @@ define range(i32 0, 2) i32 @Cnf_DataAddXorClause(ptr noundef %0, i32 noundef %1,
   store i32 %6, ptr %5, align 4
   store i32 %8, ptr %10, align 4
   store i32 %12, ptr %13, align 4
-  %21 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %14) #14
+  %21 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %14) #15
   %.not18 = icmp ne i32 %21, 0
   %. = zext i1 %.not18 to i32
   br label %22
@@ -2697,6 +2696,9 @@ declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_add
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #13
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #14
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2711,11 +2713,12 @@ attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="tru
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree nounwind }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind allocsize(0) }
-attributes #16 = { nounwind allocsize(1) }
-attributes #17 = { nounwind allocsize(0,1) }
-attributes #18 = { nounwind willreturn memory(read) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind allocsize(0) }
+attributes #17 = { nounwind allocsize(1) }
+attributes #18 = { nounwind allocsize(0,1) }
+attributes #19 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

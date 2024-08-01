@@ -2169,8 +2169,8 @@ lpad.i:                                           ; preds = %_ZNSt12_Vector_base
   br label %eh.resume
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %outstream, i64 32
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %outstream, i64 40
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %outstream, i64 32
   store ptr %call5.i.i.i.i1.i, ptr %buffer.i, align 8
   store ptr %call5.i.i.i.i1.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr21.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 1024
