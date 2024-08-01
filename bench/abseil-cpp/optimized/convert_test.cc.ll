@@ -15975,7 +15975,6 @@ entry:
   %ref.tmp121.i = alloca %"class.testing::internal::AssertHelper", align 8
   %ref.tmp51 = alloca [2 x i32], align 4
   %ref.tmp113 = alloca %"class.std::set", align 8
-  %call27 = tail call float @nanf(ptr noundef nonnull @.str.53) #35
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(60) ptr @_Znwm(i64 noundef 60) #34
   store <4 x float> <float 0.000000e+00, float -0.000000e+00, float 0x3FEFFFFFC0000000, float 0x416312CFE0000000>, ptr %call5.i.i.i.i2.i, align 4
   %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
@@ -15985,7 +15984,7 @@ entry:
   %ref.tmp.sroa.13.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 48
   store <2 x float> <float 0x7FF0000000000000, float 0xFFF0000000000000>, ptr %ref.tmp.sroa.13.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.15.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 56
-  store float %call27, ptr %ref.tmp.sroa.15.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store float 0x7FF8000000000000, ptr %ref.tmp.sroa.15.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %call5.i.i.i.i.i.i15 = invoke noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #34
           to label %invoke.cont31 unwind label %lpad30.loopexit.split-lp.loopexit.split-lp
 
@@ -16999,9 +16998,6 @@ if.then.i.i.i188:                                 ; preds = %ehcleanup
 eh.resume:                                        ; preds = %if.then.i.i.i188, %ehcleanup
   resume { ptr, i32 } %.pn
 }
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare float @nanf(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3setIfSt4lessIfESaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -18021,7 +18017,6 @@ entry:
   store ptr %0, ptr %_M_right.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %skip_verify, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
-  %call27 = call double @nan(ptr noundef nonnull @.str.53) #35
   %call5.i.i.i.i2.i = invoke noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #34
           to label %cond.true.i.i.i.i unwind label %_ZNSt12_Vector_baseIdSaIdEED2Ev.exit.i
 
@@ -18045,7 +18040,7 @@ cond.true.i.i.i.i:                                ; preds = %entry
   %ref.tmp.sroa.13.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 96
   store <2 x double> <double 0x7FF0000000000000, double 0xFFF0000000000000>, ptr %ref.tmp.sroa.13.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %ref.tmp.sroa.15.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 112
-  store double %call27, ptr %ref.tmp.sroa.15.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  store double 0x7FF8000000000000, ptr %ref.tmp.sroa.15.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %call5.i.i.i.i.i.i15 = invoke noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #34
           to label %invoke.cont31 unwind label %lpad30.loopexit.split-lp.loopexit.split-lp
 
@@ -19522,9 +19517,6 @@ terminate.lpad.i.i461:                            ; preds = %ehcleanup158
 _ZNSt3setIdSt4lessIdESaIdEED2Ev.exit462:          ; preds = %ehcleanup158
   resume { ptr, i32 } %.pn
 }
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare double @nan(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #20

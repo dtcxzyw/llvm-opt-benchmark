@@ -28716,7 +28716,7 @@ define internal fastcc noundef zeroext i1 @sema_expr_rewrite_to_type_property(pt
   br label %6
 
 type_flatten.exit:                                ; preds = %6
-  switch i32 %3, label %802 [
+  switch i32 %3, label %801 [
     i32 4, label %20
     i32 6, label %32
     i32 5, label %41
@@ -28731,14 +28731,14 @@ type_flatten.exit:                                ; preds = %6
     i32 2, label %452
     i32 21, label %500
     i32 11, label %587
-    i32 9, label %600
-    i32 16, label %604
-    i32 19, label %663
-    i32 20, label %693
-    i32 15, label %732
-    i32 18, label %737
-    i32 0, label %756
-    i32 3, label %795
+    i32 9, label %599
+    i32 16, label %603
+    i32 19, label %662
+    i32 20, label %692
+    i32 15, label %731
+    i32 18, label %736
+    i32 0, label %755
+    i32 3, label %794
     i32 22, label %sema_create_const_inner.exit
   ]
 
@@ -29907,413 +29907,409 @@ sema_analyse_expr_lvalue.exit348.thread353:       ; preds = %._crit_edge
   %594 = and i16 %593, -256
   store i16 %594, ptr %592, align 8
   %595 = getelementptr inbounds i8, ptr %1, i64 32
-  %596 = tail call double @nan(ptr noundef nonnull @.str.5) #14
-  %597 = load i32, ptr %8, align 8
-  store double %596, ptr %595, align 8
+  %596 = load i32, ptr %8, align 8
+  store double 0x7FF8000000000000, ptr %595, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
-  store i32 %597, ptr %.sroa.2.0..sroa_idx, align 8
+  store i32 %596, ptr %.sroa.2.0..sroa_idx, align 8
   store ptr %2, ptr %1, align 8
-  %598 = and i16 %591, -4082
-  %599 = or disjoint i16 %598, 512
-  store i16 %599, ptr %588, align 8
+  %597 = and i16 %591, -4082
+  %598 = or disjoint i16 %597, 512
+  store i16 %598, ptr %588, align 8
   br label %sema_create_const_inner.exit
 
-600:                                              ; preds = %type_flatten.exit
-  %601 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef %4) #12
-  br i1 %601, label %602, label %sema_create_const_inner.exit
+599:                                              ; preds = %type_flatten.exit
+  %600 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef %4) #12
+  br i1 %600, label %601, label %sema_create_const_inner.exit
 
-602:                                              ; preds = %600
-  %603 = tail call i32 @type_abi_alignment(ptr noundef %4) #12
-  tail call fastcc void @sema_create_const_membersof(ptr noundef %1, ptr noundef nonnull %8, i32 noundef %603, i32 noundef 0)
+601:                                              ; preds = %599
+  %602 = tail call i32 @type_abi_alignment(ptr noundef %4) #12
+  tail call fastcc void @sema_create_const_membersof(ptr noundef %1, ptr noundef nonnull %8, i32 noundef %602, i32 noundef 0)
   br label %sema_create_const_inner.exit
 
-604:                                              ; preds = %type_flatten.exit
-  %605 = icmp eq i32 %9, 23
-  br i1 %605, label %606, label %611
+603:                                              ; preds = %type_flatten.exit
+  %604 = icmp eq i32 %9, 23
+  br i1 %604, label %605, label %610
 
-606:                                              ; preds = %604
-  %607 = getelementptr inbounds i8, ptr %8, i64 56
-  %608 = load ptr, ptr %607, align 8
-  %609 = load i32, ptr %608, align 8
-  %610 = icmp eq i32 %609, 25
-  %spec.select = select i1 %610, ptr %608, ptr %8
-  br label %611
+605:                                              ; preds = %603
+  %606 = getelementptr inbounds i8, ptr %8, i64 56
+  %607 = load ptr, ptr %606, align 8
+  %608 = load i32, ptr %607, align 8
+  %609 = icmp eq i32 %608, 25
+  %spec.select = select i1 %609, ptr %607, ptr %8
+  br label %610
 
-611:                                              ; preds = %606, %604
-  %.0195 = phi ptr [ %8, %604 ], [ %spec.select, %606 ]
-  %612 = getelementptr i8, ptr %.0195, i64 64
-  %.0195.val = load ptr, ptr %612, align 8
-  %613 = getelementptr inbounds i8, ptr %.0195.val, i64 16
-  %614 = load ptr, ptr %613, align 8
-  %.not.i232 = icmp eq ptr %614, null
-  br i1 %.not.i232, label %sema_create_const_params.exit, label %615
+610:                                              ; preds = %605, %603
+  %.0195 = phi ptr [ %8, %603 ], [ %spec.select, %605 ]
+  %611 = getelementptr i8, ptr %.0195, i64 64
+  %.0195.val = load ptr, ptr %611, align 8
+  %612 = getelementptr inbounds i8, ptr %.0195.val, i64 16
+  %613 = load ptr, ptr %612, align 8
+  %.not.i232 = icmp eq ptr %613, null
+  br i1 %.not.i232, label %sema_create_const_params.exit, label %614
 
-615:                                              ; preds = %611
-  %616 = getelementptr inbounds i8, ptr %614, i64 -8
-  %617 = load i32, ptr %616, align 4
-  %.not38.i = icmp eq i32 %617, 0
+614:                                              ; preds = %610
+  %615 = getelementptr inbounds i8, ptr %613, i64 -8
+  %616 = load i32, ptr %615, align 4
+  %.not38.i = icmp eq i32 %616, 0
   br i1 %.not38.i, label %sema_create_const_params.exit, label %.lr.ph.i233
 
-.lr.ph.i233:                                      ; preds = %615
-  %618 = zext i32 %617 to i64
-  %619 = shl nuw nsw i64 %618, 3
-  %620 = add nuw nsw i64 %619, 8
-  %621 = tail call ptr @calloc_arena(i64 noundef %620) #12
-  %622 = getelementptr inbounds i8, ptr %621, i64 4
-  store i32 %617, ptr %622, align 4
-  %623 = getelementptr inbounds i8, ptr %621, i64 8
-  %624 = getelementptr inbounds i8, ptr %1, i64 8
-  br label %625
+.lr.ph.i233:                                      ; preds = %614
+  %617 = zext i32 %616 to i64
+  %618 = shl nuw nsw i64 %617, 3
+  %619 = add nuw nsw i64 %618, 8
+  %620 = tail call ptr @calloc_arena(i64 noundef %619) #12
+  %621 = getelementptr inbounds i8, ptr %620, i64 4
+  store i32 %616, ptr %621, align 4
+  %622 = getelementptr inbounds i8, ptr %620, i64 8
+  %623 = getelementptr inbounds i8, ptr %1, i64 8
+  br label %624
 
-625:                                              ; preds = %651, %.lr.ph.i233
-  %indvars.iv.i235 = phi i64 [ 0, %.lr.ph.i233 ], [ %indvars.iv.next.i239, %651 ]
-  %.0354.i = phi ptr [ %623, %.lr.ph.i233 ], [ %654, %651 ]
-  %626 = load ptr, ptr %613, align 8
-  %627 = getelementptr inbounds ptr, ptr %626, i64 %indvars.iv.i235
-  %628 = load ptr, ptr %627, align 8
-  %629 = getelementptr inbounds i8, ptr %628, i64 72
-  %630 = load ptr, ptr %629, align 8
-  %631 = getelementptr inbounds i8, ptr %630, i64 8
-  %632 = load ptr, ptr %631, align 8
-  %633 = load i64, ptr %624, align 8
-  %634 = tail call ptr @expr_new_const_typeid(i64 %633, ptr noundef %632) #12
-  %635 = getelementptr inbounds i8, ptr %.0354.i, i64 -8
+624:                                              ; preds = %650, %.lr.ph.i233
+  %indvars.iv.i235 = phi i64 [ 0, %.lr.ph.i233 ], [ %indvars.iv.next.i239, %650 ]
+  %.0354.i = phi ptr [ %622, %.lr.ph.i233 ], [ %653, %650 ]
+  %625 = load ptr, ptr %612, align 8
+  %626 = getelementptr inbounds ptr, ptr %625, i64 %indvars.iv.i235
+  %627 = load ptr, ptr %626, align 8
+  %628 = getelementptr inbounds i8, ptr %627, i64 72
+  %629 = load ptr, ptr %628, align 8
+  %630 = getelementptr inbounds i8, ptr %629, i64 8
+  %631 = load ptr, ptr %630, align 8
+  %632 = load i64, ptr %623, align 8
+  %633 = tail call ptr @expr_new_const_typeid(i64 %632, ptr noundef %631) #12
+  %634 = getelementptr inbounds i8, ptr %.0354.i, i64 -8
   %.phi.trans.insert.i.i236 = getelementptr inbounds i8, ptr %.0354.i, i64 -4
   %.pre.i.i237 = load i32, ptr %.phi.trans.insert.i.i236, align 4
-  %636 = load i32, ptr %635, align 4
-  %637 = icmp eq i32 %636, %.pre.i.i237
-  br i1 %637, label %638, label %651
+  %635 = load i32, ptr %634, align 4
+  %636 = icmp eq i32 %635, %.pre.i.i237
+  br i1 %636, label %637, label %650
 
-638:                                              ; preds = %625
-  %639 = shl i32 %.pre.i.i237, 1
-  %640 = zext i32 %639 to i64
-  %641 = shl nuw nsw i64 %640, 3
-  %642 = or disjoint i64 %641, 8
-  %643 = tail call ptr @calloc_arena(i64 noundef %642) #12
-  %644 = getelementptr inbounds i8, ptr %643, i64 4
-  store i32 %639, ptr %644, align 4
-  %645 = load i32, ptr %.phi.trans.insert.i.i236, align 4
-  %646 = zext i32 %645 to i64
-  %647 = shl nuw nsw i64 %646, 3
-  %648 = add nuw nsw i64 %647, 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %643, ptr noundef nonnull align 4 dereferenceable(1) %635, i64 %648, i1 false)
-  %649 = load i32, ptr %644, align 4
-  %650 = shl i32 %649, 1
-  store i32 %650, ptr %644, align 4
-  %.pre18.i.i242 = load i32, ptr %643, align 4
-  br label %651
+637:                                              ; preds = %624
+  %638 = shl i32 %.pre.i.i237, 1
+  %639 = zext i32 %638 to i64
+  %640 = shl nuw nsw i64 %639, 3
+  %641 = or disjoint i64 %640, 8
+  %642 = tail call ptr @calloc_arena(i64 noundef %641) #12
+  %643 = getelementptr inbounds i8, ptr %642, i64 4
+  store i32 %638, ptr %643, align 4
+  %644 = load i32, ptr %.phi.trans.insert.i.i236, align 4
+  %645 = zext i32 %644 to i64
+  %646 = shl nuw nsw i64 %645, 3
+  %647 = add nuw nsw i64 %646, 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %642, ptr noundef nonnull align 4 dereferenceable(1) %634, i64 %647, i1 false)
+  %648 = load i32, ptr %643, align 4
+  %649 = shl i32 %648, 1
+  store i32 %649, ptr %643, align 4
+  %.pre18.i.i242 = load i32, ptr %642, align 4
+  br label %650
 
-651:                                              ; preds = %638, %625
-  %652 = phi i32 [ %.pre18.i.i242, %638 ], [ %636, %625 ]
-  %.1.i.i238 = phi ptr [ %643, %638 ], [ %635, %625 ]
-  %653 = add i32 %652, 1
-  store i32 %653, ptr %.1.i.i238, align 4
-  %654 = getelementptr inbounds i8, ptr %.1.i.i238, i64 8
-  %655 = zext i32 %652 to i64
-  %656 = getelementptr inbounds ptr, ptr %654, i64 %655
-  store ptr %634, ptr %656, align 8
+650:                                              ; preds = %637, %624
+  %651 = phi i32 [ %.pre18.i.i242, %637 ], [ %635, %624 ]
+  %.1.i.i238 = phi ptr [ %642, %637 ], [ %634, %624 ]
+  %652 = add i32 %651, 1
+  store i32 %652, ptr %.1.i.i238, align 4
+  %653 = getelementptr inbounds i8, ptr %.1.i.i238, i64 8
+  %654 = zext i32 %651 to i64
+  %655 = getelementptr inbounds ptr, ptr %653, i64 %654
+  store ptr %633, ptr %655, align 8
   %indvars.iv.next.i239 = add nuw nsw i64 %indvars.iv.i235, 1
-  %exitcond.not.i240 = icmp eq i64 %indvars.iv.next.i239, %618
-  br i1 %exitcond.not.i240, label %sema_create_const_params.exit, label %625, !llvm.loop !64
+  %exitcond.not.i240 = icmp eq i64 %indvars.iv.next.i239, %617
+  br i1 %exitcond.not.i240, label %sema_create_const_params.exit, label %624, !llvm.loop !64
 
-sema_create_const_params.exit:                    ; preds = %651, %611, %615
-  %.035.lcssa.i = phi ptr [ null, %615 ], [ null, %611 ], [ %654, %651 ]
-  %657 = getelementptr inbounds i8, ptr %1, i64 16
-  %658 = load i16, ptr %657, align 8
-  %659 = load ptr, ptr @type_untypedlist, align 8
-  store ptr %659, ptr %1, align 8
-  %660 = getelementptr inbounds i8, ptr %1, i64 24
-  store i16 10, ptr %660, align 8
+sema_create_const_params.exit:                    ; preds = %650, %610, %614
+  %.035.lcssa.i = phi ptr [ null, %614 ], [ null, %610 ], [ %653, %650 ]
+  %656 = getelementptr inbounds i8, ptr %1, i64 16
+  %657 = load i16, ptr %656, align 8
+  %658 = load ptr, ptr @type_untypedlist, align 8
+  store ptr %658, ptr %1, align 8
+  %659 = getelementptr inbounds i8, ptr %1, i64 24
+  store i16 10, ptr %659, align 8
   %.sroa.727.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %.035.lcssa.i, ptr %.sroa.727.0..sroa_idx.i, align 8
-  %661 = and i16 %658, -4096
-  %662 = or disjoint i16 %661, 526
-  store i16 %662, ptr %657, align 8
+  %660 = and i16 %657, -4096
+  %661 = or disjoint i16 %660, 526
+  store i16 %661, ptr %656, align 8
   br label %sema_create_const_inner.exit
 
-663:                                              ; preds = %type_flatten.exit
-  %664 = icmp eq i32 %9, 23
-  br i1 %664, label %665, label %670
+662:                                              ; preds = %type_flatten.exit
+  %663 = icmp eq i32 %9, 23
+  br i1 %663, label %664, label %669
 
-665:                                              ; preds = %663
-  %666 = getelementptr inbounds i8, ptr %8, i64 56
-  %667 = load ptr, ptr %666, align 8
-  %668 = load i32, ptr %667, align 8
-  %669 = icmp eq i32 %668, 25
-  %spec.select202 = select i1 %669, ptr %667, ptr %8
-  br label %670
+664:                                              ; preds = %662
+  %665 = getelementptr inbounds i8, ptr %8, i64 56
+  %666 = load ptr, ptr %665, align 8
+  %667 = load i32, ptr %666, align 8
+  %668 = icmp eq i32 %667, 25
+  %spec.select202 = select i1 %668, ptr %666, ptr %8
+  br label %669
 
-670:                                              ; preds = %665, %663
-  %.1 = phi ptr [ %8, %663 ], [ %spec.select202, %665 ]
-  %671 = getelementptr inbounds i8, ptr %.1, i64 64
-  %672 = load ptr, ptr %671, align 8
-  %673 = getelementptr inbounds i8, ptr %672, i64 8
-  %674 = load i32, ptr %673, align 8
-  %675 = load ptr, ptr @type_info_arena, align 8
-  %676 = zext i32 %674 to i64
-  %677 = getelementptr inbounds %struct.TypeInfo_, ptr %675, i64 %676, i32 1
-  %678 = load ptr, ptr %677, align 8
-  %679 = getelementptr inbounds i8, ptr %1, i64 16
-  %680 = load i16, ptr %679, align 8
-  %681 = and i16 %680, -256
-  %682 = or disjoint i16 %681, 14
-  store i16 %682, ptr %679, align 8
-  %683 = getelementptr inbounds i8, ptr %1, i64 24
-  %684 = load i16, ptr %683, align 8
-  %685 = and i16 %684, -256
-  %686 = or disjoint i16 %685, 8
-  store i16 %686, ptr %683, align 8
-  %687 = getelementptr inbounds i8, ptr %678, i64 8
-  %688 = load ptr, ptr %687, align 8
-  %689 = getelementptr inbounds i8, ptr %1, i64 32
-  store ptr %688, ptr %689, align 8
-  %690 = load ptr, ptr @type_typeid, align 8
-  store ptr %690, ptr %1, align 8
-  %691 = and i16 %682, -4082
-  %692 = or disjoint i16 %691, 512
-  store i16 %692, ptr %679, align 8
+669:                                              ; preds = %664, %662
+  %.1 = phi ptr [ %8, %662 ], [ %spec.select202, %664 ]
+  %670 = getelementptr inbounds i8, ptr %.1, i64 64
+  %671 = load ptr, ptr %670, align 8
+  %672 = getelementptr inbounds i8, ptr %671, i64 8
+  %673 = load i32, ptr %672, align 8
+  %674 = load ptr, ptr @type_info_arena, align 8
+  %675 = zext i32 %673 to i64
+  %676 = getelementptr inbounds %struct.TypeInfo_, ptr %674, i64 %675, i32 1
+  %677 = load ptr, ptr %676, align 8
+  %678 = getelementptr inbounds i8, ptr %1, i64 16
+  %679 = load i16, ptr %678, align 8
+  %680 = and i16 %679, -256
+  %681 = or disjoint i16 %680, 14
+  store i16 %681, ptr %678, align 8
+  %682 = getelementptr inbounds i8, ptr %1, i64 24
+  %683 = load i16, ptr %682, align 8
+  %684 = and i16 %683, -256
+  %685 = or disjoint i16 %684, 8
+  store i16 %685, ptr %682, align 8
+  %686 = getelementptr inbounds i8, ptr %677, i64 8
+  %687 = load ptr, ptr %686, align 8
+  %688 = getelementptr inbounds i8, ptr %1, i64 32
+  store ptr %687, ptr %688, align 8
+  %689 = load ptr, ptr @type_typeid, align 8
+  store ptr %689, ptr %1, align 8
+  %690 = and i16 %681, -4082
+  %691 = or disjoint i16 %690, 512
+  store i16 %691, ptr %678, align 8
   br label %sema_create_const_inner.exit
 
-693:                                              ; preds = %type_flatten.exit
-  %694 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef %2) #12
-  br i1 %694, label %695, label %sema_create_const_inner.exit
+692:                                              ; preds = %type_flatten.exit
+  %693 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef %2) #12
+  br i1 %693, label %694, label %sema_create_const_inner.exit
 
-695:                                              ; preds = %693
-  %696 = load ptr, ptr @type_usz, align 8
-  %697 = tail call i32 @type_size(ptr noundef %2) #12
-  %698 = zext i32 %697 to i64
-  %699 = getelementptr inbounds i8, ptr %1, i64 16
-  %700 = load i16, ptr %699, align 8
-  %701 = and i16 %700, -256
-  %702 = or disjoint i16 %701, 14
-  store i16 %702, ptr %699, align 8
-  store ptr %696, ptr %1, align 8
-  br label %703
+694:                                              ; preds = %692
+  %695 = load ptr, ptr @type_usz, align 8
+  %696 = tail call i32 @type_size(ptr noundef %2) #12
+  %697 = zext i32 %696 to i64
+  %698 = getelementptr inbounds i8, ptr %1, i64 16
+  %699 = load i16, ptr %698, align 8
+  %700 = and i16 %699, -256
+  %701 = or disjoint i16 %700, 14
+  store i16 %701, ptr %698, align 8
+  store ptr %695, ptr %1, align 8
+  br label %702
 
-703:                                              ; preds = %716, %695
-  %.0.i243 = phi ptr [ %696, %695 ], [ %.1.i245, %716 ]
-  %704 = getelementptr inbounds i8, ptr %.0.i243, i64 8
-  %705 = load ptr, ptr %704, align 8
-  %706 = load i32, ptr %705, align 8
-  switch i32 %706, label %type_flatten.exit246 [
-    i32 32, label %707
-    i32 40, label %713
-    i32 31, label %715
+702:                                              ; preds = %715, %694
+  %.0.i243 = phi ptr [ %695, %694 ], [ %.1.i245, %715 ]
+  %703 = getelementptr inbounds i8, ptr %.0.i243, i64 8
+  %704 = load ptr, ptr %703, align 8
+  %705 = load i32, ptr %704, align 8
+  switch i32 %705, label %type_flatten.exit246 [
+    i32 32, label %706
+    i32 40, label %712
+    i32 31, label %714
   ]
 
-707:                                              ; preds = %703
-  %708 = getelementptr inbounds i8, ptr %705, i64 56
-  %709 = load ptr, ptr %708, align 8
-  %710 = getelementptr inbounds i8, ptr %709, i64 96
-  %711 = load ptr, ptr %710, align 8
-  %712 = getelementptr inbounds i8, ptr %711, i64 8
-  br label %716
+706:                                              ; preds = %702
+  %707 = getelementptr inbounds i8, ptr %704, i64 56
+  %708 = load ptr, ptr %707, align 8
+  %709 = getelementptr inbounds i8, ptr %708, i64 96
+  %710 = load ptr, ptr %709, align 8
+  %711 = getelementptr inbounds i8, ptr %710, i64 8
+  br label %715
 
-713:                                              ; preds = %703
-  %714 = getelementptr inbounds i8, ptr %705, i64 56
-  br label %716
+712:                                              ; preds = %702
+  %713 = getelementptr inbounds i8, ptr %704, i64 56
+  br label %715
 
-715:                                              ; preds = %703
+714:                                              ; preds = %702
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.95, i32 noundef 2984) #13
   unreachable
 
-716:                                              ; preds = %713, %707
-  %.1.in.i244 = phi ptr [ %714, %713 ], [ %712, %707 ]
+715:                                              ; preds = %712, %706
+  %.1.in.i244 = phi ptr [ %713, %712 ], [ %711, %706 ]
   %.1.i245 = load ptr, ptr %.1.in.i244, align 8
-  br label %703
+  br label %702
 
-type_flatten.exit246:                             ; preds = %703
-  %717 = getelementptr inbounds i8, ptr %1, i64 24
-  %718 = getelementptr inbounds i8, ptr %1, i64 32
-  store i64 0, ptr %718, align 8
-  %719 = add i32 %706, -3
-  %720 = icmp ult i32 %719, 5
-  br i1 %720, label %726, label %721
+type_flatten.exit246:                             ; preds = %702
+  %716 = getelementptr inbounds i8, ptr %1, i64 24
+  %717 = getelementptr inbounds i8, ptr %1, i64 32
+  store i64 0, ptr %717, align 8
+  %718 = add i32 %705, -3
+  %719 = icmp ult i32 %718, 5
+  br i1 %719, label %725, label %720
 
-721:                                              ; preds = %type_flatten.exit246
-  switch i32 %706, label %726 [
-    i32 8, label %722
-    i32 9, label %724
+720:                                              ; preds = %type_flatten.exit246
+  switch i32 %705, label %725 [
+    i32 8, label %721
+    i32 9, label %723
   ]
 
-722:                                              ; preds = %721
-  %723 = and i64 %698, 255
-  br label %726
+721:                                              ; preds = %720
+  %722 = and i64 %697, 255
+  br label %725
 
-724:                                              ; preds = %721
-  %725 = and i64 %698, 65535
-  br label %726
+723:                                              ; preds = %720
+  %724 = and i64 %697, 65535
+  br label %725
 
-726:                                              ; preds = %type_flatten.exit246, %722, %724, %721
-  %.0191 = phi i64 [ %725, %724 ], [ %723, %722 ], [ %698, %type_flatten.exit246 ], [ %698, %721 ]
-  %727 = getelementptr inbounds i8, ptr %1, i64 40
-  store i64 %.0191, ptr %727, align 8
-  %728 = getelementptr inbounds i8, ptr %1, i64 48
-  store i32 %706, ptr %728, align 8
-  %729 = load i16, ptr %717, align 8
-  %730 = and i16 %729, -512
-  %731 = or disjoint i16 %730, 1
-  store i16 %731, ptr %717, align 8
+725:                                              ; preds = %type_flatten.exit246, %721, %723, %720
+  %.0191 = phi i64 [ %724, %723 ], [ %722, %721 ], [ %697, %type_flatten.exit246 ], [ %697, %720 ]
+  %726 = getelementptr inbounds i8, ptr %1, i64 40
+  store i64 %.0191, ptr %726, align 8
+  %727 = getelementptr inbounds i8, ptr %1, i64 48
+  store i32 %705, ptr %727, align 8
+  %728 = load i16, ptr %716, align 8
+  %729 = and i16 %728, -512
+  %730 = or disjoint i16 %729, 1
+  store i16 %730, ptr %716, align 8
   br label %sema_create_const_inner.exit
 
-732:                                              ; preds = %type_flatten.exit
-  %733 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef %2) #12
-  br i1 %733, label %734, label %sema_create_const_inner.exit
+731:                                              ; preds = %type_flatten.exit
+  %732 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef %2) #12
+  br i1 %732, label %733, label %sema_create_const_inner.exit
 
-734:                                              ; preds = %732
-  %735 = getelementptr inbounds i8, ptr %2, i64 16
-  %736 = load ptr, ptr %735, align 8
-  tail call void @expr_rewrite_to_string(ptr noundef %1, ptr noundef %736) #12
+733:                                              ; preds = %731
+  %734 = getelementptr inbounds i8, ptr %2, i64 16
+  %735 = load ptr, ptr %734, align 8
+  tail call void @expr_rewrite_to_string(ptr noundef %1, ptr noundef %735) #12
   br label %sema_create_const_inner.exit
 
-737:                                              ; preds = %type_flatten.exit
-  %738 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef %2) #12
-  br i1 %738, label %739, label %sema_create_const_inner.exit
+736:                                              ; preds = %type_flatten.exit
+  %737 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef %2) #12
+  br i1 %737, label %738, label %sema_create_const_inner.exit
 
-739:                                              ; preds = %737
-  %740 = load i32, ptr %2, align 8
-  %741 = add i32 %740, -1
-  %742 = icmp ult i32 %741, 22
-  br i1 %742, label %743, label %746
+738:                                              ; preds = %736
+  %739 = load i32, ptr %2, align 8
+  %740 = add i32 %739, -1
+  %741 = icmp ult i32 %740, 22
+  br i1 %741, label %742, label %745
 
-743:                                              ; preds = %739
-  %744 = getelementptr inbounds i8, ptr %2, i64 16
-  %745 = load ptr, ptr %744, align 8
+742:                                              ; preds = %738
+  %743 = getelementptr inbounds i8, ptr %2, i64 16
+  %744 = load ptr, ptr %743, align 8
   br label %sema_expr_rewrite_to_type_nameof.exit
 
-746:                                              ; preds = %739
+745:                                              ; preds = %738
   tail call void @scratch_buffer_clear() #12
-  %747 = tail call ptr @type_base_module(ptr noundef nonnull %2) #12
-  %.not.i247 = icmp eq ptr %747, null
-  br i1 %.not.i247, label %752, label %748
+  %746 = tail call ptr @type_base_module(ptr noundef nonnull %2) #12
+  %.not.i247 = icmp eq ptr %746, null
+  br i1 %.not.i247, label %751, label %747
 
-748:                                              ; preds = %746
-  %749 = load ptr, ptr %747, align 8
-  %750 = getelementptr inbounds i8, ptr %749, i64 8
-  %751 = load ptr, ptr %750, align 8
-  tail call void @scratch_buffer_append(ptr noundef %751) #12
+747:                                              ; preds = %745
+  %748 = load ptr, ptr %746, align 8
+  %749 = getelementptr inbounds i8, ptr %748, i64 8
+  %750 = load ptr, ptr %749, align 8
+  tail call void @scratch_buffer_append(ptr noundef %750) #12
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.165) #12
-  br label %752
+  br label %751
 
-752:                                              ; preds = %748, %746
-  %753 = getelementptr inbounds i8, ptr %2, i64 16
-  %754 = load ptr, ptr %753, align 8
-  tail call void @scratch_buffer_append(ptr noundef %754) #12
-  %755 = tail call ptr @scratch_buffer_copy() #12
+751:                                              ; preds = %747, %745
+  %752 = getelementptr inbounds i8, ptr %2, i64 16
+  %753 = load ptr, ptr %752, align 8
+  tail call void @scratch_buffer_append(ptr noundef %753) #12
+  %754 = tail call ptr @scratch_buffer_copy() #12
   br label %sema_expr_rewrite_to_type_nameof.exit
 
-sema_expr_rewrite_to_type_nameof.exit:            ; preds = %743, %752
-  %.sink.i = phi ptr [ %755, %752 ], [ %745, %743 ]
+sema_expr_rewrite_to_type_nameof.exit:            ; preds = %742, %751
+  %.sink.i = phi ptr [ %754, %751 ], [ %744, %742 ]
   tail call void @expr_rewrite_to_string(ptr noundef %1, ptr noundef %.sink.i) #12
   br label %sema_create_const_inner.exit
 
-756:                                              ; preds = %type_flatten.exit
-  %757 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef %2) #12
-  br i1 %757, label %758, label %sema_create_const_inner.exit
+755:                                              ; preds = %type_flatten.exit
+  %756 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef %2) #12
+  br i1 %756, label %757, label %sema_create_const_inner.exit
 
-758:                                              ; preds = %756
-  %759 = tail call i32 @type_abi_alignment(ptr noundef %2) #12
-  %760 = zext i32 %759 to i64
-  %761 = load ptr, ptr @type_usz, align 8
-  %762 = getelementptr inbounds i8, ptr %1, i64 16
-  %763 = load i16, ptr %762, align 8
-  %764 = and i16 %763, -256
-  %765 = or disjoint i16 %764, 14
-  store i16 %765, ptr %762, align 8
-  store ptr %761, ptr %1, align 8
-  br label %766
+757:                                              ; preds = %755
+  %758 = tail call i32 @type_abi_alignment(ptr noundef %2) #12
+  %759 = zext i32 %758 to i64
+  %760 = load ptr, ptr @type_usz, align 8
+  %761 = getelementptr inbounds i8, ptr %1, i64 16
+  %762 = load i16, ptr %761, align 8
+  %763 = and i16 %762, -256
+  %764 = or disjoint i16 %763, 14
+  store i16 %764, ptr %761, align 8
+  store ptr %760, ptr %1, align 8
+  br label %765
 
-766:                                              ; preds = %779, %758
-  %.0.i248 = phi ptr [ %761, %758 ], [ %.1.i250, %779 ]
-  %767 = getelementptr inbounds i8, ptr %.0.i248, i64 8
-  %768 = load ptr, ptr %767, align 8
-  %769 = load i32, ptr %768, align 8
-  switch i32 %769, label %type_flatten.exit251 [
-    i32 32, label %770
-    i32 40, label %776
-    i32 31, label %778
+765:                                              ; preds = %778, %757
+  %.0.i248 = phi ptr [ %760, %757 ], [ %.1.i250, %778 ]
+  %766 = getelementptr inbounds i8, ptr %.0.i248, i64 8
+  %767 = load ptr, ptr %766, align 8
+  %768 = load i32, ptr %767, align 8
+  switch i32 %768, label %type_flatten.exit251 [
+    i32 32, label %769
+    i32 40, label %775
+    i32 31, label %777
   ]
 
-770:                                              ; preds = %766
-  %771 = getelementptr inbounds i8, ptr %768, i64 56
-  %772 = load ptr, ptr %771, align 8
-  %773 = getelementptr inbounds i8, ptr %772, i64 96
-  %774 = load ptr, ptr %773, align 8
-  %775 = getelementptr inbounds i8, ptr %774, i64 8
-  br label %779
+769:                                              ; preds = %765
+  %770 = getelementptr inbounds i8, ptr %767, i64 56
+  %771 = load ptr, ptr %770, align 8
+  %772 = getelementptr inbounds i8, ptr %771, i64 96
+  %773 = load ptr, ptr %772, align 8
+  %774 = getelementptr inbounds i8, ptr %773, i64 8
+  br label %778
 
-776:                                              ; preds = %766
-  %777 = getelementptr inbounds i8, ptr %768, i64 56
-  br label %779
+775:                                              ; preds = %765
+  %776 = getelementptr inbounds i8, ptr %767, i64 56
+  br label %778
 
-778:                                              ; preds = %766
+777:                                              ; preds = %765
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.95, i32 noundef 2984) #13
   unreachable
 
-779:                                              ; preds = %776, %770
-  %.1.in.i249 = phi ptr [ %777, %776 ], [ %775, %770 ]
+778:                                              ; preds = %775, %769
+  %.1.in.i249 = phi ptr [ %776, %775 ], [ %774, %769 ]
   %.1.i250 = load ptr, ptr %.1.in.i249, align 8
-  br label %766
+  br label %765
 
-type_flatten.exit251:                             ; preds = %766
-  %780 = getelementptr inbounds i8, ptr %1, i64 24
-  %781 = getelementptr inbounds i8, ptr %1, i64 32
-  store i64 0, ptr %781, align 8
-  %782 = add i32 %769, -3
-  %783 = icmp ult i32 %782, 5
-  br i1 %783, label %789, label %784
+type_flatten.exit251:                             ; preds = %765
+  %779 = getelementptr inbounds i8, ptr %1, i64 24
+  %780 = getelementptr inbounds i8, ptr %1, i64 32
+  store i64 0, ptr %780, align 8
+  %781 = add i32 %768, -3
+  %782 = icmp ult i32 %781, 5
+  br i1 %782, label %788, label %783
 
-784:                                              ; preds = %type_flatten.exit251
-  switch i32 %769, label %789 [
-    i32 8, label %785
-    i32 9, label %787
+783:                                              ; preds = %type_flatten.exit251
+  switch i32 %768, label %788 [
+    i32 8, label %784
+    i32 9, label %786
   ]
 
-785:                                              ; preds = %784
-  %786 = and i64 %760, 255
-  br label %789
+784:                                              ; preds = %783
+  %785 = and i64 %759, 255
+  br label %788
 
-787:                                              ; preds = %784
-  %788 = and i64 %760, 65535
-  br label %789
+786:                                              ; preds = %783
+  %787 = and i64 %759, 65535
+  br label %788
 
-789:                                              ; preds = %type_flatten.exit251, %785, %787, %784
-  %.0192 = phi i64 [ %788, %787 ], [ %786, %785 ], [ %760, %type_flatten.exit251 ], [ %760, %784 ]
-  %790 = getelementptr inbounds i8, ptr %1, i64 40
-  store i64 %.0192, ptr %790, align 8
-  %791 = getelementptr inbounds i8, ptr %1, i64 48
-  store i32 %769, ptr %791, align 8
-  %792 = load i16, ptr %780, align 8
-  %793 = and i16 %792, -512
-  %794 = or disjoint i16 %793, 1
-  store i16 %794, ptr %780, align 8
+788:                                              ; preds = %type_flatten.exit251, %784, %786, %783
+  %.0192 = phi i64 [ %787, %786 ], [ %785, %784 ], [ %759, %type_flatten.exit251 ], [ %759, %783 ]
+  %789 = getelementptr inbounds i8, ptr %1, i64 40
+  store i64 %.0192, ptr %789, align 8
+  %790 = getelementptr inbounds i8, ptr %1, i64 48
+  store i32 %768, ptr %790, align 8
+  %791 = load i16, ptr %779, align 8
+  %792 = and i16 %791, -512
+  %793 = or disjoint i16 %792, 1
+  store i16 %793, ptr %779, align 8
   br label %sema_create_const_inner.exit
 
-795:                                              ; preds = %type_flatten.exit
-  %796 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef %2) #12
-  br i1 %796, label %797, label %sema_create_const_inner.exit
+794:                                              ; preds = %type_flatten.exit
+  %795 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef %2) #12
+  br i1 %795, label %796, label %sema_create_const_inner.exit
 
-797:                                              ; preds = %795
-  %798 = getelementptr inbounds i8, ptr %2, i64 56
-  %799 = load ptr, ptr %798, align 8
-  %800 = getelementptr inbounds i8, ptr %799, i64 8
-  %801 = load ptr, ptr %800, align 8
-  tail call void @expr_rewrite_to_string(ptr noundef %1, ptr noundef %801) #12
+796:                                              ; preds = %794
+  %797 = getelementptr inbounds i8, ptr %2, i64 56
+  %798 = load ptr, ptr %797, align 8
+  %799 = getelementptr inbounds i8, ptr %798, i64 8
+  %800 = load ptr, ptr %799, align 8
+  tail call void @expr_rewrite_to_string(ptr noundef %1, ptr noundef %800) #12
   br label %sema_create_const_inner.exit
 
-802:                                              ; preds = %type_flatten.exit
+801:                                              ; preds = %type_flatten.exit
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.sema_expr_rewrite_to_type_property, ptr noundef nonnull @.str.35, i32 noundef 3865) #13
   unreachable
 
-sema_create_const_inner.exit:                     ; preds = %581, %391, %756, %600, %500, %sema_analyse_expr_lvalue.exit348.thread353, %._crit_edge.i, %397, %327, %sema_analyse_expr_lvalue.exit.thread350, %324, %323, %322, %321, %306, %305, %304, %303, %302, %301, %300, %299, %298, %297, %281, %280, %279, %278, %277, %276, %252, %251, %250, %249, %175, %173, %162, %102, %100, %85, %50, %type_flatten.exit, %795, %737, %732, %693, %452, %797, %789, %sema_expr_rewrite_to_type_nameof.exit, %734, %726, %670, %sema_create_const_params.exit, %602, %587, %494, %sema_create_const_len.exit, %41, %32, %20
-  %.0197 = phi i1 [ true, %797 ], [ true, %789 ], [ true, %sema_expr_rewrite_to_type_nameof.exit ], [ true, %734 ], [ true, %726 ], [ true, %670 ], [ true, %sema_create_const_params.exit ], [ true, %602 ], [ true, %587 ], [ true, %494 ], [ true, %sema_create_const_len.exit ], [ true, %41 ], [ true, %32 ], [ true, %20 ], [ false, %452 ], [ false, %693 ], [ false, %732 ], [ false, %737 ], [ false, %795 ], [ false, %type_flatten.exit ], [ false, %50 ], [ true, %85 ], [ false, %100 ], [ true, %102 ], [ true, %175 ], [ true, %162 ], [ false, %173 ], [ true, %249 ], [ true, %250 ], [ true, %251 ], [ true, %252 ], [ true, %276 ], [ true, %277 ], [ true, %278 ], [ true, %279 ], [ true, %280 ], [ true, %281 ], [ true, %297 ], [ true, %298 ], [ true, %299 ], [ true, %300 ], [ true, %301 ], [ true, %302 ], [ true, %303 ], [ true, %304 ], [ true, %305 ], [ true, %306 ], [ true, %321 ], [ true, %322 ], [ true, %323 ], [ true, %324 ], [ false, %327 ], [ %396, %sema_analyse_expr_lvalue.exit.thread350 ], [ false, %397 ], [ true, %._crit_edge.i ], [ false, %500 ], [ %586, %sema_analyse_expr_lvalue.exit348.thread353 ], [ false, %600 ], [ false, %756 ], [ false, %391 ], [ false, %581 ]
+sema_create_const_inner.exit:                     ; preds = %581, %391, %755, %599, %500, %sema_analyse_expr_lvalue.exit348.thread353, %._crit_edge.i, %397, %327, %sema_analyse_expr_lvalue.exit.thread350, %324, %323, %322, %321, %306, %305, %304, %303, %302, %301, %300, %299, %298, %297, %281, %280, %279, %278, %277, %276, %252, %251, %250, %249, %175, %173, %162, %102, %100, %85, %50, %type_flatten.exit, %794, %736, %731, %692, %452, %796, %788, %sema_expr_rewrite_to_type_nameof.exit, %733, %725, %669, %sema_create_const_params.exit, %601, %587, %494, %sema_create_const_len.exit, %41, %32, %20
+  %.0197 = phi i1 [ true, %796 ], [ true, %788 ], [ true, %sema_expr_rewrite_to_type_nameof.exit ], [ true, %733 ], [ true, %725 ], [ true, %669 ], [ true, %sema_create_const_params.exit ], [ true, %601 ], [ true, %587 ], [ true, %494 ], [ true, %sema_create_const_len.exit ], [ true, %41 ], [ true, %32 ], [ true, %20 ], [ false, %452 ], [ false, %692 ], [ false, %731 ], [ false, %736 ], [ false, %794 ], [ false, %type_flatten.exit ], [ false, %50 ], [ true, %85 ], [ false, %100 ], [ true, %102 ], [ true, %175 ], [ true, %162 ], [ false, %173 ], [ true, %249 ], [ true, %250 ], [ true, %251 ], [ true, %252 ], [ true, %276 ], [ true, %277 ], [ true, %278 ], [ true, %279 ], [ true, %280 ], [ true, %281 ], [ true, %297 ], [ true, %298 ], [ true, %299 ], [ true, %300 ], [ true, %301 ], [ true, %302 ], [ true, %303 ], [ true, %304 ], [ true, %305 ], [ true, %306 ], [ true, %321 ], [ true, %322 ], [ true, %323 ], [ true, %324 ], [ false, %327 ], [ %396, %sema_analyse_expr_lvalue.exit.thread350 ], [ false, %397 ], [ true, %._crit_edge.i ], [ false, %500 ], [ %586, %sema_analyse_expr_lvalue.exit348.thread353 ], [ false, %599 ], [ false, %755 ], [ false, %391 ], [ false, %581 ]
   ret i1 %.0197
 }
 
 declare i32 @decl_find_member_offset(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare double @nan(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @sema_create_const_membersof(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
