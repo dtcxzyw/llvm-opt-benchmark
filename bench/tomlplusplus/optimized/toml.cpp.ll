@@ -5546,167 +5546,162 @@ sw.bb12.i.i:                                      ; preds = %if.end10
   %and1.i.i.i.i.i.i = and i64 %n.val22.i.i, 4503599627370495
   %tobool.not.i.i.i.i.i.i = icmp ne i64 %and1.i.i.i.i.i.i, 0
   %retval.0.i.i.i.i.i.i = and i1 %cmp.not.i.i.i.i.i.i, %tobool.not.i.i.i.i.i.i
-  %16 = bitcast double %15 to i64
-  %and.i4.i.i.i.i.i = and i64 %16, 9218868437227405312
-  %cmp.not.i5.i.i.i.i.i = icmp eq i64 %and.i4.i.i.i.i.i, 9218868437227405312
-  %and1.i8.i.i.i.i.i = and i64 %16, 4503599627370495
-  %tobool.not.i9.i.i.i.i.i = icmp ne i64 %and1.i8.i.i.i.i.i, 0
-  %17 = and i1 %cmp.not.i5.i.i.i.i.i, %tobool.not.i9.i.i.i.i.i
-  %cmp6.not.not.i.i.i.i.i = xor i1 %retval.0.i.i.i.i.i.i, %17
-  %brmerge.i.i.i.i.i = or i1 %retval.0.i.i.i.i.i.i, %17
+  %16 = fcmp uno double %15, 0.000000e+00
+  %cmp6.not.not.i.i.i.i.i = xor i1 %retval.0.i.i.i.i.i.i, %16
+  %brmerge.i.i.i.i.i = or i1 %retval.0.i.i.i.i.i.i, %16
   %not.cmp6.not.not.i.i.i.i.i = xor i1 %cmp6.not.not.i.i.i.i.i, true
   br i1 %brmerge.i.i.i.i.i, label %return, label %if.end9.i.i.i.i.i
 
 if.end9.i.i.i.i.i:                                ; preds = %sw.bb12.i.i
-  %18 = bitcast i64 %n.val22.i.i to double
-  %cmp11.i.i.i.i.i = fcmp oeq double %15, %18
+  %17 = bitcast i64 %n.val22.i.i to double
+  %cmp11.i.i.i.i.i = fcmp oeq double %15, %17
   br label %return
 
 sw.bb15.i.i:                                      ; preds = %if.end10
-  %19 = getelementptr inbounds i8, ptr %lhs, i64 40
-  %n.val24.i.i = load i8, ptr %19, align 8
+  %18 = getelementptr inbounds i8, ptr %lhs, i64 40
+  %n.val24.i.i = load i8, ptr %18, align 8
   %vfn.i.i45.i.i = getelementptr inbounds i8, ptr %vtable5, i64 256
-  %20 = load ptr, ptr %vfn.i.i45.i.i, align 8
-  %call.i.i46.i.i = tail call noundef ptr %20(ptr noundef nonnull readonly align 8 dereferenceable(40) %rhs) #40
+  %19 = load ptr, ptr %vfn.i.i45.i.i, align 8
+  %call.i.i46.i.i = tail call noundef ptr %19(ptr noundef nonnull readonly align 8 dereferenceable(40) %rhs) #40
   %val_.i.i47.i.i = getelementptr inbounds i8, ptr %call.i.i46.i.i, i64 40
-  %21 = load i8, ptr %val_.i.i47.i.i, align 8
-  %22 = xor i8 %21, %n.val24.i.i
-  %23 = trunc i8 %22 to i1
-  %cmp.i.i.i48.i.i = xor i1 %23, true
+  %20 = load i8, ptr %val_.i.i47.i.i, align 8
+  %21 = xor i8 %20, %n.val24.i.i
+  %22 = trunc i8 %21 to i1
+  %cmp.i.i.i48.i.i = xor i1 %22, true
   br label %return
 
 sw.bb18.i.i:                                      ; preds = %if.end10
   %vfn.i.i50.i.i = getelementptr inbounds i8, ptr %vtable5, i64 264
-  %24 = load ptr, ptr %vfn.i.i50.i.i, align 8
-  %call.i.i51.i.i = tail call noundef ptr %24(ptr noundef nonnull readonly align 8 dereferenceable(40) %rhs) #40
+  %23 = load ptr, ptr %vfn.i.i50.i.i, align 8
+  %call.i.i51.i.i = tail call noundef ptr %23(ptr noundef nonnull readonly align 8 dereferenceable(40) %rhs) #40
   %val_.i.i52.i.i = getelementptr inbounds i8, ptr %call.i.i51.i.i, i64 40
   %val_.i.i.i53.i.i = getelementptr inbounds i8, ptr %lhs, i64 40
-  %25 = load i16, ptr %val_.i.i.i53.i.i, align 2
-  %26 = load i16, ptr %val_.i.i52.i.i, align 2
-  %cmp.i.i.i.i54.i.i = icmp eq i16 %25, %26
+  %24 = load i16, ptr %val_.i.i.i53.i.i, align 2
+  %25 = load i16, ptr %val_.i.i52.i.i, align 2
+  %cmp.i.i.i.i54.i.i = icmp eq i16 %24, %25
   br i1 %cmp.i.i.i.i54.i.i, label %land.lhs.true.i.i.i.i.i.i, label %return
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %sw.bb18.i.i
   %month.i.i.i.i.i.i = getelementptr inbounds i8, ptr %lhs, i64 42
-  %27 = load i8, ptr %month.i.i.i.i.i.i, align 2
+  %26 = load i8, ptr %month.i.i.i.i.i.i, align 2
   %month4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i51.i.i, i64 42
-  %28 = load i8, ptr %month4.i.i.i.i.i.i, align 2
-  %cmp6.i.i.i.i.i.i = icmp eq i8 %27, %28
+  %27 = load i8, ptr %month4.i.i.i.i.i.i, align 2
+  %cmp6.i.i.i.i.i.i = icmp eq i8 %26, %27
   br i1 %cmp6.i.i.i.i.i.i, label %land.rhs.i.i.i.i55.i.i, label %return
 
 land.rhs.i.i.i.i55.i.i:                           ; preds = %land.lhs.true.i.i.i.i.i.i
   %day.i.i.i.i.i.i = getelementptr inbounds i8, ptr %lhs, i64 43
-  %29 = load i8, ptr %day.i.i.i.i.i.i, align 1
+  %28 = load i8, ptr %day.i.i.i.i.i.i, align 1
   %day8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i51.i.i, i64 43
-  %30 = load i8, ptr %day8.i.i.i.i.i.i, align 1
-  %cmp10.i.i.i.i.i.i = icmp eq i8 %29, %30
+  %29 = load i8, ptr %day8.i.i.i.i.i.i, align 1
+  %cmp10.i.i.i.i.i.i = icmp eq i8 %28, %29
   br label %return
 
 sw.bb21.i.i:                                      ; preds = %if.end10
   %vfn.i.i57.i.i = getelementptr inbounds i8, ptr %vtable5, i64 272
-  %31 = load ptr, ptr %vfn.i.i57.i.i, align 8
-  %call.i.i58.i.i = tail call noundef ptr %31(ptr noundef nonnull readonly align 8 dereferenceable(40) %rhs) #40
+  %30 = load ptr, ptr %vfn.i.i57.i.i, align 8
+  %call.i.i58.i.i = tail call noundef ptr %30(ptr noundef nonnull readonly align 8 dereferenceable(40) %rhs) #40
   %val_.i.i59.i.i = getelementptr inbounds i8, ptr %call.i.i58.i.i, i64 40
   %val_.i.i.i60.i.i = getelementptr inbounds i8, ptr %lhs, i64 40
-  %32 = load i8, ptr %val_.i.i.i60.i.i, align 4
-  %33 = load i8, ptr %val_.i.i59.i.i, align 4
-  %cmp.i.i.i.i61.i.i = icmp eq i8 %32, %33
+  %31 = load i8, ptr %val_.i.i.i60.i.i, align 4
+  %32 = load i8, ptr %val_.i.i59.i.i, align 4
+  %cmp.i.i.i.i61.i.i = icmp eq i8 %31, %32
   br i1 %cmp.i.i.i.i61.i.i, label %land.lhs.true.i.i.i.i62.i.i, label %return
 
 land.lhs.true.i.i.i.i62.i.i:                      ; preds = %sw.bb21.i.i
   %minute.i.i.i.i.i.i = getelementptr inbounds i8, ptr %lhs, i64 41
-  %34 = load i8, ptr %minute.i.i.i.i.i.i, align 1
+  %33 = load i8, ptr %minute.i.i.i.i.i.i, align 1
   %minute4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i58.i.i, i64 41
-  %35 = load i8, ptr %minute4.i.i.i.i.i.i, align 1
-  %cmp6.i.i.i.i63.i.i = icmp eq i8 %34, %35
+  %34 = load i8, ptr %minute4.i.i.i.i.i.i, align 1
+  %cmp6.i.i.i.i63.i.i = icmp eq i8 %33, %34
   br i1 %cmp6.i.i.i.i63.i.i, label %land.lhs.true7.i.i.i.i.i.i, label %return
 
 land.lhs.true7.i.i.i.i.i.i:                       ; preds = %land.lhs.true.i.i.i.i62.i.i
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %lhs, i64 42
-  %36 = load i8, ptr %second.i.i.i.i.i.i, align 2
+  %35 = load i8, ptr %second.i.i.i.i.i.i, align 2
   %second9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i58.i.i, i64 42
-  %37 = load i8, ptr %second9.i.i.i.i.i.i, align 2
-  %cmp11.i.i.i.i.i.i = icmp eq i8 %36, %37
+  %36 = load i8, ptr %second9.i.i.i.i.i.i, align 2
+  %cmp11.i.i.i.i.i.i = icmp eq i8 %35, %36
   br i1 %cmp11.i.i.i.i.i.i, label %land.rhs.i.i.i.i64.i.i, label %return
 
 land.rhs.i.i.i.i64.i.i:                           ; preds = %land.lhs.true7.i.i.i.i.i.i
   %nanosecond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %lhs, i64 44
-  %38 = load i32, ptr %nanosecond.i.i.i.i.i.i, align 4
+  %37 = load i32, ptr %nanosecond.i.i.i.i.i.i, align 4
   %nanosecond12.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i58.i.i, i64 44
-  %39 = load i32, ptr %nanosecond12.i.i.i.i.i.i, align 4
-  %cmp13.i.i.i.i.i.i = icmp eq i32 %38, %39
+  %38 = load i32, ptr %nanosecond12.i.i.i.i.i.i, align 4
+  %cmp13.i.i.i.i.i.i = icmp eq i32 %37, %38
   br label %return
 
 sw.bb24.i.i:                                      ; preds = %if.end10
   %vfn.i.i66.i.i = getelementptr inbounds i8, ptr %vtable5, i64 280
-  %40 = load ptr, ptr %vfn.i.i66.i.i, align 8
-  %call.i.i67.i.i = tail call noundef ptr %40(ptr noundef nonnull readonly align 8 dereferenceable(40) %rhs) #40
+  %39 = load ptr, ptr %vfn.i.i66.i.i, align 8
+  %call.i.i67.i.i = tail call noundef ptr %39(ptr noundef nonnull readonly align 8 dereferenceable(40) %rhs) #40
   %val_.i.i68.i.i = getelementptr inbounds i8, ptr %call.i.i67.i.i, i64 40
   %val_.i.i.i69.i.i = getelementptr inbounds i8, ptr %lhs, i64 40
-  %41 = load i16, ptr %val_.i.i.i69.i.i, align 2
-  %42 = load i16, ptr %val_.i.i68.i.i, align 2
-  %cmp.i.i.i.i.i70.i.i = icmp eq i16 %41, %42
+  %40 = load i16, ptr %val_.i.i.i69.i.i, align 2
+  %41 = load i16, ptr %val_.i.i68.i.i, align 2
+  %cmp.i.i.i.i.i70.i.i = icmp eq i16 %40, %41
   br i1 %cmp.i.i.i.i.i70.i.i, label %land.lhs.true.i.i.i.i.i.i.i, label %return
 
 land.lhs.true.i.i.i.i.i.i.i:                      ; preds = %sw.bb24.i.i
   %month.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %lhs, i64 42
-  %43 = load i8, ptr %month.i.i.i.i.i.i.i, align 2
+  %42 = load i8, ptr %month.i.i.i.i.i.i.i, align 2
   %month4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i67.i.i, i64 42
-  %44 = load i8, ptr %month4.i.i.i.i.i.i.i, align 2
-  %cmp6.i.i.i.i.i.i.i = icmp eq i8 %43, %44
+  %43 = load i8, ptr %month4.i.i.i.i.i.i.i, align 2
+  %cmp6.i.i.i.i.i.i.i = icmp eq i8 %42, %43
   br i1 %cmp6.i.i.i.i.i.i.i, label %_ZN4toml2v3eqERKNS0_4dateES3_.exit.i.i.i.i.i.i, label %return
 
 _ZN4toml2v3eqERKNS0_4dateES3_.exit.i.i.i.i.i.i:   ; preds = %land.lhs.true.i.i.i.i.i.i.i
   %day.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %lhs, i64 43
-  %45 = load i8, ptr %day.i.i.i.i.i.i.i, align 1
+  %44 = load i8, ptr %day.i.i.i.i.i.i.i, align 1
   %day8.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i67.i.i, i64 43
-  %46 = load i8, ptr %day8.i.i.i.i.i.i.i, align 1
-  %cmp10.i.i.i.i.i.i.i = icmp eq i8 %45, %46
+  %45 = load i8, ptr %day8.i.i.i.i.i.i.i, align 1
+  %cmp10.i.i.i.i.i.i.i = icmp eq i8 %44, %45
   br i1 %cmp10.i.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i71.i.i, label %return
 
 land.lhs.true.i.i.i.i71.i.i:                      ; preds = %_ZN4toml2v3eqERKNS0_4dateES3_.exit.i.i.i.i.i.i
   %time.i.i.i.i.i.i = getelementptr inbounds i8, ptr %lhs, i64 44
   %time2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i67.i.i, i64 44
-  %47 = load i8, ptr %time.i.i.i.i.i.i, align 4
-  %48 = load i8, ptr %time2.i.i.i.i.i.i, align 4
-  %cmp.i5.i.i.i.i.i.i = icmp eq i8 %47, %48
+  %46 = load i8, ptr %time.i.i.i.i.i.i, align 4
+  %47 = load i8, ptr %time2.i.i.i.i.i.i, align 4
+  %cmp.i5.i.i.i.i.i.i = icmp eq i8 %46, %47
   br i1 %cmp.i5.i.i.i.i.i.i, label %land.lhs.true.i6.i.i.i.i.i.i, label %return
 
 land.lhs.true.i6.i.i.i.i.i.i:                     ; preds = %land.lhs.true.i.i.i.i71.i.i
   %minute.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %lhs, i64 45
-  %49 = load i8, ptr %minute.i.i.i.i.i.i.i, align 1
+  %48 = load i8, ptr %minute.i.i.i.i.i.i.i, align 1
   %minute4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i67.i.i, i64 45
-  %50 = load i8, ptr %minute4.i.i.i.i.i.i.i, align 1
-  %cmp6.i7.i.i.i.i.i.i = icmp eq i8 %49, %50
+  %49 = load i8, ptr %minute4.i.i.i.i.i.i.i, align 1
+  %cmp6.i7.i.i.i.i.i.i = icmp eq i8 %48, %49
   br i1 %cmp6.i7.i.i.i.i.i.i, label %land.lhs.true7.i.i.i.i.i.i.i, label %return
 
 land.lhs.true7.i.i.i.i.i.i.i:                     ; preds = %land.lhs.true.i6.i.i.i.i.i.i
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %lhs, i64 46
-  %51 = load i8, ptr %second.i.i.i.i.i.i.i, align 2
+  %50 = load i8, ptr %second.i.i.i.i.i.i.i, align 2
   %second9.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i67.i.i, i64 46
-  %52 = load i8, ptr %second9.i.i.i.i.i.i.i, align 2
-  %cmp11.i.i.i.i.i.i.i = icmp eq i8 %51, %52
+  %51 = load i8, ptr %second9.i.i.i.i.i.i.i, align 2
+  %cmp11.i.i.i.i.i.i.i = icmp eq i8 %50, %51
   br i1 %cmp11.i.i.i.i.i.i.i, label %_ZN4toml2v3eqERKNS0_4timeES3_.exit.i.i.i.i.i.i, label %return
 
 _ZN4toml2v3eqERKNS0_4timeES3_.exit.i.i.i.i.i.i:   ; preds = %land.lhs.true7.i.i.i.i.i.i.i
   %nanosecond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %lhs, i64 48
-  %53 = load i32, ptr %nanosecond.i.i.i.i.i.i.i, align 4
+  %52 = load i32, ptr %nanosecond.i.i.i.i.i.i.i, align 4
   %nanosecond12.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i67.i.i, i64 48
-  %54 = load i32, ptr %nanosecond12.i.i.i.i.i.i.i, align 4
-  %cmp13.i.i.i.i.i.i.i = icmp eq i32 %53, %54
+  %53 = load i32, ptr %nanosecond12.i.i.i.i.i.i.i, align 4
+  %cmp13.i.i.i.i.i.i.i = icmp eq i32 %52, %53
   br i1 %cmp13.i.i.i.i.i.i.i, label %land.rhs.i.i.i.i72.i.i, label %return
 
 land.rhs.i.i.i.i72.i.i:                           ; preds = %_ZN4toml2v3eqERKNS0_4timeES3_.exit.i.i.i.i.i.i
   %_M_engaged.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %lhs, i64 54
-  %55 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i, align 2
-  %tobool.i.i.i.i.i.i.i.i.i = trunc i8 %55 to i1
+  %54 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i, align 2
+  %tobool.i.i.i.i.i.i.i.i.i = trunc i8 %54 to i1
   %_M_engaged.i.i4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i67.i.i, i64 54
-  %56 = load i8, ptr %_M_engaged.i.i4.i.i.i.i.i.i.i, align 2
-  %57 = xor i8 %56, %55
-  %58 = trunc i8 %57 to i1
+  %55 = load i8, ptr %_M_engaged.i.i4.i.i.i.i.i.i.i, align 2
+  %56 = xor i8 %55, %54
+  %57 = trunc i8 %56 to i1
   %tobool.i.i.not.i.i.i.i.i.i.i = xor i1 %tobool.i.i.i.i.i.i.i.i.i, true
-  %brmerge.i.i.i.i.i.i.i = or i1 %tobool.i.i.not.i.i.i.i.i.i.i, %58
-  %not..i.i.i.i.i.i.i = xor i1 %58, true
+  %brmerge.i.i.i.i.i.i.i = or i1 %tobool.i.i.not.i.i.i.i.i.i.i, %57
+  %not..i.i.i.i.i.i.i = xor i1 %57, true
   br i1 %brmerge.i.i.i.i.i.i.i, label %return, label %lor.rhs.i.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i.i:                            ; preds = %land.rhs.i.i.i.i72.i.i
@@ -10006,152 +10001,147 @@ sw.bb12.i:                                        ; preds = %if.end21
   %and1.i.i.i.i.i = and i64 %n.val20.i, 4503599627370495
   %tobool.not.i.i.i.i.i = icmp ne i64 %and1.i.i.i.i.i, 0
   %retval.0.i.i.i.i.i = and i1 %cmp.not.i.i.i.i.i, %tobool.not.i.i.i.i.i
-  %18 = bitcast double %visitor.val19.val.i to i64
-  %and.i4.i.i.i.i = and i64 %18, 9218868437227405312
-  %cmp.not.i5.i.i.i.i = icmp eq i64 %and.i4.i.i.i.i, 9218868437227405312
-  %and1.i8.i.i.i.i = and i64 %18, 4503599627370495
-  %tobool.not.i9.i.i.i.i = icmp ne i64 %and1.i8.i.i.i.i, 0
-  %19 = and i1 %cmp.not.i5.i.i.i.i, %tobool.not.i9.i.i.i.i
-  %cmp6.not.not.i.i.i.i = xor i1 %retval.0.i.i.i.i.i, %19
-  %brmerge.i.i.i.i = or i1 %retval.0.i.i.i.i.i, %19
+  %18 = fcmp uno double %visitor.val19.val.i, 0.000000e+00
+  %cmp6.not.not.i.i.i.i = xor i1 %18, %retval.0.i.i.i.i.i
+  %brmerge.i.i.i.i = or i1 %18, %retval.0.i.i.i.i.i
   br i1 %brmerge.i.i.i.i, label %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit", label %if.end9.i.i.i.i
 
 if.end9.i.i.i.i:                                  ; preds = %sw.bb12.i
-  %20 = bitcast i64 %n.val20.i to double
-  %cmp11.i.i.i.i = fcmp oeq double %visitor.val19.val.i, %20
+  %19 = bitcast i64 %n.val20.i to double
+  %cmp11.i.i.i.i = fcmp oeq double %visitor.val19.val.i, %19
   br i1 %cmp11.i.i.i.i, label %for.inc, label %return
 
 sw.bb15.i:                                        ; preds = %if.end21
-  %21 = getelementptr i8, ptr %5, i64 40
-  %n.val22.i = load i8, ptr %21, align 8
-  %22 = getelementptr i8, ptr %8, i64 40
-  %visitor.val21.val.i = load i8, ptr %22, align 8
-  %23 = xor i8 %visitor.val21.val.i, %n.val22.i
-  %24 = trunc i8 %23 to i1
-  br i1 %24, label %return, label %for.inc
+  %20 = getelementptr i8, ptr %5, i64 40
+  %n.val22.i = load i8, ptr %20, align 8
+  %21 = getelementptr i8, ptr %8, i64 40
+  %visitor.val21.val.i = load i8, ptr %21, align 8
+  %22 = xor i8 %visitor.val21.val.i, %n.val22.i
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %return, label %for.inc
 
 sw.bb18.i:                                        ; preds = %if.end21
   %val_.i.i28.i = getelementptr inbounds i8, ptr %8, i64 40
   %val_.i.i.i29.i = getelementptr inbounds i8, ptr %5, i64 40
-  %25 = load i16, ptr %val_.i.i.i29.i, align 2
-  %26 = load i16, ptr %val_.i.i28.i, align 2
-  %cmp.i.i.i.i30.i = icmp eq i16 %25, %26
+  %24 = load i16, ptr %val_.i.i.i29.i, align 2
+  %25 = load i16, ptr %val_.i.i28.i, align 2
+  %cmp.i.i.i.i30.i = icmp eq i16 %24, %25
   br i1 %cmp.i.i.i.i30.i, label %land.lhs.true.i.i.i.i.i, label %return
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %sw.bb18.i
   %month.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 42
-  %27 = load i8, ptr %month.i.i.i.i.i, align 2
+  %26 = load i8, ptr %month.i.i.i.i.i, align 2
   %month4.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 42
-  %28 = load i8, ptr %month4.i.i.i.i.i, align 2
-  %cmp6.i.i.i.i.i = icmp eq i8 %27, %28
+  %27 = load i8, ptr %month4.i.i.i.i.i, align 2
+  %cmp6.i.i.i.i.i = icmp eq i8 %26, %27
   br i1 %cmp6.i.i.i.i.i, label %land.rhs.i.i.i.i31.i, label %return
 
 land.rhs.i.i.i.i31.i:                             ; preds = %land.lhs.true.i.i.i.i.i
   %day.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 43
-  %29 = load i8, ptr %day.i.i.i.i.i, align 1
+  %28 = load i8, ptr %day.i.i.i.i.i, align 1
   %day8.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 43
-  %30 = load i8, ptr %day8.i.i.i.i.i, align 1
-  %cmp10.i.i.i.i.i = icmp eq i8 %29, %30
+  %29 = load i8, ptr %day8.i.i.i.i.i, align 1
+  %cmp10.i.i.i.i.i = icmp eq i8 %28, %29
   br i1 %cmp10.i.i.i.i.i, label %for.inc, label %return
 
 sw.bb21.i:                                        ; preds = %if.end21
   %val_.i.i32.i = getelementptr inbounds i8, ptr %8, i64 40
   %val_.i.i.i33.i = getelementptr inbounds i8, ptr %5, i64 40
-  %31 = load i8, ptr %val_.i.i.i33.i, align 4
-  %32 = load i8, ptr %val_.i.i32.i, align 4
-  %cmp.i.i.i.i34.i = icmp eq i8 %31, %32
+  %30 = load i8, ptr %val_.i.i.i33.i, align 4
+  %31 = load i8, ptr %val_.i.i32.i, align 4
+  %cmp.i.i.i.i34.i = icmp eq i8 %30, %31
   br i1 %cmp.i.i.i.i34.i, label %land.lhs.true.i.i.i.i35.i, label %return
 
 land.lhs.true.i.i.i.i35.i:                        ; preds = %sw.bb21.i
   %minute.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 41
-  %33 = load i8, ptr %minute.i.i.i.i.i, align 1
+  %32 = load i8, ptr %minute.i.i.i.i.i, align 1
   %minute4.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 41
-  %34 = load i8, ptr %minute4.i.i.i.i.i, align 1
-  %cmp6.i.i.i.i36.i = icmp eq i8 %33, %34
+  %33 = load i8, ptr %minute4.i.i.i.i.i, align 1
+  %cmp6.i.i.i.i36.i = icmp eq i8 %32, %33
   br i1 %cmp6.i.i.i.i36.i, label %land.lhs.true7.i.i.i.i.i, label %return
 
 land.lhs.true7.i.i.i.i.i:                         ; preds = %land.lhs.true.i.i.i.i35.i
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 42
-  %35 = load i8, ptr %second.i.i.i.i.i, align 2
+  %34 = load i8, ptr %second.i.i.i.i.i, align 2
   %second9.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 42
-  %36 = load i8, ptr %second9.i.i.i.i.i, align 2
-  %cmp11.i.i.i.i.i = icmp eq i8 %35, %36
+  %35 = load i8, ptr %second9.i.i.i.i.i, align 2
+  %cmp11.i.i.i.i.i = icmp eq i8 %34, %35
   br i1 %cmp11.i.i.i.i.i, label %land.rhs.i.i.i.i37.i, label %return
 
 land.rhs.i.i.i.i37.i:                             ; preds = %land.lhs.true7.i.i.i.i.i
   %nanosecond.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 44
-  %37 = load i32, ptr %nanosecond.i.i.i.i.i, align 4
+  %36 = load i32, ptr %nanosecond.i.i.i.i.i, align 4
   %nanosecond12.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 44
-  %38 = load i32, ptr %nanosecond12.i.i.i.i.i, align 4
-  %cmp13.i.i.i.i.i = icmp eq i32 %37, %38
+  %37 = load i32, ptr %nanosecond12.i.i.i.i.i, align 4
+  %cmp13.i.i.i.i.i = icmp eq i32 %36, %37
   br i1 %cmp13.i.i.i.i.i, label %for.inc, label %return
 
 sw.bb24.i:                                        ; preds = %if.end21
   %val_.i.i38.i = getelementptr inbounds i8, ptr %8, i64 40
   %val_.i.i.i39.i = getelementptr inbounds i8, ptr %5, i64 40
-  %39 = load i16, ptr %val_.i.i.i39.i, align 2
-  %40 = load i16, ptr %val_.i.i38.i, align 2
-  %cmp.i.i.i.i.i40.i = icmp eq i16 %39, %40
+  %38 = load i16, ptr %val_.i.i.i39.i, align 2
+  %39 = load i16, ptr %val_.i.i38.i, align 2
+  %cmp.i.i.i.i.i40.i = icmp eq i16 %38, %39
   br i1 %cmp.i.i.i.i.i40.i, label %land.lhs.true.i.i.i.i.i.i, label %return
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %sw.bb24.i
   %month.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 42
-  %41 = load i8, ptr %month.i.i.i.i.i.i, align 2
+  %40 = load i8, ptr %month.i.i.i.i.i.i, align 2
   %month4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 42
-  %42 = load i8, ptr %month4.i.i.i.i.i.i, align 2
-  %cmp6.i.i.i.i.i.i = icmp eq i8 %41, %42
+  %41 = load i8, ptr %month4.i.i.i.i.i.i, align 2
+  %cmp6.i.i.i.i.i.i = icmp eq i8 %40, %41
   br i1 %cmp6.i.i.i.i.i.i, label %_ZN4toml2v3eqERKNS0_4dateES3_.exit.i.i.i.i.i, label %return
 
 _ZN4toml2v3eqERKNS0_4dateES3_.exit.i.i.i.i.i:     ; preds = %land.lhs.true.i.i.i.i.i.i
   %day.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 43
-  %43 = load i8, ptr %day.i.i.i.i.i.i, align 1
+  %42 = load i8, ptr %day.i.i.i.i.i.i, align 1
   %day8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 43
-  %44 = load i8, ptr %day8.i.i.i.i.i.i, align 1
-  %cmp10.i.i.i.i.i.i = icmp eq i8 %43, %44
+  %43 = load i8, ptr %day8.i.i.i.i.i.i, align 1
+  %cmp10.i.i.i.i.i.i = icmp eq i8 %42, %43
   br i1 %cmp10.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i41.i, label %return
 
 land.lhs.true.i.i.i.i41.i:                        ; preds = %_ZN4toml2v3eqERKNS0_4dateES3_.exit.i.i.i.i.i
   %time.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 44
   %time2.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 44
-  %45 = load i8, ptr %time.i.i.i.i.i, align 4
-  %46 = load i8, ptr %time2.i.i.i.i.i, align 4
-  %cmp.i5.i.i.i.i.i = icmp eq i8 %45, %46
+  %44 = load i8, ptr %time.i.i.i.i.i, align 4
+  %45 = load i8, ptr %time2.i.i.i.i.i, align 4
+  %cmp.i5.i.i.i.i.i = icmp eq i8 %44, %45
   br i1 %cmp.i5.i.i.i.i.i, label %land.lhs.true.i6.i.i.i.i.i, label %return
 
 land.lhs.true.i6.i.i.i.i.i:                       ; preds = %land.lhs.true.i.i.i.i41.i
   %minute.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 45
-  %47 = load i8, ptr %minute.i.i.i.i.i.i, align 1
+  %46 = load i8, ptr %minute.i.i.i.i.i.i, align 1
   %minute4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 45
-  %48 = load i8, ptr %minute4.i.i.i.i.i.i, align 1
-  %cmp6.i7.i.i.i.i.i = icmp eq i8 %47, %48
+  %47 = load i8, ptr %minute4.i.i.i.i.i.i, align 1
+  %cmp6.i7.i.i.i.i.i = icmp eq i8 %46, %47
   br i1 %cmp6.i7.i.i.i.i.i, label %land.lhs.true7.i.i.i.i.i.i, label %return
 
 land.lhs.true7.i.i.i.i.i.i:                       ; preds = %land.lhs.true.i6.i.i.i.i.i
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 46
-  %49 = load i8, ptr %second.i.i.i.i.i.i, align 2
+  %48 = load i8, ptr %second.i.i.i.i.i.i, align 2
   %second9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 46
-  %50 = load i8, ptr %second9.i.i.i.i.i.i, align 2
-  %cmp11.i.i.i.i.i.i = icmp eq i8 %49, %50
+  %49 = load i8, ptr %second9.i.i.i.i.i.i, align 2
+  %cmp11.i.i.i.i.i.i = icmp eq i8 %48, %49
   br i1 %cmp11.i.i.i.i.i.i, label %_ZN4toml2v3eqERKNS0_4timeES3_.exit.i.i.i.i.i, label %return
 
 _ZN4toml2v3eqERKNS0_4timeES3_.exit.i.i.i.i.i:     ; preds = %land.lhs.true7.i.i.i.i.i.i
   %nanosecond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 48
-  %51 = load i32, ptr %nanosecond.i.i.i.i.i.i, align 4
+  %50 = load i32, ptr %nanosecond.i.i.i.i.i.i, align 4
   %nanosecond12.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 48
-  %52 = load i32, ptr %nanosecond12.i.i.i.i.i.i, align 4
-  %cmp13.i.i.i.i.i.i = icmp eq i32 %51, %52
+  %51 = load i32, ptr %nanosecond12.i.i.i.i.i.i, align 4
+  %cmp13.i.i.i.i.i.i = icmp eq i32 %50, %51
   br i1 %cmp13.i.i.i.i.i.i, label %land.rhs.i.i.i.i42.i, label %return
 
 land.rhs.i.i.i.i42.i:                             ; preds = %_ZN4toml2v3eqERKNS0_4timeES3_.exit.i.i.i.i.i
   %_M_engaged.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 54
-  %53 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 2
-  %tobool.i.i.i.i.i.i.i.i = trunc i8 %53 to i1
+  %52 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 2
+  %tobool.i.i.i.i.i.i.i.i = trunc i8 %52 to i1
   %_M_engaged.i.i4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 54
-  %54 = load i8, ptr %_M_engaged.i.i4.i.i.i.i.i.i, align 2
-  %55 = xor i8 %54, %53
-  %56 = trunc i8 %55 to i1
+  %53 = load i8, ptr %_M_engaged.i.i4.i.i.i.i.i.i, align 2
+  %54 = xor i8 %53, %52
+  %55 = trunc i8 %54 to i1
   %tobool.i.i.not.i.i.i.i.i.i = xor i1 %tobool.i.i.i.i.i.i.i.i, true
-  %brmerge.i.i.i.i.i.i = or i1 %tobool.i.i.not.i.i.i.i.i.i, %56
+  %brmerge.i.i.i.i.i.i = or i1 %tobool.i.i.not.i.i.i.i.i.i, %55
   br i1 %brmerge.i.i.i.i.i.i, label %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit", label %lor.rhs.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i:                              ; preds = %land.rhs.i.i.i.i42.i
@@ -10166,7 +10156,7 @@ sw.default.i:                                     ; preds = %if.end21
   unreachable
 
 "_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit": ; preds = %land.rhs.i.i.i.i42.i, %sw.bb12.i
-  %retval.0.i.in = phi i1 [ %cmp6.not.not.i.i.i.i, %sw.bb12.i ], [ %56, %land.rhs.i.i.i.i42.i ]
+  %retval.0.i.in = phi i1 [ %cmp6.not.not.i.i.i.i, %sw.bb12.i ], [ %55, %land.rhs.i.i.i.i42.i ]
   br i1 %retval.0.i.in, label %return, label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %land.rhs.i.i.i.i.i, %lor.rhs.i.i.i.i.i.i, %land.rhs.i.i.i.i37.i, %land.rhs.i.i.i.i31.i, %if.end9.i.i.i.i, %sw.bb.i, %sw.bb3.i, %sw.bb9.i, %sw.bb15.i, %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit"
@@ -11596,152 +11586,147 @@ sw.bb12.i:                                        ; preds = %if.end32
   %and1.i.i.i.i.i = and i64 %n.val20.i, 4503599627370495
   %tobool.not.i.i.i.i.i = icmp ne i64 %and1.i.i.i.i.i, 0
   %retval.0.i.i.i.i.i = and i1 %cmp.not.i.i.i.i.i, %tobool.not.i.i.i.i.i
-  %16 = bitcast double %visitor.val19.val.i to i64
-  %and.i4.i.i.i.i = and i64 %16, 9218868437227405312
-  %cmp.not.i5.i.i.i.i = icmp eq i64 %and.i4.i.i.i.i, 9218868437227405312
-  %and1.i8.i.i.i.i = and i64 %16, 4503599627370495
-  %tobool.not.i9.i.i.i.i = icmp ne i64 %and1.i8.i.i.i.i, 0
-  %17 = and i1 %cmp.not.i5.i.i.i.i, %tobool.not.i9.i.i.i.i
-  %cmp6.not.not.i.i.i.i = xor i1 %retval.0.i.i.i.i.i, %17
-  %brmerge.i.i.i.i = or i1 %retval.0.i.i.i.i.i, %17
+  %16 = fcmp uno double %visitor.val19.val.i, 0.000000e+00
+  %cmp6.not.not.i.i.i.i = xor i1 %16, %retval.0.i.i.i.i.i
+  %brmerge.i.i.i.i = or i1 %16, %retval.0.i.i.i.i.i
   br i1 %brmerge.i.i.i.i, label %"_ZN4toml2v34node8do_visitIZNS0_5table5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit", label %if.end9.i.i.i.i
 
 if.end9.i.i.i.i:                                  ; preds = %sw.bb12.i
-  %18 = bitcast i64 %n.val20.i to double
-  %cmp11.i.i.i.i = fcmp oeq double %visitor.val19.val.i, %18
+  %17 = bitcast i64 %n.val20.i to double
+  %cmp11.i.i.i.i = fcmp oeq double %visitor.val19.val.i, %17
   br i1 %cmp11.i.i.i.i, label %for.inc, label %return
 
 sw.bb15.i:                                        ; preds = %if.end32
-  %19 = getelementptr i8, ptr %4, i64 40
-  %n.val22.i = load i8, ptr %19, align 8
-  %20 = getelementptr i8, ptr %6, i64 40
-  %visitor.val21.val.i = load i8, ptr %20, align 8
-  %21 = xor i8 %visitor.val21.val.i, %n.val22.i
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %return, label %for.inc
+  %18 = getelementptr i8, ptr %4, i64 40
+  %n.val22.i = load i8, ptr %18, align 8
+  %19 = getelementptr i8, ptr %6, i64 40
+  %visitor.val21.val.i = load i8, ptr %19, align 8
+  %20 = xor i8 %visitor.val21.val.i, %n.val22.i
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %return, label %for.inc
 
 sw.bb18.i:                                        ; preds = %if.end32
   %val_.i.i28.i = getelementptr inbounds i8, ptr %6, i64 40
   %val_.i.i.i29.i = getelementptr inbounds i8, ptr %4, i64 40
-  %23 = load i16, ptr %val_.i.i.i29.i, align 2
-  %24 = load i16, ptr %val_.i.i28.i, align 2
-  %cmp.i.i.i.i30.i = icmp eq i16 %23, %24
+  %22 = load i16, ptr %val_.i.i.i29.i, align 2
+  %23 = load i16, ptr %val_.i.i28.i, align 2
+  %cmp.i.i.i.i30.i = icmp eq i16 %22, %23
   br i1 %cmp.i.i.i.i30.i, label %land.lhs.true.i.i.i.i.i, label %return
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %sw.bb18.i
   %month.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 42
-  %25 = load i8, ptr %month.i.i.i.i.i, align 2
+  %24 = load i8, ptr %month.i.i.i.i.i, align 2
   %month4.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 42
-  %26 = load i8, ptr %month4.i.i.i.i.i, align 2
-  %cmp6.i.i.i.i.i = icmp eq i8 %25, %26
+  %25 = load i8, ptr %month4.i.i.i.i.i, align 2
+  %cmp6.i.i.i.i.i = icmp eq i8 %24, %25
   br i1 %cmp6.i.i.i.i.i, label %land.rhs.i.i.i.i31.i, label %return
 
 land.rhs.i.i.i.i31.i:                             ; preds = %land.lhs.true.i.i.i.i.i
   %day.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 43
-  %27 = load i8, ptr %day.i.i.i.i.i, align 1
+  %26 = load i8, ptr %day.i.i.i.i.i, align 1
   %day8.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 43
-  %28 = load i8, ptr %day8.i.i.i.i.i, align 1
-  %cmp10.i.i.i.i.i = icmp eq i8 %27, %28
+  %27 = load i8, ptr %day8.i.i.i.i.i, align 1
+  %cmp10.i.i.i.i.i = icmp eq i8 %26, %27
   br i1 %cmp10.i.i.i.i.i, label %for.inc, label %return
 
 sw.bb21.i:                                        ; preds = %if.end32
   %val_.i.i32.i = getelementptr inbounds i8, ptr %6, i64 40
   %val_.i.i.i33.i = getelementptr inbounds i8, ptr %4, i64 40
-  %29 = load i8, ptr %val_.i.i.i33.i, align 4
-  %30 = load i8, ptr %val_.i.i32.i, align 4
-  %cmp.i.i.i.i34.i = icmp eq i8 %29, %30
+  %28 = load i8, ptr %val_.i.i.i33.i, align 4
+  %29 = load i8, ptr %val_.i.i32.i, align 4
+  %cmp.i.i.i.i34.i = icmp eq i8 %28, %29
   br i1 %cmp.i.i.i.i34.i, label %land.lhs.true.i.i.i.i35.i, label %return
 
 land.lhs.true.i.i.i.i35.i:                        ; preds = %sw.bb21.i
   %minute.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 41
-  %31 = load i8, ptr %minute.i.i.i.i.i, align 1
+  %30 = load i8, ptr %minute.i.i.i.i.i, align 1
   %minute4.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 41
-  %32 = load i8, ptr %minute4.i.i.i.i.i, align 1
-  %cmp6.i.i.i.i36.i = icmp eq i8 %31, %32
+  %31 = load i8, ptr %minute4.i.i.i.i.i, align 1
+  %cmp6.i.i.i.i36.i = icmp eq i8 %30, %31
   br i1 %cmp6.i.i.i.i36.i, label %land.lhs.true7.i.i.i.i.i, label %return
 
 land.lhs.true7.i.i.i.i.i:                         ; preds = %land.lhs.true.i.i.i.i35.i
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 42
-  %33 = load i8, ptr %second.i.i.i.i.i, align 2
+  %32 = load i8, ptr %second.i.i.i.i.i, align 2
   %second9.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 42
-  %34 = load i8, ptr %second9.i.i.i.i.i, align 2
-  %cmp11.i.i.i.i.i = icmp eq i8 %33, %34
+  %33 = load i8, ptr %second9.i.i.i.i.i, align 2
+  %cmp11.i.i.i.i.i = icmp eq i8 %32, %33
   br i1 %cmp11.i.i.i.i.i, label %land.rhs.i.i.i.i37.i, label %return
 
 land.rhs.i.i.i.i37.i:                             ; preds = %land.lhs.true7.i.i.i.i.i
   %nanosecond.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 44
-  %35 = load i32, ptr %nanosecond.i.i.i.i.i, align 4
+  %34 = load i32, ptr %nanosecond.i.i.i.i.i, align 4
   %nanosecond12.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 44
-  %36 = load i32, ptr %nanosecond12.i.i.i.i.i, align 4
-  %cmp13.i.i.i.i.i = icmp eq i32 %35, %36
+  %35 = load i32, ptr %nanosecond12.i.i.i.i.i, align 4
+  %cmp13.i.i.i.i.i = icmp eq i32 %34, %35
   br i1 %cmp13.i.i.i.i.i, label %for.inc, label %return
 
 sw.bb24.i:                                        ; preds = %if.end32
   %val_.i.i38.i = getelementptr inbounds i8, ptr %6, i64 40
   %val_.i.i.i39.i = getelementptr inbounds i8, ptr %4, i64 40
-  %37 = load i16, ptr %val_.i.i.i39.i, align 2
-  %38 = load i16, ptr %val_.i.i38.i, align 2
-  %cmp.i.i.i.i.i40.i = icmp eq i16 %37, %38
+  %36 = load i16, ptr %val_.i.i.i39.i, align 2
+  %37 = load i16, ptr %val_.i.i38.i, align 2
+  %cmp.i.i.i.i.i40.i = icmp eq i16 %36, %37
   br i1 %cmp.i.i.i.i.i40.i, label %land.lhs.true.i.i.i.i.i.i, label %return
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %sw.bb24.i
   %month.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 42
-  %39 = load i8, ptr %month.i.i.i.i.i.i, align 2
+  %38 = load i8, ptr %month.i.i.i.i.i.i, align 2
   %month4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 42
-  %40 = load i8, ptr %month4.i.i.i.i.i.i, align 2
-  %cmp6.i.i.i.i.i.i = icmp eq i8 %39, %40
+  %39 = load i8, ptr %month4.i.i.i.i.i.i, align 2
+  %cmp6.i.i.i.i.i.i = icmp eq i8 %38, %39
   br i1 %cmp6.i.i.i.i.i.i, label %_ZN4toml2v3eqERKNS0_4dateES3_.exit.i.i.i.i.i, label %return
 
 _ZN4toml2v3eqERKNS0_4dateES3_.exit.i.i.i.i.i:     ; preds = %land.lhs.true.i.i.i.i.i.i
   %day.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 43
-  %41 = load i8, ptr %day.i.i.i.i.i.i, align 1
+  %40 = load i8, ptr %day.i.i.i.i.i.i, align 1
   %day8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 43
-  %42 = load i8, ptr %day8.i.i.i.i.i.i, align 1
-  %cmp10.i.i.i.i.i.i = icmp eq i8 %41, %42
+  %41 = load i8, ptr %day8.i.i.i.i.i.i, align 1
+  %cmp10.i.i.i.i.i.i = icmp eq i8 %40, %41
   br i1 %cmp10.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i41.i, label %return
 
 land.lhs.true.i.i.i.i41.i:                        ; preds = %_ZN4toml2v3eqERKNS0_4dateES3_.exit.i.i.i.i.i
   %time.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 44
   %time2.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 44
-  %43 = load i8, ptr %time.i.i.i.i.i, align 4
-  %44 = load i8, ptr %time2.i.i.i.i.i, align 4
-  %cmp.i5.i.i.i.i.i = icmp eq i8 %43, %44
+  %42 = load i8, ptr %time.i.i.i.i.i, align 4
+  %43 = load i8, ptr %time2.i.i.i.i.i, align 4
+  %cmp.i5.i.i.i.i.i = icmp eq i8 %42, %43
   br i1 %cmp.i5.i.i.i.i.i, label %land.lhs.true.i6.i.i.i.i.i, label %return
 
 land.lhs.true.i6.i.i.i.i.i:                       ; preds = %land.lhs.true.i.i.i.i41.i
   %minute.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 45
-  %45 = load i8, ptr %minute.i.i.i.i.i.i, align 1
+  %44 = load i8, ptr %minute.i.i.i.i.i.i, align 1
   %minute4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 45
-  %46 = load i8, ptr %minute4.i.i.i.i.i.i, align 1
-  %cmp6.i7.i.i.i.i.i = icmp eq i8 %45, %46
+  %45 = load i8, ptr %minute4.i.i.i.i.i.i, align 1
+  %cmp6.i7.i.i.i.i.i = icmp eq i8 %44, %45
   br i1 %cmp6.i7.i.i.i.i.i, label %land.lhs.true7.i.i.i.i.i.i, label %return
 
 land.lhs.true7.i.i.i.i.i.i:                       ; preds = %land.lhs.true.i6.i.i.i.i.i
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 46
-  %47 = load i8, ptr %second.i.i.i.i.i.i, align 2
+  %46 = load i8, ptr %second.i.i.i.i.i.i, align 2
   %second9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 46
-  %48 = load i8, ptr %second9.i.i.i.i.i.i, align 2
-  %cmp11.i.i.i.i.i.i = icmp eq i8 %47, %48
+  %47 = load i8, ptr %second9.i.i.i.i.i.i, align 2
+  %cmp11.i.i.i.i.i.i = icmp eq i8 %46, %47
   br i1 %cmp11.i.i.i.i.i.i, label %_ZN4toml2v3eqERKNS0_4timeES3_.exit.i.i.i.i.i, label %return
 
 _ZN4toml2v3eqERKNS0_4timeES3_.exit.i.i.i.i.i:     ; preds = %land.lhs.true7.i.i.i.i.i.i
   %nanosecond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 48
-  %49 = load i32, ptr %nanosecond.i.i.i.i.i.i, align 4
+  %48 = load i32, ptr %nanosecond.i.i.i.i.i.i, align 4
   %nanosecond12.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 48
-  %50 = load i32, ptr %nanosecond12.i.i.i.i.i.i, align 4
-  %cmp13.i.i.i.i.i.i = icmp eq i32 %49, %50
+  %49 = load i32, ptr %nanosecond12.i.i.i.i.i.i, align 4
+  %cmp13.i.i.i.i.i.i = icmp eq i32 %48, %49
   br i1 %cmp13.i.i.i.i.i.i, label %land.rhs.i.i.i.i42.i, label %return
 
 land.rhs.i.i.i.i42.i:                             ; preds = %_ZN4toml2v3eqERKNS0_4timeES3_.exit.i.i.i.i.i
   %_M_engaged.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 54
-  %51 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 2
-  %tobool.i.i.i.i.i.i.i.i = trunc i8 %51 to i1
+  %50 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 2
+  %tobool.i.i.i.i.i.i.i.i = trunc i8 %50 to i1
   %_M_engaged.i.i4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 54
-  %52 = load i8, ptr %_M_engaged.i.i4.i.i.i.i.i.i, align 2
-  %53 = xor i8 %52, %51
-  %54 = trunc i8 %53 to i1
+  %51 = load i8, ptr %_M_engaged.i.i4.i.i.i.i.i.i, align 2
+  %52 = xor i8 %51, %50
+  %53 = trunc i8 %52 to i1
   %tobool.i.i.not.i.i.i.i.i.i = xor i1 %tobool.i.i.i.i.i.i.i.i, true
-  %brmerge.i.i.i.i.i.i = or i1 %tobool.i.i.not.i.i.i.i.i.i, %54
+  %brmerge.i.i.i.i.i.i = or i1 %tobool.i.i.not.i.i.i.i.i.i, %53
   br i1 %brmerge.i.i.i.i.i.i, label %"_ZN4toml2v34node8do_visitIZNS0_5table5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit", label %lor.rhs.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i:                              ; preds = %land.rhs.i.i.i.i42.i
@@ -11756,7 +11741,7 @@ sw.default.i:                                     ; preds = %if.end32
   unreachable
 
 "_ZN4toml2v34node8do_visitIZNS0_5table5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit": ; preds = %land.rhs.i.i.i.i42.i, %sw.bb12.i
-  %retval.0.i.in = phi i1 [ %cmp6.not.not.i.i.i.i, %sw.bb12.i ], [ %54, %land.rhs.i.i.i.i42.i ]
+  %retval.0.i.in = phi i1 [ %cmp6.not.not.i.i.i.i, %sw.bb12.i ], [ %53, %land.rhs.i.i.i.i42.i ]
   br i1 %retval.0.i.in, label %return, label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %land.rhs.i.i.i.i.i, %lor.rhs.i.i.i.i.i.i, %land.rhs.i.i.i.i37.i, %land.rhs.i.i.i.i31.i, %if.end9.i.i.i.i, %sw.bb.i, %sw.bb3.i, %sw.bb9.i, %sw.bb15.i, %"_ZN4toml2v34node8do_visitIZNS0_5table5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit"

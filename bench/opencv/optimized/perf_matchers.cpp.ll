@@ -9283,126 +9283,111 @@ define linkonce_odr hidden void @_ZN7testing8internal24CmpHelperFloatingPointEQI
   %7 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
-  %10 = bitcast double %3 to i64
-  %11 = and i64 %10, 9218868437227405312
-  %12 = icmp eq i64 %11, 9218868437227405312
-  %13 = and i64 %10, 4503599627370495
-  %14 = icmp ne i64 %13, 0
-  %15 = and i1 %12, %14
-  br i1 %15, label %_ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit.thread, label %16
+  %or.cond = fcmp uno double %3, %4
+  br i1 %or.cond, label %_ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit.thread, label %_ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit
 
-16:                                               ; preds = %5
-  %17 = bitcast double %4 to i64
-  %18 = and i64 %17, 9218868437227405312
-  %19 = icmp eq i64 %18, 9218868437227405312
-  %20 = and i64 %17, 4503599627370495
-  %21 = icmp ne i64 %20, 0
-  %22 = and i1 %19, %21
-  br i1 %22, label %_ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit.thread, label %_ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit
+_ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit: ; preds = %5
+  %10 = insertelement <2 x double> poison, double %4, i64 0
+  %11 = insertelement <2 x double> %10, double %3, i64 1
+  %12 = bitcast <2 x double> %11 to <2 x i64>
+  %13 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %11)
+  %14 = sub <2 x i64> zeroinitializer, %12
+  %15 = fneg <2 x double> %13
+  %16 = bitcast <2 x double> %15 to <2 x i64>
+  %17 = icmp slt <2 x i64> %12, zeroinitializer
+  %18 = select <2 x i1> %17, <2 x i64> %14, <2 x i64> %16
+  %19 = extractelement <2 x i64> %18, i64 0
+  %20 = extractelement <2 x i64> %18, i64 1
+  %.not.i.i = icmp ult i64 %20, %19
+  %21 = sub nuw i64 %20, %19
+  %22 = sub nuw i64 %19, %20
+  %23 = select i1 %.not.i.i, i64 %22, i64 %21
+  %24 = icmp ult i64 %23, 5
+  br i1 %24, label %25, label %_ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit.thread
 
-_ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit: ; preds = %16
-  %23 = sub i64 0, %10
-  %24 = tail call double @llvm.fabs.f64(double %3)
-  %25 = fneg double %24
-  %26 = bitcast double %25 to i64
-  %.not3.i.i.i = icmp slt i64 %10, 0
-  %.0.i.i.i = select i1 %.not3.i.i.i, i64 %23, i64 %26
-  %27 = sub i64 0, %17
-  %28 = tail call double @llvm.fabs.f64(double %4)
-  %29 = fneg double %28
-  %30 = bitcast double %29 to i64
-  %.not3.i9.i.i = icmp slt i64 %17, 0
-  %.0.i10.i.i = select i1 %.not3.i9.i.i, i64 %27, i64 %30
-  %.not.i.i = icmp ult i64 %.0.i.i.i, %.0.i10.i.i
-  %31 = sub nuw i64 %.0.i.i.i, %.0.i10.i.i
-  %32 = sub nuw i64 %.0.i10.i.i, %.0.i.i.i
-  %33 = select i1 %.not.i.i, i64 %32, i64 %31
-  %34 = icmp ult i64 %33, 5
-  br i1 %34, label %35, label %_ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit.thread
-
-35:                                               ; preds = %_ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit
+25:                                               ; preds = %_ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit
   tail call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0)
-  br label %61
+  br label %51
 
-_ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit.thread: ; preds = %5, %16, %_ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit
+_ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit.thread: ; preds = %5, %_ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6)
-  %36 = getelementptr inbounds i8, ptr %6, i64 16
-  %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St13_Setprecision(ptr noundef nonnull align 8 dereferenceable(8) %36, i32 17)
-          to label %38 unwind label %50
+  %26 = getelementptr inbounds i8, ptr %6, i64 16
+  %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St13_Setprecision(ptr noundef nonnull align 8 dereferenceable(8) %26, i32 17)
+          to label %28 unwind label %40
 
-38:                                               ; preds = %_ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit.thread
-  %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %37, double noundef %3)
-          to label %40 unwind label %50
+28:                                               ; preds = %_ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit.thread
+  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %27, double noundef %3)
+          to label %30 unwind label %40
 
-40:                                               ; preds = %38
+30:                                               ; preds = %28
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %7)
-          to label %41 unwind label %50
+          to label %31 unwind label %40
 
-41:                                               ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %7, i64 16
-  %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St13_Setprecision(ptr noundef nonnull align 8 dereferenceable(8) %42, i32 17)
-          to label %44 unwind label %52
+31:                                               ; preds = %30
+  %32 = getelementptr inbounds i8, ptr %7, i64 16
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St13_Setprecision(ptr noundef nonnull align 8 dereferenceable(8) %32, i32 17)
+          to label %34 unwind label %42
 
-44:                                               ; preds = %41
-  %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %43, double noundef %4)
-          to label %46 unwind label %52
+34:                                               ; preds = %31
+  %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %33, double noundef %4)
+          to label %36 unwind label %42
 
-46:                                               ; preds = %44
+36:                                               ; preds = %34
   invoke void @_ZN7testing8internal20StringStreamToStringEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull %6)
-          to label %47 unwind label %52
+          to label %37 unwind label %42
 
-47:                                               ; preds = %46
+37:                                               ; preds = %36
   invoke void @_ZN7testing8internal20StringStreamToStringEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull %7)
-          to label %48 unwind label %54
+          to label %38 unwind label %44
 
-48:                                               ; preds = %47
+38:                                               ; preds = %37
   invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9, i1 noundef zeroext false)
-          to label %49 unwind label %56
+          to label %39 unwind label %46
 
-49:                                               ; preds = %48
+39:                                               ; preds = %38
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #25
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %7) #25
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6) #25
-  br label %61
+  br label %51
 
-50:                                               ; preds = %40, %38, %_ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit.thread
-  %51 = landingpad { ptr, i32 }
+40:                                               ; preds = %30, %28, %_ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit.thread
+  %41 = landingpad { ptr, i32 }
           cleanup
-  br label %60
+  br label %50
 
-52:                                               ; preds = %46, %44, %41
-  %53 = landingpad { ptr, i32 }
+42:                                               ; preds = %36, %34, %31
+  %43 = landingpad { ptr, i32 }
           cleanup
-  br label %59
+  br label %49
 
-54:                                               ; preds = %47
-  %55 = landingpad { ptr, i32 }
+44:                                               ; preds = %37
+  %45 = landingpad { ptr, i32 }
           cleanup
-  br label %58
+  br label %48
 
-56:                                               ; preds = %48
-  %57 = landingpad { ptr, i32 }
+46:                                               ; preds = %38
+  %47 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
-  br label %58
+  br label %48
 
-58:                                               ; preds = %56, %54
-  %.pn = phi { ptr, i32 } [ %57, %56 ], [ %55, %54 ]
+48:                                               ; preds = %46, %44
+  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #25
-  br label %59
+  br label %49
 
-59:                                               ; preds = %58, %52
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %58 ], [ %53, %52 ]
+49:                                               ; preds = %48, %42
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %48 ], [ %43, %42 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %7) #25
-  br label %60
+  br label %50
 
-60:                                               ; preds = %59, %50
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %59 ], [ %51, %50 ]
+50:                                               ; preds = %49, %40
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %49 ], [ %41, %40 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6) #25
   resume { ptr, i32 } %.pn.pn.pn
 
-61:                                               ; preds = %49, %35
+51:                                               ; preds = %39, %25
   ret void
 }
 
@@ -29843,7 +29828,7 @@ declare i64 @llvm.umin.i64(i64, i64) #24
 declare double @llvm.sqrt.f64(double) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #24
+declare <2 x double> @llvm.fabs.v2f64(<2 x double>) #24
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

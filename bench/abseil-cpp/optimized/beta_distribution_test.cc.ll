@@ -29820,39 +29820,24 @@ entry:
   %rhs_ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp15 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = bitcast float %lhs_value to i32
-  %and.i.i.i = and i32 %0, 2139095040
-  %cmp.i.i = icmp eq i32 %and.i.i.i, 2139095040
-  %and.i1.i.i = and i32 %0, 8388607
-  %cmp3.i.i = icmp ne i32 %and.i1.i.i, 0
-  %1 = and i1 %cmp.i.i, %cmp3.i.i
-  br i1 %1, label %if.end, label %lor.lhs.false.i
+  %or.cond = fcmp uno float %lhs_value, %rhs_value
+  br i1 %or.cond, label %if.end, label %_ZNK7testing8internal13FloatingPointIfE12AlmostEqualsERKS2_.exit
 
-lor.lhs.false.i:                                  ; preds = %entry
-  %2 = bitcast float %rhs_value to i32
-  %and.i.i2.i = and i32 %2, 2139095040
-  %cmp.i3.i = icmp eq i32 %and.i.i2.i, 2139095040
-  %and.i1.i4.i = and i32 %2, 8388607
-  %cmp3.i5.i = icmp ne i32 %and.i1.i4.i, 0
-  %3 = and i1 %cmp.i3.i, %cmp3.i5.i
-  br i1 %3, label %if.end, label %_ZNK7testing8internal13FloatingPointIfE12AlmostEqualsERKS2_.exit
-
-_ZNK7testing8internal13FloatingPointIfE12AlmostEqualsERKS2_.exit: ; preds = %lor.lhs.false.i
-  %add.i.i.i = sub i32 0, %0
-  %4 = tail call float @llvm.fabs.f32(float %lhs_value)
-  %5 = fneg float %4
-  %or.i.i.i = bitcast float %5 to i32
-  %tobool.not3.i.i.i = icmp slt i32 %0, 0
-  %retval.0.i.i.i = select i1 %tobool.not3.i.i.i, i32 %add.i.i.i, i32 %or.i.i.i
-  %add.i5.i.i = sub i32 0, %2
-  %6 = tail call float @llvm.fabs.f32(float %rhs_value)
-  %7 = fneg float %6
-  %or.i6.i.i = bitcast float %7 to i32
-  %tobool.not3.i7.i.i = icmp slt i32 %2, 0
-  %retval.0.i8.i.i = select i1 %tobool.not3.i7.i.i, i32 %add.i5.i.i, i32 %or.i6.i.i
-  %cmp.not.i.i = icmp ult i32 %retval.0.i.i.i, %retval.0.i8.i.i
-  %sub.i.i = sub nuw i32 %retval.0.i.i.i, %retval.0.i8.i.i
-  %sub2.i.i = sub nuw i32 %retval.0.i8.i.i, %retval.0.i.i.i
+_ZNK7testing8internal13FloatingPointIfE12AlmostEqualsERKS2_.exit: ; preds = %entry
+  %0 = insertelement <2 x float> poison, float %rhs_value, i64 0
+  %1 = insertelement <2 x float> %0, float %lhs_value, i64 1
+  %2 = bitcast <2 x float> %1 to <2 x i32>
+  %3 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %1)
+  %4 = sub <2 x i32> zeroinitializer, %2
+  %5 = fneg <2 x float> %3
+  %6 = bitcast <2 x float> %5 to <2 x i32>
+  %7 = icmp slt <2 x i32> %2, zeroinitializer
+  %8 = select <2 x i1> %7, <2 x i32> %4, <2 x i32> %6
+  %9 = extractelement <2 x i32> %8, i64 0
+  %10 = extractelement <2 x i32> %8, i64 1
+  %cmp.not.i.i = icmp ult i32 %10, %9
+  %sub.i.i = sub nuw i32 %10, %9
+  %sub2.i.i = sub nuw i32 %9, %10
   %cond.i.i = select i1 %cmp.not.i.i, i32 %sub2.i.i, i32 %sub.i.i
   %cmp.i = icmp ult i32 %cond.i.i, 5
   br i1 %cmp.i, label %if.then, label %if.end
@@ -29861,7 +29846,7 @@ if.then:                                          ; preds = %_ZNK7testing8intern
   tail call void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
   br label %return
 
-if.end:                                           ; preds = %entry, %lor.lhs.false.i, %_ZNK7testing8internal13FloatingPointIfE12AlmostEqualsERKS2_.exit
+if.end:                                           ; preds = %entry, %_ZNK7testing8internal13FloatingPointIfE12AlmostEqualsERKS2_.exit
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %lhs_ss)
   %vtable = load ptr, ptr %lhs_ss, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
@@ -29908,38 +29893,38 @@ invoke.cont19:                                    ; preds = %invoke.cont17
   br label %return
 
 lpad:                                             ; preds = %invoke.cont, %if.end
-  %8 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup21
 
 lpad11:                                           ; preds = %invoke.cont12, %invoke.cont4
-  %9 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup20
 
 lpad16:                                           ; preds = %invoke.cont14
-  %10 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad18:                                           ; preds = %invoke.cont17
-  %11 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #32
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad18, %lpad16
-  %.pn = phi { ptr, i32 } [ %11, %lpad18 ], [ %10, %lpad16 ]
+  %.pn = phi { ptr, i32 } [ %14, %lpad18 ], [ %13, %lpad16 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #32
   br label %ehcleanup20
 
 ehcleanup20:                                      ; preds = %ehcleanup, %lpad11
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %9, %lpad11 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %12, %lpad11 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %rhs_ss) #32
   br label %ehcleanup21
 
 ehcleanup21:                                      ; preds = %ehcleanup20, %lpad
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup20 ], [ %8, %lpad ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup20 ], [ %11, %lpad ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %lhs_ss) #32
   resume { ptr, i32 } %.pn.pn.pn
 

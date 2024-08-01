@@ -1829,33 +1829,26 @@ if.then:                                          ; preds = %for.body
 land.lhs.true:                                    ; preds = %if.then
   %arrayidx14 = getelementptr inbounds %class.aiVector3t, ptr %7, i64 %indvars.iv92
   %10 = load float, ptr %arrayidx14, align 4
-  %11 = bitcast float %10 to i32
-  %12 = and i32 %11, 2139095040
-  %cmp.i.i = icmp ne i32 %12, 2139095040
-  %bf.clear2.i.i = and i32 %11, 8388607
-  %tobool.i.i = icmp eq i32 %bf.clear2.i.i, 0
-  %.not.i = or i1 %cmp.i.i, %tobool.i.i
-  %13 = tail call float @llvm.fabs.f32(float %10)
-  %cmp23 = fcmp une float %13, 0x7FF0000000000000
-  %or.cond = and i1 %cmp23, %.not.i
-  br i1 %or.cond, label %if.then24, label %if.else
+  %11 = tail call float @llvm.fabs.f32(float %10)
+  %or.cond = fcmp ueq float %11, 0x7FF0000000000000
+  br i1 %or.cond, label %if.else, label %if.then24
 
 if.then24:                                        ; preds = %land.lhs.true
   %call26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.39)
-  %14 = load ptr, ptr %mNormals.i, align 8
-  %arrayidx29 = getelementptr inbounds %class.aiVector3t, ptr %14, i64 %indvars.iv92
-  %15 = load float, ptr %arrayidx29, align 4
-  %call31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call26, float noundef %15)
+  %12 = load ptr, ptr %mNormals.i, align 8
+  %arrayidx29 = getelementptr inbounds %class.aiVector3t, ptr %12, i64 %indvars.iv92
+  %13 = load float, ptr %arrayidx29, align 4
+  %call31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call26, float noundef %13)
   %call32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call31, ptr noundef nonnull @.str.39)
-  %16 = load ptr, ptr %mNormals.i, align 8
-  %y36 = getelementptr inbounds %class.aiVector3t, ptr %16, i64 %indvars.iv92, i32 1
-  %17 = load float, ptr %y36, align 4
-  %call37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call32, float noundef %17)
+  %14 = load ptr, ptr %mNormals.i, align 8
+  %y36 = getelementptr inbounds %class.aiVector3t, ptr %14, i64 %indvars.iv92, i32 1
+  %15 = load float, ptr %y36, align 4
+  %call37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call32, float noundef %15)
   %call38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call37, ptr noundef nonnull @.str.39)
-  %18 = load ptr, ptr %mNormals.i, align 8
-  %z42 = getelementptr inbounds %class.aiVector3t, ptr %18, i64 %indvars.iv92, i32 2
-  %19 = load float, ptr %z42, align 4
-  %call43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call38, float noundef %19)
+  %16 = load ptr, ptr %mNormals.i, align 8
+  %z42 = getelementptr inbounds %class.aiVector3t, ptr %16, i64 %indvars.iv92, i32 2
+  %17 = load float, ptr %z42, align 4
+  %call43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call38, float noundef %17)
   br label %if.end46
 
 if.else:                                          ; preds = %land.lhs.true, %if.then
@@ -1872,24 +1865,24 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %if.end46, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end46 ]
   %n.078 = phi i32 [ %shl, %for.inc ], [ 4, %if.end46 ]
   %arrayidx.i = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i, i64 0, i64 %indvars.iv
-  %20 = load ptr, ptr %arrayidx.i, align 8
-  %cmp2.not.i = icmp ne ptr %20, null
-  %21 = load i32, ptr %mNumVertices, align 4
-  %cmp3.i = icmp ne i32 %21, 0
-  %22 = select i1 %cmp2.not.i, i1 %cmp3.i, i1 false
-  br i1 %22, label %if.then53, label %if.else70
+  %18 = load ptr, ptr %arrayidx.i, align 8
+  %cmp2.not.i = icmp ne ptr %18, null
+  %19 = load i32, ptr %mNumVertices, align 4
+  %cmp3.i = icmp ne i32 %19, 0
+  %20 = select i1 %cmp2.not.i, i1 %cmp3.i, i1 false
+  br i1 %20, label %if.then53, label %if.else70
 
 if.then53:                                        ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit
   %call55 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.39)
-  %23 = load ptr, ptr %arrayidx.i, align 8
-  %arrayidx59 = getelementptr inbounds %class.aiVector3t, ptr %23, i64 %indvars.iv92
-  %24 = load float, ptr %arrayidx59, align 4
-  %call61 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call55, float noundef %24)
+  %21 = load ptr, ptr %arrayidx.i, align 8
+  %arrayidx59 = getelementptr inbounds %class.aiVector3t, ptr %21, i64 %indvars.iv92
+  %22 = load float, ptr %arrayidx59, align 4
+  %call61 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call55, float noundef %22)
   %call62 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call61, ptr noundef nonnull @.str.39)
-  %25 = load ptr, ptr %arrayidx.i, align 8
-  %y68 = getelementptr inbounds %class.aiVector3t, ptr %25, i64 %indvars.iv92, i32 1
-  %26 = load float, ptr %y68, align 4
-  %call69 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call62, float noundef %26)
+  %23 = load ptr, ptr %arrayidx.i, align 8
+  %y68 = getelementptr inbounds %class.aiVector3t, ptr %23, i64 %indvars.iv92, i32 1
+  %24 = load float, ptr %y68, align 4
+  %call69 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call62, float noundef %24)
   br label %for.inc
 
 if.else70:                                        ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit
@@ -1902,47 +1895,47 @@ for.inc:                                          ; preds = %if.then53, %if.else
   %and48 = and i32 %shl, %components
   %tobool49 = icmp ne i32 %and48, 0
   %cmp50 = icmp ne i64 %indvars.iv.next, 8
-  %27 = and i1 %tobool49, %cmp50
-  br i1 %27, label %_ZNK6aiMesh16HasTextureCoordsEj.exit, label %for.cond76.preheader, !llvm.loop !20
+  %25 = and i1 %tobool49, %cmp50
+  br i1 %25, label %_ZNK6aiMesh16HasTextureCoordsEj.exit, label %for.cond76.preheader, !llvm.loop !20
 
 _ZNK6aiMesh15HasVertexColorsEj.exit:              ; preds = %for.cond76.preheader, %for.inc123
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %for.inc123 ], [ 0, %for.cond76.preheader ]
   %n74.083 = phi i32 [ %shl124, %for.inc123 ], [ 1024, %for.cond76.preheader ]
   %arrayidx.i65 = getelementptr inbounds [8 x ptr], ptr %mColors.i, i64 0, i64 %indvars.iv89
-  %28 = load ptr, ptr %arrayidx.i65, align 8
-  %cmp2.not.i66 = icmp ne ptr %28, null
-  %29 = load i32, ptr %mNumVertices, align 4
-  %cmp3.i68 = icmp ne i32 %29, 0
-  %30 = select i1 %cmp2.not.i66, i1 %cmp3.i68, i1 false
-  br i1 %30, label %if.then84, label %if.else119
+  %26 = load ptr, ptr %arrayidx.i65, align 8
+  %cmp2.not.i66 = icmp ne ptr %26, null
+  %27 = load i32, ptr %mNumVertices, align 4
+  %cmp3.i68 = icmp ne i32 %27, 0
+  %28 = select i1 %cmp2.not.i66, i1 %cmp3.i68, i1 false
+  br i1 %28, label %if.then84, label %if.else119
 
 if.then84:                                        ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit
   %call86 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.39)
-  %31 = load ptr, ptr %arrayidx.i65, align 8
-  %arrayidx90 = getelementptr inbounds %class.aiColor4t, ptr %31, i64 %indvars.iv92
-  %32 = load float, ptr %arrayidx90, align 4
-  %mul = fmul float %32, 2.550000e+02
+  %29 = load ptr, ptr %arrayidx.i65, align 8
+  %arrayidx90 = getelementptr inbounds %class.aiColor4t, ptr %29, i64 %indvars.iv92
+  %30 = load float, ptr %arrayidx90, align 4
+  %mul = fmul float %30, 2.550000e+02
   %conv = fptosi float %mul to i32
   %call91 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call86, i32 noundef %conv)
   %call92 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call91, ptr noundef nonnull @.str.39)
-  %33 = load ptr, ptr %arrayidx.i65, align 8
-  %g = getelementptr inbounds %class.aiColor4t, ptr %33, i64 %indvars.iv92, i32 1
-  %34 = load float, ptr %g, align 4
-  %mul98 = fmul float %34, 2.550000e+02
+  %31 = load ptr, ptr %arrayidx.i65, align 8
+  %g = getelementptr inbounds %class.aiColor4t, ptr %31, i64 %indvars.iv92, i32 1
+  %32 = load float, ptr %g, align 4
+  %mul98 = fmul float %32, 2.550000e+02
   %conv99 = fptosi float %mul98 to i32
   %call100 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call92, i32 noundef %conv99)
   %call101 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call100, ptr noundef nonnull @.str.39)
-  %35 = load ptr, ptr %arrayidx.i65, align 8
-  %b = getelementptr inbounds %class.aiColor4t, ptr %35, i64 %indvars.iv92, i32 2
-  %36 = load float, ptr %b, align 4
-  %mul107 = fmul float %36, 2.550000e+02
+  %33 = load ptr, ptr %arrayidx.i65, align 8
+  %b = getelementptr inbounds %class.aiColor4t, ptr %33, i64 %indvars.iv92, i32 2
+  %34 = load float, ptr %b, align 4
+  %mul107 = fmul float %34, 2.550000e+02
   %conv108 = fptosi float %mul107 to i32
   %call109 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call101, i32 noundef %conv108)
   %call110 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call109, ptr noundef nonnull @.str.39)
-  %37 = load ptr, ptr %arrayidx.i65, align 8
-  %a = getelementptr inbounds %class.aiColor4t, ptr %37, i64 %indvars.iv92, i32 3
-  %38 = load float, ptr %a, align 4
-  %mul116 = fmul float %38, 2.550000e+02
+  %35 = load ptr, ptr %arrayidx.i65, align 8
+  %a = getelementptr inbounds %class.aiColor4t, ptr %35, i64 %indvars.iv92, i32 3
+  %36 = load float, ptr %a, align 4
+  %mul116 = fmul float %36, 2.550000e+02
   %conv117 = fptosi float %mul116 to i32
   %call118 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call110, i32 noundef %conv117)
   br label %for.inc123
@@ -1957,56 +1950,56 @@ for.inc123:                                       ; preds = %if.then84, %if.else
   %and77 = and i32 %shl124, %components
   %tobool78 = icmp ne i32 %and77, 0
   %cmp80 = icmp ne i64 %indvars.iv.next90, 8
-  %39 = and i1 %tobool78, %cmp80
-  br i1 %39, label %_ZNK6aiMesh15HasVertexColorsEj.exit, label %for.end126, !llvm.loop !21
+  %37 = and i1 %tobool78, %cmp80
+  br i1 %37, label %_ZNK6aiMesh15HasVertexColorsEj.exit, label %for.end126, !llvm.loop !21
 
 for.end126:                                       ; preds = %for.inc123, %for.cond76.preheader
   br i1 %tobool128.not, label %if.end171, label %if.then129
 
 if.then129:                                       ; preds = %for.end126
-  %40 = load ptr, ptr %mTangents.i, align 8
-  %cmp.not.i70 = icmp eq ptr %40, null
-  %41 = load ptr, ptr %mBitangents.i, align 8
-  %cmp2.not.i71 = icmp eq ptr %41, null
+  %38 = load ptr, ptr %mTangents.i, align 8
+  %cmp.not.i70 = icmp eq ptr %38, null
+  %39 = load ptr, ptr %mBitangents.i, align 8
+  %cmp2.not.i71 = icmp eq ptr %39, null
   %or.cond.i = select i1 %cmp.not.i70, i1 true, i1 %cmp2.not.i71
   br i1 %or.cond.i, label %if.else167, label %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit
 
 _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit:     ; preds = %if.then129
-  %42 = load i32, ptr %mNumVertices, align 4
-  %cmp3.i73.not = icmp eq i32 %42, 0
+  %40 = load i32, ptr %mNumVertices, align 4
+  %cmp3.i73.not = icmp eq i32 %40, 0
   br i1 %cmp3.i73.not, label %if.else167, label %if.then131
 
 if.then131:                                       ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit
   %call133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.39)
-  %43 = load ptr, ptr %mTangents.i, align 8
-  %arrayidx135 = getelementptr inbounds %class.aiVector3t, ptr %43, i64 %indvars.iv92
-  %44 = load float, ptr %arrayidx135, align 4
-  %call137 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call133, float noundef %44)
+  %41 = load ptr, ptr %mTangents.i, align 8
+  %arrayidx135 = getelementptr inbounds %class.aiVector3t, ptr %41, i64 %indvars.iv92
+  %42 = load float, ptr %arrayidx135, align 4
+  %call137 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call133, float noundef %42)
   %call138 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call137, ptr noundef nonnull @.str.39)
-  %45 = load ptr, ptr %mTangents.i, align 8
-  %y142 = getelementptr inbounds %class.aiVector3t, ptr %45, i64 %indvars.iv92, i32 1
-  %46 = load float, ptr %y142, align 4
-  %call143 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call138, float noundef %46)
+  %43 = load ptr, ptr %mTangents.i, align 8
+  %y142 = getelementptr inbounds %class.aiVector3t, ptr %43, i64 %indvars.iv92, i32 1
+  %44 = load float, ptr %y142, align 4
+  %call143 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call138, float noundef %44)
   %call144 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call143, ptr noundef nonnull @.str.39)
-  %47 = load ptr, ptr %mTangents.i, align 8
-  %z148 = getelementptr inbounds %class.aiVector3t, ptr %47, i64 %indvars.iv92, i32 2
-  %48 = load float, ptr %z148, align 4
-  %call149 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call144, float noundef %48)
+  %45 = load ptr, ptr %mTangents.i, align 8
+  %z148 = getelementptr inbounds %class.aiVector3t, ptr %45, i64 %indvars.iv92, i32 2
+  %46 = load float, ptr %z148, align 4
+  %call149 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call144, float noundef %46)
   %call150 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call149, ptr noundef nonnull @.str.39)
-  %49 = load ptr, ptr %mBitangents.i, align 8
-  %arrayidx152 = getelementptr inbounds %class.aiVector3t, ptr %49, i64 %indvars.iv92
-  %50 = load float, ptr %arrayidx152, align 4
-  %call154 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call150, float noundef %50)
+  %47 = load ptr, ptr %mBitangents.i, align 8
+  %arrayidx152 = getelementptr inbounds %class.aiVector3t, ptr %47, i64 %indvars.iv92
+  %48 = load float, ptr %arrayidx152, align 4
+  %call154 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call150, float noundef %48)
   %call155 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call154, ptr noundef nonnull @.str.39)
-  %51 = load ptr, ptr %mBitangents.i, align 8
-  %y159 = getelementptr inbounds %class.aiVector3t, ptr %51, i64 %indvars.iv92, i32 1
-  %52 = load float, ptr %y159, align 4
-  %call160 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call155, float noundef %52)
+  %49 = load ptr, ptr %mBitangents.i, align 8
+  %y159 = getelementptr inbounds %class.aiVector3t, ptr %49, i64 %indvars.iv92, i32 1
+  %50 = load float, ptr %y159, align 4
+  %call160 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call155, float noundef %50)
   %call161 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call160, ptr noundef nonnull @.str.39)
-  %53 = load ptr, ptr %mBitangents.i, align 8
-  %z165 = getelementptr inbounds %class.aiVector3t, ptr %53, i64 %indvars.iv92, i32 2
-  %54 = load float, ptr %z165, align 4
-  %call166 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call161, float noundef %54)
+  %51 = load ptr, ptr %mBitangents.i, align 8
+  %z165 = getelementptr inbounds %class.aiVector3t, ptr %51, i64 %indvars.iv92, i32 2
+  %52 = load float, ptr %z165, align 4
+  %call166 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call161, float noundef %52)
   br label %if.end171
 
 if.else167:                                       ; preds = %if.then129, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit
@@ -2016,9 +2009,9 @@ if.else167:                                       ; preds = %if.then129, %_ZNK6a
 if.end171:                                        ; preds = %if.then131, %if.else167, %for.end126
   %call173 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %endl)
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %55 = load i32, ptr %mNumVertices, align 4
-  %56 = zext i32 %55 to i64
-  %cmp = icmp ult i64 %indvars.iv.next93, %56
+  %53 = load i32, ptr %mNumVertices, align 4
+  %54 = zext i32 %53 to i64
+  %cmp = icmp ult i64 %indvars.iv.next93, %54
   br i1 %cmp, label %for.body, label %for.end176, !llvm.loop !22
 
 for.end176:                                       ; preds = %if.end171, %entry
