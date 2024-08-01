@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.__mpz_struct = type { i32, i32, ptr }
 
-@.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"in a**b, b may be too big\00", align 1
 @rb_cRational = dso_local local_unnamed_addr global i64 0, align 8
 @.str.2 = private unnamed_addr constant [9 x i8] c"Rational\00", align 1
@@ -2555,7 +2554,7 @@ rb_class_of.exit:                                 ; preds = %37, %40, %41, %42, 
   %54 = load i64, ptr %51, align 8
   %55 = or i64 %54, 2048
   store i64 %55, ptr %51, align 8
-  br label %rb_float_new_inline.exit
+  br label %RB_FLOAT_TYPE_P.exit148.thread203
 
 k_float_p.exit.thread161:                         ; preds = %2, %f_zero_p.exit, %k_float_p.exit
   %.pre-phi247 = phi i64 [ %.pre246, %f_zero_p.exit ], [ 0, %k_float_p.exit ], [ %.pre246, %2 ]
@@ -2809,7 +2808,7 @@ rb_class_of.exit135:                              ; preds = %157, %159, %160, %1
   %173 = load i64, ptr %170, align 8
   %174 = or i64 %173, 2048
   store i64 %174, ptr %170, align 8
-  br label %rb_float_new_inline.exit
+  br label %RB_FLOAT_TYPE_P.exit148.thread203
 
 f_one_p.exit130.thread:                           ; preds = %f_one_p.exit130.f_one_p.exit130.thread_crit_edge, %141
   %175 = phi i64 [ %.pre, %f_one_p.exit130.f_one_p.exit130.thread_crit_edge ], [ %129, %141 ]
@@ -2885,7 +2884,7 @@ rb_integer_type_p.exit.thread:                    ; preds = %198, %rb_integer_ty
   %.not105 = icmp eq i64 %209, 0
   %210 = select i1 %.not105, i64 3, i64 -1
   %211 = tail call fastcc i64 @f_rational_new_bang1(i64 noundef %208, i64 noundef %210)
-  br label %rb_float_new_inline.exit
+  br label %RB_FLOAT_TYPE_P.exit148.thread203
 
 f_minus_one_p.exit.thread:                        ; preds = %200, %187, %rb_integer_type_p.exit, %f_minus_one_p.exit
   %212 = load i64, ptr %128, align 8
@@ -2924,12 +2923,12 @@ f_minus_one_p.exit.thread:                        ; preds = %200, %187, %rb_inte
   %229 = load i64, ptr %226, align 8
   %230 = or i64 %229, 2048
   store i64 %230, ptr %226, align 8
-  br label %rb_float_new_inline.exit
+  br label %RB_FLOAT_TYPE_P.exit148.thread203
 
 k_float_p.exit116.thread170:                      ; preds = %116, %f_one_p.exit123, %216, %214, %k_float_p.exit116, %k_rational_p.exit.thread
   %231 = and i64 %.092, 1
   %.not241 = icmp eq i64 %231, 0
-  br i1 %.not241, label %317, label %INT_POSITIVE_P.exit
+  br i1 %.not241, label %303, label %INT_POSITIVE_P.exit
 
 INT_POSITIVE_P.exit:                              ; preds = %k_float_p.exit116.thread170
   %232 = inttoptr i64 %0 to ptr
@@ -2991,147 +2990,123 @@ RB_FLOAT_TYPE_P.exit.thread196:                   ; preds = %251, %RB_FLOAT_TYPE
   %267 = icmp ne i64 %266, 0
   %268 = icmp eq i64 %.087, 0
   %269 = or i1 %268, %267
-  br i1 %269, label %rb_float_new_inline.exit, label %RB_FLOAT_TYPE_P.exit148
+  br i1 %269, label %RB_FLOAT_TYPE_P.exit148.thread203, label %RB_FLOAT_TYPE_P.exit148
 
 RB_FLOAT_TYPE_P.exit148:                          ; preds = %265
   %270 = inttoptr i64 %.087 to ptr
   %271 = load i64, ptr %270, align 8
   %272 = and i64 %271, 31
   %273 = icmp eq i64 %272, 4
-  br i1 %273, label %RB_FLOAT_TYPE_P.exit148.thread, label %rb_float_new_inline.exit
+  br i1 %273, label %RB_FLOAT_TYPE_P.exit148.thread, label %RB_FLOAT_TYPE_P.exit148.thread203
 
 RB_FLOAT_TYPE_P.exit148.thread:                   ; preds = %RB_FLOAT_TYPE_P.exit.thread196, %RB_FLOAT_TYPE_P.exit148
-  %274 = tail call double @nan(ptr noundef nonnull @.str) #17
-  %275 = bitcast double %274 to i64
-  %cond.i = icmp eq i64 %275, 3458764513820540928
-  br i1 %cond.i, label %287, label %276
-
-276:                                              ; preds = %RB_FLOAT_TYPE_P.exit148.thread
-  %277 = lshr i64 %275, 60
-  %278 = trunc nuw nsw i64 %277 to i32
-  %279 = and i32 %278, 7
-  %280 = add nsw i32 %279, -3
-  %.not7.i = icmp ult i32 %280, 2
-  br i1 %.not7.i, label %281, label %285
-
-281:                                              ; preds = %276
-  %282 = tail call noundef i64 @llvm.fshl.i64(i64 %275, i64 %275, i64 3)
-  %283 = and i64 %282, -4
-  %284 = or disjoint i64 %283, 2
-  br label %rb_float_new_inline.exit
-
-285:                                              ; preds = %276
-  %286 = icmp eq i64 %275, 0
-  br i1 %286, label %rb_float_new_inline.exit, label %287
-
-287:                                              ; preds = %285, %RB_FLOAT_TYPE_P.exit148.thread
-  %288 = tail call i64 @rb_float_new_in_heap(double noundef %274) #16
-  br label %rb_float_new_inline.exit
+  %274 = tail call i64 @rb_float_new_in_heap(double noundef 0x7FF8000000000000) #16
+  br label %RB_FLOAT_TYPE_P.exit148.thread203
 
 RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %254, %RB_FLOAT_TYPE_P.exit
-  %289 = and i64 %.087, 3
-  %290 = icmp eq i64 %289, 2
-  br i1 %290, label %.thread216, label %291
+  %275 = and i64 %.087, 3
+  %276 = icmp eq i64 %275, 2
+  br i1 %276, label %.thread216, label %277
 
-291:                                              ; preds = %RB_FLOAT_TYPE_P.exit.thread
-  %292 = and i64 %.087, 7
-  %293 = icmp ne i64 %292, 0
-  %294 = icmp eq i64 %.087, 0
-  %295 = or i1 %294, %293
-  br i1 %295, label %.thread216, label %RB_FLOAT_TYPE_P.exit151
+277:                                              ; preds = %RB_FLOAT_TYPE_P.exit.thread
+  %278 = and i64 %.087, 7
+  %279 = icmp ne i64 %278, 0
+  %280 = icmp eq i64 %.087, 0
+  %281 = or i1 %280, %279
+  br i1 %281, label %.thread216, label %RB_FLOAT_TYPE_P.exit151
 
-RB_FLOAT_TYPE_P.exit151:                          ; preds = %291
-  %296 = inttoptr i64 %.087 to ptr
-  %297 = load i64, ptr %296, align 8
-  %.fr243 = freeze i64 %297
-  %298 = and i64 %.fr243, 31
-  %299 = icmp eq i64 %298, 4
-  %spec.select = select i1 %299, i64 1, i64 %.088
-  %spec.select244 = select i1 %299, i64 3, i64 %.087
+RB_FLOAT_TYPE_P.exit151:                          ; preds = %277
+  %282 = inttoptr i64 %.087 to ptr
+  %283 = load i64, ptr %282, align 8
+  %.fr243 = freeze i64 %283
+  %284 = and i64 %.fr243, 31
+  %285 = icmp eq i64 %284, 4
+  %spec.select = select i1 %285, i64 1, i64 %.088
+  %spec.select244 = select i1 %285, i64 3, i64 %.087
   br label %.thread216
 
-.thread216:                                       ; preds = %RB_FLOAT_TYPE_P.exit151, %INT_NEGATIVE_P.exit, %RB_FLOAT_TYPE_P.exit.thread, %291
-  %300 = phi i64 [ %.088, %291 ], [ 1, %RB_FLOAT_TYPE_P.exit.thread ], [ 3, %INT_NEGATIVE_P.exit ], [ %spec.select, %RB_FLOAT_TYPE_P.exit151 ]
-  %301 = phi i64 [ %.087, %291 ], [ 3, %RB_FLOAT_TYPE_P.exit.thread ], [ 3, %INT_NEGATIVE_P.exit ], [ %spec.select244, %RB_FLOAT_TYPE_P.exit151 ]
-  %302 = and i64 %0, 7
-  %303 = icmp ne i64 %302, 0
-  %304 = icmp eq i64 %0, 0
-  %305 = or i1 %304, %303
-  br i1 %305, label %308, label %306
+.thread216:                                       ; preds = %RB_FLOAT_TYPE_P.exit151, %INT_NEGATIVE_P.exit, %RB_FLOAT_TYPE_P.exit.thread, %277
+  %286 = phi i64 [ %.088, %277 ], [ 1, %RB_FLOAT_TYPE_P.exit.thread ], [ 3, %INT_NEGATIVE_P.exit ], [ %spec.select, %RB_FLOAT_TYPE_P.exit151 ]
+  %287 = phi i64 [ %.087, %277 ], [ 3, %RB_FLOAT_TYPE_P.exit.thread ], [ 3, %INT_NEGATIVE_P.exit ], [ %spec.select244, %RB_FLOAT_TYPE_P.exit151 ]
+  %288 = and i64 %0, 7
+  %289 = icmp ne i64 %288, 0
+  %290 = icmp eq i64 %0, 0
+  %291 = or i1 %290, %289
+  br i1 %291, label %294, label %292
 
-306:                                              ; preds = %.thread216
-  %307 = getelementptr inbounds i8, ptr %232, i64 8
+292:                                              ; preds = %.thread216
+  %293 = getelementptr inbounds i8, ptr %232, i64 8
   br label %rb_class_of.exit156
 
-308:                                              ; preds = %.thread216
-  switch i64 %0, label %311 [
+294:                                              ; preds = %.thread216
+  switch i64 %0, label %297 [
     i64 0, label %rb_class_of.exit156
-    i64 4, label %309
-    i64 20, label %310
+    i64 4, label %295
+    i64 20, label %296
   ]
 
-309:                                              ; preds = %308
+295:                                              ; preds = %294
   br label %rb_class_of.exit156
 
-310:                                              ; preds = %308
+296:                                              ; preds = %294
   br label %rb_class_of.exit156
 
-311:                                              ; preds = %308
-  %312 = and i64 %0, 1
-  %.not.i154 = icmp eq i64 %312, 0
-  br i1 %.not.i154, label %313, label %rb_class_of.exit156
+297:                                              ; preds = %294
+  %298 = and i64 %0, 1
+  %.not.i154 = icmp eq i64 %298, 0
+  br i1 %.not.i154, label %299, label %rb_class_of.exit156
 
-313:                                              ; preds = %311
-  %314 = and i64 %0, 254
-  %315 = icmp eq i64 %314, 12
-  %spec.select.i155 = select i1 %315, ptr @rb_cSymbol, ptr @rb_cFloat
+299:                                              ; preds = %297
+  %300 = and i64 %0, 254
+  %301 = icmp eq i64 %300, 12
+  %spec.select.i155 = select i1 %301, ptr @rb_cSymbol, ptr @rb_cFloat
   br label %rb_class_of.exit156
 
-rb_class_of.exit156:                              ; preds = %306, %308, %309, %310, %311, %313
-  %.0.in.i152 = phi ptr [ @rb_cNilClass, %309 ], [ @rb_cTrueClass, %310 ], [ %307, %306 ], [ @rb_cFalseClass, %308 ], [ @rb_cInteger, %311 ], [ %spec.select.i155, %313 ]
+rb_class_of.exit156:                              ; preds = %292, %294, %295, %296, %297, %299
+  %.0.in.i152 = phi ptr [ @rb_cNilClass, %295 ], [ @rb_cTrueClass, %296 ], [ %293, %292 ], [ @rb_cFalseClass, %294 ], [ @rb_cInteger, %297 ], [ %spec.select.i155, %299 ]
   %.0.i153 = load i64, ptr %.0.in.i152, align 8
-  %316 = tail call fastcc i64 @nurat_s_canonicalize_internal(i64 noundef %.0.i153, i64 noundef %300, i64 noundef %301)
-  br label %rb_float_new_inline.exit
+  %302 = tail call fastcc i64 @nurat_s_canonicalize_internal(i64 noundef %.0.i153, i64 noundef %286, i64 noundef %287)
+  br label %RB_FLOAT_TYPE_P.exit148.thread203
 
-317:                                              ; preds = %k_float_p.exit116.thread170
-  %318 = and i64 %.092, 6
-  %319 = icmp ne i64 %318, 0
-  %320 = icmp eq i64 %.092, 0
-  %321 = or i1 %320, %319
-  br i1 %321, label %.critedge, label %322
+303:                                              ; preds = %k_float_p.exit116.thread170
+  %304 = and i64 %.092, 6
+  %305 = icmp ne i64 %304, 0
+  %306 = icmp eq i64 %.092, 0
+  %307 = or i1 %306, %305
+  br i1 %307, label %.critedge, label %308
 
-322:                                              ; preds = %317
-  %323 = inttoptr i64 %.092 to ptr
-  %324 = load i64, ptr %323, align 8
-  %325 = and i64 %324, 31
-  switch i64 %325, label %.critedge109 [
-    i64 10, label %326
+308:                                              ; preds = %303
+  %309 = inttoptr i64 %.092 to ptr
+  %310 = load i64, ptr %309, align 8
+  %311 = and i64 %310, 31
+  switch i64 %311, label %.critedge109 [
+    i64 10, label %312
     i64 4, label %RB_FLOAT_TYPE_P.exit158.thread
     i64 15, label %RB_FLOAT_TYPE_P.exit158.thread
   ]
 
-326:                                              ; preds = %322
+312:                                              ; preds = %308
   tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.1) #19
-  %327 = tail call i64 @nurat_to_f(i64 noundef %0)
-  %328 = tail call i64 @rb_float_pow(i64 noundef %327, i64 noundef %.092) #16
-  br label %rb_float_new_inline.exit
+  %313 = tail call i64 @nurat_to_f(i64 noundef %0)
+  %314 = tail call i64 @rb_float_pow(i64 noundef %313, i64 noundef %.092) #16
+  br label %RB_FLOAT_TYPE_P.exit148.thread203
 
-.critedge:                                        ; preds = %317
-  %329 = and i64 %.092, 2
-  %.not242 = icmp eq i64 %329, 0
+.critedge:                                        ; preds = %303
+  %315 = and i64 %.092, 2
+  %.not242 = icmp eq i64 %315, 0
   br i1 %.not242, label %.critedge109, label %RB_FLOAT_TYPE_P.exit158.thread
 
-RB_FLOAT_TYPE_P.exit158.thread:                   ; preds = %322, %322, %.critedge
-  %330 = tail call i64 @nurat_to_f(i64 noundef %0)
-  %331 = tail call i64 @rb_float_pow(i64 noundef %330, i64 noundef %.092) #16
-  br label %rb_float_new_inline.exit
+RB_FLOAT_TYPE_P.exit158.thread:                   ; preds = %308, %308, %.critedge
+  %316 = tail call i64 @nurat_to_f(i64 noundef %0)
+  %317 = tail call i64 @rb_float_pow(i64 noundef %316, i64 noundef %.092) #16
+  br label %RB_FLOAT_TYPE_P.exit148.thread203
 
-.critedge109:                                     ; preds = %322, %.critedge
-  %332 = tail call i64 @rb_num_coerce_bin(i64 noundef %0, i64 noundef %.092, i64 noundef 134) #16
-  br label %rb_float_new_inline.exit
+.critedge109:                                     ; preds = %308, %.critedge
+  %318 = tail call i64 @rb_num_coerce_bin(i64 noundef %0, i64 noundef %.092, i64 noundef 134) #16
+  br label %RB_FLOAT_TYPE_P.exit148.thread203
 
-rb_float_new_inline.exit:                         ; preds = %265, %287, %285, %281, %RB_FLOAT_TYPE_P.exit148, %.critedge109, %RB_FLOAT_TYPE_P.exit158.thread, %326, %rb_class_of.exit156, %221, %rb_integer_type_p.exit.thread, %rb_class_of.exit135, %rb_class_of.exit
-  %.091 = phi i64 [ %316, %rb_class_of.exit156 ], [ %328, %326 ], [ %331, %RB_FLOAT_TYPE_P.exit158.thread ], [ %332, %.critedge109 ], [ %169, %rb_class_of.exit135 ], [ %211, %rb_integer_type_p.exit.thread ], [ %225, %221 ], [ %50, %rb_class_of.exit ], [ %.088, %RB_FLOAT_TYPE_P.exit148 ], [ %288, %287 ], [ %284, %281 ], [ -9223372036854775806, %285 ], [ %.088, %265 ]
+RB_FLOAT_TYPE_P.exit148.thread203:                ; preds = %265, %RB_FLOAT_TYPE_P.exit148, %.critedge109, %RB_FLOAT_TYPE_P.exit158.thread, %312, %rb_class_of.exit156, %RB_FLOAT_TYPE_P.exit148.thread, %221, %rb_integer_type_p.exit.thread, %rb_class_of.exit135, %rb_class_of.exit
+  %.091 = phi i64 [ %274, %RB_FLOAT_TYPE_P.exit148.thread ], [ %302, %rb_class_of.exit156 ], [ %314, %312 ], [ %317, %RB_FLOAT_TYPE_P.exit158.thread ], [ %318, %.critedge109 ], [ %169, %rb_class_of.exit135 ], [ %211, %rb_integer_type_p.exit.thread ], [ %225, %221 ], [ %50, %rb_class_of.exit ], [ %.088, %RB_FLOAT_TYPE_P.exit148 ], [ %.088, %265 ]
   ret i64 %.091
 }
 
@@ -3170,11 +3145,8 @@ declare i32 @rb_num_negative_p(i64 noundef) local_unnamed_addr #1
 
 declare i64 @rb_int_pow(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare double @nan(ptr nocapture noundef) local_unnamed_addr #5
-
 ; Function Attrs: cold
-declare void @rb_warn(ptr noundef, ...) local_unnamed_addr #6
+declare void @rb_warn(ptr noundef, ...) local_unnamed_addr #5
 
 declare i64 @rb_float_pow(i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -3522,7 +3494,7 @@ rb_long2num_inline.exit:                          ; preds = %36, %33, %21, %18, 
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @rb_dbl_cmp(double noundef, double noundef) local_unnamed_addr #7
+declare i64 @rb_dbl_cmp(double noundef, double noundef) local_unnamed_addr #6
 
 declare i64 @rb_num_coerce_cmp(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -6796,7 +6768,7 @@ negate_num.exit:                                  ; preds = %154, %152, %148
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: noreturn
 declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #8
@@ -9717,7 +9689,7 @@ define internal fastcc i64 @negate_num(i64 noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #7
+declare ptr @__ctype_b_loc() local_unnamed_addr #6
 
 declare i64 @rb_int_parse_cstr(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -9897,9 +9869,9 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree norecurse nosync nounwind sspstrong memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

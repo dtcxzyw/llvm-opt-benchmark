@@ -73009,8 +73009,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit136:         ; preds = %if.end99, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i135
   store ptr null, ptr %message_.i133, align 8
-  %call101 = call double @nan(ptr noundef nonnull @.str.123) #21
-  call void @_ZN4absl14flags_internal7UnparseB5cxx11Ed(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp103, double noundef %call101)
+  call void @_ZN4absl14flags_internal7UnparseB5cxx11Ed(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp103, double noundef 0x7FF8000000000000)
   %call.i.i.i137 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp103, ptr noundef nonnull @.str.318) #16, !noalias !1436
   %cmp.i.i.i138 = icmp eq i32 %call.i.i.i137, 0
   br i1 %cmp.i.i.i138, label %if.then.i.i140, label %if.end.i.i139
@@ -73252,9 +73251,6 @@ eh.resume:                                        ; preds = %ehcleanup146, %lpad
   %.pn18.pn.pn = phi { ptr, i32 } [ %.pn18.pn, %ehcleanup146 ], [ %67, %lpad127 ], [ %.pn15.pn, %ehcleanup123 ], [ %56, %lpad104 ], [ %.pn12.pn, %ehcleanup100 ], [ %45, %lpad81 ], [ %.pn9.pn, %ehcleanup78 ], [ %34, %lpad59 ], [ %.pn6.pn, %ehcleanup56 ], [ %23, %lpad37 ], [ %.pn3.pn, %ehcleanup34 ], [ %12, %lpad15 ], [ %.pn.pn, %ehcleanup12 ], [ %1, %lpad ]
   resume { ptr, i32 } %.pn18.pn.pn
 }
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare double @nan(ptr nocapture noundef) local_unnamed_addr #9
 
 declare void @_ZN4absl14flags_internal7UnparseB5cxx11Ed(ptr sret(%"class.std::__cxx11::basic_string") align 8, double noundef) local_unnamed_addr #0
 
@@ -80371,7 +80367,6 @@ attributes #17 = { builtin nounwind }
 attributes #18 = { builtin allocsize(0) }
 attributes #19 = { noreturn nounwind }
 attributes #20 = { noreturn }
-attributes #21 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
